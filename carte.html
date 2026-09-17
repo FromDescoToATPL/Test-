@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carte de Lille — Regards sur Lille</title>
+<meta name="description" content="Carte interactive des lieux à visiter, restaurants et bars recommandés à Lille.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧱</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+window.LILLE_PLACES = [
+  {cat:"lieux", name:"La Vieille Bourse & la Grand'Place", addr:"Place du Général-de-Gaulle", lat:50.6365, lng:3.0637},
+  {cat:"lieux", name:"Le Beffroi de l'Hôtel de Ville", addr:"Place Augustin Laurent", lat:50.6321, lng:3.0678},
+  {cat:"lieux", name:"Le Palais des Beaux-Arts", addr:"Place de la République", lat:50.6328, lng:3.0591},
+  {cat:"lieux", name:"La Citadelle de Lille", addr:"Avenue du Colonel Douriez", lat:50.6435, lng:3.0464},
+  {cat:"lieux", name:"Cathédrale Notre-Dame-de-la-Treille", addr:"Place Gilleson", lat:50.6387, lng:3.0631},
+  {cat:"restaurants", name:"Au Vieux de la Vieille", addr:"2 rue des Vieux Murs", lat:50.6392, lng:3.0623},
+  {cat:"restaurants", name:"La Ch'tite Brigitte", addr:"10 rue des Bouchers", lat:50.6394, lng:3.0618},
+  {cat:"restaurants", name:"Les Ptiots", addr:"35 rue de Gand", lat:50.6403, lng:3.0611},
+  {cat:"restaurants", name:"Le Barbier qui fume", addr:"69 rue de la Monnaie", lat:50.6380, lng:3.0616},
+  {cat:"bars", name:"Le Solférino", addr:"156 rue Solférino", lat:50.6296, lng:3.0541},
+  {cat:"bars", name:"Seven Bar", addr:"124 rue Solférino", lat:50.6298, lng:3.0545},
+  {cat:"bars", name:"Au Gré du Vin", addr:"Vieux-Lille", lat:50.6396, lng:3.0621},
+  {cat:"bars", name:"Nectar Dégustation", addr:"Vieux-Lille", lat:50.6389, lng:3.0629},
+  {cat:"bars", name:"Marché et bars de Wazemmes", addr:"Place Nouvelle Aventure", lat:50.6244, lng:3.0442}
+];
+</script>
+</head>
+<body>
+  <a class="sr-only" href="#contenu">Aller au contenu</a>
+  <header class="masthead">
+    <div class="wrap masthead__bar">
+      <a href="index.html" class="wordmark">Regards sur <em>Lille</em></a>
+      <nav class="nav-primary" aria-label="Navigation principale">
+        <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="evenements.html">Événements</a></li>
+        <li><a href="lieux-a-visiter.html">Lieux</a></li>
+        <li><a href="restaurants.html">Restaurants</a></li>
+        <li><a href="bars.html">Bars</a></li>
+        <li><a href="excursions.html">Excursions</a></li>
+        <li><a href="carte.html" aria-current="page">Carte</a></li>
+        </ul>
+        <div class="lang-switch" aria-label="Langue">
+          <a href="carte.html" aria-current="true">FR</a>
+          <a href="en/carte.html">EN</a>
+        </div>
+      </nav>
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <main id="contenu">
+
+    <div class="page-head wrap">
+      <span class="kicker">Toutes les adresses, un seul plan</span>
+      <h1>La carte du guide</h1>
+      <p class="lede">Tous les lieux à visiter, restaurants et bars recommandés dans le guide, sur une seule carte. Touchez un point pour voir de quoi il s'agit.</p>
+    </div>
+
+    <section>
+      <div class="wrap">
+        <div class="map-layout">
+          <div class="map-legend">
+            <h2>Filtrer</h2>
+            <button class="legend-toggle" data-cat="lieux" aria-pressed="true"><span class="legend-dot" style="background:#9A3324"></span> Lieux à visiter</button>
+            <button class="legend-toggle" data-cat="restaurants" aria-pressed="true"><span class="legend-dot" style="background:#A07425"></span> Restaurants</button>
+            <button class="legend-toggle" data-cat="bars" aria-pressed="true"><span class="legend-dot" style="background:#1E2A21"></span> Bars &amp; sorties</button>
+            <p class="map-note">Emplacements donnés à titre indicatif — vérifiez l'adresse exacte avant de partir.</p>
+          </div>
+          <div id="map"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="wordmark">Regards sur <em>Lille</em></a>
+          <p>Un guide indépendant pour découvrir Lille sans les clichés, écrit par quelqu'un qui y vit — à jour, sans jargon, sans langue de bois touristique.</p>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Explorer</h4>
+          <ul>
+          <li><a href="evenements.html">Événements</a></li>
+          <li><a href="lieux-a-visiter.html">Lieux à visiter</a></li>
+          <li><a href="restaurants.html">Restaurants</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Sortir &amp; bouger</h4>
+          <ul>
+          <li><a href="bars.html">Bars &amp; sorties</a></li>
+          <li><a href="excursions.html">Excursions</a></li>
+          <li><a href="carte.html">Carte</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Préparer son séjour</h4>
+          <ul>
+          <li><a href="itineraires.html">Itinéraires</a></li>
+          <li><a href="infos-pratiques.html">Infos pratiques</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span>© 2026 Regards sur Lille</span>
+        <span>Guide indépendant, sans affiliation avec la Ville de Lille ou l'office de tourisme.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
