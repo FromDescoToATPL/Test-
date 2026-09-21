@@ -40,6 +40,14 @@ const ogImageURL = new URL(image ?? defaultOgImage.src, SITE_URL);
     <meta property="og:image" content={ogImageURL} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={ogImageURL} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: SITE_NAME,
+      description: SITE_DESCRIPTION,
+      url: SITE_URL,
+    })} />
   </head>
   <body class="flex min-h-dvh flex-col bg-paper text-ink">
     <a
