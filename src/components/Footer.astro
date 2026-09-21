@@ -1,5 +1,5 @@
 ---
-import { SITE_NAME, SITE_TAGLINE, destinationLinks, mainNavLinks } from "../consts";
+import { SITE_NAME, SITE_TAGLINE, destinationLinks, mainNavLinks, withBase } from "../consts";
 const year = new Date().getFullYear();
 ---
 
@@ -43,8 +43,8 @@ const year = new Date().getFullYear();
         © {year} {SITE_NAME}. Tous droits réservés.
       </p>
       <div class="flex gap-5 font-body text-xs text-mist-400">
-        <a href="/mentions-legales/" class="hover:text-paper">Mentions légales</a>
-        <a href="/confidentialite/" class="hover:text-paper">Confidentialité &amp; cookies</a>
+        <a href={withBase("/mentions-legales/")} class="hover:text-paper">Mentions légales</a>
+        <a href={withBase("/confidentialite/")} class="hover:text-paper">Confidentialité &amp; cookies</a>
       </div>
     </div>
   </div>

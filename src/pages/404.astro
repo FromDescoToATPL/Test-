@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Icon from "../components/Icon.astro";
+import { withBase } from "../consts";
 ---
 
 <Layout title="Page introuvable">
@@ -11,7 +12,7 @@ import Icon from "../components/Icon.astro";
       Cette page n'existe pas (ou plus). Fais demi-tour au prochain péage.
     </p>
     <a
-      href="/"
+      href={withBase("/")}
       class="mt-8 inline-flex items-center gap-2 rounded-md bg-ink px-5 py-3 font-body text-sm font-medium text-paper transition-colors hover:bg-racing-600"
     >
       Retour à l'accueil

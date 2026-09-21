@@ -1,6 +1,6 @@
 ---
 import Icon from "./Icon.astro";
-import { SITE_NAME, destinationLinks, mainNavLinks } from "../consts";
+import { SITE_NAME, destinationLinks, mainNavLinks, withBase } from "../consts";
 
 const currentPath = Astro.url.pathname;
 const isActive = (href: string) =>
@@ -10,7 +10,7 @@ const isActive = (href: string) =>
 <header class="sticky top-0 z-40 border-b border-mist-200/80 bg-paper/97 backdrop-blur-sm">
   <div class="mx-auto flex max-w-8xl items-center justify-between px-5 py-4 sm:px-8">
     <a
-      href="/"
+      href={withBase("/")}
       class="font-display text-xl font-semibold tracking-tight text-ink"
       aria-label={`${SITE_NAME} — accueil`}
     >

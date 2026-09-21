@@ -5,7 +5,7 @@ import SectionHeading from "../components/SectionHeading.astro";
 import Icon from "../components/Icon.astro";
 import AdSlot from "../components/AdSlot.astro";
 import { Image } from "astro:assets";
-import { SITE_NAME } from "../consts";
+import { SITE_NAME, withBase } from "../consts";
 
 import heroImg from "../assets/photos/fuji-musee-lemans-787b-gtone.jpg";
 import tokyoThumb from "../assets/photos/tokyo-evo9-arriere-onlyjdm.jpg";
@@ -15,25 +15,25 @@ import shoppingThumb from "../assets/photos/shopping-voitures-miniatures.jpg";
 const destinations = [
   {
     name: "Tokyo",
-    href: "/tokyo/",
+    href: withBase("/tokyo/"),
     description: "Néons, garages spécialisés et rendez-vous nocturnes entre passionnés.",
     image: tokyoThumb,
   },
   {
     name: "Mont Fuji",
-    href: "/mont-fuji/",
+    href: withBase("/mont-fuji/"),
     description: "Routes de montagne, location de sportive et musée du sport auto à 30 min.",
     image: fujiThumb,
   },
   {
     name: "Osaka",
-    href: "/osaka/",
+    href: withBase("/osaka/"),
     description: "L'énergie street du Kansai et les boutiques cultes du tuning japonais.",
     image: null,
   },
   {
     name: "Kyoto",
-    href: "/kyoto/",
+    href: withBase("/kyoto/"),
     description: "Temples et petites routes de montagne, avec quelques repaires JDM inattendus.",
     image: null,
   },
@@ -42,19 +42,19 @@ const destinations = [
 const guides = [
   {
     label: "Acheter une voiture",
-    href: "/acheter-une-voiture/",
+    href: withBase("/acheter-une-voiture/"),
     description: "Auction sheets, export, shaken : comment acheter une JDM au Japon sans mauvaise surprise.",
     icon: "tag" as const,
   },
   {
     label: "Shopping passionné",
-    href: "/shopping/",
+    href: withBase("/shopping/"),
     description: "Miniatures, vêtements Liberty Walk et pièces : où dépenser son argent avec plaisir.",
     icon: "shopping-bag" as const,
   },
   {
     label: "Conduire au Japon",
-    href: "/conduire-au-japon/",
+    href: withBase("/conduire-au-japon/"),
     description: "Permis international, péages, stationnement : tout pour prendre le volant sereinement.",
     icon: "steering-wheel" as const,
   },
@@ -151,7 +151,7 @@ const guides = [
           improvisés, routes de montagne et boutiques cultes. Pas de liste générique copiée-collée — seulement des
           adresses vues, testées et racontées avec sincérité, complétées voyage après voyage.
         </p>
-        <a href="/a-propos/" class="link-underline mt-6 inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink">
+        <a href={withBase("/a-propos/")} class="link-underline mt-6 inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink">
           En savoir plus <Icon name="arrow-right" class="h-3.5 w-3.5" />
         </a>
       </div>
