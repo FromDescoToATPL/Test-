@@ -1,4 +1,4 @@
-export const SITE_NAME = "Kaidō";
+export const SITE_NAME = "Kaido";
 // Prénom déduit de ton adresse mail — remplace si ce n'est pas le bon.
 export const AUTHOR_NAME = "Clément";
 export const SITE_TAGLINE = "Guide JDM & passion automobile au Japon";
