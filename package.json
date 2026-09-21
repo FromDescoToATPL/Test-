@@ -1,5 +1,5 @@
 {
-  "name": "projet-automobile",
+  "name": "kaido",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -12,6 +12,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "@fontsource/fraunces": "^5.3.0",
     "@fontsource/inter": "^5.3.0",
     "@fontsource/oswald": "^5.3.0",

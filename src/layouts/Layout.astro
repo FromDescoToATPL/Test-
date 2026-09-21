@@ -1,9 +1,11 @@
 ---
+import { getImage } from "astro:assets";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CookieConsent from "../components/CookieConsent.astro";
 import "../styles/global.css";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "../consts";
+import defaultOgSource from "../assets/photos/fuji-musee-lemans-787b-gtone.jpg";
 
 interface Props {
   title: string;
@@ -14,6 +16,9 @@ interface Props {
 const { title, description = SITE_DESCRIPTION, image } = Astro.props;
 const pageTitle = title === SITE_NAME ? title : `${title} — ${SITE_NAME}`;
 const canonicalURL = new URL(Astro.url.pathname, SITE_URL);
+
+const defaultOgImage = await getImage({ src: defaultOgSource, width: 1200, height: 630, format: "jpg" });
+const ogImageURL = new URL(image ?? defaultOgImage.src, SITE_URL);
 ---
 
 <!doctype html>
@@ -32,8 +37,9 @@ const canonicalURL = new URL(Astro.url.pathname, SITE_URL);
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
-    {image && <meta property="og:image" content={new URL(image, SITE_URL)} />}
+    <meta property="og:image" content={ogImageURL} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImageURL} />
   </head>
   <body class="flex min-h-dvh flex-col bg-paper text-ink">
     <a
