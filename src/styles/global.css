@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@import "@fontsource/fraunces/400.css";
+@import "@fontsource/fraunces/500.css";
+@import "@fontsource/fraunces/600.css";
+@import "@fontsource/fraunces/400-italic.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/oswald/500.css";
+@import "@fontsource/oswald/600.css";
+
+@theme {
+  /* Base neutrals — warm paper, near-black ink (editorial, not pure b/w) */
+  --color-paper: #F6F3EE;
+  --color-paper-dim: #EDE9E1;
+  --color-ink: #161513;
+  --color-ink-soft: #4A4844;
+  --color-asphalt: #0B0B0C;
+  --color-asphalt-soft: #1B1A19;
+
+  /* Warm-tinted grays */
+  --color-mist-100: #EDE9E1;
+  --color-mist-200: #DDD7CB;
+  --color-mist-300: #B8B1A3;
+  --color-mist-400: #8C8577;
+  --color-mist-500: #6B6558;
+
+  /* Accents — muted racing red + plate gold, used sparingly */
+  --color-racing-50: #FBEAEC;
+  --color-racing-400: #C43B4E;
+  --color-racing-500: #A81E32;
+  --color-racing-600: #841526;
+  --color-gold-400: #D9B65C;
+  --color-gold-500: #BD9A3C;
+  --color-gold-600: #96772A;
+
+  /* Fonts */
+  --font-display: "Fraunces", "Iowan Old Style", ui-serif, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-meta: "Oswald", ui-sans-serif, system-ui, sans-serif;
+
+  /* Radius — sharp, editorial, not bubbly */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  /* Motion tokens */
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
+
+  --container-8xl: 90rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background-color: var(--color-racing-500);
+    color: var(--color-paper);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-racing-500);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  a {
+    text-underline-offset: 3px;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    font-family: var(--font-meta);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size var(--duration-base) var(--ease-out-soft);
+  }
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  /* Scroll-reveal: progressively enhanced, no layout shift if JS is off */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity var(--duration-slow) var(--ease-out-soft),
+                transform var(--duration-slow) var(--ease-out-soft);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}

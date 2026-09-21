@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import { Image } from "astro:assets";
+import heroImg from "../assets/photos/tokyo-evo9-arriere-onlyjdm.jpg";
+import { SITE_NAME, AUTHOR_NAME } from "../consts";
+---
+
+<Layout title="À propos" description={`L'histoire derrière ${SITE_NAME} : un road-trip au Japon à la rencontre de sa culture automobile.`}>
+  <Hero eyebrow="À propos" title="L'histoire derrière le guide" compact />
+
+  <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
+    <div class="reveal space-y-6 font-body text-base leading-relaxed text-ink-soft">
+      <p>
+        Je m'appelle {AUTHOR_NAME}. Passionné d'automobile depuis toujours, je suis parti au Japon avec un objectif
+        simple : vivre la culture JDM de l'intérieur plutôt que de la découvrir à travers un écran. Conduire des
+        voitures qu'on ne croise jamais en Europe, pousser la porte de garages où l'on ne parle pas la même langue
+        mais où la passion se comprend tout de suite, et ramener un peu de tout ça à la maison.
+      </p>
+      <p>
+        De Tokyo au Mont Fuji, d'Osaka à Kyoto, j'ai gardé une trace de chaque bonne adresse, chaque itinéraire qui
+        valait le détour, chaque conseil qui m'aurait fait gagner du temps si je l'avais eu avant de partir.
+        {SITE_NAME} est né de cette envie : rassembler tout ça au même endroit, pour que le prochain passionné qui
+        prépare son voyage n'ait pas à tout redécouvrir seul.
+      </p>
+      <p>
+        Ce site n'est pas une liste générique compilée depuis internet. Chaque adresse a été vue, testée ou au moins
+        sérieusement recherchée — et sera complétée, corrigée et enrichie voyage après voyage.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-8xl px-5 pb-20 sm:px-8">
+    <div class="reveal mx-auto max-w-3xl overflow-hidden rounded-lg">
+      <Image
+        src={heroImg}
+        alt="Lancer Evolution IX aperçue à Tokyo pendant le voyage"
+        class="h-full w-full object-cover"
+        widths={[600, 1000, 1400]}
+        sizes="(min-width: 1024px) 60vw, 100vw"
+      />
+    </div>
+  </section>
+</Layout>

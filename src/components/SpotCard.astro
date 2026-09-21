@@ -1,0 +1,89 @@
+---
+import Icon from "./Icon.astro";
+import type { Spot } from "../data/types";
+import { AUTHOR_NAME } from "../consts";
+
+interface Props {
+  spot: Spot;
+}
+const { spot } = Astro.props;
+
+const categoryIcon: Record<Spot["category"], "car" | "tag" | "building" | "flag" | "shopping-bag" | "map-pin" | "parking"> = {
+  location: "car",
+  achat: "tag",
+  garage: "car",
+  musee: "building",
+  circuit: "flag",
+  shopping: "shopping-bag",
+  meetup: "map-pin",
+  parking: "parking",
+  restauration: "map-pin",
+};
+
+const categoryLabel: Record<Spot["category"], string> = {
+  location: "Location",
+  achat: "Achat",
+  garage: "Garage / atelier",
+  musee: "Musée",
+  circuit: "Circuit",
+  shopping: "Shopping",
+  meetup: "Rendez-vous",
+  parking: "Parking",
+  restauration: "Restauration",
+};
+---
+
+<article
+  class:list={[
+    "reveal group flex h-full flex-col rounded-lg border p-6 transition-shadow",
+    spot.filled
+      ? "border-mist-200 bg-paper shadow-sm hover:shadow-md"
+      : "border-dashed border-mist-300 bg-paper-dim/40",
+  ]}
+>
+  <div class="flex items-start justify-between gap-3">
+    <div class="flex items-center gap-2 text-racing-500">
+      <Icon name={categoryIcon[spot.category]} class="h-4 w-4" />
+      <span class="eyebrow">{categoryLabel[spot.category]}</span>
+    </div>
+    {!spot.filled && (
+      <span class="rounded-full bg-gold-400/20 px-2.5 py-0.5 font-body text-[11px] font-medium text-gold-600">
+        À compléter
+      </span>
+    )}
+  </div>
+
+  <h3 class="mt-3 font-display text-lg font-semibold text-ink">{spot.name}</h3>
+
+  {spot.area && (
+    <p class="mt-1 flex items-center gap-1.5 font-body text-sm text-mist-500">
+      <Icon name="map-pin" class="h-3.5 w-3.5 shrink-0" />
+      {spot.area}
+    </p>
+  )}
+
+  <p class="mt-3 font-body text-sm leading-relaxed text-ink-soft">{spot.description}</p>
+
+  {spot.priceRange && (
+    <p class="mt-3 font-body text-sm font-medium text-ink">{spot.priceRange}</p>
+  )}
+
+  {spot.tip && (
+    <p class="mt-4 border-t border-mist-200 pt-3 font-body text-xs leading-relaxed text-mist-500">
+      <span class="font-semibold text-mist-500">{spot.filled ? "Astuce" : `Note pour ${AUTHOR_NAME}`} — </span>
+      {spot.tip}
+    </p>
+  )}
+
+  {spot.website && (
+    <a
+      href={spot.website}
+      target="_blank"
+      rel="noopener noreferrer sponsored"
+      class="link-underline mt-4 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+    >
+      Site officiel
+      <Icon name="external-link" class="h-3.5 w-3.5" />
+    </a>
+  )}
+</article>

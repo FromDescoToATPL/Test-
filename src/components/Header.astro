@@ -1,0 +1,117 @@
+---
+import Icon from "./Icon.astro";
+import { SITE_NAME, destinationLinks, mainNavLinks } from "../consts";
+
+const currentPath = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === "/" ? currentPath === "/" : currentPath.startsWith(href);
+---
+
+<header class="sticky top-0 z-40 border-b border-mist-200/80 bg-paper/97 backdrop-blur-sm">
+  <div class="mx-auto flex max-w-8xl items-center justify-between px-5 py-4 sm:px-8">
+    <a
+      href="/"
+      class="font-display text-xl font-semibold tracking-tight text-ink"
+      aria-label={`${SITE_NAME} — accueil`}
+    >
+      {SITE_NAME}
+    </a>
+
+    <nav class="hidden items-center gap-8 lg:flex" aria-label="Navigation principale">
+      <div class="group relative">
+        <button
+          class="eyebrow flex items-center gap-1 text-ink-soft transition-colors hover:text-ink cursor-pointer"
+          aria-haspopup="true"
+          aria-expanded="false"
+          id="destinations-trigger"
+        >
+          Destinations
+          <Icon name="chevron-down" class="h-3.5 w-3.5 transition-transform group-focus-within:rotate-180" />
+        </button>
+        <div
+          id="destinations-menu"
+          class="invisible absolute left-0 top-full flex w-56 flex-col gap-1 rounded-md border border-mist-200 bg-paper p-2 opacity-0 shadow-lg transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
+        >
+          {destinationLinks.map((link) => (
+            <a
+              href={link.href}
+              class:list={[
+                "rounded-sm px-3 py-2 font-body text-sm transition-colors hover:bg-paper-dim",
+                isActive(link.href) ? "text-racing-500 font-medium" : "text-ink",
+              ]}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {mainNavLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            "eyebrow link-underline transition-colors hover:text-ink",
+            isActive(link.href) ? "text-racing-500" : "text-ink-soft",
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <button
+      id="mobile-menu-button"
+      class="flex items-center justify-center rounded-sm p-2 text-ink lg:hidden cursor-pointer"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <Icon name="menu" class="h-6 w-6" id="menu-icon-open" />
+    </button>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="hidden flex-col gap-1 border-t border-mist-200 bg-paper px-5 py-4 lg:hidden"
+  >
+    <p class="eyebrow px-2 pb-1 pt-2 text-mist-500">Destinations</p>
+    {destinationLinks.map((link) => (
+      <a
+        href={link.href}
+        class:list={[
+          "rounded-sm px-2 py-2.5 font-body text-base",
+          isActive(link.href) ? "text-racing-500 font-medium" : "text-ink",
+        ]}
+      >
+        {link.label}
+      </a>
+    ))}
+    <div class="my-2 h-px bg-mist-200"></div>
+    {mainNavLinks.map((link) => (
+      <a
+        href={link.href}
+        class:list={[
+          "rounded-sm px-2 py-2.5 font-body text-base",
+          isActive(link.href) ? "text-racing-500 font-medium" : "text-ink",
+        ]}
+      >
+        {link.label}
+      </a>
+    ))}
+  </div>
+</header>
+
+<script>
+  const button = document.getElementById("mobile-menu-button");
+  const menu = document.getElementById("mobile-menu");
+
+  button?.addEventListener("click", () => {
+    const isOpen = menu?.classList.contains("flex");
+    menu?.classList.toggle("hidden", isOpen);
+    menu?.classList.toggle("flex", !isOpen);
+    button.setAttribute("aria-expanded", String(!isOpen));
+    button.innerHTML = isOpen
+      ? '<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>'
+      : '<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg>';
+  });
+</script>

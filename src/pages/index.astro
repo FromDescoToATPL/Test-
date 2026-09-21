@@ -1,0 +1,169 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import Icon from "../components/Icon.astro";
+import AdSlot from "../components/AdSlot.astro";
+import { Image } from "astro:assets";
+import { SITE_NAME } from "../consts";
+
+import heroImg from "../assets/photos/fuji-musee-lemans-787b-gtone.jpg";
+import tokyoThumb from "../assets/photos/tokyo-evo9-arriere-onlyjdm.jpg";
+import fujiThumb from "../assets/photos/fuji-corvette-face-brouillard-1.jpg";
+import shoppingThumb from "../assets/photos/shopping-voitures-miniatures.jpg";
+
+const destinations = [
+  {
+    name: "Tokyo",
+    href: "/tokyo/",
+    description: "Néons, garages spécialisés et rendez-vous nocturnes entre passionnés.",
+    image: tokyoThumb,
+  },
+  {
+    name: "Mont Fuji",
+    href: "/mont-fuji/",
+    description: "Routes de montagne, location de sportive et musée du sport auto à 30 min.",
+    image: fujiThumb,
+  },
+  {
+    name: "Osaka",
+    href: "/osaka/",
+    description: "L'énergie street du Kansai et les boutiques cultes du tuning japonais.",
+    image: null,
+  },
+  {
+    name: "Kyoto",
+    href: "/kyoto/",
+    description: "Temples et petites routes de montagne, avec quelques repaires JDM inattendus.",
+    image: null,
+  },
+];
+
+const guides = [
+  {
+    label: "Acheter une voiture",
+    href: "/acheter-une-voiture/",
+    description: "Auction sheets, export, shaken : comment acheter une JDM au Japon sans mauvaise surprise.",
+    icon: "tag" as const,
+  },
+  {
+    label: "Shopping passionné",
+    href: "/shopping/",
+    description: "Miniatures, vêtements Liberty Walk et pièces : où dépenser son argent avec plaisir.",
+    icon: "shopping-bag" as const,
+  },
+  {
+    label: "Conduire au Japon",
+    href: "/conduire-au-japon/",
+    description: "Permis international, péages, stationnement : tout pour prendre le volant sereinement.",
+    icon: "steering-wheel" as const,
+  },
+];
+---
+
+<Layout title={SITE_NAME}>
+  <Hero
+    image={heroImg}
+    eyebrow="Guide du passionné"
+    title="La route se mérite. Le Japon la sublime."
+    subtitle="Adresses, itinéraires et conseils pratiques pour vivre la culture automobile japonaise comme un local — de Tokyo au Mont Fuji, d'Osaka à Kyoto."
+  />
+
+  <section class="mx-auto max-w-8xl px-5 py-20 sm:px-8">
+    <SectionHeading
+      eyebrow="Destinations"
+      title="Quatre villes, une même passion"
+      description="Chaque destination a ses propres codes : où louer, où se garer, où dénicher la bonne adresse. Choisis ton point de départ."
+    />
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {destinations.map((dest, i) => (
+        <a
+          href={dest.href}
+          class="reveal group relative flex aspect-[3/4] flex-col justify-end overflow-hidden rounded-lg bg-asphalt"
+          style={`transition-delay: ${i * 60}ms`}
+        >
+          {dest.image ? (
+            <Image
+              src={dest.image}
+              alt=""
+              role="presentation"
+              class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              widths={[320, 480, 640]}
+              sizes="(min-width: 1024px) 25vw, 50vw"
+            />
+          ) : (
+            <div
+              class="absolute inset-0"
+              style="background: radial-gradient(ellipse at 30% 20%, rgba(196,59,78,0.25), transparent 55%), #14130f;"
+            ></div>
+          )}
+          <div class="absolute inset-0 bg-gradient-to-t from-asphalt via-asphalt/30 to-transparent"></div>
+          <div class="relative p-5">
+            <h3 class="font-display text-xl font-semibold text-paper">{dest.name}</h3>
+            <p class="mt-1 font-body text-xs leading-relaxed text-mist-300">{dest.description}</p>
+            <span class="mt-3 inline-flex items-center gap-1 font-body text-xs font-medium text-gold-400 opacity-0 transition-opacity group-hover:opacity-100">
+              Découvrir <Icon name="arrow-right" class="h-3 w-3" />
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <AdSlot class="py-4" />
+
+  <section class="mx-auto max-w-8xl px-5 py-20 sm:px-8">
+    <SectionHeading
+      eyebrow="Guides pratiques"
+      title="Au-delà des villes"
+      description="Louer n'est qu'une étape. Voici de quoi acheter, s'équiper et rouler l'esprit tranquille partout au Japon."
+    />
+
+    <div class="mt-10 grid gap-6 lg:grid-cols-3">
+      {guides.map((guide) => (
+        <a
+          href={guide.href}
+          class="reveal group flex flex-col rounded-lg border border-mist-200 bg-paper p-7 transition-all hover:border-racing-500/40 hover:shadow-md"
+        >
+          <div class="flex h-11 w-11 items-center justify-center rounded-md bg-racing-500/10 text-racing-500">
+            <Icon name={guide.icon} class="h-5 w-5" />
+          </div>
+          <h3 class="mt-5 font-display text-xl font-semibold text-ink">{guide.label}</h3>
+          <p class="mt-2 font-body text-sm leading-relaxed text-ink-soft">{guide.description}</p>
+          <span class="link-underline mt-4 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-ink">
+            Lire le guide <Icon name="arrow-right" class="h-3.5 w-3.5" />
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="border-t border-mist-200 bg-paper-dim/60">
+    <div class="mx-auto grid max-w-8xl gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+      <div class="reveal">
+        <p class="eyebrow text-racing-500">L'esprit du site</p>
+        <h2 class="mt-2 font-display text-3xl font-semibold text-ink sm:text-4xl">
+          Écrit par un passionné, pour les passionnés
+        </h2>
+        <p class="mt-4 font-body text-base leading-relaxed text-ink-soft">
+          {SITE_NAME} est né d'un voyage au Japon à la rencontre de sa culture automobile : garages JDM, meetings
+          improvisés, routes de montagne et boutiques cultes. Pas de liste générique copiée-collée — seulement des
+          adresses vues, testées et racontées avec sincérité, complétées voyage après voyage.
+        </p>
+        <a href="/a-propos/" class="link-underline mt-6 inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink">
+          En savoir plus <Icon name="arrow-right" class="h-3.5 w-3.5" />
+        </a>
+      </div>
+      <div class="reveal overflow-hidden rounded-lg">
+        <Image
+          src={shoppingThumb}
+          alt="Vitrines de voitures miniatures collector dans une boutique japonaise"
+          class="h-full w-full object-cover"
+          widths={[400, 800, 1200]}
+          sizes="(min-width: 1024px) 45vw, 100vw"
+        />
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,57 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import SpotCard from "../components/SpotCard.astro";
+import ParkingGrid from "../components/ParkingGrid.astro";
+import TipsList from "../components/TipsList.astro";
+import AdSlot from "../components/AdSlot.astro";
+import { kyotoIntro, kyotoSpots, kyotoParking, kyotoTips } from "../data/kyoto";
+---
+
+<Layout
+  title="Kyoto"
+  description="A-PIT Auto, Liberty Walk et stationnement près des temples : le guide du passionné d'automobile à Kyoto."
+>
+  <Hero
+    eyebrow="Destination"
+    title="Kyoto"
+    subtitle="Entre les temples, quelques-unes des adresses les plus respectées du milieu JDM au Japon."
+    compact
+  />
+
+  <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
+    <p class="reveal font-body text-lg leading-relaxed text-ink-soft">{kyotoIntro}</p>
+    <p class="reveal mt-4 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
+      Page en cours de complétion — les photos d'A-PIT Auto et de Liberty Walk Kyoto arrivent bientôt.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-8xl px-5 py-16 sm:px-8">
+    <SectionHeading eyebrow="Bonnes adresses" title="Le temple des passionnés" />
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {kyotoSpots.map((spot) => <SpotCard spot={spot} />)}
+    </div>
+  </section>
+
+  <AdSlot class="py-16" />
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-20">
+    <div class="mx-auto max-w-8xl px-5 sm:px-8">
+      <div class="grid gap-16 lg:grid-cols-2">
+        <div>
+          <SectionHeading eyebrow="Où se garer" title="Stationnement près des temples" />
+          <div class="mt-8">
+            <ParkingGrid items={kyotoParking} />
+          </div>
+        </div>
+        <div>
+          <SectionHeading eyebrow="Conseils" title="Pour en profiter au maximum" />
+          <div class="mt-8">
+            <TipsList tips={kyotoTips} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

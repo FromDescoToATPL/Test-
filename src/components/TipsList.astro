@@ -1,0 +1,16 @@
+---
+import Icon from "./Icon.astro";
+interface Props {
+  tips: string[];
+}
+const { tips } = Astro.props;
+---
+
+<ul class="space-y-4">
+  {tips.map((tip) => (
+    <li class="reveal flex gap-3 font-body text-sm leading-relaxed text-ink-soft">
+      <Icon name="arrow-right" class="mt-0.5 h-4 w-4 shrink-0 text-racing-500" />
+      <span>{tip}</span>
+    </li>
+  ))}
+</ul>

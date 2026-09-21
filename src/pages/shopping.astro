@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import SpotCard from "../components/SpotCard.astro";
+import Figure from "../components/Figure.astro";
+import AdSlot from "../components/AdSlot.astro";
+import diecastImg from "../assets/photos/shopping-voitures-miniatures.jpg";
+import { shoppingIntro, shoppingSpots } from "../data/shopping";
+---
+
+<Layout
+  title="Shopping automobile"
+  description="Voitures miniatures, vêtements Liberty Walk, pièces et goodies : où faire son shopping automobile au Japon."
+>
+  <Hero
+    eyebrow="Guide pratique"
+    title="Shopping automobile"
+    subtitle="Miniatures, textile et pièces : ramener un vrai bout de la culture automobile japonaise."
+    compact
+  />
+
+  <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
+    <p class="reveal font-body text-lg leading-relaxed text-ink-soft">{shoppingIntro}</p>
+  </section>
+
+  <section class="mx-auto max-w-8xl px-5 pb-16 sm:px-8">
+    <Figure
+      image={diecastImg}
+      alt="Vitrines de voitures miniatures collector (Ebbro, Solido, Hi-Story) dans une boutique japonaise"
+      caption="Une des vitrines croisées pendant le voyage — de quoi vider un budget bagages en quelques minutes."
+      class="mx-auto max-w-3xl"
+    />
+  </section>
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-20">
+    <div class="mx-auto max-w-8xl px-5 sm:px-8">
+      <SectionHeading eyebrow="Bonnes adresses" title="Où dépenser son argent avec plaisir" />
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {shoppingSpots.map((spot) => <SpotCard spot={spot} />)}
+      </div>
+    </div>
+  </section>
+
+  <AdSlot class="py-16" />
+</Layout>

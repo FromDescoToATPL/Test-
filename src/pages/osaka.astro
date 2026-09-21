@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import SpotCard from "../components/SpotCard.astro";
+import ParkingGrid from "../components/ParkingGrid.astro";
+import TipsList from "../components/TipsList.astro";
+import AdSlot from "../components/AdSlot.astro";
+import { osakaIntro, osakaSpots, osakaParking, osakaTips } from "../data/osaka";
+---
+
+<Layout
+  title="Osaka"
+  description="Boutiques Liberty Walk, stationnement et bonnes adresses pour les passionnés d'automobile de passage à Osaka."
+>
+  <Hero
+    eyebrow="Destination"
+    title="Osaka"
+    subtitle="L'énergie street du Kansai — et quelques adresses cultes pour repartir avec plus qu'un souvenir de Dotonbori."
+    compact
+  />
+
+  <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
+    <p class="reveal font-body text-lg leading-relaxed text-ink-soft">{osakaIntro}</p>
+    <p class="reveal mt-4 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
+      Cette page est encore jeune — elle grandira avec les prochains voyages. Une photo de couverture arrivera dès
+      que j'en aurai une à la hauteur du quartier.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-8xl px-5 py-16 sm:px-8">
+    <SectionHeading eyebrow="Bonnes adresses" title="Shopping & culture automobile" />
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {osakaSpots.map((spot) => <SpotCard spot={spot} />)}
+    </div>
+  </section>
+
+  <AdSlot class="py-16" />
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-20">
+    <div class="mx-auto max-w-8xl px-5 sm:px-8">
+      <div class="grid gap-16 lg:grid-cols-2">
+        <div>
+          <SectionHeading eyebrow="Où se garer" title="Stationnement par quartier" />
+          <div class="mt-8">
+            <ParkingGrid items={osakaParking} />
+          </div>
+        </div>
+        <div>
+          <SectionHeading eyebrow="Conseils" title="Pour en profiter au maximum" />
+          <div class="mt-8">
+            <TipsList tips={osakaTips} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

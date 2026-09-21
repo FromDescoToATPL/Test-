@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import AdSlot from "../components/AdSlot.astro";
+import heroImg from "../assets/photos/fuji-corvette-interieur-pluie.jpg";
+import { conduireIntro, conduireSections } from "../data/conduire-au-japon";
+---
+
+<Layout
+  title="Conduire au Japon"
+  description="Permis international, péages ETC, stationnement, carburant : le guide complet pour prendre le volant au Japon en toute confiance."
+>
+  <Hero
+    image={heroImg}
+    eyebrow="Guide pratique"
+    title="Conduire au Japon"
+    subtitle="Tout ce qu'il faut préparer avant de prendre le volant — du permis international au plein d'essence."
+  />
+
+  <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
+    <p class="reveal font-body text-lg leading-relaxed text-ink-soft">{conduireIntro}</p>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-20 sm:px-8">
+    <div class="space-y-16">
+      {conduireSections.map((section, i) => (
+        <>
+          <div class="reveal">
+            <p class="eyebrow text-racing-500">{section.eyebrow}</p>
+            <h2 class="mt-2 font-display text-2xl font-semibold text-ink sm:text-3xl">{section.title}</h2>
+            <div class="mt-4 space-y-3">
+              {section.paragraphs.map((p) => (
+                <p class="font-body text-sm leading-relaxed text-ink-soft">{p}</p>
+              ))}
+            </div>
+            {section.bullets && (
+              <ul class="mt-4 space-y-2 border-l-2 border-mist-200 pl-5">
+                {section.bullets.map((b) => (
+                  <li class="font-body text-sm leading-relaxed text-ink-soft">{b}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+          {i === 2 && <AdSlot />}
+        </>
+      ))}
+    </div>
+  </section>
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-16">
+    <div class="mx-auto max-w-3xl px-5 text-center sm:px-8">
+      <SectionHeading
+        align="center"
+        eyebrow="À venir"
+        title="Cette page va s'enrichir"
+        description="Anecdotes, panneaux qui surprennent, itinéraires favoris : les prochaines mises à jour viendront directement du terrain."
+      />
+    </div>
+  </section>
+</Layout>

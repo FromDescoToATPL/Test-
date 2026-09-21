@@ -1,0 +1,112 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import SpotCard from "../components/SpotCard.astro";
+import ParkingGrid from "../components/ParkingGrid.astro";
+import TipsList from "../components/TipsList.astro";
+import Figure from "../components/Figure.astro";
+import AffiliateDisclosure from "../components/AffiliateDisclosure.astro";
+import AdSlot from "../components/AdSlot.astro";
+import { Image } from "astro:assets";
+
+import heroImg from "../assets/photos/fuji-musee-escaliers.jpg";
+import corvetteInterieur from "../assets/photos/fuji-corvette-interieur-pluie.jpg";
+import corvette1 from "../assets/photos/fuji-corvette-face-brouillard-1.jpg";
+import corvette2 from "../assets/photos/fuji-corvette-face-brouillard-2.jpg";
+import lemans from "../assets/photos/fuji-musee-lemans-787b-gtone.jpg";
+
+import { fujiIntro, fujiSpots, fujiParking, fujiTips } from "../data/mont-fuji";
+
+const locationSpots = fujiSpots.filter((s) => s.category === "location");
+const otherSpots = fujiSpots.filter((s) => s.category !== "location");
+---
+
+<Layout
+  title="Mont Fuji"
+  description="Location de sportive, circuit de Fuji Speedway et musée du sport automobile : le guide du passionné autour de Kawaguchiko."
+>
+  <Hero
+    image={heroImg}
+    eyebrow="Destination"
+    title="Mont Fuji & Kawaguchiko"
+    subtitle="Entre le lac et la montagne, à 30 minutes d'un circuit historique et d'un musée qui vaut le voyage à lui seul."
+  />
+
+  <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
+    <p class="reveal font-body text-lg leading-relaxed text-ink-soft">{fujiIntro}</p>
+  </section>
+
+  <AffiliateDisclosure />
+
+  <section class="mx-auto max-w-8xl px-5 py-16 sm:px-8">
+    <SectionHeading eyebrow="Location" title="Prendre le volant face au Fuji" />
+    <div class="mt-10 grid gap-6 lg:grid-cols-3">
+      {locationSpots.map((spot) => <SpotCard spot={spot} />)}
+      <div class="lg:col-span-2 grid grid-cols-2 gap-4">
+        <Figure
+          image={corvette1}
+          alt="Corvette C7 blanche à l'arrêt dans le brouillard près de Kawaguchiko"
+          class="col-span-1"
+        />
+        <Figure
+          image={corvette2}
+          alt="Corvette C7 blanche vue de face dans le brouillard, plaque Fuji"
+          class="col-span-1"
+        />
+      </div>
+    </div>
+
+    <div class="reveal mt-10 overflow-hidden rounded-lg">
+      <Image
+        src={corvetteInterieur}
+        alt="Vue depuis l'habitacle d'une Corvette C7 sous la pluie, route de montagne près du Fuji"
+        class="h-full max-h-[420px] w-full object-cover"
+        widths={[800, 1400, 2000]}
+        sizes="100vw"
+      />
+      <p class="mt-2 font-body text-xs text-mist-500">
+        Pluie, brouillard, routes qui grimpent — conduire au pied du Fuji est une expérience à part entière, même
+        (surtout) quand la montagne se cache.
+      </p>
+    </div>
+  </section>
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-20">
+    <div class="mx-auto max-w-8xl px-5 sm:px-8">
+      <SectionHeading
+        eyebrow="À 30 minutes"
+        title="Circuit et musée du sport automobile"
+        description="Les deux adresses à ne pas manquer si tu loues une voiture autour de Kawaguchiko."
+      />
+      <div class="mt-10 grid gap-6 sm:grid-cols-2">
+        {otherSpots.map((spot) => <SpotCard spot={spot} />)}
+      </div>
+      <Figure
+        image={lemans}
+        alt="Mazda 787B et Toyota GT-One exposées côte à côte dans un musée du sport automobile près de Fuji Speedway"
+        caption="La Mazda 787B (vainqueur des 24h du Mans 1991) aux côtés de la Toyota GT-One — une des salles du musée."
+        class="mx-auto mt-10 max-w-3xl"
+      />
+    </div>
+  </section>
+
+  <AdSlot class="py-16" />
+
+  <section class="mx-auto max-w-8xl px-5 py-20 sm:px-8">
+    <div class="grid gap-16 lg:grid-cols-2">
+      <div>
+        <SectionHeading eyebrow="Où se garer" title="Stationnement autour du lac" />
+        <div class="mt-8">
+          <ParkingGrid items={fujiParking} />
+        </div>
+      </div>
+      <div>
+        <SectionHeading eyebrow="Conseils" title="Pour en profiter au maximum" />
+        <div class="mt-8">
+          <TipsList tips={fujiTips} />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

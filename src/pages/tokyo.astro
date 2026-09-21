@@ -1,0 +1,87 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import SpotCard from "../components/SpotCard.astro";
+import ParkingGrid from "../components/ParkingGrid.astro";
+import TipsList from "../components/TipsList.astro";
+import Figure from "../components/Figure.astro";
+import AdSlot from "../components/AdSlot.astro";
+import heroImg from "../assets/photos/tokyo-meetup-mx5-nuit.jpg";
+import evoFace from "../assets/photos/tokyo-evo9-face-onlyjdm.jpg";
+import evoArriere from "../assets/photos/tokyo-evo9-arriere-onlyjdm.jpg";
+import { tokyoIntro, tokyoSpots, tokyoParking, tokyoTips } from "../data/tokyo";
+---
+
+<Layout
+  title="Tokyo"
+  description="Garages JDM, rendez-vous nocturnes et stationnement : le guide du passionné d'automobile à Tokyo."
+>
+  <Hero
+    image={heroImg}
+    eyebrow="Destination"
+    title="Tokyo"
+    subtitle="La mégapole où la passion automobile s'exhibe à ciel ouvert, des avenues de Roppongi aux garages de quartier."
+  />
+
+  <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
+    <p class="reveal font-body text-lg leading-relaxed text-ink-soft">{tokyoIntro}</p>
+  </section>
+
+  <section class="mx-auto max-w-8xl px-5 pb-20 sm:px-8">
+    <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <Figure
+        image={evoFace}
+        alt="Mitsubishi Lancer Evolution IX gris devant un garage JDM à Tokyo, avec une GT-R en arrière-plan"
+      />
+      <div class="reveal">
+        <p class="eyebrow text-racing-500">Rencontre</p>
+        <h2 class="mt-2 font-display text-2xl font-semibold text-ink sm:text-3xl">
+          Une Evo IX et un garage qui ne triche pas
+        </h2>
+        <p class="mt-4 font-body text-sm leading-relaxed text-ink-soft">
+          Cette Lancer Evolution IX préparée, aperçue devant un garage tokyoïte aux côtés d'une GT-R, résume bien
+          l'état d'esprit local : peu de mise en scène, beaucoup de sérieux mécanique. Les détails complets de
+          l'adresse arrivent bientôt.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-20">
+    <div class="mx-auto max-w-8xl px-5 sm:px-8">
+      <SectionHeading eyebrow="Bonnes adresses" title="Garages, ateliers & rendez-vous" />
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {tokyoSpots.map((spot) => <SpotCard spot={spot} />)}
+      </div>
+    </div>
+  </section>
+
+  <AdSlot class="py-16" />
+
+  <section class="mx-auto max-w-8xl px-5 py-4 sm:px-8">
+    <Figure
+      image={evoArriere}
+      alt="Vue arrière de la Lancer Evolution IX avec son aileron, devant le garage Only JDM"
+      caption="Devant le garage repéré à Tokyo — aileron imposant et échappement titane, sans complexe."
+      class="mx-auto max-w-3xl"
+    />
+  </section>
+
+  <section class="mx-auto max-w-8xl px-5 py-20 sm:px-8">
+    <div class="grid gap-16 lg:grid-cols-2">
+      <div>
+        <SectionHeading eyebrow="Où se garer" title="Stationnement par quartier" />
+        <div class="mt-8">
+          <ParkingGrid items={tokyoParking} />
+        </div>
+      </div>
+      <div>
+        <SectionHeading eyebrow="Conseils" title="Pour en profiter au maximum" />
+        <div class="mt-8">
+          <TipsList tips={tokyoTips} />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

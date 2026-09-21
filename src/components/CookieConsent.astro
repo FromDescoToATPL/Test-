@@ -1,0 +1,80 @@
+---
+// Bannière de consentement minimale, sans dépendance.
+// Stocke le choix dans localStorage sous "kaido-consent" ("granted" | "denied").
+// Objectif : gater proprement les futurs scripts pub/analytics (voir data-consent-gate),
+// pas de script tiers chargé tant que rien n'est branché derrière.
+---
+
+<div
+  id="cookie-banner"
+  class="fixed inset-x-0 bottom-0 z-50 hidden translate-y-full border-t border-mist-200 bg-paper/95 px-5 py-5 shadow-[0_-4px_24px_rgba(0,0,0,0.08)] backdrop-blur-sm transition-transform duration-300 sm:px-8"
+  role="dialog"
+  aria-live="polite"
+  aria-label="Consentement aux cookies"
+>
+  <div class="mx-auto flex max-w-8xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <p class="max-w-2xl font-body text-sm text-ink-soft">
+      Ce site utilise des cookies pour mesurer l'audience et, à terme, afficher des publicités pertinentes. Tu peux
+      accepter ou refuser — ton choix est modifiable à tout moment.
+      <a href="/confidentialite/" class="link-underline text-ink">En savoir plus</a>
+    </p>
+    <div class="flex shrink-0 gap-3">
+      <button
+        id="cookie-decline"
+        class="rounded-md border border-mist-300 px-4 py-2 font-body text-sm text-ink-soft transition-colors hover:border-ink hover:text-ink cursor-pointer"
+      >
+        Refuser
+      </button>
+      <button
+        id="cookie-accept"
+        class="rounded-md bg-ink px-4 py-2 font-body text-sm text-paper transition-colors hover:bg-racing-600 cursor-pointer"
+      >
+        Accepter
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const KEY = "kaido-consent";
+  const banner = document.getElementById("cookie-banner");
+  const accept = document.getElementById("cookie-accept");
+  const decline = document.getElementById("cookie-decline");
+
+  function getConsent(): string | null {
+    try {
+      return localStorage.getItem(KEY);
+    } catch {
+      return null;
+    }
+  }
+
+  function setConsent(value: "granted" | "denied") {
+    try {
+      localStorage.setItem(KEY, value);
+    } catch {
+      /* stockage indisponible (navigation privée...) — on ignore silencieusement */
+    }
+    document.dispatchEvent(new CustomEvent("kaido-consent-change", { detail: value }));
+  }
+
+  if (banner && !getConsent()) {
+    banner.classList.remove("hidden");
+    requestAnimationFrame(() => banner.classList.remove("translate-y-full"));
+  }
+
+  function hideBanner() {
+    banner?.classList.add("translate-y-full");
+    setTimeout(() => banner?.classList.add("hidden"), 300);
+  }
+
+  accept?.addEventListener("click", () => {
+    setConsent("granted");
+    hideBanner();
+  });
+
+  decline?.addEventListener("click", () => {
+    setConsent("denied");
+    hideBanner();
+  });
+</script>

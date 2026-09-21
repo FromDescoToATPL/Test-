@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { SITE_NAME } from "../consts";
+---
+
+<Layout title="Confidentialité & cookies" description="Politique de confidentialité et de gestion des cookies.">
+  <section class="mx-auto max-w-2xl px-5 py-20 sm:px-8">
+    <h1 class="font-display text-3xl font-semibold text-ink sm:text-4xl">Confidentialité &amp; cookies</h1>
+
+    <div class="mt-4 rounded-md border border-dashed border-gold-500/50 bg-gold-400/10 px-4 py-3 font-body text-sm text-ink-soft">
+      <strong class="text-ink">Brouillon à ajuster.</strong> Mets cette page à jour dès que tu actives un service de
+      régie publicitaire (Google AdSense...) ou un outil d'analyse d'audience — chacun impose ses propres mentions
+      (cookies déposés, finalités, durée de conservation, DPO le cas échéant).
+    </div>
+
+    <div class="mt-10 space-y-8 font-body text-sm leading-relaxed text-ink-soft">
+      <div>
+        <h2 class="font-display text-xl font-semibold text-ink">Données collectées</h2>
+        <p class="mt-2">
+          {SITE_NAME} ne demande aucune inscription et ne collecte aucune donnée personnelle en dehors de celles
+          liées à la mesure d'audience et, à terme, à l'affichage de publicités.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-ink">Cookies</h2>
+        <p class="mt-2">
+          Un bandeau te permet d'accepter ou de refuser les cookies non essentiels dès ta première visite. Ton choix
+          est mémorisé dans ton navigateur (stockage local) et n'est jamais transmis ailleurs. Tu peux le modifier à
+          tout moment en effaçant les données de ce site dans ton navigateur.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-ink">Publicité &amp; affiliation</h2>
+        <p class="mt-2">
+          Certains liens du site sont des liens affiliés : ils peuvent générer une commission sans surcoût pour toi.
+          Des emplacements publicitaires sont également prévus sur le site. Aucun script publicitaire tiers n'est
+          chargé tant que le consentement n'a pas été donné.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-ink">Tes droits</h2>
+        <p class="mt-2">
+          Conformément au RGPD, tu disposes d'un droit d'accès, de rectification et de suppression des données te
+          concernant. Pour toute question, contacte [ton email de contact].
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
