@@ -8,7 +8,6 @@ import TipsList from "../components/TipsList.astro";
 import Figure from "../components/Figure.astro";
 import AdSlot from "../components/AdSlot.astro";
 import evoFace from "../assets/photos/tokyo-evo9-face-onlyjdm.jpg";
-import evoArriere from "../assets/photos/tokyo-evo9-arriere-onlyjdm.jpg";
 import { tokyoIntro, tokyoSpots, tokyoParking, tokyoTips } from "../data/tokyo";
 ---
 
@@ -55,15 +54,6 @@ import { tokyoIntro, tokyoSpots, tokyoParking, tokyoTips } from "../data/tokyo";
   </section>
 
   <AdSlot class="py-16" />
-
-  <section class="mx-auto max-w-8xl px-5 py-4 sm:px-8">
-    <Figure
-      image={evoArriere}
-      alt="Vue arrière de la Lancer Evolution IX avec son aileron, devant le garage Only JDM"
-      caption="Devant le garage repéré à Tokyo — aileron imposant et échappement titane, sans complexe."
-      class="mx-auto max-w-3xl"
-    />
-  </section>
 
   <section class="mx-auto max-w-8xl px-5 py-20 sm:px-8">
     <div class="grid gap-16 lg:grid-cols-2">

@@ -1,4 +1,5 @@
 import type { Spot, ParkingTip } from "./types";
+import { withBase } from "../consts";
 
 export const tokyoIntro =
   `Pour les passionnés, Tokyo est la ville de référence.
@@ -16,6 +17,7 @@ export const tokyoSpots: Spot[] = [
       "Repéré pendant le séjour : un garage/atelier spécialisé JDM où trônait cette Lancer Evolution IX gris argent aux côtés d'une GT-R. Le genre d'adresse qui vaut le détour pour n'importe quel passionné.",
     tip: "Ajoute ici l'adresse exacte, les horaires et ton avis sur l'accueil et les prestations.",
     mapsQuery: "",
+    articleHref: withBase("/tokyo/only-jdm/"),
     filled: false,
   },
   {
