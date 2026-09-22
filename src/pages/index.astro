@@ -48,12 +48,6 @@ const guides = [
     icon: "car" as const,
   },
   {
-    label: "Shopping passionné",
-    href: withBase("/shopping/"),
-    description: "Miniatures, vêtements Liberty Walk et pièces : où dépenser son argent avec plaisir.",
-    icon: "shopping-bag" as const,
-  },
-  {
     label: "Conduire au Japon",
     href: withBase("/conduire-au-japon/"),
     description: "Permis international, péages, stationnement : tout pour prendre le volant sereinement.",
@@ -118,10 +112,10 @@ const guides = [
     <SectionHeading
       eyebrow="Guides pratiques"
       title="Au-delà des villes"
-      description="Louer n'est qu'une étape. Voici de quoi acheter, s'équiper et rouler l'esprit tranquille partout au Japon."
+      description="Louer n'est qu'une étape. Voici de quoi rouler l'esprit tranquille partout au Japon."
     />
 
-    <div class="mt-10 grid gap-6 lg:grid-cols-3">
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
       {guides.map((guide) => (
         <a
           href={guide.href}

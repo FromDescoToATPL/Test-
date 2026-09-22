@@ -28,7 +28,6 @@ export const destinationLinks: NavLink[] = [
 
 export const mainNavLinks: NavLink[] = [
   { label: "Louer une voiture", href: withBase("/louer-une-voiture/") },
-  { label: "Shopping", href: withBase("/shopping/") },
   { label: "Conduire au Japon", href: withBase("/conduire-au-japon/") },
   { label: "À propos", href: withBase("/a-propos/") },
 ];
