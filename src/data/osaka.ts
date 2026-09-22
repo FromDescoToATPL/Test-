@@ -1,9 +1,18 @@
 import type { Spot, ParkingTip } from "./types";
 
 export const osakaIntro =
-  "Osaka, c'est l'énergie brute du Japon : Dotonbori qui clignote, une culture street plus décomplexée qu'à Tokyo, et pour les passionnés, quelques adresses culte côté streetwear automobile — Liberty Walk en tête.";
+  "Osaka, c'est l'énergie brute du Japon : Dotonbori qui clignote, une culture street plus décomplexée qu'à Tokyo, des rendez-vous nocturnes de passionnés au coin d'une rue, et quelques adresses culte côté streetwear automobile — Liberty Walk en tête.";
 
 export const osakaSpots: Spot[] = [
+  {
+    name: "Rendez-vous nocturne Roadster / Miata",
+    category: "meetup",
+    area: "À préciser (quartier repéré avec boutiques UGG à proximité)",
+    description:
+      "Une rangée de MX-5/Roadster garées capot ouvert un soir de semaine, propriétaires en train de comparer les préparations : c'est ce genre de rendez-vous informel qui rend Osaka unique pour un passionné.",
+    tip: "Précise le quartier et si c'est un rendez-vous régulier (jour/heure) pour que les lecteurs puissent y aller aussi.",
+    filled: false,
+  },
   {
     name: "Liberty Walk — boutique Osaka",
     category: "shopping",

@@ -5,29 +5,29 @@ import SectionHeading from "../components/SectionHeading.astro";
 import SpotCard from "../components/SpotCard.astro";
 import AdSlot from "../components/AdSlot.astro";
 import heroImg from "../assets/photos/tokyo-evo9-face-onlyjdm.jpg";
-import { achatIntro, achatSpots, achatConseils } from "../data/acheter-une-voiture";
+import { louerIntro, louerSpots, louerConseils } from "../data/louer-une-voiture";
 ---
 
 <Layout
-  title="Acheter une voiture au Japon"
-  description="Auction sheet, export, shaken, négociation : tout ce qu'il faut savoir avant d'acheter une voiture au Japon."
+  title="Louer une voiture au Japon"
+  description="Grandes enseignes, agences spécialisées, assurance, permis international : tout ce qu'il faut savoir avant de louer une voiture au Japon."
 >
   <Hero
     image={heroImg}
     eyebrow="Guide pratique"
-    title="Acheter une voiture au Japon"
-    subtitle="Entre rêve et paperasse : comment repartir avec (ou faire venir) la JDM que tu es venu chercher."
+    title="Louer une voiture au Japon"
+    subtitle="De la gare au garage de passionnés : comment prendre le volant sans mauvaise surprise."
   />
 
   <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
-    <p class="reveal font-body text-lg leading-relaxed text-ink-soft">{achatIntro}</p>
+    <p class="reveal font-body text-lg leading-relaxed text-ink-soft">{louerIntro}</p>
   </section>
 
   <section class="border-t border-mist-200 bg-paper-dim/50 py-20">
     <div class="mx-auto max-w-8xl px-5 sm:px-8">
-      <SectionHeading eyebrow="Bonnes adresses" title="Où j'ai regardé" />
+      <SectionHeading eyebrow="Bonnes adresses" title="Où louer" />
       <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {achatSpots.map((spot) => <SpotCard spot={spot} />)}
+        {louerSpots.map((spot) => <SpotCard spot={spot} />)}
       </div>
     </div>
   </section>
@@ -35,9 +35,9 @@ import { achatIntro, achatSpots, achatConseils } from "../data/acheter-une-voitu
   <AdSlot class="py-16" />
 
   <section class="mx-auto max-w-3xl px-5 py-20 sm:px-8">
-    <SectionHeading eyebrow="Ce qu'il faut savoir" title="Avant de signer" />
+    <SectionHeading eyebrow="Ce qu'il faut savoir" title="Avant de prendre les clés" />
     <div class="mt-10 space-y-10">
-      {achatConseils.map((c) => (
+      {louerConseils.map((c) => (
         <div class="reveal border-l-2 border-racing-500 pl-6">
           <h3 class="font-display text-xl font-semibold text-ink">{c.titre}</h3>
           <p class="mt-2 font-body text-sm leading-relaxed text-ink-soft">{c.texte}</p>

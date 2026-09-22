@@ -10,6 +10,7 @@ import { SITE_NAME, withBase } from "../consts";
 import heroImg from "../assets/photos/fuji-musee-lemans-787b-gtone.jpg";
 import tokyoThumb from "../assets/photos/tokyo-evo9-arriere-onlyjdm.jpg";
 import fujiThumb from "../assets/photos/fuji-corvette-face-brouillard-1.jpg";
+import osakaThumb from "../assets/photos/osaka-meetup-mx5-nuit.jpg";
 import shoppingThumb from "../assets/photos/shopping-voitures-miniatures.jpg";
 
 const destinations = [
@@ -29,7 +30,7 @@ const destinations = [
     name: "Osaka",
     href: withBase("/osaka/"),
     description: "L'énergie street du Kansai et les boutiques cultes du tuning japonais.",
-    image: null,
+    image: osakaThumb,
   },
   {
     name: "Kyoto",
@@ -41,10 +42,10 @@ const destinations = [
 
 const guides = [
   {
-    label: "Acheter une voiture",
-    href: withBase("/acheter-une-voiture/"),
-    description: "Auction sheets, export, shaken : comment acheter une JDM au Japon sans mauvaise surprise.",
-    icon: "tag" as const,
+    label: "Louer une voiture",
+    href: withBase("/louer-une-voiture/"),
+    description: "Grandes enseignes, agences spécialisées, assurance : comment louer une voiture au Japon sereinement.",
+    icon: "car" as const,
   },
   {
     label: "Shopping passionné",

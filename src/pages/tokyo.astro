@@ -7,7 +7,6 @@ import ParkingGrid from "../components/ParkingGrid.astro";
 import TipsList from "../components/TipsList.astro";
 import Figure from "../components/Figure.astro";
 import AdSlot from "../components/AdSlot.astro";
-import heroImg from "../assets/photos/tokyo-meetup-mx5-nuit.jpg";
 import evoFace from "../assets/photos/tokyo-evo9-face-onlyjdm.jpg";
 import evoArriere from "../assets/photos/tokyo-evo9-arriere-onlyjdm.jpg";
 import { tokyoIntro, tokyoSpots, tokyoParking, tokyoTips } from "../data/tokyo";
@@ -18,10 +17,10 @@ import { tokyoIntro, tokyoSpots, tokyoParking, tokyoTips } from "../data/tokyo";
   description="Garages JDM, rendez-vous nocturnes et stationnement : le guide du passionné d'automobile à Tokyo."
 >
   <Hero
-    image={heroImg}
     eyebrow="Destination"
     title="Tokyo"
     subtitle="La mégapole où la passion automobile s'exhibe à ciel ouvert, des avenues de Roppongi aux garages de quartier."
+    compact
   />
 
   <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">

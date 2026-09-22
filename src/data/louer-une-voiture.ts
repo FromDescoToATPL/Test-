@@ -1,0 +1,48 @@
+import type { Spot } from "./types";
+
+export const louerIntro =
+  "Louer une voiture, c'est la meilleure façon de sortir des sentiers battus au Japon : routes de montagne, spots isolés, garages de passionnés que les transports en commun n'atteignent pas. Voici les bonnes adresses et ce qu'il faut vérifier avant de prendre les clés.";
+
+export const louerSpots: Spot[] = [
+  {
+    name: "Grandes enseignes nationales",
+    category: "location",
+    area: "Gares et aéroports, partout au Japon",
+    description:
+      "Toyota Rent a Car, Nissan Rent a Car, ORIX Rent a Car, Times Car Rental, Nippon Rent-A-Car : les réseaux les plus simples pour un premier passage, comptoirs en anglais dans la plupart des gares et aéroports.",
+    tip: "Réserve en ligne avant de partir — les modèles populaires (et les rares sportives du parc) partent vite en haute saison.",
+    filled: true,
+  },
+  {
+    name: "Agences spécialisées sportives / JDM",
+    category: "location",
+    area: "À préciser",
+    description:
+      "Au-delà des grandes enseignes, quelques agences locales proposent des sportives à louer à la journée (voir la Corvette C7 à Kawaguchiko sur la page Mont Fuji). D'autres adresses de ce genre à découvrir et ajouter ici.",
+    tip: "Ajoute les agences repérées en dehors de Kawaguchiko : ville, modèles proposés, tarifs, conditions.",
+    filled: false,
+  },
+];
+
+export const louerConseils: { titre: string; texte: string }[] = [
+  {
+    titre: "Permis international obligatoire",
+    texte:
+      "Le permis français seul ne suffit pas : il faut un Permis de Conduire International (convention de Genève 1949) à présenter avec ton permis national. Détails complets sur la page Conduire au Japon.",
+  },
+  {
+    titre: "Assurance et franchise",
+    texte:
+      "L'assurance de base (incluse) couvre les dommages mais laisse souvent une franchise élevée en cas d'accident. Une assurance complémentaire (CDW/franchise réduite) proposée au comptoir coûte quelques milliers de yens par jour et vaut largement le coût sur routes de montagne inconnues.",
+  },
+  {
+    titre: "Âge et ancienneté de permis",
+    texte:
+      "La plupart des loueurs exigent au moins 21 ans et 1 an de permis ; les agences spécialisées sportives montent parfois la barre plus haut (25 ans, 2-3 ans de permis). Vérifie les conditions exactes avant de réserver.",
+  },
+  {
+    titre: "État des lieux et options utiles",
+    texte:
+      "Fais le tour du véhicule et prends des photos avant de partir, comme partout ailleurs. Demande la carte ETC (télépéage) et le GPS en anglais dès la réservation — les deux simplifient énormément la conduite sur autoroute.",
+  },
+];

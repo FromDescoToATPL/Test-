@@ -15,15 +15,6 @@ export const tokyoSpots: Spot[] = [
     filled: false,
   },
   {
-    name: "Rendez-vous nocturne Roadster / Miata",
-    category: "meetup",
-    area: "À préciser (quartier repéré avec boutiques UGG à proximité)",
-    description:
-      "Une rangée de MX-5/Roadster garées capot ouvert un soir de semaine, propriétaires en train de comparer les préparations : c'est ce genre de rendez-vous informel qui rend Tokyo unique pour un passionné.",
-    tip: "Précise le quartier et si c'est un rendez-vous régulier (jour/heure) pour que les lecteurs puissent y aller aussi.",
-    filled: false,
-  },
-  {
     name: "Daikoku Futo PA",
     category: "meetup",
     area: "Yokohama (accessible en voiture depuis Tokyo par la Bayshore Route)",

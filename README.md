@@ -1,7 +1,7 @@
-# Kaidō — guide JDM & passion automobile au Japon
+# Kaido — guide JDM & passion automobile au Japon
 
 Site éditorial (Astro + Tailwind CSS v4) : guide du passionné d'automobile au Japon — Tokyo, Mont Fuji, Osaka, Kyoto,
-achat de voiture, shopping et conduite sur place. Contenu statique, pensé pour la monétisation (pub + affiliation)
+location de voiture, shopping et conduite sur place. Contenu statique, pensé pour la monétisation (pub + affiliation)
 sans sacrifier la vitesse ni la sobriété visuelle.
 
 ## Démarrer
@@ -55,10 +55,15 @@ Passe `filled: true` dès que l'adresse est complète (adresse réelle, avis ré
 - [ ] Vérifier `AUTHOR_NAME` dans [src/consts.ts](src/consts.ts)
 - [ ] Brancher un vrai service de pub (AdSense...) dans [AdSlot.astro](src/components/AdSlot.astro) et mettre à jour
       la politique de confidentialité en conséquence
-- [ ] Ajouter les vraies photos Osaka / Kyoto (héros actuellement sans photo)
+- [ ] Ajouter une vraie photo de couverture pour Kyoto (héros actuellement sans photo — Osaka en a une depuis le déplacement de la photo MX-5)
 - [ ] Vérifier le nom exact et les horaires du musée du sport automobile près de Fuji Speedway avant publication
 
 ## Déploiement
 
-Site 100% statique (`output: "static"`) — compatible Vercel, Netlify, Cloudflare Pages ou GitHub Pages sans config
-particulière (build command `npm run build`, dossier de sortie `dist/`).
+Site 100% statique (`output: "static"`), déployé automatiquement à chaque push sur `main` à deux endroits :
+
+- **Vercel** (production) — projet "test-le-pilote", build zéro-config.
+- **GitHub Pages** (miroir) — via [.github/workflows/deploy-pages.yml](.github/workflows/deploy-pages.yml), servi sous
+  `/Test-/`. Le `base` d'Astro s'adapte automatiquement (`astro.config.mjs`, variable `GITHUB_ACTIONS`) et ce miroir
+  passe en `noindex` pour ne pas dupliquer le contenu indexé par Google — voir `withBase()` dans
+  [src/consts.ts](src/consts.ts), à utiliser pour tout nouveau lien interne.
