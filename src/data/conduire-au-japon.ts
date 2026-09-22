@@ -13,8 +13,8 @@ export const conduireSections: DriveSection[] = [
     eyebrow: "Étape 1",
     title: "Le permis de conduire international",
     paragraphs: [
-      "Le Japon reconnaît la Convention de Genève de 1949 : un permis français seul ne suffit pas, il faut un Permis de Conduire International (PCI) à présenter avec ton permis national.",
-      "En France, le PCI se demande en ligne via l'ANTS (Agence Nationale des Titres Sécurisés) ou en préfecture. C'est gratuit, mais compte plusieurs semaines de délai — à anticiper bien avant le départ.",
+      "Le Japon reconnaît la Convention de Genève de 1949 : un permis français seul ne suffit pas, il faut un Permis de Conduire International (PCI) ou faire une demande de translation auprès de la JAF (meilleure solution).",
+      "Qu'est ce qu'est la JAF ? C'est la Japan Automobile Federation. Avant d'arriver au japon ou pendant votre voyage, vous devez soumettre votre demande. J'ai quelques tips pour vous permettre de le faire avant d'arriver au japon :)",
     ],
     bullets: [
       "Le PCI seul ne vaut rien : garde toujours ton permis français avec toi.",
