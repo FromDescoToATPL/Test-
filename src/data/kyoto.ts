@@ -1,4 +1,5 @@
 import type { Spot, ParkingTip } from "./types";
+import { withBase } from "../consts";
 
 export const kyotoIntro =
   "Kyoto surprend : entre les temples et les jardins zen se cachent quelques repaires de passionnés parmi les plus respectés du pays. A-PIT Auto y tient sa place de référence, et Liberty Walk n'est jamais bien loin.";
@@ -10,7 +11,8 @@ export const kyotoSpots: Spot[] = [
     area: "À préciser",
     description:
       "Le temple des passionnés à Kyoto. Pièces, préparations, ambiance atelier — une adresse qui revient systématiquement dans la bouche des amateurs de JDM en visite dans la région du Kansai.",
-    tip: "Ajoute l'adresse, tes photos sur place, ce que tu y as vu ou acheté, et ton avis sur l'accueil.",
+    tip: "Ajoute l'adresse, ce que tu y as vu ou acheté, et ton avis sur l'accueil.",
+    articleHref: withBase("/kyoto/a-pit-auto/"),
     filled: false,
   },
   {

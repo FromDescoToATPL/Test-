@@ -86,4 +86,14 @@ const categoryLabel: Record<Spot["category"], string> = {
       <Icon name="external-link" class="h-3.5 w-3.5" />
     </a>
   )}
+
+  {spot.articleHref && (
+    <a
+      href={spot.articleHref}
+      class="link-underline mt-4 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+    >
+      Lire l'article
+      <Icon name="arrow-right" class="h-3.5 w-3.5" />
+    </a>
+  )}
 </article>

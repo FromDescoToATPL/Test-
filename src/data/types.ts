@@ -18,6 +18,8 @@ export interface Spot {
   priceRange?: string;
   mapsQuery?: string;
   website?: string;
+  /** Lien interne vers un article dédié (ex. "/kyoto/a-pit-auto/") pour les adresses qui ont assez de matière pour leur propre page. */
+  articleHref?: string;
   /** true = entrée rédigée par Clément ; false = emplacement prêt à compléter */
   filled: boolean;
 }
