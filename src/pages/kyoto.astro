@@ -5,7 +5,12 @@ import SectionHeading from "../components/SectionHeading.astro";
 import SpotCard from "../components/SpotCard.astro";
 import ParkingGrid from "../components/ParkingGrid.astro";
 import TipsList from "../components/TipsList.astro";
+import Figure from "../components/Figure.astro";
 import AdSlot from "../components/AdSlot.astro";
+import heroImg from "../assets/photos/kyoto-apit-auto-mur-volants.jpg";
+import apitEchappements from "../assets/photos/kyoto-apit-auto-echappements.jpg";
+import apitLibertyWalk from "../assets/photos/kyoto-apit-auto-liberty-walk.jpg";
+import apitMiniatures from "../assets/photos/kyoto-apit-auto-miniatures.jpg";
 import { kyotoIntro, kyotoSpots, kyotoParking, kyotoTips } from "../data/kyoto";
 ---
 
@@ -14,16 +19,16 @@ import { kyotoIntro, kyotoSpots, kyotoParking, kyotoTips } from "../data/kyoto";
   description="A-PIT Auto, Liberty Walk et stationnement près des temples : le guide du passionné d'automobile à Kyoto."
 >
   <Hero
+    image={heroImg}
     eyebrow="Destination"
     title="Kyoto"
     subtitle="Entre les temples, quelques-unes des adresses les plus respectées du milieu JDM au Japon."
-    compact
   />
 
   <section class="mx-auto max-w-4xl px-5 py-16 sm:px-8">
     <p class="reveal font-body text-lg leading-relaxed text-ink-soft">{kyotoIntro}</p>
     <p class="reveal mt-4 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
-      Page en cours de complétion — les photos d'A-PIT Auto et de Liberty Walk Kyoto arrivent bientôt.
+      Page en cours de complétion — adresse exacte et avis détaillé à venir.
     </p>
   </section>
 
@@ -31,6 +36,26 @@ import { kyotoIntro, kyotoSpots, kyotoParking, kyotoTips } from "../data/kyoto";
     <SectionHeading eyebrow="Bonnes adresses" title="Le temple des passionnés" />
     <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {kyotoSpots.map((spot) => <SpotCard spot={spot} />)}
+    </div>
+    <div class="mt-6 grid grid-cols-3 gap-4">
+      <Figure
+        image={apitEchappements}
+        alt="Mur d'échappements et de suspensions VIITS, HKS et BLITZ chez A-PIT Auto Kyoto"
+        caption="Le rayon préparation, chez A-PIT Auto Kyoto."
+        aspectClass="aspect-[3/4]"
+      />
+      <Figure
+        image={apitLibertyWalk}
+        alt="Rayon de miniatures Mini GT Liberty Walk chez A-PIT Auto Kyoto"
+        caption="Le rayon Liberty Walk, chez A-PIT Auto Kyoto."
+        aspectClass="aspect-[3/4]"
+      />
+      <Figure
+        image={apitMiniatures}
+        alt="Étagères de voitures miniatures au 1/43 chez A-PIT Auto Kyoto"
+        caption="Le rayon miniatures, chez A-PIT Auto Kyoto."
+        aspectClass="aspect-[3/4]"
+      />
     </div>
   </section>
 
