@@ -1,7 +1,7 @@
 import type { Spot } from "./types";
 
 export const louerIntro =
-  "Louer une voiture, c'est la meilleure façon de sortir des sentiers battus au Japon : routes de montagne, spots isolés, garages de passionnés que les transports en commun n'atteignent pas. Voici les bonnes adresses et ce qu'il faut vérifier avant de prendre les clés.";
+  "Louer une voiture, c'est la meilleure façon de sortir de découvrir les villes d'une autre façon : routes de montagne, spots isolés, garages de passionnés que les transports en commun n'atteignent pas. Voici les bonnes adresses et ce qu'il faut vérifier avant de prendre les clés.";
 
 export const louerSpots: Spot[] = [
   {
