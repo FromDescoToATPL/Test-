@@ -57,6 +57,32 @@
   --container-8xl: 90rem;
 }
 
+/* Transition douce entre les pages (View Transitions natives, sans JS).
+   Le header reste en place au lieu de clignoter pendant le fondu.
+   Ignoré par les navigateurs qui ne le supportent pas : la navigation
+   reste alors parfaitement normale — pure amélioration progressive. */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.22s;
+  animation-timing-function: ease;
+}
+
+header {
+  view-transition-name: site-header;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
