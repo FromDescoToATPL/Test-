@@ -27,6 +27,30 @@ export const tokyoSpots: Spot[] = [
     tip: "Ambiance très variable selon les soirs — privilégie vendredi/samedi soir. Reste respectueux : c'est une aire ouverte à tous, pas un événement organisé.",
     filled: true,
   },
+  {
+    name: "Agence de location — à préciser",
+    category: "location",
+    area: "À préciser",
+    description: "L'agence où tu as récupéré ton Evo9 GSR (voir la section Rencontre plus haut) — ou une autre adresse repérée à Tokyo.",
+    tip: "Ajoute le nom de l'agence, l'adresse, les modèles disponibles et ton avis sur le processus de réservation.",
+    filled: false,
+  },
+  {
+    name: "Boutique de miniatures — à préciser",
+    category: "shopping",
+    area: "À préciser",
+    description: "Une échoppe repérée à Tokyo pour les miniatures JDM au 1/43 ou 1/64.",
+    tip: "Ajoute le nom de la boutique, le quartier, les marques disponibles et les prix observés.",
+    filled: false,
+  },
+  {
+    name: "Boutique de vêtements — à préciser",
+    category: "shopping",
+    area: "À préciser",
+    description: "Une adresse streetwear/JDM repérée à Tokyo pour ramener autre chose qu'un aimant de frigo.",
+    tip: "Ajoute le nom de la boutique, l'adresse et ce que tu y as trouvé.",
+    filled: false,
+  },
 ];
 
 export const tokyoParking: ParkingTip[] = [
