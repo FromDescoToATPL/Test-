@@ -17,8 +17,7 @@ export const conduireSections: DriveSection[] = [
       "Qu'est ce qu'est la JAF ? C'est la Japan Automobile Federation. Avant d'arriver au japon ou pendant votre voyage, vous devez soumettre votre demande sur ce site. J'ai quelques tips pour vous permettre de le faire avant d'arriver au japon, car les réservations des voitures peuvent partir très vite et mieux vaut s'y prendre à l'avance :)",
     ],
     bullets: [
-      "Le PCI seul ne vaut rien : garde toujours ton permis français avec toi.",
-      "Valable 3 ans à compter de sa délivrance (ou la durée de validité du permis national si elle est plus courte).",
+      "Durée de validité de la JAF : 1 ans à compter de l'émission du papier. ",
     ],
   },
   {
