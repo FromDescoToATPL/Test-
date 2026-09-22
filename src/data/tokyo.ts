@@ -1,11 +1,11 @@
 import type { Spot, ParkingTip } from "./types";
 
 export const tokyoIntro =
-  "Pour les passionnés, Tokyo est la ville de référence. 
+  `Pour les passionnés, Tokyo est la ville de référence.
 Les voitures tunés à chaque quartier et leur vrombissement ne vont pas vous laisser indifférent.
 De Shinjuku à Shibuya passant par la Tokyo Tower, il est difficile de ne pas les apercevoir.
 Souvent aligné sur le bord de la route, vous pouvez également les retrouver sur l'autoroute et de nombreux rassemblement comme à Daikoku ou même Umihotaru PA.
-Sans parler des différents magasins portant sur l'automobile, des agences de locations pour réserver et conduire votre meilleure JDM. Où Louer, où acheter ?  Je vous explique tout ici ! ";
+Sans parler des différents magasins portant sur l'automobile, des agences de locations pour réserver et conduire votre meilleure JDM. Où Louer, où acheter ?  Je vous explique tout ici ! `;
 
 export const tokyoSpots: Spot[] = [
   {
