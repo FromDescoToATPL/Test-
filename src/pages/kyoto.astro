@@ -8,9 +8,7 @@ import TipsList from "../components/TipsList.astro";
 import Figure from "../components/Figure.astro";
 import AdSlot from "../components/AdSlot.astro";
 import heroImg from "../assets/photos/kyoto-apit-auto-mur-volants.jpg";
-import apitEchappements from "../assets/photos/kyoto-apit-auto-echappements.jpg";
-import apitLibertyWalk from "../assets/photos/kyoto-apit-auto-liberty-walk.jpg";
-import apitMiniatures from "../assets/photos/kyoto-apit-auto-miniatures.jpg";
+import apitInterieur from "../assets/photos/kyoto-apit-auto-interieur.jpg";
 import { kyotoIntro, kyotoSpots, kyotoParking, kyotoTips } from "../data/kyoto";
 ---
 
@@ -37,26 +35,13 @@ import { kyotoIntro, kyotoSpots, kyotoParking, kyotoTips } from "../data/kyoto";
     <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {kyotoSpots.map((spot) => <SpotCard spot={spot} />)}
     </div>
-    <div class="mt-6 grid grid-cols-3 gap-4">
-      <Figure
-        image={apitEchappements}
-        alt="Mur d'échappements et de suspensions VIITS, HKS et BLITZ chez A-PIT Auto Kyoto"
-        caption="Le rayon préparation, chez A-PIT Auto Kyoto."
-        aspectClass="aspect-[3/4]"
-      />
-      <Figure
-        image={apitLibertyWalk}
-        alt="Rayon de miniatures Mini GT Liberty Walk chez A-PIT Auto Kyoto"
-        caption="Le rayon Liberty Walk, chez A-PIT Auto Kyoto."
-        aspectClass="aspect-[3/4]"
-      />
-      <Figure
-        image={apitMiniatures}
-        alt="Étagères de voitures miniatures au 1/43 chez A-PIT Auto Kyoto"
-        caption="Le rayon miniatures, chez A-PIT Auto Kyoto."
-        aspectClass="aspect-[3/4]"
-      />
-    </div>
+    <Figure
+      image={apitInterieur}
+      alt="Intérieur d'A-PIT Auto Kyoto, sous verrière, avec rayons vêtements, pièces et un Starbucks intégré"
+      caption="L'intérieur d'A-PIT Auto Kyoto — pièces, vêtements, miniatures et même un Starbucks sur place."
+      class="mx-auto mt-6 max-w-4xl"
+      aspectClass="aspect-[16/9]"
+    />
   </section>
 
   <AdSlot class="py-16" />
