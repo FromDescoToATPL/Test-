@@ -7,12 +7,14 @@ interface Props {
   alt: string;
   caption?: string;
   class?: string;
+  /** Contraint l'image à un ratio fixe (ex. "aspect-[3/4]") pour aligner plusieurs photos entre elles. Sans ça, l'image garde sa hauteur naturelle. */
+  aspectClass?: string;
 }
-const { image, alt, caption, class: className = "" } = Astro.props;
+const { image, alt, caption, class: className = "", aspectClass = "" } = Astro.props;
 ---
 
 <figure class:list={["reveal", className]}>
-  <div class="overflow-hidden rounded-lg">
+  <div class:list={["overflow-hidden rounded-lg", aspectClass]}>
     <Image
       src={image}
       alt={alt}

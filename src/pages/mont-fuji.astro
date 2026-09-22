@@ -8,7 +8,6 @@ import TipsList from "../components/TipsList.astro";
 import Figure from "../components/Figure.astro";
 import AffiliateDisclosure from "../components/AffiliateDisclosure.astro";
 import AdSlot from "../components/AdSlot.astro";
-import { Image } from "astro:assets";
 
 import heroImg from "../assets/photos/fuji-musee-escaliers.jpg";
 import corvetteInterieur from "../assets/photos/fuji-corvette-interieur-pluie.jpg";
@@ -41,34 +40,27 @@ const otherSpots = fujiSpots.filter((s) => s.category !== "location");
 
   <section class="mx-auto max-w-8xl px-5 py-16 sm:px-8">
     <SectionHeading eyebrow="Location" title="Prendre le volant à Fuji" />
-    <div class="mt-10 grid gap-6 lg:grid-cols-3">
+    <div class="mt-10 grid gap-6 lg:grid-cols-3 lg:items-start">
       {locationSpots.map((spot) => <SpotCard spot={spot} />)}
-      <div class="lg:col-span-2 grid grid-cols-2 gap-4">
+      <div class="grid grid-cols-2 gap-4 lg:col-span-2">
         <Figure
           image={corvette1}
           alt="Corvette C7 blanche à l'arrêt dans le brouillard près de Kawaguchiko"
-          class="col-span-1"
+          aspectClass="aspect-[3/4]"
         />
         <Figure
           image={corvette2}
           alt="Corvette C7 blanche vue de face dans le brouillard, plaque Fuji"
-          class="col-span-1"
+          aspectClass="aspect-[3/4]"
+        />
+        <Figure
+          image={corvetteInterieur}
+          alt="Vue depuis l'habitacle d'une Corvette C7 sous la pluie, route de montagne près du Fuji"
+          caption="Pluie, brouillard, routes qui grimpent — conduire au pied du Fuji est une expérience à part entière, même (surtout) quand la montagne se cache."
+          class="col-span-2"
+          aspectClass="aspect-[16/9]"
         />
       </div>
-    </div>
-
-    <div class="reveal mt-10 overflow-hidden rounded-lg">
-      <Image
-        src={corvetteInterieur}
-        alt="Vue depuis l'habitacle d'une Corvette C7 sous la pluie, route de montagne près du Fuji"
-        class="h-full max-h-[420px] w-full object-cover"
-        widths={[800, 1400, 2000]}
-        sizes="100vw"
-      />
-      <p class="mt-2 font-body text-xs text-mist-500">
-        Pluie, brouillard, routes qui grimpent — conduire au pied du Fuji est une expérience à part entière, même
-        (surtout) quand la montagne se cache.
-      </p>
     </div>
   </section>
 
