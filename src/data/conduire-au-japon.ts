@@ -1,8 +1,18 @@
+export interface DriveOption {
+  title: string;
+  badge: string;
+  paragraphs: string[];
+  link?: { label: string; href: string };
+}
+
 export interface DriveSection {
   eyebrow: string;
   title: string;
   paragraphs: string[];
   bullets?: string[];
+  optionsIntro?: string;
+  optionsLink?: { label: string; href: string };
+  options?: DriveOption[];
 }
 
 export const conduireIntro =
@@ -18,6 +28,48 @@ export const conduireSections: DriveSection[] = [
     ],
     bullets: [
       "Durée de validité de la JAF : 1 ans à compter de l'émission du papier. ",
+    ],
+    optionsIntro: "Voici les différentes possibilités afin de demander sa translation.",
+    optionsLink: { label: "english.jaf.or.jp/driving-in-japan", href: "https://english.jaf.or.jp/driving-in-japan" },
+    options: [
+      {
+        title: "Être au Japon",
+        badge: "Facile",
+        paragraphs: [
+          "Le site de la JAF n'est accessible que si vous êtes dans le pays, sous VPN comme Proton ou Ghost, le site bloque directement et il n'est pas possible de prévoir ça avec un VPN «classique» (et je sais pourquoi je vous en parle !).",
+          "Si vous avez décidé de rester longtemps dans une ville, c'est sûrement la méthode la plus simple à faire. Pas de stress ! Une fois arrivé au pays, vous remplissez les informations que l'on vous demande à savoir votre permis de conduire, des informations personnelles etc. et ensuite vous avez 2 choix de paiement :",
+          "1. Vous payez en ligne directement, vous attendez maximum 1 jour et le site vous fournira un numéro de référence afin d'aller imprimer votre translation directement dans un 7-Eleven ou un autre magasin que vous avez choisi.",
+          "2. Vous payez sur place directement. Cependant attention ! Si vous payez sur place, il faudra tout de même attendre un petit délai pour que la JAF autorise votre translation.",
+          "C'est-à-dire : vous avez loué une voiture pour le mardi. Vous allez au 7-Eleven pour payer votre document, il peut arriver que l'on vous donne le numéro de référence le lendemain, ce qui peut être juste si vous avez loué une voiture pour quelques heures ou la journée.",
+          "Tant que vous ne payez pas, le dossier est mis en «standby», alors bien anticiper au moment où vous arrivez dans le pays et au moment où vous avez ce temps libre pour faire la JAF et récupérer votre voiture.",
+        ],
+      },
+      {
+        title: "Faire la JAF avec un intermédiaire",
+        badge: "Facile",
+        paragraphs: [
+          "Une autre possibilité plus coûteuse mais plus simple. Il existe des organismes sur place comme DrivinJapan qui font le dossier à votre place et qui vous donnent la translation. Cependant, cela peut coûter 2x plus cher. Il faut compter en moyenne entre 50-60€ pour faire cette démarche contre 20€ sur le site de la JAF.",
+          "Je pense que cette démarche est intéressante si vous voulez louer une voiture rapidement et être sûr d'avoir cette translation.",
+          "Les agences de location de JDM peuvent être complètes parfois plusieurs jours voire semaines à l'avance. Donc si vous attendez d'arriver dans le pays pour louer une JDM ou une autre voiture très prisée, il sera sûrement trop tard.",
+          "Il faut vraiment anticiper. Si dépenser plus ne vous dérange pas, c'est probablement la meilleure méthode pour vous.",
+        ],
+      },
+      {
+        title: "Installer un VPN japonais",
+        badge: "Difficile",
+        paragraphs: [
+          "C'est la méthode que j'ai choisie. Je le reconnais, ce n'est pas la plus simple mais c'était aussi la moins coûteuse.",
+          "Je conçois que cette méthode n'est pas pour tout le monde, mais elle permet d'avoir sa translation rapidement, pas cher et sans stress.",
+          "Voici le VPN à installer, fiable et sans virus. Le VPN a été conçu par des Japonais dans le but d'aider les étrangers à utiliser les services du pays à l'étranger.",
+          "Une fois installé et connecté au serveur, vous pourrez accéder facilement au site de la JAF, en japonais :)",
+          "Utilisez un traducteur pour faire cette démarche.",
+          "C'était la première fois que j'allais au Japon, et avant de dépenser et réserver une voiture qui coûtait un certain prix pour un jour, je voulais absolument avoir la JAF avant d'arriver sur le territoire à moindre coût.",
+          "Une fois arrivé à la fin du formulaire, on vous demande soit de payer en ligne (environ 20€) soit de payer dans un 7-Eleven. Il faut absolument payer en ligne sinon le dossier sera mis en attente.",
+          "1 jour après, on vous donnera votre code pour imprimer votre translation.",
+          "À noter : le code pour imprimer n'est valide qu'une semaine. Après ça, il faudra repartir sur la JAF et redemander un code. Cela prend environ 30 minutes et vous pourrez avoir votre translation.",
+        ],
+        link: { label: "vpngate.net/en/howto_softether.aspx", href: "https://www.vpngate.net/en/howto_softether.aspx" },
+      },
     ],
   },
   {

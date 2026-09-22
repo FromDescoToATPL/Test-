@@ -41,6 +41,50 @@ import { conduireIntro, conduireSections } from "../data/conduire-au-japon";
                 ))}
               </ul>
             )}
+            {section.optionsIntro && (
+              <div class="mt-8">
+                <p class="font-body text-sm leading-relaxed text-ink-soft">{section.optionsIntro}</p>
+                {section.optionsLink && (
+                  <a
+                    href={section.optionsLink.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-underline mt-1 inline-block font-body text-sm font-medium text-racing-500"
+                  >
+                    {section.optionsLink.label}
+                  </a>
+                )}
+              </div>
+            )}
+            {section.options && (
+              <div class="mt-6 space-y-6">
+                {section.options.map((opt) => (
+                  <div class="rounded-lg border border-mist-200 bg-paper-dim/40 p-5">
+                    <div class="flex flex-wrap items-center gap-2.5">
+                      <h3 class="font-display text-lg font-semibold text-ink">{opt.title}</h3>
+                      <span class={`rounded-full px-2.5 py-0.5 font-body text-[11px] font-medium ${opt.badge === "Difficile" ? "bg-racing-500/10 text-racing-600" : "bg-gold-400/25 text-gold-700"}`}>
+                        {opt.badge}
+                      </span>
+                    </div>
+                    <div class="mt-3 space-y-3">
+                      {opt.paragraphs.map((p) => (
+                        <p class="font-body text-sm leading-relaxed text-ink-soft">{p}</p>
+                      ))}
+                    </div>
+                    {opt.link && (
+                      <a
+                        href={opt.link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="link-underline mt-3 inline-block font-body text-sm font-medium text-racing-500"
+                      >
+                        {opt.link.label}
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
           {i === 2 && <AdSlot />}
         </>
