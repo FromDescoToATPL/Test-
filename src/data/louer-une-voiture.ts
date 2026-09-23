@@ -26,9 +26,9 @@ export const louerSpots: Spot[] = [
 
 export const louerConseils: { titre: string; texte: string }[] = [
   {
-    titre: "Permis international obligatoire",
+    titre: "Permis international ou translation",
     texte:
-      "Le permis français seul ne suffit pas : il faut un Permis de Conduire International (convention de Genève 1949) à présenter avec ton permis national. Détails complets sur la page Conduire au Japon.",
+      "Le permis français seul ne suffit pas : il faut un Permis de Conduire International (convention de Genève 1949) à présenter avec ton permis national ou faire une demande de translation. Détails complets sur la page Conduire au Japon.",
   },
   {
     titre: "Assurance et franchise",
