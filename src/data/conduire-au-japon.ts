@@ -16,7 +16,7 @@ export interface DriveSection {
 }
 
 export const conduireIntro =
-  `Conduire au japon en tant que passionné automobile est vraiment un impératif ! Tout le monde rêve de pouvoir conduire une JDM  modifiée dans les rues de tokyo et faire des kilomètres à shutoko ou même participer aux rassemblements de voitures.
+  `Conduire au japon en tant que passionné automobile est vraiment un impératif ! Tout le monde rêve de pouvoir conduire une JDM  modifiée dans les rues de tokyo et faire des kilomètres à shutoko ou même participer aux rassemblements.
 Cela vous permettra également de rejoindre des zones de chaque ville encore inexploré et moins dans le côté touristique.
 Alors oui, conduire à tokyo n'est pas facile au premier abord mais on s'y fait vite et les japonais sont vraiment très calme. pas de quoi s'inquiéter !
 Dans ce guide, je vais vous donner les différentes étapes pour conduire au japon.`;
