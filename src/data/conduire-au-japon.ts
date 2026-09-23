@@ -31,7 +31,7 @@ export const conduireSections: DriveSection[] = [
     title: "Le permis de conduire international",
     paragraphs: [
       "Le Japon reconnaît la Convention de Genève de 1949 : un permis français seul ne suffit pas, il faut un Permis de Conduire International (PCI) ou faire une demande de translation de votre permis Français auprès de la JAF (meilleure solution).",
-      "Qu'est ce qu'est la JAF ? C'est la Japan Automobile Federation. C'est une mesure pour certains pays qui consiste à outre passer la demande de permis international et pouvoir conduire facilement au japon. Voyez ça comme un document temporaire. Avant votre voyage au japon ou pendant, vous devez soumettre votre demande sur ce site. J'ai quelques tips pour vous permettre de le faire avant d'arriver au japon, car les réservations des voitures peuvent partir très vite et mieux vaut s'y prendre à l'avance :)",
+      "Qu'est ce qu'est la JAF ? C'est la Japan Automobile Federation. C'est une mesure pour certains pays qui consiste à outre passer la demande de permis international et pouvoir conduire facilement au japon. Voyez ça comme un document temporaire. Avant votre voyage au japon ou pendant, vous devez soumettre votre demande sur ce site. J'ai quelques tips qui vont vous permettre de le faire avant d'arriver au japon, car les réservations des voitures peuvent partir très vite et mieux vaut s'y prendre à l'avance :)",
     ],
     bullets: [
       "Durée de validité de la JAF : 1 ans à compter de l'émission du papier. ",
