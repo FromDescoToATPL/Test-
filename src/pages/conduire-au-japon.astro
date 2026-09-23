@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import AdSlot from "../components/AdSlot.astro";
+import Icon from "../components/Icon.astro";
 import heroImg from "../assets/photos/fuji-corvette-interieur-pluie.jpg";
 import { conduireIntro, conduireSections } from "../data/conduire-au-japon";
 ---
@@ -40,6 +41,15 @@ import { conduireIntro, conduireSections } from "../data/conduire-au-japon";
                   <li class="font-body text-sm leading-relaxed text-ink-soft">{b}</li>
                 ))}
               </ul>
+            )}
+            {section.moreInfo && (
+              <a
+                href={section.moreInfo.href}
+                class="link-underline mt-5 inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink"
+              >
+                {section.moreInfo.label}
+                <Icon name="arrow-right" class="h-3.5 w-3.5" />
+              </a>
             )}
             {section.optionsIntro && (
               <div class="mt-8">

@@ -1,3 +1,5 @@
+import { withBase } from "../consts";
+
 export interface DriveOption {
   title: string;
   badge: string;
@@ -13,6 +15,8 @@ export interface DriveSection {
   optionsIntro?: string;
   optionsLink?: { label: string; href: string };
   options?: DriveOption[];
+  /** Pointeur interne vers une autre page du site qui traite le sujet en détail (évite les doublons entre guides). */
+  moreInfo?: { label: string; href: string };
 }
 
 export const conduireIntro =
@@ -79,13 +83,9 @@ export const conduireSections: DriveSection[] = [
     eyebrow: "Étape 2",
     title: "Louer une voiture",
     paragraphs: [
-      "Les grandes enseignes (Toyota Rent a Car, Nissan Rent a Car, ORIX, Times Car Rental, Nippon Rent-A-Car) ont des comptoirs dans la plupart des gares et aéroports, avec interface en anglais. Pour du plus exclusif (sportives, JDM), des agences spécialisées existent dans les zones touristiques comme Kawaguchiko.",
-      "L'âge minimum tourne généralement autour de 21 ans avec au moins 1 an de permis — vérifie les conditions exactes de l'agence choisie.",
+      "Pas de road trip sans voiture. Grandes enseignes ou agences spécialisées JDM, âge minimum, assurance, carte ETC... tout ce qu'il faut vérifier avant de réserver est détaillé sur la page dédiée à la location.",
     ],
-    bullets: [
-      "Demande le GPS en anglais et une carte ETC (télépéage) dès la réservation.",
-      "Fais le tour du véhicule et prends des photos avant de partir, comme partout ailleurs.",
-    ],
+    moreInfo: { label: "Voir le guide Louer une voiture", href: withBase("/louer-une-voiture/") },
   },
   {
     eyebrow: "Étape 3",
