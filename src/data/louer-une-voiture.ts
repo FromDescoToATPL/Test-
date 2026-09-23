@@ -33,7 +33,7 @@ export const louerConseils: { titre: string; texte: string }[] = [
   {
     titre: "Assurance et franchise",
     texte:
-      "L'assurance de base (incluse) couvre les dommages mais laisse souvent une franchise élevée en cas d'accident. Une assurance complémentaire (CDW/franchise réduite) proposée au comptoir coûte quelques milliers de yens par jour et vaut largement le coût sur routes de montagne inconnues.",
+      "L'assurance de base (incluse) couvre les dommages mais laisse souvent une franchise élevée en cas d'accident. Une assurance complémentaire (CDW/franchise réduite) proposée au comptoir coûte quelques milliers de yens par jour et peut rajouter un coût conséquent sur la location. Si vous êtes aguéri, vous pourrez garder quelques dizaines d'euro sinon garder l'assurance de base. A tokyo, je n'ai eu aucun soucis.",
   },
   {
     titre: "Âge et ancienneté de permis",
