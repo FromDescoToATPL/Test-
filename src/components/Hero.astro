@@ -8,8 +8,12 @@ interface Props {
   title: string;
   subtitle?: string;
   compact?: boolean;
+  /** Point de la photo à garder visible, format CSS object-position (ex. "30% 40%"). Défaut : centré. */
+  focalPoint?: string;
+  /** Zoom appliqué autour du focalPoint (1 = pas de zoom). */
+  zoom?: number;
 }
-const { image, eyebrow, title, subtitle, compact = false } = Astro.props;
+const { image, eyebrow, title, subtitle, compact = false, focalPoint = "50% 50%", zoom = 1 } = Astro.props;
 ---
 
 <section
@@ -25,6 +29,7 @@ const { image, eyebrow, title, subtitle, compact = false } = Astro.props;
         alt=""
         role="presentation"
         class="absolute inset-0 h-full w-full object-cover"
+        style={`object-position: ${focalPoint}; transform: scale(${zoom}); transform-origin: ${focalPoint};`}
         widths={[640, 1024, 1600, 2000]}
         sizes="100vw"
         loading="eager"
