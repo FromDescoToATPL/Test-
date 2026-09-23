@@ -14,8 +14,8 @@ export const tokyoSpots: Spot[] = [
     category: "garage",
     area: "À préciser",
     description:
-      "Repéré pendant le séjour : un garage/atelier spécialisé JDM où trônait cette Lancer Evolution IX gris argent aux côtés d'une GT-R. Le genre d'adresse qui vaut le détour pour n'importe quel passionné.",
-    tip: "Ajoute ici l'adresse exacte, les horaires et ton avis sur l'accueil et les prestations.",
+      "Le garage/atelier spécialisé JDM qui m'a loué cette Lancer Evolution IX gris argent pour le séjour — une GT-R trônait à côté. Le genre d'adresse qui vaut le détour pour n'importe quel passionné.",
+    tip: "Ajoute ici l'adresse exacte, les horaires, ton avis sur la prestation de location et l'accueil — tout part dans l'article dédié.",
     mapsQuery: "",
     articleHref: withBase("/tokyo/only-jdm/"),
     filled: false,
@@ -28,14 +28,6 @@ export const tokyoSpots: Spot[] = [
       "L'aire d'autoroute la plus célèbre du Japon pour les passionnés : supercars, JDM tunées et parfois des surprises inattendues s'y retrouvent en soirée, surtout le week-end. Ce n'est techniquement pas Tokyo intra-muros mais ça reste l'excursion incontournable en voiture pour tout road-tripper.",
     tip: "Ambiance très variable selon les soirs — privilégie vendredi/samedi soir. Reste respectueux : c'est une aire ouverte à tous, pas un événement organisé.",
     filled: true,
-  },
-  {
-    name: "Agence de location — à préciser",
-    category: "location",
-    area: "À préciser",
-    description: "L'agence où tu as récupéré ton Evo9 GSR (voir la section Rencontre plus haut) — ou une autre adresse repérée à Tokyo.",
-    tip: "Ajoute le nom de l'agence, l'adresse, les modèles disponibles et ton avis sur le processus de réservation.",
-    filled: false,
   },
   {
     name: "Boutique de miniatures — à préciser",

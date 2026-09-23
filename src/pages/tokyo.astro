@@ -7,6 +7,8 @@ import ParkingGrid from "../components/ParkingGrid.astro";
 import TipsList from "../components/TipsList.astro";
 import Figure from "../components/Figure.astro";
 import AdSlot from "../components/AdSlot.astro";
+import Icon from "../components/Icon.astro";
+import { withBase } from "../consts";
 import evoFace from "../assets/photos/tokyo-evo9-face-onlyjdm.jpg";
 import { tokyoIntro, tokyoSpots, tokyoParking, tokyoTips } from "../data/tokyo";
 ---
@@ -40,6 +42,13 @@ import { tokyoIntro, tokyoSpots, tokyoParking, tokyoTips } from "../data/tokyo";
         <p class="mt-4 font-body text-sm leading-relaxed text-ink-soft">
           Voici la Evo 9 GSR préparée que j'ai récupéré de l'agence de location à Tokyo. Autant vous dire que j'étais bien content !
         </p>
+        <a
+          href={withBase("/tokyo/only-jdm/")}
+          class="link-underline mt-4 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+        >
+          Lire l'article
+          <Icon name="arrow-right" class="h-3.5 w-3.5" />
+        </a>
       </div>
     </div>
   </section>

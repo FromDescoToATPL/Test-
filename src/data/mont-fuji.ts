@@ -1,16 +1,18 @@
 import type { Spot, ParkingTip } from "./types";
+import { withBase } from "../consts";
 
 export const fujiIntro =
   "Kawaguchiko, c'est le Fuji qui se dévoile entre deux nuages, des petites routes de montagne qui se prêtent parfaitement à un road-trip, et à seulement 30 minutes de voiture, deux adresses obligatoires pour tout passionné : le circuit de Fuji Speedway et son musée du sport automobile.";
 
 export const fujiSpots: Spot[] = [
   {
-    name: "Location Corvette C7 à Kawaguchiko",
+    name: "MFJ Rental Cars",
     category: "location",
     area: "Kawaguchiko",
     description:
-      "Une agence locale propose de louer une Corvette C7 Stingray pour partir à l'assaut des routes de montagne autour du lac, brouillard et pluie inclus le jour du passage — l'expérience n'en devient que plus mémorable.",
-    tip: "Complète ici : nom de l'agence, tarif à la journée/demi-journée, conditions (âge, caution, permis international exigé).",
+      "L'agence qui m'a loué cette Corvette C7 Stingray à Kawaguchiko, pour partir à l'assaut des routes de montagne autour du lac — brouillard et pluie inclus le jour du passage, l'expérience n'en devient que plus mémorable.",
+    tip: "Ajoute ici le tarif à la journée/demi-journée et les conditions (âge, caution, permis international exigé) — tout part dans l'article dédié.",
+    articleHref: withBase("/mont-fuji/mfj-rental-cars/"),
     filled: false,
   },
   {

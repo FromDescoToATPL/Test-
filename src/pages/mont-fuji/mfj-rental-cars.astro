@@ -3,47 +3,47 @@ import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/Hero.astro";
 import Icon from "../../components/Icon.astro";
 import { withBase } from "../../consts";
-import heroImg from "../../assets/photos/tokyo-evo9-arriere-onlyjdm.jpg";
+import heroImg from "../../assets/photos/fuji-corvette-interieur-pluie.jpg";
 ---
 
 <Layout
-  title="Only JDM"
-  description="Only JDM à Tokyo : un garage/atelier spécialisé qui vaut le détour pour tout passionné — adresse et avis complets à venir."
+  title="MFJ Rental Cars"
+  description="MFJ Rental Cars à Kawaguchiko : l'agence qui loue des sportives comme la Corvette C7 pour rouler autour du Mont Fuji — avis complet à venir."
 >
   <Hero
     image={heroImg}
-    eyebrow="Bonne adresse — Tokyo"
-    title="Only JDM"
-    subtitle="Le garage/atelier JDM qui m'a loué cette Evolution IX à Tokyo, aileron imposant et échappement titane sans complexe."
+    eyebrow="Bonne adresse — Mont Fuji"
+    title="MFJ Rental Cars"
+    subtitle="L'agence qui m'a loué une Corvette C7 Stingray à Kawaguchiko, pour partir à l'assaut des routes de montagne autour du lac."
   />
 
   <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
     <a
-      href={withBase("/tokyo/")}
+      href={withBase("/mont-fuji/")}
       class="link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink-soft"
     >
       <Icon name="arrow-left" class="h-3.5 w-3.5" />
-      Retour à Tokyo
+      Retour à Mont Fuji
     </a>
 
     <p class="reveal mt-8 font-body text-lg leading-relaxed text-ink-soft">
-      C'est ici que j'ai récupéré les clés de cette Lancer Evolution IX gris argent pour le séjour — un
-      garage/atelier spécialisé JDM où trônait aussi une GT-R. Le genre d'adresse qui vaut le détour pour
-      n'importe quel passionné de passage à Tokyo, que ce soit pour louer ou simplement jeter un œil.
+      C'est chez MFJ Rental Cars, à Kawaguchiko, que j'ai récupéré cette Corvette C7 Stingray pour partir à
+      l'assaut des routes de montagne autour du lac — brouillard et pluie inclus le jour du passage, l'expérience
+      n'en devient que plus mémorable.
     </p>
     <p class="reveal mt-4 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
-      Page en cours de complétion — adresse exacte, horaires et avis détaillé de Clément à venir.
+      Page en cours de complétion — tarifs, conditions de location et avis détaillé de Clément à venir.
     </p>
   </section>
 
   <section class="border-t border-mist-200 bg-paper-dim/50 py-16">
     <div class="mx-auto max-w-3xl px-5 text-center sm:px-8">
       <a
-        href={withBase("/tokyo/")}
+        href={withBase("/mont-fuji/")}
         class="link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink"
       >
         <Icon name="arrow-left" class="h-3.5 w-3.5" />
-        Retour à toutes les adresses de Tokyo
+        Retour à toutes les adresses de Mont Fuji
       </a>
     </div>
   </section>
