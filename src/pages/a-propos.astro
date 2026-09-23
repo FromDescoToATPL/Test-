@@ -2,12 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import { Image } from "astro:assets";
-import heroImg from "../assets/photos/tokyo-evo9-arriere-onlyjdm.jpg";
+import galleryImg from "../assets/photos/tokyo-evo9-arriere-onlyjdm.jpg";
+import heroImg from "../assets/photos/kyoto-temple-gate-vue-panoramique.jpg";
 import { SITE_NAME, AUTHOR_NAME } from "../consts";
 ---
 
 <Layout title="À propos" description={`L'histoire derrière ${SITE_NAME} : un road-trip au Japon à la rencontre de sa culture automobile.`}>
-  <Hero eyebrow="À propos" title="L'histoire derrière le guide" compact />
+  <Hero image={heroImg} eyebrow="À propos" title="L'histoire derrière le guide" />
 
   <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
     <div class="reveal space-y-6 font-body text-base leading-relaxed text-ink-soft">
@@ -33,7 +34,7 @@ import { SITE_NAME, AUTHOR_NAME } from "../consts";
   <section class="mx-auto max-w-8xl px-5 pb-20 sm:px-8">
     <div class="reveal mx-auto max-w-3xl overflow-hidden rounded-lg">
       <Image
-        src={heroImg}
+        src={galleryImg}
         alt="Lancer Evolution IX aperçue à Tokyo pendant le voyage"
         class="h-full w-full object-cover"
         widths={[600, 1000, 1400]}
