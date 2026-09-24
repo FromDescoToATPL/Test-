@@ -10,7 +10,7 @@ Sans parler des différents magasins portant sur l'automobile, des agences de lo
 
 export const tokyoSpots: Spot[] = [
   {
-    name: "Only JDM",
+    name: "OnlyJDM",
     category: "location",
     area: "Ōta, sud de Tokyo (près de l'aéroport de Haneda)",
     description:
