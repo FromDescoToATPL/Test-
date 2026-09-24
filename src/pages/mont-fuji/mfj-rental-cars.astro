@@ -1,9 +1,11 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/Hero.astro";
+import Figure from "../../components/Figure.astro";
 import Icon from "../../components/Icon.astro";
 import { withBase } from "../../consts";
 import heroImg from "../../assets/photos/fuji-corvette-face-brouillard.jpg";
+import corvetteImg from "../../assets/photos/fuji-corvette-arriere-parking-pluie.jpg";
 ---
 
 <Layout
@@ -29,12 +31,33 @@ import heroImg from "../../assets/photos/fuji-corvette-face-brouillard.jpg";
     </a>
 
     <p class="reveal mt-8 font-body text-lg leading-relaxed text-ink-soft">
-      C'est chez MFJ Rental Cars, à Kawaguchiko, que j'ai récupéré cette Corvette C7 Stingray pour partir à
-      l'assaut des routes de montagne autour du lac — brouillard et pluie inclus le jour du passage, l'expérience
-      n'en devient que plus mémorable.
+      Un peu de contexte : avant d'arriver au mont Fuji, la météo s'annonçait vraiment pas terrible pour
+      l'apercevoir. Je me suis donc demandé s'il n'existait pas des agences de location dans le coin. Mon but était
+      simple : avoir une voiture correcte pour me balader dans la forêt.
     </p>
-    <p class="reveal mt-4 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
-      Page en cours de complétion — tarifs, conditions de location et avis détaillé de Clément à venir.
+    <p class="reveal mt-4 font-body text-xs text-mist-500">Article non sponsorisé, location payée de ma poche.</p>
+
+    <div class="reveal mt-8 space-y-4 font-body text-sm leading-relaxed text-ink-soft">
+      <p>
+        Dans le train, petite recherche sur Google Maps autour de Kawaguchiko, et je tombe par hasard sur cette agence :
+        MFJ Rental Cars. Elle ne paie pas de mine et loue aussi des vélos… mais j'aperçois une Corvette et une Audi.
+        En plus, elle est bien notée sur Google.
+      </p>
+      <p>
+        Je ne réfléchis pas plus longtemps : je file sur leur site, la Corvette est en promo à 13 000 yens et on peut
+        réserver sans payer. Allez hop, rendez-vous le lendemain !
+      </p>
+    </div>
+
+    <Figure
+      image={corvetteImg}
+      alt="Corvette C7 Stingray blanche garée sur un parking mouillé près du mont Fuji"
+      caption="Le lendemain : la Corvette C7 Stingray m'attend, sous la pluie."
+      class="mt-8"
+    />
+
+    <p class="reveal mt-8 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
+      Page en cours de complétion — la suite de l'histoire, les conditions de location et l'avis détaillé de Clément à venir.
     </p>
   </section>
 
