@@ -6,6 +6,8 @@ import Icon from "../../components/Icon.astro";
 import { withBase } from "../../consts";
 import heroImg from "../../assets/photos/tokyo-evo9-arriere-onlyjdm.jpg";
 import mapImg from "../../assets/photos/tokyo-onlyjdm-itineraire-shinjuku.webp";
+import rueImg from "../../assets/photos/tokyo-evo9-arriere-rue-onlyjdm.jpg";
+import volantImg from "../../assets/photos/tokyo-evo9-interieur-volant-onlyjdm.jpg";
 
 const agencyName = "OnlyJDM Car Rental Haneda Airport Store";
 const agencyAddress = "〒143-0013 Tokyo, Ota City, Omoriminami, 2 Chome-20-14";
@@ -134,6 +136,32 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
     </div>
 
     <p class="reveal mt-8 font-display text-2xl font-semibold text-ink">Et ensuite ? Profitez-en !</p>
+    <div class="reveal mt-4 space-y-4 font-body text-sm leading-relaxed text-ink-soft">
+      <p>
+        Mon expérience a été inoubliable, bien que la pluie se soit fortement invitée durant cette balade. Conduire dans
+        les rues de Tokyo, notamment Shibuya de nuit et les petites rues de Kabukicho, ne m'a pas laissé indifférent !
+      </p>
+      <p>
+        Un petit passage sur l'autoroute passant sur le Rainbow Bridge, tout en entendant le bruit du moteur, est une
+        expérience agréable, surtout quand on sait qu'au Japon, la modification des voitures reste tolérée.
+        L'expérience ne serait pas la même en France...
+      </p>
+    </div>
+
+    <div class="mt-8 grid grid-cols-2 gap-4">
+      <Figure
+        image={rueImg}
+        alt="Arrière de la Lancer Evolution IX grise garée dans une rue de Tokyo, logo OnlyJDM sur le coffre"
+        caption="Aileron, échappement titane et logo OnlyJDM sur le coffre."
+        aspectClass="aspect-[3/4]"
+      />
+      <Figure
+        image={volantImg}
+        alt="Poste de conduite de la Lancer Evolution IX avec un volant sport à la place de celui d'origine"
+        caption="Le volant sport qui remplace celui d'origine."
+        aspectClass="aspect-[3/4]"
+      />
+    </div>
   </section>
 
   <section class="border-t border-mist-200 bg-paper-dim/50 py-16">
