@@ -103,7 +103,7 @@ export const conduireSections: DriveSection[] = [
     title: "Péages et carte ETC",
     paragraphs: [
       "Le réseau autoroutier japonais (Shuto, Tomei, Chuo, Tomei-Hanshin...) est payant, avec un tarif calculé à la distance parcourue. Sans carte ETC, il faut prendre un ticket à l'entrée et payer en espèces ou par carte à la sortie.",
-      "Avec une carte ETC louée en même temps que le véhicule, les barrières de péage se franchissent sans s'arrêter : un vrai gain de temps et de sérénité sur les longs trajets. Je recommande totalement",
+      "Avec une carte ETC louée en même temps que le véhicule, les barrières de péage se franchissent sans s'arrêter : un vrai gain de temps et de sérénité sur les longs trajets. Je recommande totalement.",
     ],
   },
   {
