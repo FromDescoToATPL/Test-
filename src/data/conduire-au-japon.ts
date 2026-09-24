@@ -20,8 +20,8 @@ export interface DriveSection {
 }
 
 export const conduireIntro =
-  `Conduire au japon en tant que passionné automobile est vraiment un impératif ! Tout le monde rêve de pouvoir conduire une JDM  modifiée dans les rues de tokyo et faire des kilomètres à shutoko ou même participer aux rassemblements.
-Cela vous permettra également de rejoindre des zones de chaque ville encore inexploré et moins dans le côté touristique.
+  `Conduire au japon en tant que passionné automobile est à faire absolument ! Tout le monde rêve de pouvoir conduire une JDM  modifiée dans les rues de tokyo et faire des kilomètres à shutoko ou même participer aux rassemblements.
+Cela vous permettra également de rejoindre des zones de chaque ville encore inexploré et moins touristique.
 Alors oui, conduire à tokyo n'est pas facile au premier abord mais on s'y fait vite et les japonais sont vraiment très calme. pas de quoi s'inquiéter !
 Dans ce guide, je vais vous donner les différentes étapes pour conduire au japon.`;
 
@@ -91,9 +91,11 @@ export const conduireSections: DriveSection[] = [
     eyebrow: "Étape 3",
     title: "Les règles de circulation",
     paragraphs: [
-      "On roule à gauche, volant à droite — les premiers kilomètres demandent un peu de concentration, notamment aux carrefours et ronds-points où les réflexes s'inversent.",
-      "Les limitations de vitesse sont basses et respectées à la lettre : 30 à 50 km/h en ville, 80 à 100 km/h sur autoroute. Les contrôles (radars fixes et mobiles) sont fréquents.",
+      "On roule à gauche, volant à droite. les premiers kilomètres demandent un peu de concentration notamment aux carrefours et ronds-points où les réflexes s'inversent.",
+      "Sur Autoroute, à gauche concerne la voie la moins rapide. Bien analyser les feux rouges situé à l'américaine en face de vous. Il existe plusieurs feux, un pour celui qui tourne à gauche, celui qui va tout droit et celui à droite, cela demande de la concentration.",
+      "Les limitations de vitesse sont basses 30 à 50 km/h en ville, 80 à 100 km/h sur autoroute, cependant il y a une certaine tolérance de 10 à 20km/h à ne pas dépasser sur les grands axes. ",
       "Tolérance alcool au volant proche de zéro : mieux vaut ne pas boire du tout si tu conduis.",
+      "Après avoir assimilé ces règles, la conduire sera relativement paisible, les japonais roulent prudemment et ne sont pas du genre à s'énerver quand vous faites une erreur. Après 1/2h de conduite vous serez plus à laise sur la route.",
     ],
   },
   {
@@ -101,7 +103,7 @@ export const conduireSections: DriveSection[] = [
     title: "Péages et carte ETC",
     paragraphs: [
       "Le réseau autoroutier japonais (Shuto, Tomei, Chuo, Tomei-Hanshin...) est payant, avec un tarif calculé à la distance parcourue. Sans carte ETC, il faut prendre un ticket à l'entrée et payer en espèces ou par carte à la sortie.",
-      "Avec une carte ETC louée en même temps que le véhicule, les barrières de péage se franchissent sans s'arrêter — un vrai gain de temps et de sérénité sur les longs trajets.",
+      "Avec une carte ETC louée en même temps que le véhicule, les barrières de péage se franchissent sans s'arrêter : un vrai gain de temps et de sérénité sur les longs trajets. Je recommande totalement",
     ],
   },
   {
@@ -109,6 +111,7 @@ export const conduireSections: DriveSection[] = [
     title: "Stationnement",
     paragraphs: [
       "Le stationnement sauvage n'est pas toléré : amende et mise en fourrière rapides, y compris pour un arrêt de quelques minutes. Les « coin parking » (Times, Park24...) sont omniprésents en ville, payables à la borne.",
+      "Bien se renseigner sur le type de voiture que vous prenez, bien éviter de garer votre voiture sur un parking avec des damper car cela pourrait abimer le bas de caisse. Il existe de nombreux parking sans ça.
       "Retrouve les spécificités de chaque ville (quartiers denses, parkings de temples, tarifs) dans les pages Tokyo, Mont Fuji, Osaka et Kyoto.",
     ],
   },
@@ -116,8 +119,8 @@ export const conduireSections: DriveSection[] = [
     eyebrow: "Étape 6",
     title: "Faire le plein",
     paragraphs: [
-      "Deux types de stations cohabitent : en libre-service (セルフ, « self »), et avec personnel qui fait le plein pour toi — plus fréquentes en zone rurale et souvent plus rapides pour un non-japonophone.",
-      "Vérifie bien le type de carburant : レギュラー (regular/essence normale) est celui qu'il te faut pour l'immense majorité des voitures de location ; ハイオク (hi-oku, haut indice d'octane) est plus cher et réservé à certains véhicules sportifs — demande confirmation à l'agence de location en cas de doute.",
+      "Deux types de stations cohabitent : en libre-service (セルフ, « self »), et avec personnel qui fait le plein pour toi. Plus fréquentes en zone rurale et souvent plus rapides pour un non-japonophone.",
+      "Vérifie bien le type de carburant : レギュラー (regular/essence normale) est celui qu'il te faut pour l'immense majorité des voitures de location ; ハイオク (hi-oku, haut indice d'octane) est plus cher et réservé à certains véhicules sportifs. Bien demander confirmation à l'agence de location en cas de doute.",
     ],
   },
   {
