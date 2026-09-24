@@ -111,7 +111,7 @@ export const conduireSections: DriveSection[] = [
     title: "Stationnement",
     paragraphs: [
       "Le stationnement sauvage n'est pas toléré : amende et mise en fourrière rapides, y compris pour un arrêt de quelques minutes. Les « coin parking » (Times, Park24...) sont omniprésents en ville, payables à la borne.",
-      "Bien se renseigner sur le type de voiture que vous prenez, bien éviter de garer votre voiture sur un parking avec des damper car cela pourrait abimer le bas de caisse. Il existe de nombreux parking sans ça.
+      "Bien se renseigner sur le type de voiture que vous prenez, bien éviter de garer votre voiture sur un parking avec des damper car cela pourrait abimer le bas de caisse. Il existe de nombreux parking sans ça.",
       "Retrouve les spécificités de chaque ville (quartiers denses, parkings de temples, tarifs) dans les pages Tokyo, Mont Fuji, Osaka et Kyoto.",
     ],
   },
