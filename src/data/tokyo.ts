@@ -30,11 +30,12 @@ export const tokyoSpots: Spot[] = [
     filled: true,
   },
   {
-    name: "Boutique de miniatures — à préciser",
+    name: "Boutiques de miniatures",
     category: "shopping",
     area: "À préciser",
-    description: "Une échoppe repérée à Tokyo pour les miniatures JDM au 1/43 ou 1/64.",
-    tip: "Ajoute le nom de la boutique, le quartier, les marques disponibles et les prix observés.",
+    description: "Les magasins repérés à Tokyo pour les miniatures JDM au 1/43 ou 1/64.",
+    tip: "Écris ton texte sur les différents magasins (noms, quartiers, marques, prix) — tout part dans l'article dédié.",
+    articleHref: withBase("/tokyo/boutiques-miniatures/"),
     filled: false,
   },
   {

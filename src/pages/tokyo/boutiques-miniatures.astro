@@ -1,0 +1,48 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import Icon from "../../components/Icon.astro";
+import { withBase } from "../../consts";
+---
+
+<Layout
+  title="Boutiques de miniatures à Tokyo"
+  description="Les boutiques de miniatures JDM repérées à Tokyo : adresses, marques, prix et bons plans pour ramener un souvenir de collection."
+>
+  <Hero
+    eyebrow="Bonne adresse — Tokyo"
+    title="Boutiques de miniatures"
+    subtitle="Les magasins où dénicher des miniatures JDM à Tokyo, pour ramener un souvenir de collection."
+    compact
+  />
+
+  <section class="mx-auto max-w-3xl px-5 pt-16 pb-10 sm:px-8">
+    <a
+      href={withBase("/tokyo/")}
+      class="link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink-soft"
+    >
+      <Icon name="arrow-left" class="h-3.5 w-3.5" />
+      Retour à Tokyo
+    </a>
+
+    <p class="reveal mt-8 font-body text-lg leading-relaxed text-ink-soft">
+      Tokyo regorge de boutiques où dénicher des miniatures JDM, au 1/43 comme au 1/64 : de quoi repartir avec un
+      souvenir de collection plutôt qu'un simple aimant de frigo.
+    </p>
+    <p class="reveal mt-4 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
+      Page en cours de complétion — les différents magasins, adresses, marques et prix de Clément à venir.
+    </p>
+  </section>
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-16">
+    <div class="mx-auto max-w-3xl px-5 text-center sm:px-8">
+      <a
+        href={withBase("/tokyo/")}
+        class="link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink"
+      >
+        <Icon name="arrow-left" class="h-3.5 w-3.5" />
+        Retour à toutes les adresses de Tokyo
+      </a>
+    </div>
+  </section>
+</Layout>
