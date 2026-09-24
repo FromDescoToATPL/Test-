@@ -1,14 +1,20 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/Hero.astro";
+import Figure from "../../components/Figure.astro";
 import Icon from "../../components/Icon.astro";
 import { withBase } from "../../consts";
 import heroImg from "../../assets/photos/tokyo-evo9-arriere-onlyjdm.jpg";
+import mapImg from "../../assets/photos/tokyo-onlyjdm-itineraire-shinjuku.webp";
+
+const agencyName = "OnlyJDM Car Rental Haneda Airport Store";
+const agencyAddress = "〒143-0013 Tokyo, Ota City, Omoriminami, 2 Chome-20-14";
+const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${agencyName}, ${agencyAddress}`)}`;
 ---
 
 <Layout
   title="Only JDM"
-  description="Only JDM à Tokyo : un garage spécialisé qui vaut le détour pour tout passionné — adresse et avis complets à venir."
+  description="Only JDM à Tokyo : un garage spécialisé qui vaut le détour pour tout passionné — prérequis, prix, accès et avis complet."
 >
   <Hero
     image={heroImg}
@@ -27,17 +33,106 @@ import heroImg from "../../assets/photos/tokyo-evo9-arriere-onlyjdm.jpg";
     </a>
 
     <p class="reveal mt-8 font-body text-lg leading-relaxed text-ink-soft">
-      Pour la petite histoire, 1 mois avant de partir au Japon je n'étais pas du tout au courant que l'on pouvait réserver des JDM.
-      Après plusieurs jours de recherche notamment comment louer et faire une translation de son permis, j'ai trouvé cette agence nommé OnlyJDM. 
-      C'est ici que j'ai récupéré les clés de cette Lancer Evolution IX. Elle en jette, pas vrai ? :) 
-      Pot modifié, turbo rajouté, volant et jantes changés, on est assez loin de la version d'origine ce qui n'est pas pour me déplaire.
-      
-
-
+      Pour la petite histoire, 1 mois avant de partir au Japon, je n'étais pas du tout au courant que l'on pouvait
+      réserver des JDM. Après plusieurs jours de recherche, notamment sur comment louer et faire une translation de son
+      permis, j'ai trouvé cette agence nommée OnlyJDM. C'est ici que j'ai récupéré les clés de cette Lancer Evolution
+      IX. Elle en jette, pas vrai ? :) Pot modifié, turbo rajouté, volant et jantes changés : on est assez loin de la
+      version d'origine, ce qui n'est pas pour me déplaire.
     </p>
-    <p class="reveal mt-4 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
-      Page en cours de complétion — adresse exacte, horaires et avis détaillé de Clément à venir.
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">Les prérequis pour louer</h2>
+    <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+      Avant d'aller récupérer votre voiture dans cette agence ou dans une autre, il est obligatoire de fournir ces
+      documents, à savoir :
     </p>
+    <ul class="reveal mt-4 space-y-2 border-l-2 border-mist-200 pl-5 font-body text-sm leading-relaxed text-ink-soft">
+      <li>
+        Votre translation imprimée (en savoir plus :
+        <a href={withBase("/conduire-au-japon/")} class="link-underline font-medium text-racing-500">Conduire au Japon</a>)
+      </li>
+      <li>Votre permis physique (pas de papier autorisé)</li>
+      <li>Votre passeport</li>
+      <li>
+        Prévoyez des espèces ou une CB pour payer la caution (entre 200 et 300 $ en fonction des voitures) et des
+        souvenirs
+      </li>
+    </ul>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">Pourquoi OnlyJDM</h2>
+    <div class="reveal mt-4 space-y-4 font-body text-sm leading-relaxed text-ink-soft">
+      <p>OnlyJDM vous permet de louer n'importe quelle voiture de votre choix en fonction des disponibilités.</p>
+      <p>
+        J'ai choisi cette agence pour les prix attractifs comparés aux autres agences, qui peuvent vous facturer parfois
+        100 euros de plus, voire plus, pour conduire moins longtemps. Ici, il y a la location sur 7 heures et 24 heures
+        (prévoyez environ 3 000 yens de plus, soit 17 euros : c'est plus rentable et vous permet de conduire la nuit).
+      </p>
+      <p>
+        Concernant la disponibilité des voitures : certaines voitures peuvent être vite indisponibles, alors il est
+        vraiment impératif de réserver rapidement et d'avoir votre translation ou de la prévoir avant.
+      </p>
+      <p>Ils ont 2 agences :</p>
+      <ul class="space-y-2 border-l-2 border-mist-200 pl-5">
+        <li>une située au nord de Tokyo (difficile d'accès en transports en commun)</li>
+        <li>une au sud de Tokyo (accès plus facile)</li>
+      </ul>
+      <p>J'ai réservé l'EVO 9 GSR depuis l'agence du sud.</p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">Comment s'y rendre ?</h2>
+
+    <div class="reveal mt-6 rounded-lg border border-mist-200 bg-paper-dim/40 p-5">
+      <p class="eyebrow text-racing-500">L'adresse de l'agence</p>
+      <p class="mt-2 font-body text-sm font-semibold text-ink">{agencyName}</p>
+      <p class="mt-1 flex items-start gap-1.5 font-body text-sm text-ink-soft">
+        <Icon name="map-pin" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-mist-500" />
+        Japon, {agencyAddress}
+      </p>
+      <a
+        href={mapsHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link-underline mt-3 inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+      >
+        Ouvrir dans Google Maps
+        <Icon name="external-link" class="h-3.5 w-3.5" />
+      </a>
+    </div>
+
+    <Figure
+      image={mapImg}
+      alt="Carte de l'itinéraire en train entre la gare de Shinjuku et l'agence OnlyJDM au sud de Tokyo"
+      caption="Itinéraire depuis la gare de Shinjuku — capture Google Maps."
+      class="mx-auto mt-6 max-w-md"
+    />
+
+    <div class="reveal mt-8 space-y-4 font-body text-sm leading-relaxed text-ink-soft">
+      <p>
+        Étant hébergé à Shinjuku, il m'a fallu environ 40 minutes de transports (train type TER) et 15 minutes à pied
+        pour rejoindre l'agence. J'ai conscience que le transport est long si vous ne déboursez pas environ 60 euros
+        pour le taxi (environ 30 minutes de route). Ajoutez ça à la location de la voiture et à l'essence (environ 1 € le
+        litre) : cela peut vite chiffrer, mais la récompense n'en sera que plus belle !
+      </p>
+      <p>
+        Pour vous déplacer, je vous conseille d'avoir une carte SIM 5G et Google Maps : depuis votre hôtel, il vous
+        donnera le meilleur transport en détail (type de voie à prendre, quel sens, quel train, etc.).
+      </p>
+      <p>
+        Ne soyez pas en retard ! L'agence est généralement ouverte avant votre date de location, donc mieux vaut prévoir
+        les soucis de transport.
+      </p>
+      <p>
+        Avant de récupérer votre voiture, lisez bien le contrat, faites des photos et vidéos de la voiture en cas de
+        problème et laissez-vous porter par votre coup de cœur ! Bref, comme dans une agence de location classique.
+      </p>
+    </div>
+
+    <p class="reveal mt-10 font-display text-2xl font-semibold text-ink">Et ensuite ? Profitez-en !</p>
   </section>
 
   <section class="border-t border-mist-200 bg-paper-dim/50 py-16">

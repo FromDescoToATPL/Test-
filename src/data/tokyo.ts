@@ -11,14 +11,14 @@ Sans parler des différents magasins portant sur l'automobile, des agences de lo
 export const tokyoSpots: Spot[] = [
   {
     name: "Only JDM",
-    category: "garage",
-    area: "À préciser",
+    category: "location",
+    area: "Ōta, sud de Tokyo (près de l'aéroport de Haneda)",
     description:
-      "Le garage/atelier spécialisé JDM qui m'a loué cette Lancer Evolution IX gris argent pour le séjour — une GT-R trônait à côté. Le genre d'adresse qui vaut le détour pour n'importe quel passionné.",
-    tip: "Ajoute ici l'adresse exacte, les horaires, ton avis sur la prestation de location et l'accueil — tout part dans l'article dédié.",
-    mapsQuery: "",
+      "L'agence de location spécialisée JDM qui m'a loué cette Lancer Evolution IX gris argent pour la journée — une GT-R trônait à côté. Le genre d'adresse qui vaut le détour pour n'importe quel passionné.",
+    tip: "Réservation conseillée bien à l'avance : les voitures les plus demandées partent vite.",
+    mapsQuery: "OnlyJDM Car Rental Haneda Airport Store, 2 Chome-20-14 Omoriminami, Ota City, Tokyo",
     articleHref: withBase("/tokyo/only-jdm/"),
-    filled: false,
+    filled: true,
   },
   {
     name: "Daikoku Futo PA",
