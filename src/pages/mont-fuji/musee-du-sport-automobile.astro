@@ -1,0 +1,55 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import Figure from "../../components/Figure.astro";
+import Icon from "../../components/Icon.astro";
+import { withBase } from "../../consts";
+import heroImg from "../../assets/photos/fuji-musee-escaliers.jpg";
+import lemansImg from "../../assets/photos/fuji-musee-lemans-787b-gtone.jpg";
+---
+
+<Layout
+  title="Musée du sport automobile"
+  description="Le musée du sport automobile près de Fuji Speedway : prototypes Le Mans, voitures de rallye historiques et pièces de collection — avis complet à venir."
+>
+  <Hero
+    image={heroImg}
+    eyebrow="Bonne adresse — Mont Fuji"
+    title="Musée du sport automobile"
+    subtitle="À côté de Fuji Speedway, une des plus belles collections de voitures de course que compte le Japon."
+  />
+
+  <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
+    <a
+      href={withBase("/mont-fuji/")}
+      class="link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink-soft"
+    >
+      <Icon name="arrow-left" class="h-3.5 w-3.5" />
+      Retour à Mont Fuji
+    </a>
+
+    <Figure
+      image={lemansImg}
+      alt="Mazda 787B et Toyota GT-One exposées côte à côte dans un musée du sport automobile près de Fuji Speedway"
+      caption="La Mazda 787B (vainqueur des 24h du Mans 1991) aux côtés de la Toyota GT-One."
+      class="mt-8"
+    />
+
+    <p class="reveal mt-8 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
+      Page en cours de complétion — le récit de la visite, le nom exact du musée, les horaires, le tarif d'entrée et
+      l'avis détaillé de Clément à venir.
+    </p>
+  </section>
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-16">
+    <div class="mx-auto max-w-3xl px-5 text-center sm:px-8">
+      <a
+        href={withBase("/mont-fuji/")}
+        class="link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink"
+      >
+        <Icon name="arrow-left" class="h-3.5 w-3.5" />
+        Retour à toutes les adresses de Mont Fuji
+      </a>
+    </div>
+  </section>
+</Layout>

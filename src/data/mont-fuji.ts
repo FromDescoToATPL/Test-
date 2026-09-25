@@ -31,6 +31,7 @@ export const fujiSpots: Spot[] = [
     description:
       "Un bâtiment vertigineux sur plusieurs niveaux relié par de longs escalators, où se côtoient prototypes Le Mans (dont la Mazda 787B victorieuse en 1991 et la Toyota GT-One), voitures de rallye historiques et pièces de collection. Une des plus belles collections de voitures de course que compte le Japon.",
     tip: "Confirme le nom exact et les horaires d'ouverture actuels avant publication — à vérifier sur place ou en ligne.",
+    articleHref: withBase("/mont-fuji/musee-du-sport-automobile/"),
     filled: true,
   },
 ];
