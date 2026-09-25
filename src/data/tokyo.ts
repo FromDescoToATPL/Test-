@@ -32,11 +32,12 @@ export const tokyoSpots: Spot[] = [
   {
     name: "Boutiques de miniatures",
     category: "shopping",
-    area: "À préciser",
-    description: "Les magasins repérés à Tokyo pour les miniatures JDM au 1/43 ou 1/64.",
-    tip: "Écris ton texte sur les différents magasins (noms, quartiers, marques, prix) — tout part dans l'article dédié.",
+    area: "Shinjuku, Chiyoda, Shibuya",
+    description:
+      "Bic Camera, Ken Box et Ken Box B2F à Shinjuku, le Tomica Shop Tokyo à la gare de Tokyo, et l'univers Liberty Walk à Shibuya : les bonnes adresses pour ramener une miniature JDM au 1/43 ou 1/64.",
+    tip: "Chez Ken Box, dénicher sa pépite peut vite coûter cher : vas-y en repérage si tu veux juste regarder.",
     articleHref: withBase("/tokyo/boutiques-miniatures/"),
-    filled: false,
+    filled: true,
   },
   {
     name: "Boutique de vêtements — à préciser",

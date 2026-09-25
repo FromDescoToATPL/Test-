@@ -1,13 +1,52 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/Hero.astro";
+import Figure from "../../components/Figure.astro";
 import Icon from "../../components/Icon.astro";
 import { withBase } from "../../consts";
+import kenboxCabinetImg from "../../assets/photos/shopping-voitures-miniatures.jpg";
+import kenboxGarageImg from "../../assets/photos/tokyo-kenbox-b2f-tomica-garage.jpg";
+import libertyWalkImg from "../../assets/photos/tokyo-liberty-walk-vitrine-miniatures.jpg";
+
+interface ShopAddress {
+  eyebrow: string;
+  name: string;
+  address: string;
+}
+
+function mapsHref(shop: ShopAddress) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${shop.name}, ${shop.address}`)}`;
+}
+
+const kenBoxShops: ShopAddress[] = [
+  {
+    eyebrow: "Tomica & voitures détaillées",
+    name: "Ken Box",
+    address: "MPR3+7C Shinjuku, Tokyo, Japon",
+  },
+  {
+    eyebrow: "Tomica & voitures détaillées",
+    name: "Ken Box B2F",
+    address: "Japon, 〒160-0022 Tokyo, Shinjuku City, Shinjuku, 3 Chome−33−10 新宿モリエールビル B2",
+  },
+];
+
+const tomicaShop: ShopAddress = {
+  eyebrow: "Personnalisation",
+  name: "Tomica Shop Tokyo Character Street",
+  address: "Japon, 〒100-0005 Tokyo, Chiyoda City, Marunouchi, 1 Chome−9−1 東京駅一番街 東京キャラクターストリート",
+};
+
+const libertyWalk: ShopAddress = {
+  eyebrow: "Miniatures Liberty Walk",
+  name: "Liberty Walk",
+  address: "4 Chome-26-3 Jingumae, Shibuya, Tokyo 150-0001, Japon",
+};
 ---
 
 <Layout
   title="Boutiques de miniatures à Tokyo"
-  description="Les boutiques de miniatures JDM repérées à Tokyo : adresses, marques, prix et bons plans pour ramener un souvenir de collection."
+  description="Les boutiques de miniatures JDM repérées à Tokyo : Bic Camera, Ken Box, Tomica Shop Tokyo et l'univers Liberty Walk."
 >
   <Hero
     eyebrow="Bonne adresse — Tokyo"
@@ -26,12 +65,126 @@ import { withBase } from "../../consts";
     </a>
 
     <p class="reveal mt-8 font-body text-lg leading-relaxed text-ink-soft">
-      Tokyo regorge de boutiques où dénicher des miniatures JDM, au 1/43 comme au 1/64 : de quoi repartir avec un
-      souvenir de collection plutôt qu'un simple aimant de frigo.
+      Il existe de très nombreuses boutiques de miniatures à Tokyo, au 1/43 comme au 1/64. Certaines se trouvent sans
+      même les chercher, d'autres méritent clairement le détour.
     </p>
-    <p class="reveal mt-4 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
-      Page en cours de complétion — les différents magasins, adresses, marques et prix de Clément à venir.
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-10 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">Partout, sans même chercher</h2>
+    <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+      Vous pouvez trouver des miniatures un peu partout, par exemple chez Bic Camera : il y a souvent un espace dédié
+      aux voitures Tomica et aux miniatures à construire. Il y a des Bic Camera dans toute la ville, donc pas besoin
+      de prévoir un trajet spécial, gardez juste l'œil ouvert pendant vos balades.
     </p>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-10 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">Pour les collectionneurs : Ken Box et Ken Box B2F</h2>
+    <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+      Si vous cherchez des magasins plus spécialisés, direction Shinjuku pour Ken Box et Ken Box B2F. On y trouve des
+      Tomica, des garages et des voitures beaucoup plus détaillées qu'ailleurs. Attention quand même : dénicher sa
+      pépite peut vite coûter cher, certaines pièces grimpent haut. Vous pouvez très bien y aller en repérage pour
+      observer, ou vous faire plaisir si le coup de cœur est trop fort.
+    </p>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-2">
+      {kenBoxShops.map((shop) => (
+        <div class="reveal rounded-lg border border-mist-200 bg-paper-dim/40 p-5">
+          <p class="eyebrow text-racing-500">{shop.eyebrow}</p>
+          <p class="mt-2 font-body text-sm font-semibold text-ink">{shop.name}</p>
+          <p class="mt-1 flex items-start gap-1.5 font-body text-sm text-ink-soft">
+            <Icon name="map-pin" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-mist-500" />
+            {shop.address}
+          </p>
+          <a
+            href={mapsHref(shop)}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link-underline mt-3 inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+          >
+            Ouvrir dans Google Maps
+            <Icon name="external-link" class="h-3.5 w-3.5" />
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-8 grid grid-cols-2 gap-4">
+      <Figure
+        image={kenboxCabinetImg}
+        alt="Vitrines de voitures miniatures collector chez Ken Box B2F à Shinjuku"
+        caption="Un mur entier de vitrines chez Ken Box B2F."
+        class="text-center"
+        aspectClass="aspect-[3/4]"
+      />
+      <Figure
+        image={kenboxGarageImg}
+        alt="Rayonnage de Tomica Premium et de garages miniatures chez Ken Box B2F"
+        caption="Tomica Premium et garages miniatures."
+        class="text-center"
+        aspectClass="aspect-[3/4]"
+      />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-10 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">Personnaliser sa propre miniature : Tomica Shop Tokyo</h2>
+    <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+      Envie de vraiment personnaliser votre propre miniature ? Direction le Tomica Shop Tokyo, dans le quartier de
+      Chiyoda, à l'intérieur de la gare de Tokyo, sur la Tokyo Character Street.
+    </p>
+
+    <div class="reveal mt-6 rounded-lg border border-mist-200 bg-paper-dim/40 p-5">
+      <p class="eyebrow text-racing-500">{tomicaShop.eyebrow}</p>
+      <p class="mt-2 font-body text-sm font-semibold text-ink">{tomicaShop.name}</p>
+      <p class="mt-1 flex items-start gap-1.5 font-body text-sm text-ink-soft">
+        <Icon name="map-pin" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-mist-500" />
+        {tomicaShop.address}
+      </p>
+      <a
+        href={mapsHref(tomicaShop)}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link-underline mt-3 inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+      >
+        Ouvrir dans Google Maps
+        <Icon name="external-link" class="h-3.5 w-3.5" />
+      </a>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">L'univers Liberty Walk</h2>
+    <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+      Chez Liberty Walk, à Shibuya, il est aussi possible d'acheter des miniatures de leurs créations : F40, RX-7 et
+      d'autres modèles emblématiques de la marque, en petit format comme en très grand format.
+    </p>
+
+    <div class="reveal mt-6 rounded-lg border border-mist-200 bg-paper-dim/40 p-5">
+      <p class="eyebrow text-racing-500">{libertyWalk.eyebrow}</p>
+      <p class="mt-2 font-body text-sm font-semibold text-ink">{libertyWalk.name}</p>
+      <p class="mt-1 flex items-start gap-1.5 font-body text-sm text-ink-soft">
+        <Icon name="map-pin" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-mist-500" />
+        {libertyWalk.address}
+      </p>
+      <a
+        href={mapsHref(libertyWalk)}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link-underline mt-3 inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+      >
+        Ouvrir dans Google Maps
+        <Icon name="external-link" class="h-3.5 w-3.5" />
+      </a>
+    </div>
+
+    <Figure
+      image={libertyWalkImg}
+      alt="Vitrines de miniatures Liberty Walk, du petit format au très grand format"
+      caption="Les vitrines Liberty Walk, du petit format au très grand."
+      class="mx-auto mt-8 max-w-xs sm:max-w-sm"
+    />
   </section>
 
   <section class="border-t border-mist-200 bg-paper-dim/50 py-16">
