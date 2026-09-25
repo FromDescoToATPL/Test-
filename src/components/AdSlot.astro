@@ -1,7 +1,10 @@
 ---
 // Emplacement publicitaire réservé — pas de script tiers chargé pour l'instant.
-// Une fois le compte AdSense (ou autre régie) créé, remplace le contenu du <div slot>
-// par le code fourni par la régie. La hauteur réservée évite tout saut de mise en page (CLS).
+// Une fois le compte AdSense (ou autre régie) créé, passe ADS_ENABLED à true dans consts.ts
+// et remplace le contenu du <div slot> par le code fourni par la régie.
+// La hauteur réservée évite tout saut de mise en page (CLS).
+import { ADS_ENABLED } from "../consts";
+
 interface Props {
   format?: "banniere" | "carre";
   class?: string;
@@ -10,15 +13,17 @@ const { format = "banniere", class: className = "" } = Astro.props;
 const height = format === "banniere" ? "min-h-[100px] sm:min-h-[120px]" : "min-h-[250px]";
 ---
 
-<div class:list={["mx-auto max-w-8xl px-5 sm:px-8", className]}>
-  <div
-    class:list={[
-      "flex w-full flex-col items-center justify-center gap-1 rounded-md border border-dashed border-mist-300 bg-paper-dim/60",
-      height,
-    ]}
-    data-ad-slot={format}
-  >
-    <span class="eyebrow text-mist-400">Publicité</span>
-    <span class="font-body text-xs text-mist-400">Emplacement réservé</span>
+{ADS_ENABLED && (
+  <div class:list={["mx-auto max-w-8xl px-5 sm:px-8", className]}>
+    <div
+      class:list={[
+        "flex w-full flex-col items-center justify-center gap-1 rounded-md border border-dashed border-mist-300 bg-paper-dim/60",
+        height,
+      ]}
+      data-ad-slot={format}
+    >
+      <span class="eyebrow text-mist-400">Publicité</span>
+      <span class="font-body text-xs text-mist-400">Emplacement réservé</span>
+    </div>
   </div>
-</div>
+)}

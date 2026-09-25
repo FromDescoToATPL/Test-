@@ -1,4 +1,7 @@
 export const SITE_NAME = "Kaido";
+// Passe à true une fois qu'un vrai réseau pub (AdSense ou autre) est branché.
+// Tant que c'est false, AdSlot n'affiche rien nulle part sur le site.
+export const ADS_ENABLED = false;
 // Prénom déduit de ton adresse mail — remplace si ce n'est pas le bon.
 export const AUTHOR_NAME = "Clément";
 export const SITE_TAGLINE = "Guide JDM & passion automobile au Japon";

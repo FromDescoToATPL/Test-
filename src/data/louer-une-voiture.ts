@@ -2,8 +2,8 @@ import type { Spot } from "./types";
 
 export const louerIntro =
   `Louer une voiture, c'est clairement la meilleure façon de sortir des sentiers battus au Japon : routes de montagne, spots isolés, garages de passionnés que les transports en commun n'atteignent jamais. Mais avant de prendre la route, il y a un choix à faire, et il change complètement l'expérience.
-D'un côté, les grandes enseignes traditionnelles : Toyota Rent a Car, Nissan Rent a Car, ORIX, Times Car Rental, Nippon Rent-A-Car... Elles ont des comptoirs dans presque toutes les gares et tous les aéroports, un accueil en anglais et une réservation en ligne toute simple. Le parc reste plutôt classique — citadines, familiales, quelques hybrides — mais pour un premier passage ou un trajet sans prise de tête, c'est imbattable.
-De l'autre, les agences spécialisées, bien plus confidentielles, qui louent des sportives et de vraies JDM à la journée. Ce sont des adresses qu'on ne trouve pas sur les comparateurs classiques : il faut les chercher, souvent directement sur Google Maps dans la ville visée. En échange, vous montez dans une voiture qui a une âme — une Evolution préparée, une Corvette, parfois plus. Je suis passé par les deux, à Tokyo chez OnlyJDM et à Kawaguchiko chez MFJ Rental Cars, et honnêtement, ça valait chaque minute de recherche.
+D'un côté, les grandes enseignes traditionnelles : Toyota Rent a Car, Nissan Rent a Car, ORIX, Times Car Rental, Nippon Rent-A-Car... Elles ont des comptoirs dans presque toutes les gares et tous les aéroports, un accueil en anglais et une réservation en ligne toute simple. Le parc reste plutôt classique (citadines, familiales, quelques hybrides), mais pour un premier passage ou un trajet sans prise de tête, c'est imbattable.
+De l'autre, les agences spécialisées, bien plus confidentielles, qui louent des sportives et de vraies JDM à la journée. Ce sont des adresses qu'on ne trouve pas sur les comparateurs classiques : il faut les chercher, souvent directement sur Google Maps dans la ville visée. En échange, vous montez dans une voiture qui a une âme : une Evolution préparée, une Corvette, parfois plus. Je suis passé par les deux, à Tokyo chez OnlyJDM et à Kawaguchiko chez MFJ Rental Cars, et honnêtement, ça valait chaque minute de recherche.
 Dans ce guide, je vous donne les bonnes adresses des deux types d'agences et tout ce qu'il faut vérifier avant de prendre les clés.`;
 
 export const louerSpots: Spot[] = [
@@ -13,7 +13,7 @@ export const louerSpots: Spot[] = [
     area: "Gares et aéroports, partout au Japon",
     description:
       "Toyota Rent a Car, Nissan Rent a Car, ORIX Rent a Car, Times Car Rental, Nippon Rent-A-Car : les réseaux les plus simples pour un premier passage, comptoirs en anglais dans la plupart des gares et aéroports.",
-    tip: "Réserve en ligne avant de partir — les modèles populaires (et les rares sportives du parc) partent vite en haute saison.",
+    tip: "Réserve en ligne avant de partir : les modèles populaires (et les rares sportives du parc) partent vite en haute saison.",
     filled: true,
   },
   {
@@ -51,6 +51,6 @@ export const louerConseils: { titre: string; texte: string }[] = [
   {
     titre: "GPS et carte ETC",
     texte:
-      "Demandez le GPS en anglais et une carte ETC (télépéage) dès la réservation — les deux se négocient facilement au comptoir mais peuvent manquer si vous les demandez au dernier moment.",
+      "Demandez le GPS en anglais et une carte ETC (télépéage) dès la réservation : les deux se négocient facilement au comptoir mais peuvent manquer si vous les demandez au dernier moment.",
   },
 ];
