@@ -11,7 +11,46 @@ import Icon from "../components/Icon.astro";
 import { withBase } from "../consts";
 import evoFace from "../assets/photos/tokyo-evo9-face-onlyjdm.jpg";
 import heroImg from "../assets/photos/tokyo-shibuya-crossing-nuit.jpg";
+import galleryR34 from "../assets/photos/tokyo-nuit-r34-nismo.jpg";
+import galleryRx7 from "../assets/photos/tokyo-nuit-rx7-veilside.jpg";
+import galleryR33 from "../assets/photos/tokyo-nuit-r33-akihabara.jpg";
+import galleryWidebody from "../assets/photos/tokyo-nuit-widebody-akihabara.jpg";
+import gallerySkylineCoupe from "../assets/photos/tokyo-nuit-skyline-coupe-shibuya.jpg";
+import gallery86 from "../assets/photos/tokyo-nuit-86.jpg";
 import { tokyoIntro, tokyoSpots, tokyoParking, tokyoTips } from "../data/tokyo";
+
+const streetGallery = [
+  {
+    image: galleryR34,
+    alt: "Nissan Skyline R34 bleue, phares allumés, dans une rue de Tokyo la nuit",
+    caption: "Une Skyline R34, toujours aussi culte.",
+  },
+  {
+    image: galleryRx7,
+    alt: "Mazda RX-7 FD Veilside orange et noire dans une rue de Tokyo la nuit",
+    caption: "Une RX-7 FD Veilside, impossible de la manquer.",
+  },
+  {
+    image: galleryR33,
+    alt: "Nissan Skyline R33 stancée sous la pluie à Akihabara",
+    caption: "Une Skyline R33 stancée sous la pluie, à Akihabara.",
+  },
+  {
+    image: galleryWidebody,
+    alt: "Coupé japonais widebody noir sous la pluie à Akihabara",
+    caption: "Une compacte widebody croisée sous la pluie, à Akihabara.",
+  },
+  {
+    image: gallerySkylineCoupe,
+    alt: "Nissan Skyline coupé blanc stancé dans le trafic de nuit à Shibuya",
+    caption: "Une Skyline coupé dans le trafic de Shibuya.",
+  },
+  {
+    image: gallery86,
+    alt: "Toyota 86 blanche garée dans une rue de Tokyo la nuit",
+    caption: "Une 86 croisée en pleine rue.",
+  },
+];
 ---
 
 <Layout
@@ -52,6 +91,21 @@ import { tokyoIntro, tokyoSpots, tokyoParking, tokyoTips } from "../data/tokyo";
           <Icon name="arrow-right" class="h-3.5 w-3.5" />
         </a>
       </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-8xl px-5 pb-20 sm:px-8">
+    <SectionHeading eyebrow="Ambiance" title="Repérées dans les rues de Tokyo" />
+    <div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6">
+      {streetGallery.map((photo) => (
+        <Figure
+          image={photo.image}
+          alt={photo.alt}
+          caption={photo.caption}
+          class="text-center"
+          aspectClass="aspect-[3/4]"
+        />
+      ))}
     </div>
   </section>
 
