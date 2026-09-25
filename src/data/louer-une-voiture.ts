@@ -1,4 +1,5 @@
 import type { Spot } from "./types";
+import { withBase } from "../consts";
 
 export const louerIntro =
   `Louer une voiture, c'est clairement la meilleure façon de sortir des sentiers battus au Japon : routes de montagne, spots isolés, garages de passionnés que les transports en commun n'atteignent jamais. Mais avant de prendre la route, il y a un choix à faire, et il change complètement l'expérience.
@@ -27,11 +28,12 @@ export const louerSpots: Spot[] = [
   },
 ];
 
-export const louerConseils: { titre: string; texte: string }[] = [
+export const louerConseils: { titre: string; texte: string; link?: { label: string; href: string } }[] = [
   {
     titre: "Permis international ou translation",
     texte:
-      "Le permis français seul ne suffit pas : il faut un Permis de Conduire International (convention de Genève 1949) à présenter avec ton permis national ou faire une demande de translation. Détails complets sur la page Conduire au Japon.",
+      "Le permis français seul ne suffit pas : il faut un Permis de Conduire International (convention de Genève 1949) à présenter avec ton permis national ou faire une demande de translation. Détails complets sur la page",
+    link: { label: "Conduire au Japon", href: withBase("/conduire-au-japon/") },
   },
   {
     titre: "Assurance et franchise",
