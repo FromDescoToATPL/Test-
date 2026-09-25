@@ -1,7 +1,10 @@
 import type { Spot } from "./types";
 
 export const louerIntro =
-  "Louer une voiture, c'est la meilleure façon de sortir de découvrir les villes d'une autre façon : routes de montagne, spots isolés, garages de passionnés que les transports en commun n'atteignent pas. Voici les bonnes adresses et ce qu'il faut vérifier avant de prendre les clés.";
+  `Louer une voiture, c'est clairement la meilleure façon de sortir des sentiers battus au Japon : routes de montagne, spots isolés, garages de passionnés que les transports en commun n'atteignent jamais. Mais avant de prendre la route, il y a un choix à faire, et il change complètement l'expérience.
+D'un côté, les grandes enseignes traditionnelles : Toyota Rent a Car, Nissan Rent a Car, ORIX, Times Car Rental, Nippon Rent-A-Car... Elles ont des comptoirs dans presque toutes les gares et tous les aéroports, un accueil en anglais et une réservation en ligne toute simple. Le parc reste plutôt classique — citadines, familiales, quelques hybrides — mais pour un premier passage ou un trajet sans prise de tête, c'est imbattable.
+De l'autre, les agences spécialisées, bien plus confidentielles, qui louent des sportives et de vraies JDM à la journée. Ce sont des adresses qu'on ne trouve pas sur les comparateurs classiques : il faut les chercher, souvent directement sur Google Maps dans la ville visée. En échange, vous montez dans une voiture qui a une âme — une Evolution préparée, une Corvette, parfois plus. Je suis passé par les deux, à Tokyo chez OnlyJDM et à Kawaguchiko chez MFJ Rental Cars, et honnêtement, ça valait chaque minute de recherche.
+Dans ce guide, je vous donne les bonnes adresses des deux types d'agences et tout ce qu'il faut vérifier avant de prendre les clés.`;
 
 export const louerSpots: Spot[] = [
   {
@@ -41,8 +44,13 @@ export const louerConseils: { titre: string; texte: string }[] = [
       "La plupart des loueurs exigent au moins 21 ans et 1 an de permis ; les agences spécialisées sportives montent parfois la barre plus haut (25 ans, 2-3 ans de permis). Vérifie les conditions exactes avant de réserver.",
   },
   {
-    titre: "État des lieux et options utiles",
+    titre: "Photos et vidéos avant/après",
     texte:
-      "Fais le tour du véhicule et prends des photos avant de partir, comme partout ailleurs. Demande la carte ETC (télépéage) et le GPS en anglais dès la réservation — les deux simplifient énormément la conduite sur autoroute.",
+      "Avant même de démarrer, faites le tour complet du véhicule et prenez des photos et une vidéo, y compris des rayures ou dommages déjà présents. Refaites la même chose au retour, avant de rendre les clés. C'est votre seule protection en cas de désaccord sur l'état de la voiture à la restitution, et ça ne prend que deux minutes.",
+  },
+  {
+    titre: "GPS et carte ETC",
+    texte:
+      "Demandez le GPS en anglais et une carte ETC (télépéage) dès la réservation — les deux se négocient facilement au comptoir mais peuvent manquer si vous les demandez au dernier moment.",
   },
 ];
