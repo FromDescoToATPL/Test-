@@ -5,12 +5,18 @@ import Figure from "../../components/Figure.astro";
 import Icon from "../../components/Icon.astro";
 import { withBase } from "../../consts";
 import heroImg from "../../assets/photos/fuji-musee-escaliers.jpg";
-import lemansImg from "../../assets/photos/fuji-musee-lemans-787b-gtone.jpg";
+import salleImg from "../../assets/photos/fuji-musee-salle-prototypes-toyota.jpg";
+import plongeanteImg from "../../assets/photos/fuji-musee-vue-plongeante-prototype.webp";
+import ts050Img from "../../assets/photos/fuji-musee-ts050-hybrid-lemans.jpg";
+import indycarImg from "../../assets/photos/fuji-musee-indycar-penske-marlboro.jpg";
+import hondaImg from "../../assets/photos/fuji-musee-honda-moteur-monoplace.jpg";
+import gtpImg from "../../assets/photos/fuji-musee-gtp-salle-sombre.jpg";
+import circuitImg from "../../assets/photos/fuji-speedway-vue-brouillard.jpg";
 ---
 
 <Layout
   title="Musée du sport automobile"
-  description="Le musée du sport automobile près de Fuji Speedway : prototypes Le Mans, voitures de rallye historiques et pièces de collection — avis complet à venir."
+  description="Le musée du sport automobile près de Fuji Speedway : prototypes Le Mans, IndyCar et pièces de collection — avis complet à venir."
 >
   <Hero
     image={heroImg}
@@ -27,18 +33,77 @@ import lemansImg from "../../assets/photos/fuji-musee-lemans-787b-gtone.jpg";
       <Icon name="arrow-left" class="h-3.5 w-3.5" />
       Retour à Mont Fuji
     </a>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-5 pb-16 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink sm:text-3xl">À quoi s'attendre</h2>
 
     <Figure
-      image={lemansImg}
-      alt="Mazda 787B et Toyota GT-One exposées côte à côte dans un musée du sport automobile près de Fuji Speedway"
-      caption="La Mazda 787B (vainqueur des 24h du Mans 1991) aux côtés de la Toyota GT-One."
+      image={salleImg}
+      alt="Salle du musée du sport automobile avec plusieurs prototypes et voitures de course Toyota exposés"
+      caption="Sous une verrière vertigineuse, les prototypes s'alignent salle après salle."
       class="mt-8"
     />
 
+    <div class="mt-6 grid gap-6 sm:grid-cols-2">
+      <Figure
+        image={plongeanteImg}
+        alt="Vue plongeante sur un prototype de course Toyota crème, depuis un étage supérieur du musée"
+        caption="Vue plongeante sur un prototype, entre deux étages reliés par les escalators."
+      />
+      <Figure
+        image={ts050Img}
+        alt="Toyota TS050 Hybrid n°8 vainqueur des 24 Heures du Mans, exposée avec sa mécanique hybride"
+        caption="La TS050 Hybrid, victorieuse aux 24 Heures du Mans, encore couverte de la poussière de la course."
+      />
+      <Figure
+        image={indycarImg}
+        alt="Monoplace IndyCar Toyota aux couleurs Marlboro Team Penske, exposée à côté d'une autre IndyCar Toyota noire"
+        caption="Une IndyCar Toyota aux couleurs Marlboro Team Penske, garée à côté de sa rivale FedEx."
+      />
+      <Figure
+        image={hondaImg}
+        alt="Moteur à nu d'une monoplace Honda historique, vue arrière avec aileron"
+        caption="Le moteur à nu d'une monoplace Honda, mécanique à l'air libre."
+      />
+    </div>
+
+    <Figure
+      image={gtpImg}
+      alt="Prototype de course Toyota GTP blanc exposé dans une salle sombre du musée"
+      caption="Une autre salle, une autre ambiance : ce prototype garde toute sa prestance dans la pénombre."
+      class="mx-auto mt-6 max-w-sm"
+      aspectClass="aspect-[3/4]"
+    />
+
     <p class="reveal mt-8 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
-      Page en cours de complétion — le récit de la visite, le nom exact du musée, les horaires, le tarif d'entrée et
-      l'avis détaillé de Clément à venir.
+      Note pour Clément — décris ici l'expérience de visite (parcours, ambiance, ce qui a marqué) en complément des
+      photos.
     </p>
+  </section>
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-16">
+    <div class="mx-auto max-w-3xl px-5 sm:px-8">
+      <h2 class="reveal font-display text-2xl font-semibold text-ink sm:text-3xl">Comment s'y rendre ?</h2>
+
+      <p class="reveal mt-6 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
+        Note pour Clément — donne-moi le nom exact et l'adresse du musée, j'ajoute la carte Google Maps ici (même
+        principe que pour Ken Box ou Tomica Shop).
+      </p>
+
+      <h2 class="reveal mt-12 font-display text-2xl font-semibold text-ink sm:text-3xl">Tarif et infos pratiques</h2>
+      <p class="reveal mt-6 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
+        Note pour Clément — tarif d'entrée, horaires d'ouverture, durée de visite conseillée : à compléter.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-5 py-16 sm:px-8">
+    <Figure
+      image={circuitImg}
+      alt="Vue du circuit de Fuji Speedway dans le brouillard, virage et panneaux Panasonic Automotive visibles"
+      caption="Le circuit de Fuji Speedway sous la brume, juste à côté du musée."
+    />
   </section>
 
   <section class="border-t border-mist-200 bg-paper-dim/50 py-16">
