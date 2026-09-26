@@ -34,8 +34,8 @@ export const tokyoSpots: Spot[] = [
     category: "shopping",
     area: "Shinjuku, Chiyoda, Shibuya",
     description:
-      "Bic Camera, Ken Box et Ken Box B2F à Shinjuku, le Tomica Shop Tokyo à la gare de Tokyo, et l'univers Liberty Walk à Shibuya : les bonnes adresses pour ramener une miniature JDM au 1/43 ou 1/64.",
-    tip: "Chez Ken Box, dénicher sa pépite peut vite coûter cher : vas-y en repérage si tu veux juste regarder.",
+      "Bic Camera, Ken Box et Ken Box B2F à Shinjuku, le Tomica Shop Tokyo à la gare de Tokyo, et l'univers Liberty Walk à Shibuya : les bonnes adresses pour ramener une miniature JDM au 1/18 jusqu'au 1/64.",
+    tip: "Chez Ken Box, dénicher sa pépite peut vite coûter cher : Aller en repérage si tu veux juste regarder.",
     articleHref: withBase("/tokyo/boutiques-miniatures/"),
     filled: true,
   },
