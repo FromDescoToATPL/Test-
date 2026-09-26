@@ -30,6 +30,16 @@ export const tokyoSpots: Spot[] = [
     filled: true,
   },
   {
+    name: "Umihotaru PA",
+    category: "meetup",
+    area: "Kisarazu, Chiba (accessible en voiture via l'Aqua-Line)",
+    description:
+      "Probablement l'un des meilleurs spots de rassemblement pour les passionnés, accessible uniquement en voiture. Quand Daikoku Futo PA est fermée ou trop pleine, c'est là que tout le monde se retrouve.",
+    tip: "Comme à Daikoku, reste respectueux : c'est une aire ouverte à tous, pas un événement organisé.",
+    mapsQuery: "Umihotaru PA, 292-0008 Chiba, Kisarazu, Nakajima",
+    filled: true,
+  },
+  {
     name: "Boutiques de miniatures",
     category: "shopping",
     area: "Shinjuku, Chiyoda, Shibuya",
