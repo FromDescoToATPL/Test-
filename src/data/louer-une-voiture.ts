@@ -22,7 +22,7 @@ export const louerSpots: Spot[] = [
     category: "location",
     area: "À préciser",
     description:
-      "Au-delà des grandes enseignes, quelques agences locales proposent des sportives et des JDM à louer à la journée : la Corvette C7 louée chez MFJ Rental Cars à Kawaguchiko (page Mont Fuji), ou l'Evolution IX louée chez OnlyJDM à Tokyo (page Tokyo). D'autres adresses de ce genre à découvrir et ajouter ici.",
+      "Au-delà des grandes enseignes, quelques agences locales proposent des sportives et des JDM à louer à la journée : la Corvette C7 louée chez MFJ Rental Cars à Kawaguchiko (page Mont Fuji), ou l'Evolution VIII louée chez OnlyJDM à Tokyo (page Tokyo). D'autres adresses de ce genre à découvrir et ajouter ici.",
     tip: "Ajoute les autres agences repérées : ville, modèles proposés, tarifs, conditions.",
     filled: false,
   },

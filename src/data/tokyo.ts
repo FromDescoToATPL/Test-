@@ -14,7 +14,7 @@ export const tokyoSpots: Spot[] = [
     category: "location",
     area: "Ōta, sud de Tokyo (près de l'aéroport de Haneda)",
     description:
-      "L'agence de location spécialisée JDM qui m'a loué cette Lancer Evolution IX gris argent pour la journée — une GT-R trônait à côté. Le genre d'adresse qui vaut le détour pour n'importe quel passionné.",
+      "L'agence de location spécialisée JDM qui m'a loué cette Lancer Evolution VIII gris argent pour la journée — une GT-R trônait à côté. Le genre d'adresse qui vaut le détour pour n'importe quel passionné.",
     tip: "Réservation conseillée bien à l'avance : les voitures les plus demandées partent vite.",
     mapsQuery: "OnlyJDM Car Rental Haneda Airport Store, 2 Chome-20-14 Omoriminami, Ota City, Tokyo",
     articleHref: withBase("/tokyo/only-jdm/"),
