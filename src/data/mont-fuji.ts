@@ -45,7 +45,7 @@ export const fujiParking: ParkingTip[] = [
   {
     area: "Hôtels & ryokans",
     advice:
-      "Le stationnement est quasi systématiquement gratuit et inclus — un vrai confort par rapport aux grandes villes.",
+      "Le stationnement est quasi systématiquement gratuit et inclus. Un vrai confort par rapport aux grandes villes.",
   },
   {
     area: "Routes de montagne",
