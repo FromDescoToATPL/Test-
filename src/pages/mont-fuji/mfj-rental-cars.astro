@@ -5,7 +5,9 @@ import Figure from "../../components/Figure.astro";
 import Icon from "../../components/Icon.astro";
 import { withBase } from "../../consts";
 import heroImg from "../../assets/photos/fuji-corvette-face-brouillard.jpg";
-import corvetteImg from "../../assets/photos/fuji-corvette-arriere-parking-pluie.jpg";
+import agence1Img from "../../assets/photos/fuji-mfj-agence-recuperation-1.webp";
+import agence2Img from "../../assets/photos/fuji-mfj-agence-recuperation-2.webp";
+import avantRouteImg from "../../assets/photos/fuji-mfj-corvette-avant-route.webp";
 ---
 
 <Layout
@@ -47,17 +49,66 @@ import corvetteImg from "../../assets/photos/fuji-corvette-arriere-parking-pluie
         Je ne réfléchis pas plus longtemps : je file sur leur site, la Corvette est en promo à 13 000 yens et on peut
         réserver sans payer. Allez hop, rendez-vous le lendemain !
       </p>
+      <p>
+        Le lendemain, j'aperçois la Corvette sur un parking tout simple, à côté d'un petit restaurant. Je pousse la
+        porte de l'agence, entre vélos et voitures, et je fais la connaissance de la gérante : incroyablement
+        gentille. Aucune caution à payer, et comme dans toutes les agences (je vous épargne les détails), on signe un
+        contrat et on fait le tour du véhicule ensemble. En cas d'accident, la franchise s'élève à 50 000 yens. Autant
+        dire qu'avec une propulsion pareille, mieux vaut garder le pied léger.
+      </p>
     </div>
 
+    <div class="mt-8 grid gap-6 sm:grid-cols-2">
+      <Figure
+        image={agence1Img}
+        alt="Corvette C7 Stingray blanche garée sur un parking simple à côté de l'agence de location, sous la pluie"
+        caption="La Corvette m'attend sur le parking de l'agence."
+      />
+      <Figure
+        image={agence2Img}
+        alt="Corvette C7 Stingray blanche vue de trois quarts arrière sur le parking de l'agence, sous la pluie"
+        caption="Récupération du véhicule, sous la pluie."
+      />
+    </div>
+
+    <p class="reveal mt-8 font-body text-sm leading-relaxed text-ink-soft">
+      Une fois le moteur lancé, direction le <a href={withBase("/mont-fuji/musee-du-sport-automobile/")} class="link-underline text-ink">Fuji Motor Sports Museum</a>,
+      juste à côté de Fuji Speedway.
+    </p>
+
     <Figure
-      image={corvetteImg}
-      alt="Corvette C7 Stingray blanche garée sur un parking mouillé près du mont Fuji"
-      caption="Le lendemain : la Corvette C7 Stingray m'attend, sous la pluie."
+      image={avantRouteImg}
+      alt="Corvette C7 Stingray blanche garée sur un parking arboré, prête à reprendre la route"
+      caption="Prête à reprendre la route, direction le musée."
       class="mt-8"
     />
 
+    <p class="reveal mt-8 font-body text-sm leading-relaxed text-ink-soft">
+      Malgré une météo qui n'était clairement pas de la partie ce jour-là, je me suis baladé autour du circuit et j'ai
+      grimpé la montagne à bord de cette voiture vraiment incroyable. Voici un extrait qui devrait mettre tout le
+      monde d'accord :
+    </p>
+
+    <figure class="reveal mt-6">
+      <div class="overflow-hidden rounded-lg bg-asphalt">
+        <video
+          src={withBase("/videos/fuji-mfj-pov-route-montagne.mp4")}
+          poster={withBase("/videos/fuji-mfj-pov-poster.jpg")}
+          width="1920"
+          height="1080"
+          controls
+          preload="metadata"
+          playsinline
+          class="w-full"
+        />
+      </div>
+      <figcaption class="mt-2 font-body text-xs text-mist-500">
+        Quelques secondes à bord de la Corvette, sur les routes autour de Fuji Speedway.
+      </figcaption>
+    </figure>
+
     <p class="reveal mt-8 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
-      Page en cours de complétion : la suite de l'histoire, les conditions de location et l'avis détaillé de Clément à venir.
+      Page en cours de complétion : l'avis détaillé de Clément à venir.
     </p>
   </section>
 
