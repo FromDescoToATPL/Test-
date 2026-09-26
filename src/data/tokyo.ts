@@ -30,6 +30,14 @@ export const tokyoSpots: Spot[] = [
     filled: true,
   },
   {
+    name: "Où rouler à Tokyo",
+    category: "meetup",
+    area: "Odaiba, Shutoko, jusqu'à Hakone",
+    description: "Quelques routes pour vous faire plaisir à bord de votre JDM, de jour comme de nuit.",
+    articleHref: withBase("/tokyo/ou-rouler/"),
+    filled: true,
+  },
+  {
     name: "Boutiques de miniatures",
     category: "shopping",
     area: "Shinjuku, Chiyoda, Shibuya",
