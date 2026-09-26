@@ -25,12 +25,12 @@ export const fujiSpots: Spot[] = [
     filled: true,
   },
   {
-    name: "Musée du sport automobile (près de Fuji Speedway)",
+    name: "Fuji Motor Sports Museum",
     category: "musee",
     area: "À ~30 min de Kawaguchiko, juste à côté du circuit",
     description:
       "Un bâtiment vertigineux sur plusieurs niveaux relié par de longs escalators, où se côtoient prototypes Le Mans (dont la Mazda 787B victorieuse en 1991 et la Toyota GT-One), voitures de rallye historiques et pièces de collection. Une des plus belles collections de voitures de course que compte le Japon.",
-    tip: "Confirme le nom exact et les horaires d'ouverture actuels avant publication — à vérifier sur place ou en ligne.",
+    tip: "Parking gratuit à environ 20 mètres de l'entrée. Comptez environ 10€ l'entrée du musée.",
     articleHref: withBase("/mont-fuji/musee-du-sport-automobile/"),
     filled: true,
   },
