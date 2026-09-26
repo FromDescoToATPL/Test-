@@ -1,4 +1,4 @@
-export const SITE_NAME = "Kaido";
+export const SITE_NAME = "JDM Trip";
 // Passe à true une fois qu'un vrai réseau pub (AdSense ou autre) est branché.
 // Tant que c'est false, AdSlot n'affiche rien nulle part sur le site.
 export const ADS_ENABLED = false;
@@ -6,7 +6,7 @@ export const ADS_ENABLED = false;
 export const AUTHOR_NAME = "Clément";
 export const SITE_TAGLINE = "Guide JDM & passion automobile au Japon";
 export const SITE_DESCRIPTION =
-  "Kaido est le guide du passionné d'automobile au Japon : bonnes adresses, location de voitures, shopping et conseils pratiques à Tokyo, autour du Mont Fuji, à Osaka et à Kyoto.";
+  "JDM Trip est le guide du passionné d'automobile au Japon : bonnes adresses, location de voitures, shopping et conseils pratiques à Tokyo, autour du Mont Fuji, à Osaka et à Kyoto.";
 // TODO: remplace par le vrai domaine une fois le site déployé (utilisé pour le SEO et les liens canoniques).
 export const SITE_URL = "https://exemple.com";
 

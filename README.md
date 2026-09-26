@@ -1,4 +1,4 @@
-# Kaido — guide JDM & passion automobile au Japon
+# JDM Trip — guide JDM & passion automobile au Japon
 
 Site éditorial (Astro + Tailwind CSS v4) : guide du passionné d'automobile au Japon — Tokyo, Mont Fuji, Osaka, Kyoto,
 location de voiture, shopping et conduite sur place. Contenu statique, pensé pour la monétisation (pub + affiliation)
