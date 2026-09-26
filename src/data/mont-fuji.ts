@@ -50,7 +50,7 @@ export const fujiParking: ParkingTip[] = [
   {
     area: "Routes de montagne",
     advice:
-      "Brouillard, pluie et routes sinueuses : roule prudemment. En hiver, certains axes autour du Fuji nécessitent pneus neige ou chaînes — vérifie les conditions avant de partir.",
+      "Brouillard, pluie et routes sinueuses : mieux vaut rouler prudemment. En hiver, certains axes autour du Fuji nécessitent des pneus neige ou des chaînes, bien vérifier avec l'agence de location avant de partir.",
   },
 ];
 
