@@ -1,0 +1,190 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Hero from "../../../components/Hero.astro";
+import Figure from "../../../components/Figure.astro";
+import Icon from "../../../components/Icon.astro";
+import { withBase } from "../../../consts";
+import heroImg from "../../../assets/photos/tokyo-evo9-arriere-onlyjdm.jpg";
+import mapImg from "../../../assets/photos/tokyo-onlyjdm-itineraire-shinjuku.webp";
+import avantImg from "../../../assets/photos/tokyo-evo9-avant-rue-onlyjdm.jpg";
+import volantImg from "../../../assets/photos/tokyo-evo9-interieur-volant-onlyjdm.jpg";
+
+const agencyName = "OnlyJDM Car Rental Haneda Airport Store";
+const agencyAddress = "〒143-0013 Tokyo, Ota City, Omoriminami, 2 Chome-20-14";
+const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${agencyName}, ${agencyAddress}`)}`;
+---
+
+<Layout
+  title="OnlyJDM"
+  description="OnlyJDM in Tokyo: a JDM rental specialist worth the trip for any enthusiast. Requirements, prices, getting there and my full review."
+>
+  <Hero
+    image={heroImg}
+    eyebrow="Great spot · Tokyo"
+    title="OnlyJDM"
+    subtitle="The pros and cons: I'll tell you everything!"
+  />
+
+  <section class="mx-auto max-w-3xl px-5 pt-16 pb-10 sm:px-8">
+    <a
+      href={withBase("/en/tokyo/")}
+      class="link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink-soft"
+    >
+      <Icon name="arrow-left" class="h-3.5 w-3.5" />
+      Back to Tokyo
+    </a>
+
+    <p class="reveal mt-8 font-body text-lg leading-relaxed text-ink-soft">
+      A bit of backstory: a month before leaving for Japan, I had no idea you could rent JDM cars. After several days
+      of research, especially on how to rent and how to get my license translated, I found this agency called
+      OnlyJDM. This is where I picked up the keys to this Lancer Evolution VIII. Looks great, doesn't it? :) Modified
+      exhaust, upgraded turbo, new steering wheel and wheels: it's pretty far from the stock version, which I don't
+      mind one bit.
+    </p>
+    <p class="reveal mt-4 font-body text-xs text-mist-500">Not sponsored: I paid for the rental myself.</p>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-10 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">Requirements to rent</h2>
+    <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+      Before picking up your car at this agency or any other, here's what you'll need:
+    </p>
+    <ul class="reveal mt-4 space-y-2 border-l-2 border-mist-200 pl-5 font-body text-sm leading-relaxed text-ink-soft">
+      <li>Be at least 23 years old (the age required at OnlyJDM, it may vary from one agency to another)</li>
+      <li>
+        Your printed license translation, or your International Driving Permit depending on your country (learn more:{" "}
+        <a href={withBase("/en/driving-in-japan/")} class="link-underline font-medium text-racing-500">Driving in Japan</a>)
+      </li>
+      <li>Your physical driver's license (no paper version allowed)</li>
+      <li>Your passport</li>
+      <li>
+        Cash or a credit card to pay the deposit (between €200 and €300 depending on the car), and for souvenirs
+      </li>
+    </ul>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-10 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">Why OnlyJDM?</h2>
+    <div class="reveal mt-4 space-y-4 font-body text-sm leading-relaxed text-ink-soft">
+      <p>OnlyJDM lets you rent any car you want, depending on availability.</p>
+      <p>
+        I chose this agency for its attractive prices compared to other agencies, which can sometimes charge you €100
+        more, or even more than that, for less driving time. Here you can rent for 7 hours or 24 hours (count on about
+        3,000 yen more, around €17: it's better value and lets you drive at night).
+      </p>
+      <p>
+        As for availability: some cars get booked up fast, so it's really essential to book quickly and to already
+        have your license translation, or plan for it in advance.
+      </p>
+      <p>They have 2 agencies:</p>
+      <ul class="space-y-2 border-l-2 border-mist-200 pl-5">
+        <li>one in the north of Tokyo (hard to reach by public transport)</li>
+        <li>one in the south of Tokyo (easier to get to)</li>
+      </ul>
+      <p>I booked the EVO 8 GSR from the southern agency.</p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">How to get there?</h2>
+
+    <div class="reveal mt-6 rounded-lg border border-mist-200 bg-paper-dim/40 p-5">
+      <p class="eyebrow text-racing-500">The agency's address</p>
+      <p class="mt-2 font-body text-sm font-semibold text-ink">{agencyName}</p>
+      <p class="mt-1 flex items-start gap-1.5 font-body text-sm text-ink-soft">
+        <Icon name="map-pin" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-mist-500" />
+        Japan, {agencyAddress}
+      </p>
+      <div class="mt-3 flex flex-wrap gap-x-6 gap-y-2">
+        <a
+          href={mapsHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-underline inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+        >
+          Open in Google Maps
+          <Icon name="external-link" class="h-3.5 w-3.5" />
+        </a>
+        <a
+          href="https://only-jdm.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-underline inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+        >
+          Agency website
+          <Icon name="external-link" class="h-3.5 w-3.5" />
+        </a>
+      </div>
+    </div>
+
+    <Figure
+      image={mapImg}
+      alt="Map of the train route between Shinjuku Station and the OnlyJDM agency in south Tokyo"
+      caption="Route from Shinjuku Station, Google Maps screenshot."
+      class="mx-auto mt-6 max-w-md"
+    />
+
+    <div class="reveal mt-8 space-y-4 font-body text-sm leading-relaxed text-ink-soft">
+      <p>
+        Since I was staying in Shinjuku, it took me about 40 minutes by regional train plus a 15-minute walk to reach
+        the agency. I know it's a long trip unless you're willing to spend about €60 on a taxi (about 30 minutes by
+        road). Add that to the car rental and the gas (about €1 per liter), and it can add up quickly, but the reward
+        will be all the sweeter!
+      </p>
+      <p>
+        To get around, I recommend having a 5G SIM card and Google Maps: from your hotel, it'll give you the best route
+        in detail (which platform, which direction, which train, etc.).
+      </p>
+      <p>
+        Don't be late! The agency is usually open before your rental starts, so it's best to allow for transport
+        hiccups.
+      </p>
+      <p>
+        Before picking up your car, read the contract carefully, take photos and videos of the car in case of any
+        problem, and let your heart choose! In short, just like at any regular rental agency.
+      </p>
+    </div>
+
+    <p class="reveal mt-8 font-display text-2xl font-semibold text-ink">What's next? Enjoy it!</p>
+    <div class="reveal mt-4 space-y-4 font-body text-sm leading-relaxed text-ink-soft">
+      <p>
+        My experience was unforgettable, even though the rain really made its presence felt during the drive. Driving
+        through the streets of Tokyo, especially Shibuya at night and the little streets of Kabukicho, definitely left
+        an impression on me!
+      </p>
+      <p>
+        A quick run on the expressway over the Rainbow Bridge, with the engine singing, is a real treat, especially
+        knowing that in Japan, car modifications are still tolerated. It wouldn't be the same experience in France...
+      </p>
+    </div>
+
+    <div class="mt-8 grid grid-cols-2 gap-4">
+      <Figure
+        image={avantImg}
+        alt="Front of the gray Lancer Evolution VIII parked along a sidewalk in a Tokyo street"
+        caption="The front of the Mitsubishi"
+        class="text-center"
+        aspectClass="aspect-[3/4]"
+      />
+      <Figure
+        image={volantImg}
+        alt="Driver's seat of the Lancer Evolution VIII with an aftermarket sport steering wheel"
+        caption="Now that's a steering wheel!"
+        class="text-center"
+        aspectClass="aspect-[3/4]"
+      />
+    </div>
+  </section>
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-16">
+    <div class="mx-auto max-w-3xl px-5 text-center sm:px-8">
+      <a
+        href={withBase("/en/tokyo/")}
+        class="link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink"
+      >
+        <Icon name="arrow-left" class="h-3.5 w-3.5" />
+        Back to all Tokyo spots
+      </a>
+    </div>
+  </section>
+</Layout>

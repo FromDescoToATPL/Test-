@@ -4,7 +4,8 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CookieConsent from "../components/CookieConsent.astro";
 import "../styles/global.css";
-import { SITE_NAME, SITE_DESCRIPTION, SITE_URL, withBase } from "../consts";
+import { SITE_NAME, SITE_URL, withBase } from "../consts";
+import { LANGS, findPagePair, getLang, ui } from "../i18n";
 import defaultOgSource from "../assets/photos/fuji-musee-lemans-787b-gtone.jpg";
 
 interface Props {
@@ -13,9 +14,20 @@ interface Props {
   image?: string;
 }
 
-const { title, description = SITE_DESCRIPTION, image } = Astro.props;
+const lang = getLang(Astro.url);
+const t = ui[lang];
+const { title, description = t.description, image } = Astro.props;
 const pageTitle = title === SITE_NAME ? title : `${title} · ${SITE_NAME}`;
 const canonicalURL = new URL(Astro.url.pathname, SITE_URL);
+
+// Balises hreflang : indiquent à Google la version de chaque langue (français par défaut).
+const pagePair = findPagePair(Astro.url);
+const alternates = pagePair
+  ? [
+      ...LANGS.map((l) => ({ hreflang: l, href: new URL(withBase(pagePair[l]), SITE_URL) })),
+      { hreflang: "x-default", href: new URL(withBase(pagePair.fr), SITE_URL) },
+    ]
+  : [];
 
 // Miroir GitHub Pages (sous /Test-/) : visible pour les humains, mais pas indexé —
 // évite le contenu dupliqué avec le site principal (Vercel / futur domaine).
@@ -26,7 +38,7 @@ const ogImageURL = new URL(image ?? defaultOgImage.src, SITE_URL);
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang={t.htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -37,8 +49,10 @@ const ogImageURL = new URL(image ?? defaultOgImage.src, SITE_URL);
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
+    {alternates.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)}
 
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content={t.ogLocale} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
@@ -50,8 +64,9 @@ const ogImageURL = new URL(image ?? defaultOgImage.src, SITE_URL);
       "@context": "https://schema.org",
       "@type": "WebSite",
       name: SITE_NAME,
-      description: SITE_DESCRIPTION,
+      description: t.description,
       url: SITE_URL,
+      inLanguage: t.htmlLang,
     })} />
   </head>
   <body class="flex min-h-dvh flex-col bg-paper text-ink">
@@ -59,7 +74,7 @@ const ogImageURL = new URL(image ?? defaultOgImage.src, SITE_URL);
       href="#main"
       class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-sm focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"
     >
-      Aller au contenu
+      {t.skipToContent}
     </a>
     <Header />
     <main id="main" class="flex-1">

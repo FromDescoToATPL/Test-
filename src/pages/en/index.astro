@@ -1,0 +1,159 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import Icon from "../../components/Icon.astro";
+import AdSlot from "../../components/AdSlot.astro";
+import { Image } from "astro:assets";
+import { SITE_NAME, withBase } from "../../consts";
+
+import heroImg from "../../assets/photos/fuji-musee-lemans-787b-gtone.jpg";
+import tokyoThumb from "../../assets/photos/tokyo-evo9-arriere-rue-onlyjdm.jpg";
+import fujiThumb from "../../assets/photos/fuji-corvette-face-brouillard-1.jpg";
+import osakaThumb from "../../assets/photos/osaka-meetup-mx5-capots-ouverts.jpg";
+import kyotoThumb from "../../assets/photos/kyoto-miniatures-rayonnages.jpg";
+import shoppingThumb from "../../assets/photos/shopping-voitures-miniatures.jpg";
+
+const destinations = [
+  {
+    name: "Tokyo",
+    href: withBase("/en/tokyo/"),
+    description: "Neon lights, specialist garages and late-night meets between enthusiasts.",
+    image: tokyoThumb,
+  },
+  {
+    name: "Mount Fuji",
+    href: withBase("/en/mount-fuji/"),
+    description: "Mountain roads, sports car rentals and a motorsports museum 30 min away.",
+    image: fujiThumb,
+  },
+  {
+    name: "Osaka",
+    href: withBase("/en/osaka/"),
+    description: "The street energy of Kansai and the cult stores of Japanese tuning.",
+    image: osakaThumb,
+  },
+  {
+    name: "Kyoto",
+    href: withBase("/en/kyoto/"),
+    description: "Temples and small mountain roads, with a few unexpected JDM hangouts.",
+    image: kyotoThumb,
+  },
+];
+
+const guides = [
+  {
+    label: "Rent a car",
+    href: withBase("/en/rent-a-car/"),
+    description: "Big chains, specialist agencies, insurance: how to rent a car in Japan with peace of mind.",
+    icon: "car" as const,
+  },
+  {
+    label: "Driving in Japan",
+    href: withBase("/en/driving-in-japan/"),
+    description: "International Driving Permit, tolls, parking: everything you need to get behind the wheel with confidence.",
+    icon: "steering-wheel" as const,
+  },
+];
+---
+
+<Layout title={SITE_NAME}>
+  <Hero
+    image={heroImg}
+    eyebrow="An enthusiast's guide"
+    title="The road is earned. Japan makes it legendary."
+    subtitle="Spots, routes and practical tips to experience Japanese car culture like a local: from Tokyo to Mount Fuji, from Osaka to Kyoto."
+  />
+
+  <section class="mx-auto max-w-8xl px-5 pt-6 pb-8 sm:px-8">
+    <SectionHeading
+      eyebrow="Destinations"
+      title="Four cities, one passion"
+      description={`Every destination has its own codes: where to rent, where to park, where to find the right spot.
+Pick your starting point.`}
+    />
+
+    <div class="mt-3 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {destinations.map((dest, i) => (
+        <a
+          href={dest.href}
+          class="reveal group relative flex aspect-[3/4] flex-col justify-end overflow-hidden rounded-lg bg-asphalt"
+          style={`transition-delay: ${i * 60}ms`}
+        >
+          <Image
+            src={dest.image}
+            alt=""
+            role="presentation"
+            class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            widths={[320, 480, 640]}
+            sizes="(min-width: 1024px) 25vw, 50vw"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-asphalt via-asphalt/30 to-transparent"></div>
+          <div class="relative p-5">
+            <h3 class="font-display text-xl font-semibold text-paper">{dest.name}</h3>
+            <p class="mt-1 font-body text-xs leading-relaxed text-mist-300">{dest.description}</p>
+            <span class="mt-3 inline-flex items-center gap-1 font-body text-xs font-medium text-gold-400 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+              Explore <Icon name="arrow-right" class="h-3 w-3" />
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <AdSlot class="py-4" />
+
+  <section class="mx-auto max-w-8xl px-5 pt-8 pb-20 sm:px-8">
+    <SectionHeading
+      eyebrow="Practical guides"
+      title="Beyond the cities"
+      description="Renting is just one step. Here's what you need to drive with peace of mind anywhere in Japan."
+    />
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      {guides.map((guide) => (
+        <a
+          href={guide.href}
+          class="reveal group flex flex-col rounded-lg border border-mist-200 bg-paper p-7 transition-all hover:border-racing-500/40 hover:shadow-md"
+        >
+          <div class="flex h-11 w-11 items-center justify-center rounded-md bg-racing-500/10 text-racing-500">
+            <Icon name={guide.icon} class="h-5 w-5" />
+          </div>
+          <h3 class="mt-5 font-display text-xl font-semibold text-ink">{guide.label}</h3>
+          <p class="mt-2 font-body text-sm leading-relaxed text-ink-soft">{guide.description}</p>
+          <span class="link-underline mt-4 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-ink">
+            Read the guide <Icon name="arrow-right" class="h-3.5 w-3.5" />
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="border-t border-mist-200 bg-paper-dim/60">
+    <div class="mx-auto grid max-w-8xl gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+      <div class="reveal">
+        <p class="eyebrow text-racing-500">The spirit of the site</p>
+        <h2 class="mt-2 font-display text-3xl font-semibold text-ink sm:text-4xl">
+          Written by an enthusiast, for enthusiasts
+        </h2>
+        <p class="mt-4 font-body text-base leading-relaxed text-ink-soft">
+          {SITE_NAME} was born from a trip to Japan to discover its car culture: JDM garages, impromptu car meets,
+          mountain roads and cult shops. No generic copy-pasted list: only places I've seen, tested and written about
+          honestly, with more added trip after trip.
+        </p>
+        <a href={withBase("/en/about/")} class="link-underline mt-6 inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink">
+          Learn more <Icon name="arrow-right" class="h-3.5 w-3.5" />
+        </a>
+      </div>
+      <div class="reveal aspect-[4/3] overflow-hidden rounded-lg">
+        <Image
+          src={shoppingThumb}
+          alt="Display cases full of collector scale model cars in a Japanese shop"
+          class="h-full w-full object-cover"
+          widths={[400, 800, 1200]}
+          sizes="(min-width: 1024px) 45vw, 100vw"
+        />
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,58 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import SpotCard from "../../components/SpotCard.astro";
+import ParkingGrid from "../../components/ParkingGrid.astro";
+import TipsList from "../../components/TipsList.astro";
+import AdSlot from "../../components/AdSlot.astro";
+import heroImg from "../../assets/photos/kyoto-apit-auto-mur-volants.jpg";
+import { kyotoIntro, kyotoSpots, kyotoParking, kyotoTips } from "../../data/en/kyoto";
+---
+
+<Layout
+  title="Kyoto"
+  description="A-PIT Auto, Liberty Walk and parking near the temples: the car enthusiast's guide to Kyoto."
+>
+  <Hero
+    image={heroImg}
+    eyebrow="Destination"
+    title="Kyoto"
+    subtitle="Between the temples, some of the most respected spots in the JDM scene in Japan."
+  />
+
+  <section class="mx-auto max-w-4xl px-5 py-16 sm:px-8">
+    <p class="reveal font-body text-lg leading-relaxed text-ink-soft">{kyotoIntro}</p>
+    <p class="reveal mt-4 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
+      This page is still in progress: exact address and detailed review coming soon.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-8xl px-5 py-16 sm:px-8">
+    <SectionHeading eyebrow="Where to go" title="The enthusiasts' temple" />
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {kyotoSpots.map((spot) => <SpotCard spot={spot} />)}
+    </div>
+  </section>
+
+  <AdSlot class="py-16" />
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-20">
+    <div class="mx-auto max-w-8xl px-5 sm:px-8">
+      <div class="grid gap-16 lg:grid-cols-2">
+        <div>
+          <SectionHeading eyebrow="Where to park" title="Parking near the temples" />
+          <div class="mt-8">
+            <ParkingGrid items={kyotoParking} />
+          </div>
+        </div>
+        <div>
+          <SectionHeading eyebrow="Tips" title="Make the most of it" />
+          <div class="mt-8">
+            <TipsList tips={kyotoTips} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

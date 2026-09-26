@@ -1,0 +1,32 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import heroImg from "../../assets/photos/kyoto-temple-gate-vue-panoramique.jpg";
+import { SITE_NAME, AUTHOR_NAME } from "../../consts";
+---
+
+<Layout title="About" description={`The story behind ${SITE_NAME}: a road trip to Japan to discover its car culture.`}>
+  <Hero image={heroImg} eyebrow="About" title="The story behind the guide" compact />
+
+  <section class="mx-auto max-w-3xl px-5 py-20 sm:px-8">
+    <div class="reveal space-y-6 font-body text-base leading-relaxed text-ink-soft">
+      <p>
+        My name is {AUTHOR_NAME}. A lifelong car enthusiast, I went to Japan this year, in 2026, with a simple goal: see
+        the temples and explore the country, but also experience JDM culture from the inside rather than through a
+        screen or a sim like Assetto Corsa. Driving cars you never or rarely see in France, pushing open the doors of
+        garages where nobody speaks your language: that's the dream! The passion speaks for itself, and bringing a bit
+        of it all back home with a few souvenirs is amazing too.
+      </p>
+      <p>
+        From Tokyo to Mount Fuji, from Osaka to Kyoto, I kept track of every great spot, every route worth the detour,
+        every tip and good deal, so that you too can come home with plenty of photos and gifts for yourself and your
+        friends. {SITE_NAME} was born from that idea: bringing it all together in one place, so the next enthusiast
+        planning their trip doesn't have to figure everything out alone.
+      </p>
+      <p>
+        This site isn't a generic list compiled from the internet. Every place has been seen, tested or at least
+        seriously researched by me, and will be completed, corrected and expanded trip after trip.
+      </p>
+    </div>
+  </section>
+</Layout>

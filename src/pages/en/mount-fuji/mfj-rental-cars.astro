@@ -1,0 +1,228 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Hero from "../../../components/Hero.astro";
+import Figure from "../../../components/Figure.astro";
+import Icon from "../../../components/Icon.astro";
+import { withBase } from "../../../consts";
+import heroImg from "../../../assets/photos/fuji-corvette-face-brouillard.jpg";
+import fujimibashiCarteImg from "../../../assets/photos/fuji-fujimibashi-carte.webp";
+import feuxArriereImg from "../../../assets/photos/fuji-fujimibashi-corvette-feux-arriere.jpg";
+
+function mapsHref(query: string) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
+const agenceMapsHref = mapsHref("MFJ Rental Car&Motorbike, 996-21 Funatsu, Fujikawaguchiko");
+const fujimibashiMapsHref = mapsHref("Fujimibashi Mount Fuji Viewing Platform");
+---
+
+<Layout
+  title="MFJ Rental Cars"
+  description="MFJ Rental Cars in Kawaguchiko: my rented Corvette C7, price, deposit, deductible, fuel and my review after a day on the roads around Mount Fuji."
+>
+  <Hero
+    image={heroImg}
+    eyebrow="Great spot · Mount Fuji"
+    title="MFJ Rental Cars"
+    subtitle="The agency that rented me a Corvette C7 Stingray in Kawaguchiko, to take on the mountain roads around the lake."
+    focalPoint="22% 48%"
+    zoom={1.1}
+  />
+
+  <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
+    <a
+      href={withBase("/en/mount-fuji/")}
+      class="link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink-soft"
+    >
+      <Icon name="arrow-left" class="h-3.5 w-3.5" />
+      Back to Mount Fuji
+    </a>
+
+    <p class="reveal mt-8 font-body text-lg leading-relaxed text-ink-soft">
+      A bit of context: before arriving at Mount Fuji, the weather forecast was looking pretty bad for catching a
+      glimpse of it. So I wondered if there were any rental agencies in the area. My goal was simple: get a decent car
+      to drive around the forest.
+    </p>
+    <p class="reveal mt-4 font-body text-xs text-mist-500">Not sponsored: I paid for the rental myself.</p>
+
+    <div class="reveal mt-8 space-y-4 font-body text-sm leading-relaxed text-ink-soft">
+      <p>
+        On the train, a quick search on Google Maps around Kawaguchiko, and I stumble upon this agency by chance: MFJ
+        Rental Cars. It doesn't look like much and also rents bikes... but I spot a Corvette and an Audi. On top of
+        that, it has good reviews on Google.
+      </p>
+      <p>
+        I don't think twice: I head to their website, the Corvette is on sale for 13,000 yen and you can book without
+        paying. I'll grant you, it's not a JDM, but between an Audi A5 and the Corvette, the choice was easy. Off we go,
+        see you tomorrow!
+      </p>
+      <p>
+        The next day, I spot the Corvette in a simple parking lot next to a small restaurant. I push open the door of
+        the agency, between bikes and cars, and meet the manager: incredibly kind. No deposit to pay, and like at every
+        agency (I'll spare you the details), we sign a contract and walk around the car together. In case of an
+        accident, the deductible is 50,000 yen. Needless to say, with a rear-wheel-drive beast like this one, you'd
+        better keep a light foot.
+      </p>
+      <p>Once the engine is running, first stop: the Fuji Motor Sports Museum, right next to Fuji Speedway.</p>
+    </div>
+
+    <a
+      href={withBase("/en/mount-fuji/fuji-motor-sports-museum/")}
+      class="link-underline reveal mt-4 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+    >
+      Discover the Fuji Motor Sports Museum
+      <Icon name="arrow-right" class="h-3.5 w-3.5" />
+    </a>
+
+    <p class="reveal mt-8 font-body text-sm leading-relaxed text-ink-soft">
+      Even though the weather clearly wasn't on my side that day, I drove around the track and climbed the mountain in
+      this truly incredible car. Here's a clip that should win everyone over:
+    </p>
+
+    <figure class="reveal mt-6">
+      <div class="overflow-hidden rounded-lg bg-asphalt">
+        <video
+          src={withBase("/videos/fuji-mfj-pov-route-montagne.mp4")}
+          poster={withBase("/videos/fuji-mfj-pov-poster.jpg")}
+          width="1920"
+          height="1080"
+          controls
+          preload="metadata"
+          playsinline
+          class="w-full"
+        />
+      </div>
+      <figcaption class="mt-2 font-body text-xs text-mist-500">
+        A few seconds on board the Corvette, on the mountain roads around Mount Fuji.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-16">
+    <div class="mx-auto max-w-3xl px-5 sm:px-8">
+      <h2 class="reveal font-display text-2xl font-semibold text-ink sm:text-3xl">Last stop: Fujimibashi</h2>
+
+      <p class="reveal mt-6 font-body text-sm leading-relaxed text-ink-soft">
+        Before returning the car, I couldn't resist one last drive in the mountains. Destination: the Fujimibashi
+        Mount Fuji Viewing Platform, a lookout perched on Route 137, which climbs above Lake Kawaguchi.
+      </p>
+
+      <Figure
+        image={fujimibashiCarteImg}
+        alt="Google Maps map showing the Fujimibashi viewpoint on Route 137, north of Lake Kawaguchi and Fujikawaguchiko"
+        caption="The Fujimibashi viewpoint, on Route 137 north of Lake Kawaguchi. Google Maps screenshot."
+        class="mt-8"
+      />
+      <a
+        href={fujimibashiMapsHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link-underline reveal mt-3 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+      >
+        Open in Google Maps
+        <Icon name="external-link" class="h-3.5 w-3.5" />
+      </a>
+
+      <p class="reveal mt-8 font-body text-sm leading-relaxed text-ink-soft">
+        That day, the fog had taken over: no Mount Fuji on the horizon, but the perfect mood for photos. That's actually
+        where the photo at the top of this page was taken.
+      </p>
+
+      <Figure
+        image={feuxArriereImg}
+        alt="White Corvette C7 Stingray seen from behind, lights on, in the fog at the Fujimibashi viewpoint"
+        caption="Taillights on in the Fujimibashi fog."
+        class="mx-auto mt-8 max-w-xs sm:max-w-sm"
+        aspectClass="aspect-[3/4]"
+      />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink sm:text-3xl">My verdict</h2>
+
+    <div class="reveal mt-6 space-y-4 font-body text-sm leading-relaxed text-ink-soft">
+      <p>
+        The experience was absolutely amazing! The rumble of the American V8 is enough to make you want to turn off the
+        radio. The torque is huge, but in the rain, no way to make the most of it: I played it safe. And that dark,
+        misty weather gave the drive real charm. Even without Mount Fuji, it'll remain an incredible experience.
+      </p>
+      <p>In the evening, I returned the car without any problem.</p>
+    </div>
+
+    <div class="reveal mt-6 rounded-lg border border-racing-500/30 bg-racing-500/5 p-5 sm:p-6">
+      <p class="eyebrow flex items-center gap-2 text-racing-500">
+        <Icon name="fuel" class="h-4 w-4" />
+        Important: fuel
+      </p>
+      <p class="mt-3 font-body text-sm leading-relaxed text-ink-soft">
+        Filling up isn't your job, the agency takes care of it. However, it charges for gas at <strong class="font-semibold text-ink">120 yen per liter</strong>,
+        a little way to round up the bill. The calculation is based on the kilometers driven, with a <strong class="font-semibold text-ink">baseline of 20 L/100 km</strong>.
+        If you drive economically, like I did, you lose out: you pay for more than you actually used. On the other hand,
+        if you have a heavy foot and go over that reference consumption, you come out ahead.
+      </p>
+    </div>
+
+    <p class="reveal mt-6 font-body text-sm leading-relaxed text-ink-soft">
+      I didn't find this practice very honest, but luckily the rental price was very low. I assume the promo is down to
+      September, rainy and quieter in terms of tourism. Yet a month later, it was still listed. For €72 a rental, we'll
+      turn a blind eye to the gas… :)
+    </p>
+
+    <h2 class="reveal mt-16 font-display text-2xl font-semibold text-ink sm:text-3xl">Practical info</h2>
+
+    <div class="reveal mt-6 rounded-lg border border-mist-200 bg-paper-dim/40 p-5">
+      <p class="eyebrow text-racing-500">Car rental · Kawaguchiko</p>
+      <p class="mt-2 font-body text-sm font-semibold text-ink">MFJ Rental Cars</p>
+      <ul class="mt-3 list-disc space-y-1.5 pl-5 font-body text-sm text-ink-soft">
+        <li>Corvette C7 Stingray: 13,000 yen, about €72 (promo rate when I booked)</li>
+        <li>Day rental, from 9 a.m. to 8:30 p.m. at the latest (several days possible on request)</li>
+        <li>Minimum age: 21</li>
+        <li>
+          License: official Japanese translation of your license or International Driving Permit, depending on your
+          country (more details in our guide <a href={withBase("/en/driving-in-japan/")} class="link-underline text-ink">Driving in Japan</a>)
+        </li>
+        <li>Book on their website, nothing to pay in advance</li>
+        <li>No deposit required</li>
+        <li>50,000 yen deductible in case of an accident</li>
+        <li>Fuel handled by the agency: 120 yen per liter, based on 20 L/100 km</li>
+      </ul>
+      <p class="mt-4 flex items-start gap-1.5 font-body text-sm text-ink-soft">
+        <Icon name="map-pin" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-mist-500" />
+        996-21 Funatsu, Fujikawaguchiko, Yamanashi 401-0301, Japan
+      </p>
+      <div class="mt-3 flex flex-wrap gap-x-6 gap-y-2">
+        <a
+          href={agenceMapsHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-underline inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+        >
+          Open in Google Maps
+          <Icon name="external-link" class="h-3.5 w-3.5" />
+        </a>
+        <a
+          href="https://mfj-car.com/en/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-underline inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+        >
+          Agency website
+          <Icon name="external-link" class="h-3.5 w-3.5" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-16">
+    <div class="mx-auto max-w-3xl px-5 text-center sm:px-8">
+      <a
+        href={withBase("/en/mount-fuji/")}
+        class="link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink"
+      >
+        <Icon name="arrow-left" class="h-3.5 w-3.5" />
+        Back to all Mount Fuji spots
+      </a>
+    </div>
+  </section>
+</Layout>

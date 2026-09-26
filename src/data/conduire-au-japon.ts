@@ -10,6 +10,8 @@ export interface DriveOption {
 export interface DriveSection {
   eyebrow: string;
   title: string;
+  /** Encadré mis en avant au début de la section (ex. précision pour les lecteurs étrangers). */
+  note?: string;
   paragraphs: string[];
   bullets?: string[];
   optionsIntro?: string;

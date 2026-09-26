@@ -3,6 +3,9 @@
 // Stocke le choix dans localStorage sous "kaido-consent" ("granted" | "denied").
 // Objectif : gater proprement les futurs scripts pub/analytics (voir data-consent-gate),
 // pas de script tiers chargé tant que rien n'est branché derrière.
+import { useUi } from "../i18n";
+
+const t = useUi(Astro.url);
 ---
 
 <div
@@ -10,26 +13,25 @@
   class="fixed inset-x-0 bottom-0 z-50 hidden translate-y-full border-t border-mist-200 bg-paper/95 px-5 py-5 shadow-[0_-4px_24px_rgba(0,0,0,0.08)] backdrop-blur-sm transition-transform duration-300 sm:px-8"
   role="dialog"
   aria-live="polite"
-  aria-label="Consentement aux cookies"
+  aria-label={t.cookie.label}
 >
   <div class="mx-auto flex max-w-8xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
     <p class="max-w-2xl font-body text-sm text-ink-soft">
-      Ce site utilise des cookies pour mesurer l'audience et, à terme, afficher des publicités pertinentes. Tu peux
-      accepter ou refuser, ton choix est modifiable à tout moment.
-      <a href="/confidentialite/" class="link-underline text-ink">En savoir plus</a>
+      {t.cookie.text}{" "}
+      <a href={t.privacyLink.href} class="link-underline text-ink">{t.cookie.more}</a>
     </p>
     <div class="flex shrink-0 gap-3">
       <button
         id="cookie-decline"
         class="rounded-md border border-mist-300 px-4 py-3 font-body text-sm text-ink-soft transition-colors hover:border-ink hover:text-ink cursor-pointer"
       >
-        Refuser
+        {t.cookie.decline}
       </button>
       <button
         id="cookie-accept"
         class="rounded-md bg-ink px-4 py-3 font-body text-sm text-paper transition-colors hover:bg-racing-600 cursor-pointer"
       >
-        Accepter
+        {t.cookie.accept}
       </button>
     </div>
   </div>

@@ -1,12 +1,13 @@
 ---
 import Icon from "./Icon.astro";
 import type { Spot } from "../data/types";
-import { AUTHOR_NAME } from "../consts";
+import { useUi } from "../i18n";
 
 interface Props {
   spot: Spot;
 }
 const { spot } = Astro.props;
+const t = useUi(Astro.url).spot;
 
 const mapsHref = spot.mapsQuery
   ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.mapsQuery)}`
@@ -24,19 +25,6 @@ const categoryIcon: Record<Spot["category"], "car" | "tag" | "building" | "flag"
   parking: "parking",
   restauration: "map-pin",
 };
-
-const categoryLabel: Record<Spot["category"], string> = {
-  location: "Location",
-  achat: "Achat",
-  garage: "Garage / atelier",
-  musee: "Musée",
-  circuit: "Circuit",
-  shopping: "Shopping",
-  meetup: "Rendez-vous",
-  route: "Balade",
-  parking: "Parking",
-  restauration: "Restauration",
-};
 ---
 
 <article
@@ -50,11 +38,11 @@ const categoryLabel: Record<Spot["category"], string> = {
   <div class="flex items-start justify-between gap-3">
     <div class="flex items-center gap-2 text-racing-500">
       <Icon name={categoryIcon[spot.category]} class="h-4 w-4" />
-      <span class="eyebrow">{categoryLabel[spot.category]}</span>
+      <span class="eyebrow">{t.categories[spot.category]}</span>
     </div>
     {!spot.filled && (
       <span class="rounded-full bg-gold-400/25 px-2.5 py-0.5 font-body text-[11px] font-medium text-gold-700">
-        À compléter
+        {t.toComplete}
       </span>
     )}
   </div>
@@ -76,7 +64,7 @@ const categoryLabel: Record<Spot["category"], string> = {
 
   {spot.tip && (
     <p class="mt-4 border-t border-mist-200 pt-3 font-body text-xs leading-relaxed text-mist-500">
-      <span class="font-semibold text-mist-500">{spot.filled ? "Astuce" : `Note pour ${AUTHOR_NAME}`} : </span>
+      <span class="font-semibold text-mist-500">{spot.filled ? t.tip : t.note}{t.tipSeparator}</span>
       {spot.tip}
     </p>
   )}
@@ -88,7 +76,7 @@ const categoryLabel: Record<Spot["category"], string> = {
       rel="noopener noreferrer"
       class="link-underline mt-4 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-racing-500"
     >
-      Ouvrir dans Google Maps
+      {t.openMaps}
       <Icon name="external-link" class="h-3.5 w-3.5" />
     </a>
   )}
@@ -100,7 +88,7 @@ const categoryLabel: Record<Spot["category"], string> = {
       rel="noopener noreferrer"
       class="link-underline mt-4 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-racing-500"
     >
-      Site officiel
+      {t.website}
       <Icon name="external-link" class="h-3.5 w-3.5" />
     </a>
   )}
@@ -110,7 +98,7 @@ const categoryLabel: Record<Spot["category"], string> = {
       href={spot.articleHref}
       class="link-underline mt-4 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-racing-500"
     >
-      Lire l'article
+      {t.readArticle}
       <Icon name="arrow-right" class="h-3.5 w-3.5" />
     </a>
   )}

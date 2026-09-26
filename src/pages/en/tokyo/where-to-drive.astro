@@ -1,0 +1,163 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Hero from "../../../components/Hero.astro";
+import Figure from "../../../components/Figure.astro";
+import Icon from "../../../components/Icon.astro";
+import { withBase } from "../../../consts";
+import heroImg from "../../../assets/photos/tokyo-odaiba-liberte-rainbow-bridge.webp";
+
+interface MapSpot {
+  eyebrow: string;
+  name: string;
+  address: string;
+}
+
+function mapsHref(spot: MapSpot) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${spot.name}, ${spot.address}`)}`;
+}
+
+const rainbowBridge: MapSpot = {
+  eyebrow: "Odaiba",
+  name: "Rainbow Bridge",
+  address: "Minato City, Tokyo 105-0000, Japan",
+};
+
+const shutokoMapsHref = "https://www.google.com/maps/search/?api=1&query=Shuto+Expressway+Tokyo";
+
+const hakoneTurnpikeMapsHref =
+  "https://www.google.com/maps/search/?api=1&query=35.207272061897214,139.09176042856018";
+---
+
+<Layout
+  title="Where to drive in Tokyo"
+  description="The best roads to drive in Tokyo in a rental car: the Rainbow Bridge, Odaiba, the Shutoko and a getaway to Hakone."
+>
+  <Hero
+    image={heroImg}
+    eyebrow="Great spot · Tokyo"
+    title="Where to drive in Tokyo"
+    subtitle="A few roads to enjoy behind the wheel of your JDM, day or night."
+  />
+
+  <section class="mx-auto max-w-3xl px-5 pt-16 pb-10 sm:px-8">
+    <a
+      href={withBase("/en/tokyo/")}
+      class="link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink-soft"
+    >
+      <Icon name="arrow-left" class="h-3.5 w-3.5" />
+      Back to Tokyo
+    </a>
+
+    <p class="reveal mt-8 font-body text-lg leading-relaxed text-ink-soft">
+      Renting a car in Tokyo is great. Knowing where to drive it is even better. Between the buildings of Odaiba, the
+      elevated ramps of the Shutoko and a getaway to the mountains of Hakone, here are the roads that stuck with me the
+      most during my stay.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-10 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">Rainbow Bridge & Odaiba</h2>
+    <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+      The Rainbow Bridge links the Shibaura district to the artificial island of Odaiba, and the crossing alone is
+      worth it. Once on the other side, you're a stone's throw from Odaiba Beach, with a superb view of the bridge,
+      both during the day and once night falls and its lights come on. There are several parking lots on Odaiba, all
+      of them paid.
+    </p>
+
+    <div class="reveal mt-6 rounded-lg border border-mist-200 bg-paper-dim/40 p-5">
+      <p class="eyebrow text-racing-500">{rainbowBridge.eyebrow}</p>
+      <p class="mt-2 font-body text-sm font-semibold text-ink">{rainbowBridge.name}</p>
+      <p class="mt-1 flex items-start gap-1.5 font-body text-sm text-ink-soft">
+        <Icon name="map-pin" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-mist-500" />
+        {rainbowBridge.address}
+      </p>
+      <a
+        href={mapsHref(rainbowBridge)}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link-underline mt-3 inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+      >
+        Open in Google Maps
+        <Icon name="external-link" class="h-3.5 w-3.5" />
+      </a>
+    </div>
+
+    <Figure
+      image={heroImg}
+      alt="Replica of the Statue of Liberty in Odaiba, with the Rainbow Bridge and Tokyo skyscrapers in the background"
+      caption="Odaiba's Statue of Liberty replica, with the Rainbow Bridge in the background."
+      class="mt-8"
+    />
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-10 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">The Shutoko expressway</h2>
+    <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+      The Shuto Expressway (or Shutoko) is the urban expressway network that crisscrosses Tokyo, partly elevated,
+      partly running along the bay. It was from one of its lanes that I crossed the Rainbow Bridge at night in the Evo
+      VIII rented from OnlyJDM, engine roaring and city lights in the background: an experience in itself. The network
+      is huge and lets you link several neighborhoods without a single red light.
+    </p>
+    <a
+      href={shutokoMapsHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="link-underline mt-3 inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+    >
+      See the network on Google Maps
+      <Icon name="external-link" class="h-3.5 w-3.5" />
+    </a>
+    <br />
+    <a
+      href={withBase("/en/tokyo/only-jdm/")}
+      class="link-underline mt-3 inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+    >
+      Read the article about renting from OnlyJDM
+      <Icon name="arrow-right" class="h-3.5 w-3.5" />
+    </a>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">Further from Tokyo</h2>
+    <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+      If you have a whole day ahead of you, two roads outside the city are worth the detour. The Tokyo Bay Aqua-Line
+      crosses the bay for almost 15 km, first through an undersea tunnel and then over a bridge, to reach Chiba
+      Prefecture. This is the road that leads to Umihotaru PA, an artificial rest area built right in the middle of the
+      bay and famous for its car meets.
+    </p>
+    <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+      Even further, about 1 hour from Tokyo, the Anest Iwata Turnpike in Hakone (formerly the Hakone Turnpike) is a toll
+      mountain road, famous among Japanese enthusiasts for its bends and its views of Mount Fuji and Sagami Bay.
+    </p>
+
+    <div class="reveal mt-6 rounded-lg border border-mist-200 bg-paper-dim/40 p-5">
+      <p class="eyebrow text-racing-500">Hakone</p>
+      <p class="mt-2 font-body text-sm font-semibold text-ink">Anest Iwata Turnpike</p>
+      <a
+        href={hakoneTurnpikeMapsHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link-underline mt-3 inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+      >
+        Open in Google Maps
+        <Icon name="external-link" class="h-3.5 w-3.5" />
+      </a>
+    </div>
+
+    <p class="reveal mt-8 font-body text-sm leading-relaxed text-ink-soft">
+      More roads will be added to this list over my next trips to Japan.
+    </p>
+  </section>
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-16">
+    <div class="mx-auto max-w-3xl px-5 text-center sm:px-8">
+      <a
+        href={withBase("/en/tokyo/")}
+        class="link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink"
+      >
+        <Icon name="arrow-left" class="h-3.5 w-3.5" />
+        Back to all Tokyo spots
+      </a>
+    </div>
+  </section>
+</Layout>

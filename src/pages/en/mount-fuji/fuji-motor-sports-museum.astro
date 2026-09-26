@@ -1,0 +1,188 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Hero from "../../../components/Hero.astro";
+import Figure from "../../../components/Figure.astro";
+import Icon from "../../../components/Icon.astro";
+import { withBase } from "../../../consts";
+import heroImg from "../../../assets/photos/fuji-musee-escaliers.jpg";
+import itineraireImg from "../../../assets/photos/fuji-musee-itineraire-kawaguchiko.jpg";
+import corvetteImg from "../../../assets/photos/fuji-musee-corvette-parking.jpg";
+import salleImg from "../../../assets/photos/fuji-musee-salle-prototypes-toyota.jpg";
+import plongeanteImg from "../../../assets/photos/fuji-musee-vue-plongeante-prototype.webp";
+import ts050Img from "../../../assets/photos/fuji-musee-ts050-hybrid-lemans.jpg";
+import indycarImg from "../../../assets/photos/fuji-musee-indycar-penske-marlboro.jpg";
+import evoImg from "../../../assets/photos/fuji-musee-evo-rallye-marlboro.jpg";
+import gtpImg from "../../../assets/photos/fuji-musee-gtp-salle-sombre.jpg";
+import circuitImg from "../../../assets/photos/fuji-speedway-vue-brouillard.jpg";
+
+const parkingMapsHref = "https://www.google.com/maps/search/?api=1&query=35.367995,138.918814";
+---
+
+<Layout
+  title="Fuji Motor Sports Museum"
+  description="The Fuji Motor Sports Museum, next to Fuji Speedway: how to get there, admission, parking and my review after the visit."
+>
+  <Hero
+    image={heroImg}
+    eyebrow="Great spot · Mount Fuji"
+    title="Fuji Motor Sports Museum"
+    subtitle="Next to Fuji Speedway, one of the finest collections of race cars in Japan."
+  />
+
+  <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
+    <a
+      href={withBase("/en/mount-fuji/")}
+      class="link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink-soft"
+    >
+      <Icon name="arrow-left" class="h-3.5 w-3.5" />
+      Back to Mount Fuji
+    </a>
+
+    <p class="reveal mt-8 font-body text-lg leading-relaxed text-ink-soft">
+      A few minutes from Fuji Speedway, the Fuji Motor Sports Museum wasn't part of my itinerary, and yet it turned out
+      to be one of the best surprises of my time at Mount Fuji. Between Le Mans prototypes, historic single-seaters and
+      rally cars, the collection has nothing to envy the biggest car museums. Here's how to get there and what to
+      expect.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink sm:text-3xl">How to get there?</h2>
+
+    <p class="reveal mt-6 font-body text-sm leading-relaxed text-ink-soft">
+      From Kawaguchiko, allow about 30 to 35 minutes by road. The drive is very pleasant, a real change from cities
+      like Tokyo or Osaka, where red lights and traffic jams are part of the deal. You'll drive along the track and take
+      small forest roads, perfect for testing your rental car if you've decided to treat yourself, or simply to visit
+      and take great photos.
+    </p>
+    <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+      Once you arrive, a free, easy-to-access parking lot awaits. Admission to the museum is around €10.
+    </p>
+
+    <div class="reveal mt-6 rounded-lg border border-mist-200 bg-paper-dim/40 p-5">
+      <p class="eyebrow text-racing-500">Fuji Motor Sports Museum</p>
+      <p class="mt-2 font-body text-sm text-ink-soft">
+        Free, easy-to-access parking, about 20 meters from the museum entrance.
+      </p>
+      <a
+        href={parkingMapsHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link-underline mt-3 inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+      >
+        Open in Google Maps
+        <Icon name="external-link" class="h-3.5 w-3.5" />
+      </a>
+    </div>
+
+    <Figure
+      image={itineraireImg}
+      alt="Google Maps screenshot of the driving route between Kawaguchiko and the museum, 35 minutes via the E68"
+      caption="The drive from Kawaguchiko: 35 minutes, between lake and forest."
+      class="mx-auto mt-8 max-w-xs sm:max-w-sm"
+    />
+
+    <Figure
+      image={corvetteImg}
+      alt="White Corvette C7 Stingray parked in the museum's free parking lot, in the rain"
+      caption="My Corvette C7, parked in the museum's free parking lot."
+      class="mt-8"
+    />
+    <a
+      href={withBase("/en/mount-fuji/mfj-rental-cars/")}
+      class="link-underline reveal mt-3 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+    >
+      Want the same one? Here's how I rented it from MFJ Rental Cars
+      <Icon name="arrow-right" class="h-3.5 w-3.5" />
+    </a>
+  </section>
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-16">
+    <div class="mx-auto max-w-5xl px-5 sm:px-8">
+      <h2 class="reveal font-display text-2xl font-semibold text-ink sm:text-3xl">What to expect</h2>
+
+      <p class="reveal mt-6 max-w-2xl font-body text-sm leading-relaxed text-ink-soft">
+        Without spoiling too much: the museum is spread over 2 floors. Rally cars, vintage Formula 1 cars and many other
+        models await you. Guides and an audio guide are also available to tell you the story of each car. The
+        atmosphere is really great, any enthusiast will have a blast.
+      </p>
+
+      <Figure
+        image={salleImg}
+        alt="Museum hall with several Toyota prototypes and race cars on display"
+        caption="Under a soaring glass roof, the prototypes line up hall after hall."
+        class="mt-8"
+      />
+
+      <div class="mt-6 grid gap-6 sm:grid-cols-2">
+        <Figure
+          image={plongeanteImg}
+          alt="Bird's-eye view of a cream-colored Toyota race prototype, from an upper floor of the museum"
+          caption="Looking down on a prototype, between two floors linked by escalators."
+        />
+        <Figure
+          image={ts050Img}
+          alt="Toyota TS050 Hybrid #8, winner of the 24 Hours of Le Mans, displayed with its hybrid powertrain"
+          caption="The TS050 Hybrid, winner at the 24 Hours of Le Mans, still covered in race dust."
+        />
+        <Figure
+          image={indycarImg}
+          alt="Toyota IndyCar in Marlboro Team Penske colors, displayed next to another black Toyota IndyCar"
+          caption="A Toyota IndyCar in Marlboro Team Penske colors, parked next to its FedEx rival."
+        />
+        <Figure
+          image={evoImg}
+          alt="Mitsubishi Lancer Evo rally car in Marlboro colors, rear view from the museum's mezzanine"
+          caption="A Mitsubishi Lancer Evo rally car in Marlboro colors, in the upstairs gallery."
+        />
+      </div>
+
+      <Figure
+        image={gtpImg}
+        alt="White Toyota GTP race prototype displayed in a dark hall of the museum"
+        caption="Another hall, another atmosphere: this prototype keeps all its presence in the half-light."
+        class="mx-auto mt-6 max-w-sm"
+        aspectClass="aspect-[3/4]"
+      />
+
+      <p class="reveal mt-10 max-w-2xl font-body text-sm leading-relaxed text-ink-soft">
+        On the top floor, a gift shop sells miniature race cars, mugs, T-shirts, etc. (on the pricey side), plenty to
+        treat yourself. There's also a café overlooking the track, a must if you've already driven it in a sim. And
+        finally, a little surprise awaits the biggest Formula 1 fans ;)
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="mx-auto max-w-3xl px-5 sm:px-8">
+      <p class="reveal font-body text-sm leading-relaxed text-ink-soft">
+        As for me, in September, the weather was bad and I couldn't see the whole track. The museum experience was
+        great, though.
+      </p>
+      <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+        The road leading to the track is superb, it reminds me of the one leading to the Spa-Francorchamps circuit in
+        Belgium. The track is surrounded by dense forest, with an impressive view of Mount Fuji!
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-5 pb-16 sm:px-8">
+    <Figure
+      image={circuitImg}
+      alt="View of the Fuji Speedway track in the fog, with a corner and Panasonic Automotive signs visible"
+      caption="The Fuji Speedway track in the mist, right next to the museum."
+    />
+  </section>
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-16">
+    <div class="mx-auto max-w-3xl px-5 text-center sm:px-8">
+      <a
+        href={withBase("/en/mount-fuji/")}
+        class="link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink"
+      >
+        <Icon name="arrow-left" class="h-3.5 w-3.5" />
+        Back to all Mount Fuji spots
+      </a>
+    </div>
+  </section>
+</Layout>

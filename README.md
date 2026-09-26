@@ -45,6 +45,16 @@ Chaque ville a son fichier dans `src/data/` (ex. `src/data/tokyo.ts`). Une adres
 Passe `filled: true` dès que l'adresse est complète (adresse réelle, avis rédigé) — la carte perd alors son style
 "brouillon".
 
+## Version anglaise
+
+Le français reste à la racine (`/tokyo/`), l'anglais vit sous `/en/` avec des slugs traduits (`/en/tokyo/`,
+`/en/rent-a-car/`...). Chaque page française a sa jumelle dans `src/pages/en/`, et les données dans `src/data/en/`.
+
+- Textes d'interface (menu, pied de page, cookies, cartes) : [src/i18n.ts](src/i18n.ts)
+- Nouvelle page : créer les deux versions et ajouter la paire dans `PAGE_PAIRS` ([src/i18n.ts](src/i18n.ts)), sinon
+  le bouton FR/EN renvoie vers l'accueil et les balises hreflang manquent.
+- Toute modification de contenu en français doit être reportée dans la version anglaise.
+
 ## Avant la mise en ligne
 
 - [ ] Compléter les adresses marquées `filled: false` (voir badges "À compléter" sur le site)

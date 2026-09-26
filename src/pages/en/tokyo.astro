@@ -1,0 +1,139 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import SpotCard from "../../components/SpotCard.astro";
+import ParkingGrid from "../../components/ParkingGrid.astro";
+import TipsList from "../../components/TipsList.astro";
+import Figure from "../../components/Figure.astro";
+import AdSlot from "../../components/AdSlot.astro";
+import Icon from "../../components/Icon.astro";
+import { withBase } from "../../consts";
+import evoFace from "../../assets/photos/tokyo-evo9-face-onlyjdm.jpg";
+import heroImg from "../../assets/photos/tokyo-shibuya-crossing-nuit.jpg";
+import galleryR34 from "../../assets/photos/tokyo-nuit-r34-nismo.jpg";
+import galleryRx7 from "../../assets/photos/tokyo-nuit-rx7-veilside.jpg";
+import galleryR33 from "../../assets/photos/tokyo-nuit-r33-akihabara.jpg";
+import galleryWidebody from "../../assets/photos/tokyo-nuit-widebody-akihabara.jpg";
+import gallerySkylineCoupe from "../../assets/photos/tokyo-nuit-skyline-coupe-shibuya.jpg";
+import gallery86 from "../../assets/photos/tokyo-nuit-86.jpg";
+import { tokyoIntro, tokyoSpots, tokyoParking, tokyoTips } from "../../data/en/tokyo";
+
+const streetGallery = [
+  {
+    image: galleryR34,
+    alt: "Blue Nissan Skyline R34 with its headlights on, in a Tokyo street at night",
+    caption: "A Skyline R34, as iconic as ever.",
+  },
+  {
+    image: galleryRx7,
+    alt: "Orange and black Mazda RX-7 FD Veilside in a Tokyo street at night",
+    caption: "An RX-7 FD Veilside, impossible to miss.",
+  },
+  {
+    image: galleryR33,
+    alt: "Stanced Nissan Skyline R33 in the rain in Akihabara",
+    caption: "A stanced Skyline R33 in the rain, in Akihabara.",
+  },
+  {
+    image: galleryWidebody,
+    alt: "Black widebody Japanese coupe in the rain in Akihabara",
+    caption: "A widebody compact spotted in the rain, in Akihabara.",
+  },
+  {
+    image: gallerySkylineCoupe,
+    alt: "Stanced white Nissan Skyline coupe in night traffic in Shibuya",
+    caption: "A Skyline coupe in Shibuya traffic.",
+  },
+  {
+    image: gallery86,
+    alt: "White Toyota 86 parked in a Tokyo street at night",
+    caption: "An 86 spotted out on the street.",
+  },
+];
+---
+
+<Layout
+  title="Tokyo"
+  description="JDM garages, late-night car meets and parking: the car enthusiast's guide to Tokyo."
+>
+  <Hero
+    image={heroImg}
+    eyebrow="Destination"
+    title="Tokyo"
+    subtitle="The megacity where car culture is on full display, from the avenues of Roppongi to the neighborhood garages."
+    compact
+  />
+
+  <section class="mx-auto max-w-4xl px-5 py-16 sm:px-8">
+    <p class="reveal font-body text-lg leading-relaxed text-ink-soft">{tokyoIntro}</p>
+  </section>
+
+  <section class="mx-auto max-w-8xl px-5 pb-20 sm:px-8">
+    <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <Figure
+        image={evoFace}
+        alt="Mitsubishi Lancer Evolution VIII that I rented in Tokyo"
+      />
+      <div class="reveal">
+        <p class="eyebrow text-racing-500">Behind the wheel</p>
+        <h2 class="mt-2 font-display text-2xl font-semibold text-ink sm:text-3xl">
+          An Evo VIII from OnlyJDM for the day
+        </h2>
+        <p class="mt-4 font-body text-sm leading-relaxed text-ink-soft">
+          Here's the tuned Evo 8 GSR I picked up from this agency. Address, price, deposit, availability: everything you need to know is in the article!
+        </p>
+        <a
+          href={withBase("/en/tokyo/only-jdm/")}
+          class="link-underline mt-4 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+        >
+          Read the article
+          <Icon name="arrow-right" class="h-3.5 w-3.5" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-8xl px-5 pb-20 sm:px-8">
+    <SectionHeading eyebrow="On the street" title="Spotted in the streets of Tokyo" />
+    <div class="mt-10 grid grid-cols-2 gap-4 sm:flex sm:snap-x sm:snap-mandatory sm:gap-5 sm:overflow-x-auto sm:pb-3">
+      {streetGallery.map((photo) => (
+        <Figure
+          image={photo.image}
+          alt={photo.alt}
+          caption={photo.caption}
+          class="text-center sm:w-48 sm:shrink-0 sm:snap-start md:w-56"
+          aspectClass="aspect-[3/4]"
+        />
+      ))}
+    </div>
+  </section>
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-20">
+    <div class="mx-auto max-w-8xl px-5 sm:px-8">
+      <SectionHeading eyebrow="Where to go" title="Garages, workshops & car meets" />
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {tokyoSpots.map((spot) => <SpotCard spot={spot} />)}
+      </div>
+    </div>
+  </section>
+
+  <AdSlot class="py-16" />
+
+  <section class="mx-auto max-w-8xl px-5 py-20 sm:px-8">
+    <div class="grid gap-16 lg:grid-cols-2">
+      <div>
+        <SectionHeading eyebrow="Where to park" title="Parking by neighborhood" />
+        <div class="mt-8">
+          <ParkingGrid items={tokyoParking} />
+        </div>
+      </div>
+      <div>
+        <SectionHeading eyebrow="Tips" title="Make the most of it" />
+        <div class="mt-8">
+          <TipsList tips={tokyoTips} />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

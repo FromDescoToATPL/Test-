@@ -1,0 +1,88 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Hero from "../../../components/Hero.astro";
+import Figure from "../../../components/Figure.astro";
+import Icon from "../../../components/Icon.astro";
+import AdSlot from "../../../components/AdSlot.astro";
+import { AUTHOR_NAME, withBase } from "../../../consts";
+import heroImg from "../../../assets/photos/kyoto-apit-auto-interieur.jpg";
+import volantsImg from "../../../assets/photos/kyoto-apit-auto-mur-volants.jpg";
+import miniaturesImg from "../../../assets/photos/kyoto-apit-auto-miniatures-livres.jpg";
+---
+
+<Layout
+  title="A-PIT Auto Kyoto"
+  description="A-PIT Auto Kyoto: parts and tuning, the Liberty Walk universe, scale models and clothing. The must-visit JDM hangout in Kansai."
+>
+  <Hero
+    image={heroImg}
+    eyebrow="Great spot · Kyoto"
+    title="A-PIT Auto Kyoto"
+    subtitle="A huge hangar dedicated to Japanese car culture, at the gateway to Kansai: parts, tuning, clothing and scale models, and even a Starbucks on site."
+  />
+
+  <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
+    <a
+      href={withBase("/en/kyoto/")}
+      class="link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink-soft"
+    >
+      <Icon name="arrow-left" class="h-3.5 w-3.5" />
+      Back to Kyoto
+    </a>
+
+    <p class="reveal mt-8 font-body text-lg leading-relaxed text-ink-soft">
+      A-PIT Auto is the kind of place JDM fans visiting the Kansai region mention every single time. Under a glass roof
+      strung with fairy lights, the store spreads over several floors dedicated to parts, tuning, clothing and scale
+      models, with a Starbucks in the middle of the aisles for a break.
+    </p>
+    <p class="reveal mt-4 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
+      This page is still in progress: exact address, opening hours and {AUTHOR_NAME}'s detailed review coming soon.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">The tuning section</h2>
+    <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+      This wall means business: exhausts and suspension from VIITS (the in-house brand developed with HKS) and BLITZ,
+      with a whole tuning program dedicated to the Abarth 595. Body kits, dampers, airflow meters: enough to leave with
+      more than a souvenir if you drive in the area.
+    </p>
+    <Figure
+      image={volantsImg}
+      alt="Wall of NARDI, OMP and Prodrive steering wheels at A-PIT Auto Kyoto"
+      caption="The steering wheel wall: NARDI, OMP, Prodrive and a few limited editions."
+      class="reveal mt-6"
+      aspectClass="aspect-[16/9]"
+    />
+  </section>
+
+  <AdSlot class="py-8" />
+
+  <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">Scale models, books and goodies</h2>
+    <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+      Upstairs, entire rows of 1/43 scale models and collector books, including a collection dedicated to the cars of
+      the Fast & Furious saga (ワイルドスピード in Japanese). Enough to leave with something better than a fridge
+      magnet, if spare parts aren't your priority of the day.
+    </p>
+    <Figure
+      image={miniaturesImg}
+      alt="Shelves of scale model cars and collector books at A-PIT Auto Kyoto"
+      caption="Part of the scale model and collector book section."
+      class="reveal mt-6"
+      aspectClass="aspect-[16/9]"
+    />
+  </section>
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-16">
+    <div class="mx-auto max-w-3xl px-5 text-center sm:px-8">
+      <a
+        href={withBase("/en/kyoto/")}
+        class="link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink"
+      >
+        <Icon name="arrow-left" class="h-3.5 w-3.5" />
+        Back to all Kyoto spots
+      </a>
+    </div>
+  </section>
+</Layout>

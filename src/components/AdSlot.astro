@@ -4,12 +4,14 @@
 // et remplace le contenu du <div slot> par le code fourni par la régie.
 // La hauteur réservée évite tout saut de mise en page (CLS).
 import { ADS_ENABLED } from "../consts";
+import { useUi } from "../i18n";
 
 interface Props {
   format?: "banniere" | "carre";
   class?: string;
 }
 const { format = "banniere", class: className = "" } = Astro.props;
+const t = useUi(Astro.url);
 const height = format === "banniere" ? "min-h-[100px] sm:min-h-[120px]" : "min-h-[250px]";
 ---
 
@@ -22,8 +24,8 @@ const height = format === "banniere" ? "min-h-[100px] sm:min-h-[120px]" : "min-h
       ]}
       data-ad-slot={format}
     >
-      <span class="eyebrow text-mist-400">Publicité</span>
-      <span class="font-body text-xs text-mist-400">Emplacement réservé</span>
+      <span class="eyebrow text-mist-400">{t.ad.label}</span>
+      <span class="font-body text-xs text-mist-400">{t.ad.placeholder}</span>
     </div>
   </div>
 )}

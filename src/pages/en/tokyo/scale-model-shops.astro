@@ -1,0 +1,201 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Hero from "../../../components/Hero.astro";
+import Figure from "../../../components/Figure.astro";
+import Icon from "../../../components/Icon.astro";
+import { withBase } from "../../../consts";
+import kenboxCabinetImg from "../../../assets/photos/shopping-voitures-miniatures.jpg";
+import kenboxGarageImg from "../../../assets/photos/tokyo-kenbox-b2f-tomica-garage.jpg";
+import libertyWalkImg from "../../../assets/photos/tokyo-liberty-walk-vitrine-miniatures.jpg";
+
+interface ShopAddress {
+  eyebrow: string;
+  name: string;
+  address: string;
+}
+
+function mapsHref(shop: ShopAddress) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${shop.name}, ${shop.address}`)}`;
+}
+
+const kenBoxShops: ShopAddress[] = [
+  {
+    eyebrow: "Tomica & detailed models",
+    name: "Ken Box",
+    address: "MPR3+7C Shinjuku, Tokyo, Japan",
+  },
+  {
+    eyebrow: "Tomica & detailed models",
+    name: "Ken Box B2F",
+    address: "Japan, 〒160-0022 Tokyo, Shinjuku City, Shinjuku, 3 Chome−33−10 新宿モリエールビル B2",
+  },
+];
+
+const tomicaShop: ShopAddress = {
+  eyebrow: "Customization",
+  name: "Tomica Shop Tokyo Character Street",
+  address: "Japan, 〒100-0005 Tokyo, Chiyoda City, Marunouchi, 1 Chome−9−1 東京駅一番街 東京キャラクターストリート",
+};
+
+const libertyWalk: ShopAddress = {
+  eyebrow: "Liberty Walk scale models",
+  name: "Liberty Walk",
+  address: "4 Chome-26-3 Jingumae, Shibuya, Tokyo 150-0001, Japan",
+};
+---
+
+<Layout
+  title="Scale model shops in Tokyo"
+  description="The JDM scale model shops I found in Tokyo: Bic Camera, Ken Box, Tomica Shop Tokyo and the Liberty Walk universe."
+>
+  <Hero
+    eyebrow="Great spot · Tokyo"
+    title="Scale model shops"
+    subtitle="The stores where you can find JDM scale models in Tokyo, to bring home a collector's souvenir."
+    compact
+  />
+
+  <section class="mx-auto max-w-3xl px-5 pt-16 pb-10 sm:px-8">
+    <a
+      href={withBase("/en/tokyo/")}
+      class="link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink-soft"
+    >
+      <Icon name="arrow-left" class="h-3.5 w-3.5" />
+      Back to Tokyo
+    </a>
+
+    <p class="reveal mt-8 font-body text-lg leading-relaxed text-ink-soft">
+      There are lots of scale model shops in Tokyo, in 1/43 as well as 1/64. Some you'll come across without even
+      looking, others are definitely worth the detour.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-10 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">Everywhere, without even looking</h2>
+    <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+      You can find scale models pretty much everywhere, for example at Bic Camera: there's often a section dedicated
+      to Tomica cars and model kits. There are Bic Camera stores all over the city, so no need to plan a special trip,
+      just keep your eyes open while you wander around.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-10 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">For collectors: Ken Box and Ken Box B2F</h2>
+    <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+      If you're looking for more specialized shops, head to Shinjuku for Ken Box and Ken Box B2F. You'll find Tomica,
+      garages and cars far more detailed than anywhere else. A word of warning though: finding your gem can get
+      expensive fast, some pieces reach high prices. You can easily go just to browse, or treat yourself if you fall
+      in love with something.
+    </p>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-2">
+      {kenBoxShops.map((shop) => (
+        <div class="reveal rounded-lg border border-mist-200 bg-paper-dim/40 p-5">
+          <p class="eyebrow text-racing-500">{shop.eyebrow}</p>
+          <p class="mt-2 font-body text-sm font-semibold text-ink">{shop.name}</p>
+          <p class="mt-1 flex items-start gap-1.5 font-body text-sm text-ink-soft">
+            <Icon name="map-pin" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-mist-500" />
+            {shop.address}
+          </p>
+          <a
+            href={mapsHref(shop)}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link-underline mt-3 inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+          >
+            Open in Google Maps
+            <Icon name="external-link" class="h-3.5 w-3.5" />
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-8 grid grid-cols-2 gap-4">
+      <Figure
+        image={kenboxCabinetImg}
+        alt="Display cases of collector scale model cars at Ken Box B2F in Shinjuku"
+        caption="A whole wall of display cases at Ken Box B2F."
+        class="text-center"
+        aspectClass="aspect-[3/4]"
+      />
+      <Figure
+        image={kenboxGarageImg}
+        alt="Shelves of Tomica Premium cars and miniature garages at Ken Box B2F"
+        caption="Tomica Premium and miniature garages."
+        class="text-center"
+        aspectClass="aspect-[3/4]"
+      />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-10 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">Customize your own model: Tomica Shop Tokyo</h2>
+    <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+      Want to really customize your own scale model? Head to the Tomica Shop Tokyo, in the Chiyoda district, inside
+      Tokyo Station, on Tokyo Character Street.
+    </p>
+
+    <div class="reveal mt-6 rounded-lg border border-mist-200 bg-paper-dim/40 p-5">
+      <p class="eyebrow text-racing-500">{tomicaShop.eyebrow}</p>
+      <p class="mt-2 font-body text-sm font-semibold text-ink">{tomicaShop.name}</p>
+      <p class="mt-1 flex items-start gap-1.5 font-body text-sm text-ink-soft">
+        <Icon name="map-pin" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-mist-500" />
+        {tomicaShop.address}
+      </p>
+      <a
+        href={mapsHref(tomicaShop)}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link-underline mt-3 inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+      >
+        Open in Google Maps
+        <Icon name="external-link" class="h-3.5 w-3.5" />
+      </a>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">The Liberty Walk universe</h2>
+    <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+      At Liberty Walk, in Shibuya, you can also buy scale models of their creations: F40, RX-7 and other iconic models
+      from the brand, from small to very large scale.
+    </p>
+
+    <div class="reveal mt-6 rounded-lg border border-mist-200 bg-paper-dim/40 p-5">
+      <p class="eyebrow text-racing-500">{libertyWalk.eyebrow}</p>
+      <p class="mt-2 font-body text-sm font-semibold text-ink">{libertyWalk.name}</p>
+      <p class="mt-1 flex items-start gap-1.5 font-body text-sm text-ink-soft">
+        <Icon name="map-pin" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-mist-500" />
+        {libertyWalk.address}
+      </p>
+      <a
+        href={mapsHref(libertyWalk)}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link-underline mt-3 inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+      >
+        Open in Google Maps
+        <Icon name="external-link" class="h-3.5 w-3.5" />
+      </a>
+    </div>
+
+    <Figure
+      image={libertyWalkImg}
+      alt="Display cases of Liberty Walk scale models, from small to very large"
+      caption="The Liberty Walk display cases, from small to very large."
+      class="mx-auto mt-8 max-w-xs sm:max-w-sm"
+    />
+  </section>
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-16">
+    <div class="mx-auto max-w-3xl px-5 text-center sm:px-8">
+      <a
+        href={withBase("/en/tokyo/")}
+        class="link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink"
+      >
+        <Icon name="arrow-left" class="h-3.5 w-3.5" />
+        Back to all Tokyo spots
+      </a>
+    </div>
+  </section>
+</Layout>
