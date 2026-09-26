@@ -8,6 +8,10 @@ interface Props {
 }
 const { spot } = Astro.props;
 
+const mapsHref = spot.mapsQuery
+  ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.mapsQuery)}`
+  : undefined;
+
 const categoryIcon: Record<Spot["category"], "car" | "tag" | "building" | "flag" | "shopping-bag" | "map-pin" | "parking"> = {
   location: "car",
   achat: "tag",
@@ -73,6 +77,18 @@ const categoryLabel: Record<Spot["category"], string> = {
       <span class="font-semibold text-mist-500">{spot.filled ? "Astuce" : `Note pour ${AUTHOR_NAME}`} — </span>
       {spot.tip}
     </p>
+  )}
+
+  {mapsHref && (
+    <a
+      href={mapsHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="link-underline mt-4 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+    >
+      Ouvrir dans Google Maps
+      <Icon name="external-link" class="h-3.5 w-3.5" />
+    </a>
   )}
 
   {spot.website && (

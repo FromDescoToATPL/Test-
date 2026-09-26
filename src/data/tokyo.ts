@@ -40,12 +40,14 @@ export const tokyoSpots: Spot[] = [
     filled: true,
   },
   {
-    name: "Boutique de vêtements — à préciser",
+    name: "Liberty Walk Tokyo",
     category: "shopping",
-    area: "À préciser",
-    description: "Une adresse streetwear/JDM repérée à Tokyo pour ramener autre chose qu'un aimant de frigo.",
-    tip: "Ajoute le nom de la boutique, l'adresse et ce que tu y as trouvé.",
-    filled: false,
+    area: "Shibuya",
+    description:
+      "L'une des meilleures adresses de streetwear à Tokyo pour vous et vos amis passionnés. T-shirts, manteaux, pantalons, sweats : de quoi vous faire plaisir.",
+    tip: "Prévoyez un bon budget en yens, les prix sont à la hauteur de la marque.",
+    mapsQuery: "Liberty Walk, 4 Chome-26-3 Jingumae, Shibuya, Tokyo 150-0001",
+    filled: true,
   },
 ];
 
