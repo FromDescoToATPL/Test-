@@ -58,22 +58,21 @@ import avantRouteImg from "../../assets/photos/fuji-mfj-corvette-avant-route.web
       </p>
     </div>
 
-    <div class="mt-8 grid gap-6 sm:grid-cols-2">
+    <div class="mx-auto mt-8 grid max-w-md grid-cols-2 gap-4">
       <Figure
         image={agence1Img}
         alt="Corvette C7 Stingray blanche garée sur un parking simple à côté de l'agence de location, sous la pluie"
-        caption="La Corvette m'attend sur le parking de l'agence."
+        aspectClass="aspect-[3/4]"
       />
       <Figure
         image={agence2Img}
         alt="Corvette C7 Stingray blanche vue de trois quarts arrière sur le parking de l'agence, sous la pluie"
-        caption="Récupération du véhicule, sous la pluie."
+        aspectClass="aspect-[3/4]"
       />
     </div>
 
     <p class="reveal mt-8 font-body text-sm leading-relaxed text-ink-soft">
-      Une fois le moteur lancé, direction le <a href={withBase("/mont-fuji/musee-du-sport-automobile/")} class="link-underline text-ink">Fuji Motor Sports Museum</a>,
-      juste à côté de Fuji Speedway.
+      Une fois le moteur lancé, direction le Fuji Motor Sports Museum, juste à côté de Fuji Speedway.
     </p>
 
     <Figure
@@ -82,6 +81,13 @@ import avantRouteImg from "../../assets/photos/fuji-mfj-corvette-avant-route.web
       caption="Prête à reprendre la route, direction le musée."
       class="mt-8"
     />
+    <a
+      href={withBase("/mont-fuji/musee-du-sport-automobile/")}
+      class="link-underline reveal mt-3 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+    >
+      Direction le Fuji Motor Sports Museum
+      <Icon name="arrow-right" class="h-3.5 w-3.5" />
+    </a>
 
     <p class="reveal mt-8 font-body text-sm leading-relaxed text-ink-soft">
       Malgré une météo qui n'était clairement pas de la partie ce jour-là, je me suis baladé autour du circuit et j'ai
