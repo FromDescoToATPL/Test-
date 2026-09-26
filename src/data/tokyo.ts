@@ -14,7 +14,7 @@ export const tokyoSpots: Spot[] = [
     category: "location",
     area: "Ōta, sud de Tokyo (près de l'aéroport de Haneda)",
     description:
-      "L'agence de location spécialisée JDM qui m'a loué cette Lancer Evolution VIII gris argent pour la journée — une GT-R trônait à côté. Le genre d'adresse qui vaut le détour pour n'importe quel passionné.",
+      "L'agence de location spécialisée JDM qui m'a loué cette Lancer Evolution VIII gris argent pour la journée. Une GT-R trônait à côté : le genre d'adresse qui vaut le détour pour n'importe quel passionné.",
     tip: "Réservation conseillée bien à l'avance : les voitures les plus demandées partent vite.",
     mapsQuery: "OnlyJDM Car Rental Haneda Airport Store, 2 Chome-20-14 Omoriminami, Ota City, Tokyo",
     articleHref: withBase("/tokyo/only-jdm/"),
@@ -35,6 +35,7 @@ export const tokyoSpots: Spot[] = [
     area: "Odaiba, Shutoko, jusqu'à Hakone",
     description:
       "Du Rainbow Bridge à Odaiba jusqu'aux virages d'Hakone : les routes qui valent le détour au volant d'une JDM de location, de jour comme de nuit.",
+    tip: "Vérifie la météo avant de partir vers Hakone : les routes de montagne perdent tout leur charme sous la pluie ou le brouillard.",
     articleHref: withBase("/tokyo/ou-rouler/"),
     filled: true,
   },
@@ -74,12 +75,12 @@ export const tokyoParking: ParkingTip[] = [
   {
     area: "Shibuya / Shinjuku / Ginza",
     advice:
-      "Stationnement en voirie quasiment inexistant et très surveillé. Compte sur les parkings « coin parking » (Times, Park24,三井のリパーク) — repérables à leurs bornes jaunes ou rouges. Tarifs élevés (300–500¥ / 30 min) mais rotation rapide et paiement simple à la borne.",
+      "Stationnement en voirie quasiment inexistant et très surveillé. Compte sur les parkings « coin parking » (Times, Park24,三井のリパーク), repérables à leurs bornes jaunes ou rouges. Tarifs élevés (300–500¥ / 30 min) mais rotation rapide et paiement simple à la borne.",
   },
   {
     area: "Centres commerciaux",
     advice:
-      "Beaucoup de grands magasins offrent 1 à 3h de parking gratuit sur présentation d'un ticket de caisse validé à l'accueil — pratique pour une pause shopping sans stress.",
+      "Beaucoup de grands magasins offrent 1 à 3h de parking gratuit sur présentation d'un ticket de caisse validé à l'accueil, pratique pour une pause shopping sans stress.",
   },
   {
     area: "Général",
@@ -90,6 +91,6 @@ export const tokyoParking: ParkingTip[] = [
 
 export const tokyoTips: string[] = [
   "Circule tôt le matin ou en soirée pour éviter les embouteillages du Shuto Expressway (périphérique urbain), particulièrement dense en journée.",
-  "Prends un forfait ETC (télépéage) avec ta location — indispensable pour enchaîner les voies rapides sans t'arrêter à chaque barrière.",
+  "Prends un forfait ETC (télépéage) avec ta location : indispensable pour enchaîner les voies rapides sans t'arrêter à chaque barrière.",
   "Le quartier de Roppongi/Aoyama est idéal en soirée pour repérer des voitures de passionnés garées devant les bars et restaurants.",
 ];

@@ -10,15 +10,15 @@ export const fujiSpots: Spot[] = [
     category: "location",
     area: "Kawaguchiko",
     description:
-      "L'agence qui m'a loué cette Corvette C7 Stingray à Kawaguchiko, pour partir à l'assaut des routes de montagne autour du lac — brouillard et pluie inclus le jour du passage, l'expérience n'en devient que plus mémorable.",
-    tip: "Ajoute ici le tarif à la journée/demi-journée et les conditions (âge, caution, permis international exigé) — tout part dans l'article dédié.",
+      "L'agence qui m'a loué cette Corvette C7 Stingray à Kawaguchiko, pour partir à l'assaut des routes de montagne autour du lac. Brouillard et pluie inclus le jour du passage, l'expérience n'en devient que plus mémorable.",
+    tip: "Ajoute ici le tarif à la journée/demi-journée et les conditions (âge, caution, permis international exigé) : tout part dans l'article dédié.",
     articleHref: withBase("/mont-fuji/mfj-rental-cars/"),
     filled: false,
   },
   {
     name: "Fuji Speedway",
     category: "circuit",
-    area: "Oyama, Susono — à ~30 min de Kawaguchiko",
+    area: "Oyama, Susono (à ~30 min de Kawaguchiko)",
     description:
       "Circuit historique (ex-Fuji International Speedway), théâtre du Japanese Grand Prix de F1 et de manches de Super GT / WEC. Accessible en voiture, avec des journées portes ouvertes et des track days pour le public selon le calendrier.",
     tip: "Vérifie le calendrier officiel avant d'y aller : le circuit est parfois fermé au public pour des événements privés.",
@@ -56,6 +56,6 @@ export const fujiParking: ParkingTip[] = [
 
 export const fujiTips: string[] = [
   "Combine le circuit et le musée en une seule demi-journée : les deux sont à 5 minutes l'un de l'autre.",
-  "Le Fuji ne se montre pas tous les jours — privilégie tôt le matin, ciel dégagé, pour les meilleures vues depuis la route.",
+  "Le Fuji ne se montre pas tous les jours : privilégie tôt le matin, ciel dégagé, pour les meilleures vues depuis la route.",
   "Une voiture de sport comme une Corvette prend une autre dimension sur les petites routes qui serpentent autour du lac : anticipe des trajets plus lents qu'en ligne droite.",
 ];

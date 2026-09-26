@@ -10,17 +10,17 @@ export const kyotoSpots: Spot[] = [
     category: "garage",
     area: "À préciser",
     description:
-      "Le temple des passionnés à Kyoto. Pièces, préparations, ambiance atelier — une adresse qui revient systématiquement dans la bouche des amateurs de JDM en visite dans la région du Kansai.",
+      "Le temple des passionnés à Kyoto. Pièces, préparations, ambiance atelier : une adresse qui revient systématiquement dans la bouche des amateurs de JDM en visite dans la région du Kansai.",
     tip: "Ajoute l'adresse, ce que tu y as vu ou acheté, et ton avis sur l'accueil.",
     articleHref: withBase("/kyoto/a-pit-auto/"),
     filled: false,
   },
   {
-    name: "Liberty Walk — boutique Kyoto",
+    name: "Liberty Walk (boutique Kyoto)",
     category: "shopping",
     area: "À préciser",
     description:
-      "Seconde adresse Liberty Walk du séjour, pour les vêtements et accessoires de la marque — pratique si la boutique d'Osaka n'a pas tout ce que tu cherchais.",
+      "Seconde adresse Liberty Walk du séjour, pour les vêtements et accessoires de la marque. Pratique si la boutique d'Osaka n'a pas tout ce que tu cherchais.",
     tip: "Ajoute l'adresse exacte, tes achats, les prix, et tes photos.",
     filled: false,
   },
