@@ -11,9 +11,10 @@ export const fujiSpots: Spot[] = [
     area: "Kawaguchiko",
     description:
       "L'agence qui m'a loué cette Corvette C7 Stingray à Kawaguchiko, pour partir à l'assaut des routes de montagne autour du lac. Brouillard et pluie inclus le jour du passage, l'expérience n'en devient que plus mémorable.",
-    tip: "Ajoute ici le tarif à la journée/demi-journée et les conditions (âge, caution, permis international exigé) : tout part dans l'article dédié.",
+    tip: "Corvette C7 en promo à 13 000 yens lors de ma réservation, sans caution. Attention à la franchise : 50 000 yens en cas d'accident.",
+    mapsQuery: "MFJ Rental Car&Motorbike, 996-21 Funatsu, Fujikawaguchiko",
     articleHref: withBase("/mont-fuji/mfj-rental-cars/"),
-    filled: false,
+    filled: true,
   },
   {
     name: "Fuji Speedway",

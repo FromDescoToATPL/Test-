@@ -5,14 +5,20 @@ import Figure from "../../components/Figure.astro";
 import Icon from "../../components/Icon.astro";
 import { withBase } from "../../consts";
 import heroImg from "../../assets/photos/fuji-corvette-face-brouillard.jpg";
-import agence1Img from "../../assets/photos/fuji-mfj-agence-recuperation-1.webp";
-import agence2Img from "../../assets/photos/fuji-mfj-agence-recuperation-2.webp";
-import avantRouteImg from "../../assets/photos/fuji-mfj-corvette-avant-route.webp";
+import fujimibashiCarteImg from "../../assets/photos/fuji-fujimibashi-carte.webp";
+import feuxArriereImg from "../../assets/photos/fuji-fujimibashi-corvette-feux-arriere.jpg";
+
+function mapsHref(query: string) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
+const agenceMapsHref = mapsHref("MFJ Rental Car&Motorbike, 996-21 Funatsu, Fujikawaguchiko");
+const fujimibashiMapsHref = mapsHref("Fujimibashi Mount Fuji Viewing Platform");
 ---
 
 <Layout
   title="MFJ Rental Cars"
-  description="MFJ Rental Cars à Kawaguchiko : l'agence qui loue des sportives comme la Corvette C7 pour rouler autour du Mont Fuji. Avis complet à venir."
+  description="MFJ Rental Cars à Kawaguchiko : la location de ma Corvette C7, tarif, caution, franchise et une balade jusqu'au belvédère de Fujimibashi."
 >
   <Hero
     image={heroImg}
@@ -56,36 +62,14 @@ import avantRouteImg from "../../assets/photos/fuji-mfj-corvette-avant-route.web
         contrat et on fait le tour du véhicule ensemble. En cas d'accident, la franchise s'élève à 50 000 yens. Autant
         dire qu'avec une propulsion pareille, mieux vaut garder le pied léger.
       </p>
+      <p>Une fois le moteur lancé, premier arrêt : le Fuji Motor Sports Museum, juste à côté de Fuji Speedway.</p>
     </div>
 
-    <div class="mx-auto mt-8 grid max-w-md grid-cols-2 gap-4">
-      <Figure
-        image={agence1Img}
-        alt="Corvette C7 Stingray blanche garée sur un parking simple à côté de l'agence de location, sous la pluie"
-        aspectClass="aspect-[3/4]"
-      />
-      <Figure
-        image={agence2Img}
-        alt="Corvette C7 Stingray blanche vue de trois quarts arrière sur le parking de l'agence, sous la pluie"
-        aspectClass="aspect-[3/4]"
-      />
-    </div>
-
-    <p class="reveal mt-8 font-body text-sm leading-relaxed text-ink-soft">
-      Une fois le moteur lancé, direction le Fuji Motor Sports Museum, juste à côté de Fuji Speedway.
-    </p>
-
-    <Figure
-      image={avantRouteImg}
-      alt="Corvette C7 Stingray blanche garée sur un parking arboré, prête à reprendre la route"
-      caption="Prête à reprendre la route, direction le musée."
-      class="mt-8"
-    />
     <a
       href={withBase("/mont-fuji/musee-du-sport-automobile/")}
-      class="link-underline reveal mt-3 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+      class="link-underline reveal mt-4 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-racing-500"
     >
-      Direction le Fuji Motor Sports Museum
+      Découvrir le Fuji Motor Sports Museum
       <Icon name="arrow-right" class="h-3.5 w-3.5" />
     </a>
 
@@ -109,13 +93,89 @@ import avantRouteImg from "../../assets/photos/fuji-mfj-corvette-avant-route.web
         />
       </div>
       <figcaption class="mt-2 font-body text-xs text-mist-500">
-        Quelques secondes à bord de la Corvette, sur les routes autour de Fuji Speedway.
+        Quelques secondes à bord de la Corvette, sur les routes de montagne autour du Fuji.
       </figcaption>
     </figure>
+  </section>
 
-    <p class="reveal mt-8 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
-      Page en cours de complétion : l'avis détaillé de Clément à venir.
-    </p>
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-16">
+    <div class="mx-auto max-w-3xl px-5 sm:px-8">
+      <h2 class="reveal font-display text-2xl font-semibold text-ink sm:text-3xl">Dernier arrêt : Fujimibashi</h2>
+
+      <p class="reveal mt-6 font-body text-sm leading-relaxed text-ink-soft">
+        Avant de rendre la voiture, impossible de ne pas m'offrir un dernier tour dans la montagne. Direction le
+        Fujimibashi Mount Fuji Viewing Platform, un belvédère perché sur la route 137, qui grimpe au-dessus du lac
+        Kawaguchi.
+      </p>
+
+      <Figure
+        image={fujimibashiCarteImg}
+        alt="Carte Google Maps situant le belvédère de Fujimibashi sur la route 137, au nord du lac Kawaguchi et de Fujikawaguchiko"
+        caption="Le belvédère de Fujimibashi, sur la route 137 au nord du lac Kawaguchi. Capture Google Maps."
+        class="mt-8"
+      />
+      <a
+        href={fujimibashiMapsHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link-underline reveal mt-3 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+      >
+        Ouvrir dans Google Maps
+        <Icon name="external-link" class="h-3.5 w-3.5" />
+      </a>
+
+      <p class="reveal mt-8 font-body text-sm leading-relaxed text-ink-soft">
+        Ce jour-là, le brouillard avait pris possession des lieux : pas de mont Fuji à l'horizon, mais une ambiance
+        parfaite pour les photos. C'est d'ailleurs ici qu'a été prise la photo en haut de cette page.
+      </p>
+
+      <Figure
+        image={feuxArriereImg}
+        alt="Corvette C7 Stingray blanche vue de l'arrière, feux allumés, dans le brouillard du belvédère de Fujimibashi"
+        caption="Feux arrière allumés dans le brouillard de Fujimibashi."
+        class="mx-auto mt-8 max-w-xs sm:max-w-sm"
+        aspectClass="aspect-[3/4]"
+      />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink sm:text-3xl">Infos pratiques</h2>
+
+    <div class="reveal mt-6 rounded-lg border border-mist-200 bg-paper-dim/40 p-5">
+      <p class="eyebrow text-racing-500">Location de voitures · Kawaguchiko</p>
+      <p class="mt-2 font-body text-sm font-semibold text-ink">MFJ Rental Cars</p>
+      <ul class="mt-3 list-disc space-y-1.5 pl-5 font-body text-sm text-ink-soft">
+        <li>Corvette C7 Stingray : 13 000 yens (tarif promo lors de ma réservation)</li>
+        <li>Réservation sur leur site, sans rien payer à l'avance</li>
+        <li>Aucune caution demandée</li>
+        <li>Franchise de 50 000 yens en cas d'accident</li>
+      </ul>
+      <p class="mt-4 flex items-start gap-1.5 font-body text-sm text-ink-soft">
+        <Icon name="map-pin" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-mist-500" />
+        996-21 Funatsu, Fujikawaguchiko, Yamanashi 401-0301, Japon
+      </p>
+      <div class="mt-3 flex flex-wrap gap-x-6 gap-y-2">
+        <a
+          href={agenceMapsHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-underline inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+        >
+          Ouvrir dans Google Maps
+          <Icon name="external-link" class="h-3.5 w-3.5" />
+        </a>
+        <a
+          href="https://mfj-car.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-underline inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+        >
+          Site de l'agence
+          <Icon name="external-link" class="h-3.5 w-3.5" />
+        </a>
+      </div>
+    </div>
   </section>
 
   <section class="border-t border-mist-200 bg-paper-dim/50 py-16">
