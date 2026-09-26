@@ -6,7 +6,6 @@ import SpotCard from "../components/SpotCard.astro";
 import ParkingGrid from "../components/ParkingGrid.astro";
 import TipsList from "../components/TipsList.astro";
 import Figure from "../components/Figure.astro";
-import AffiliateDisclosure from "../components/AffiliateDisclosure.astro";
 import AdSlot from "../components/AdSlot.astro";
 
 import heroImg from "../assets/photos/fuji-musee-escaliers.jpg";
@@ -33,8 +32,6 @@ const otherSpots = fujiSpots.filter((s) => s.category !== "location");
   <section class="mx-auto max-w-4xl px-5 py-16 sm:px-8">
     <p class="reveal font-body text-lg leading-relaxed text-ink-soft">{fujiIntro}</p>
   </section>
-
-  <AffiliateDisclosure />
 
   <section class="mx-auto max-w-8xl px-5 py-16 sm:px-8">
     <SectionHeading eyebrow="Location" title="Prendre le volant à Fuji" />
