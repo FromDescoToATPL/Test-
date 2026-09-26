@@ -31,9 +31,10 @@ export const tokyoSpots: Spot[] = [
   },
   {
     name: "Où rouler à Tokyo",
-    category: "meetup",
+    category: "route",
     area: "Odaiba, Shutoko, jusqu'à Hakone",
-    description: "Quelques routes pour vous faire plaisir à bord de votre JDM, de jour comme de nuit.",
+    description:
+      "Du Rainbow Bridge à Odaiba jusqu'aux virages d'Hakone : les routes qui valent le détour au volant d'une JDM de location, de jour comme de nuit.",
     articleHref: withBase("/tokyo/ou-rouler/"),
     filled: true,
   },

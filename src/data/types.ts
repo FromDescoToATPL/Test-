@@ -6,6 +6,7 @@ export type SpotCategory =
   | "circuit"
   | "shopping"
   | "meetup"
+  | "route"
   | "parking"
   | "restauration";
 

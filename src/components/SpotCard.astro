@@ -12,7 +12,7 @@ const mapsHref = spot.mapsQuery
   ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.mapsQuery)}`
   : undefined;
 
-const categoryIcon: Record<Spot["category"], "car" | "tag" | "building" | "flag" | "shopping-bag" | "map-pin" | "parking"> = {
+const categoryIcon: Record<Spot["category"], "car" | "tag" | "building" | "flag" | "shopping-bag" | "map-pin" | "parking" | "steering-wheel"> = {
   location: "car",
   achat: "tag",
   garage: "car",
@@ -20,6 +20,7 @@ const categoryIcon: Record<Spot["category"], "car" | "tag" | "building" | "flag"
   circuit: "flag",
   shopping: "shopping-bag",
   meetup: "map-pin",
+  route: "steering-wheel",
   parking: "parking",
   restauration: "map-pin",
 };
@@ -32,6 +33,7 @@ const categoryLabel: Record<Spot["category"], string> = {
   circuit: "Circuit",
   shopping: "Shopping",
   meetup: "Rendez-vous",
+  route: "Balade",
   parking: "Parking",
   restauration: "Restauration",
 };
