@@ -49,6 +49,16 @@ export const tokyoSpots: Spot[] = [
     mapsQuery: "Liberty Walk, 4 Chome-26-3 Jingumae, Shibuya, Tokyo 150-0001",
     filled: true,
   },
+  {
+    name: "A-PIT Super Autobacs",
+    category: "shopping",
+    area: "Kōtō",
+    description:
+      "Le même type de magasin qu'à Kyoto : un large choix de vêtements de différentes marques (Mazda, Toyota, Nissan, etc.), ainsi que plusieurs stands de journaux et de miniatures.",
+    tip: "Détaxe de 10 % possible avec votre passeport. Profitez-en avant le 1er novembre, date à partir de laquelle le remboursement se fait uniquement à l'aéroport.",
+    mapsQuery: "A-PIT Super Autobacs, 2 Chome-7-20 Shinonome, Koto City, Tokyo 135-0062",
+    filled: true,
+  },
 ];
 
 export const tokyoParking: ParkingTip[] = [
