@@ -5,6 +5,7 @@ import Figure from "../../components/Figure.astro";
 import Icon from "../../components/Icon.astro";
 import { withBase } from "../../consts";
 import tshirtImg from "../../assets/photos/osaka-liberty-walk-tshirt-works-style.jpg";
+import heroImg from "../../assets/photos/osaka-liberty-walk-miniature-f40.jpg";
 
 const shopAddress = "1 Chome-3-13 Kitahorie, Nishi Ward, Osaka 550-0014, Japon";
 const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`Liberty Walk, ${shopAddress}`)}`;
@@ -15,10 +16,11 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
   description="La boutique Liberty Walk d'Osaka, non loin de Dotonbori : vêtements, éditions limitées Osaka, prix et mon avis honnête."
 >
   <Hero
+    image={heroImg}
     eyebrow="Bonne adresse · Osaka"
     title="Liberty Walk Osaka"
     subtitle="La petite boutique de la marque culte du widebody, non loin de Dotonbori."
-    compact
+    focalPoint="50% 58%"
   />
 
   <section class="mx-auto max-w-3xl px-5 pt-16 pb-10 sm:px-8">
@@ -39,7 +41,7 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
   </section>
 
   <section class="mx-auto max-w-3xl px-5 pb-10 sm:px-8">
-    <h2 class="reveal font-display text-2xl font-semibold text-ink">Mon achat</h2>
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">Mes achats</h2>
     <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
       Personnellement, j'ai craqué pour un t-shirt avec ce motif dans le dos. Comptez environ 50 € : c'est cher,
       certes, mais le t-shirt est de très bonne qualité, et quand on aime, on ne compte pas ! Ce n'est pas tous les
@@ -52,6 +54,11 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
       caption="Le motif « Works Style » Osaka, au dos de mon t-shirt."
       class="mx-auto mt-8 max-w-md"
     />
+
+    <p class="reveal mt-8 font-body text-sm leading-relaxed text-ink-soft">
+      J'en ai aussi profité pour ramener la miniature que vous voyez en haut de cette page : une Ferrari F40 aux
+      couleurs de Liberty Walk.
+    </p>
   </section>
 
   <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">

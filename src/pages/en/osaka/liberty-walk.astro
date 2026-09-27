@@ -5,6 +5,7 @@ import Figure from "../../../components/Figure.astro";
 import Icon from "../../../components/Icon.astro";
 import { withBase } from "../../../consts";
 import tshirtImg from "../../../assets/photos/osaka-liberty-walk-tshirt-works-style.jpg";
+import heroImg from "../../../assets/photos/osaka-liberty-walk-miniature-f40.jpg";
 
 const shopAddress = "1 Chome-3-13 Kitahorie, Nishi Ward, Osaka 550-0014, Japan";
 const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`Liberty Walk, ${shopAddress}`)}`;
@@ -15,10 +16,11 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
   description="The Liberty Walk store in Osaka, not far from Dotonbori: clothing, Osaka limited editions, prices and my honest review."
 >
   <Hero
+    image={heroImg}
     eyebrow="Great spot · Osaka"
     title="Liberty Walk Osaka"
     subtitle="The small store of the cult widebody brand, not far from Dotonbori."
-    compact
+    focalPoint="50% 58%"
   />
 
   <section class="mx-auto max-w-3xl px-5 pt-16 pb-10 sm:px-8">
@@ -52,6 +54,10 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
       caption="The Osaka “Works Style” design, on the back of my T-shirt."
       class="mx-auto mt-8 max-w-md"
     />
+
+    <p class="reveal mt-8 font-body text-sm leading-relaxed text-ink-soft">
+      I also brought home the scale model you can see at the top of this page: a Ferrari F40 in Liberty Walk colors.
+    </p>
   </section>
 
   <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
