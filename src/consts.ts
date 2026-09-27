@@ -5,9 +5,9 @@ export const ADS_ENABLED = false;
 // Prénom déduit de ton adresse mail — remplace si ce n'est pas le bon.
 export const AUTHOR_NAME = "Clément";
 // Adresse principale du site, définie une seule fois dans astro.config.mjs (option `site`).
-export const SITE_URL = new URL(import.meta.env.SITE ?? "https://jdmtrip.com").origin;
+export const SITE_URL = new URL(import.meta.env.SITE ?? "https://www.jdmtrip.com").origin;
 // Interrupteur unique pour Google : false = balise noindex sur toutes les pages (avant le lancement).
-// Passe à true le jour de la mise en ligne sur jdmtrip.com. Le miroir GitHub Pages reste toujours en noindex.
+// Passe à true le jour de la mise en ligne sur www.jdmtrip.com. Le miroir GitHub Pages reste toujours en noindex.
 export const INDEXABLE = false;
 
 // Mentions légales : éditeur particulier et anonyme, à titre non professionnel (possible tant que le site ne

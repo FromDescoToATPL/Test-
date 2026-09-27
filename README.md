@@ -60,7 +60,7 @@ Le français reste à la racine (`/tokyo/`), l'anglais vit sous `/en/` avec des 
 - [x] Compléter les adresses marquées `filled: false` (plus aucune sur le site)
 - [x] Mentions légales et confidentialité finalisées : éditeur particulier anonyme, hébergeur Vercel,
       contact@jdmtrip.com (valeurs dans [src/consts.ts](src/consts.ts) : `CONTACT_EMAIL`, `HOST`)
-- [x] Adresse principale `https://jdmtrip.com` définie dans [astro.config.mjs](astro.config.mjs) (`site`) et
+- [x] Adresse principale `https://www.jdmtrip.com` définie dans [astro.config.mjs](astro.config.mjs) (`site`) et
       [public/robots.txt](public/robots.txt)
 - [ ] Au lancement : passer `INDEXABLE` à `true` dans [src/consts.ts](src/consts.ts) pour retirer le noindex
 - [ ] Vérifier `AUTHOR_NAME` dans [src/consts.ts](src/consts.ts)
