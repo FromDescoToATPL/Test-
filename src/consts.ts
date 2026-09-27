@@ -8,7 +8,7 @@ export const AUTHOR_NAME = "Clément";
 export const SITE_URL = new URL(import.meta.env.SITE ?? "https://www.jdmtrip.com").origin;
 // Interrupteur unique pour Google : false = balise noindex sur toutes les pages (avant le lancement).
 // Passe à true le jour de la mise en ligne sur www.jdmtrip.com. Le miroir GitHub Pages reste toujours en noindex.
-export const INDEXABLE = false;
+export const INDEXABLE = true;
 
 // Mentions légales : éditeur particulier et anonyme, à titre non professionnel (possible tant que le site ne
 // rapporte pas de revenus réguliers). Le jour des pubs : micro-entreprise, et nom + adresse à ajouter ici et

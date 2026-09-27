@@ -62,7 +62,7 @@ Le français reste à la racine (`/tokyo/`), l'anglais vit sous `/en/` avec des 
       contact@jdmtrip.com (valeurs dans [src/consts.ts](src/consts.ts) : `CONTACT_EMAIL`, `HOST`)
 - [x] Adresse principale `https://www.jdmtrip.com` définie dans [astro.config.mjs](astro.config.mjs) (`site`) et
       [public/robots.txt](public/robots.txt)
-- [ ] Au lancement : passer `INDEXABLE` à `true` dans [src/consts.ts](src/consts.ts) pour retirer le noindex
+- [x] Lancement (27/09/2026) : `INDEXABLE` à `true` dans [src/consts.ts](src/consts.ts), noindex retiré sur www.jdmtrip.com
 - [ ] Vérifier `AUTHOR_NAME` dans [src/consts.ts](src/consts.ts)
 - [ ] Plus tard, pubs : micro-entreprise + nom dans les mentions légales, bandeau cookies certifié Google (CMP),
       `ADS_ENABLED` à true (réaffiche le bandeau), [AdSlot.astro](src/components/AdSlot.astro) et page confidentialité à jour
