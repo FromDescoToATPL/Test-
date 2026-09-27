@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
-import Icon from "./Icon.astro";
 
 interface Props {
   image?: ImageMetadata;
@@ -15,10 +14,8 @@ interface Props {
   zoom?: number;
   /** Dégradé renforcé derrière le texte, pour les photos très colorées (ex. livrée de la 787B sur l'accueil). */
   strongShade?: boolean;
-  /** Bouton sous le sous-titre (ex. ancre vers une section de la page). */
-  cta?: { label: string; href: string };
 }
-const { image, eyebrow, title, subtitle, compact = false, focalPoint = "50% 50%", zoom = 1, strongShade = false, cta } = Astro.props;
+const { image, eyebrow, title, subtitle, compact = false, focalPoint = "50% 50%", zoom = 1, strongShade = false } = Astro.props;
 ---
 
 <section
@@ -75,14 +72,5 @@ const { image, eyebrow, title, subtitle, compact = false, focalPoint = "50% 50%"
       {title}
     </h1>
     {subtitle && <p class="mt-4 max-w-xl font-body text-base text-mist-200 sm:text-lg">{subtitle}</p>}
-    {cta && (
-      <a
-        href={cta.href}
-        class="mt-7 inline-flex items-center gap-2 rounded-md bg-paper px-5 py-3 font-body text-sm font-medium text-ink transition-colors hover:bg-gold-400"
-      >
-        {cta.label}
-        <Icon name="chevron-down" class="h-4 w-4" />
-      </a>
-    )}
   </div>
 </section>
