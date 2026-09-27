@@ -67,6 +67,7 @@ const fr = {
   destinations: "Destinations",
   guides: "Guides",
   openMenu: "Ouvrir le menu",
+  closeMenu: "Fermer le menu",
   language: "Langue",
   langNames: { fr: "Version française", en: "English version" },
   destinationLinks: [
@@ -127,6 +128,7 @@ const en: typeof fr = {
   destinations: "Destinations",
   guides: "Guides",
   openMenu: "Open menu",
+  closeMenu: "Close menu",
   language: "Language",
   langNames: { fr: "Version française", en: "English version" },
   destinationLinks: [

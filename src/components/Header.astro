@@ -90,58 +90,178 @@ const isActive = (href: string) =>
 
       <button
         id="mobile-menu-button"
-        class="flex items-center justify-center rounded-sm p-2.5 text-ink lg:hidden cursor-pointer"
+        class="menu-button relative flex h-11 w-11 items-center justify-center rounded-sm text-ink lg:hidden cursor-pointer"
         aria-label={t.openMenu}
         aria-expanded="false"
         aria-controls="mobile-menu"
+        data-label-open={t.openMenu}
+        data-label-close={t.closeMenu}
       >
-        <Icon name="menu" class="h-6 w-6" />
+        <span class="menu-icon menu-icon-open"><Icon name="menu" class="h-6 w-6" /></span>
+        <span class="menu-icon menu-icon-close"><Icon name="close" class="h-6 w-6" /></span>
       </button>
     </div>
   </div>
 
-  <div
-    id="mobile-menu"
-    class="hidden flex-col gap-1 border-t border-mist-200 bg-paper px-5 py-4 lg:hidden"
-  >
-    <p class="eyebrow px-2 pb-1 pt-2 text-mist-500">{t.destinations}</p>
-    {t.destinationLinks.map((link) => (
-      <a
-        href={link.href}
-        class:list={[
-          "rounded-sm px-2 py-2.5 font-body text-base",
-          isActive(link.href) ? "text-racing-500 font-medium" : "text-ink",
-        ]}
-      >
-        {link.label}
-      </a>
-    ))}
-    <div class="my-2 h-px bg-mist-200"></div>
-    {t.mainNavLinks.map((link) => (
-      <a
-        href={link.href}
-        class:list={[
-          "rounded-sm px-2 py-2.5 font-body text-base",
-          isActive(link.href) ? "text-racing-500 font-medium" : "text-ink",
-        ]}
-      >
-        {link.label}
-      </a>
-    ))}
+  <div id="mobile-menu" class="mobile-menu lg:hidden" data-open="false">
+    <div class="mobile-menu-backdrop" data-menu-close></div>
+    <nav
+      class="mobile-menu-panel flex flex-col gap-1 overflow-y-auto border-l border-mist-200 bg-paper px-5 py-4"
+      aria-label={t.mainNav}
+    >
+      <p class="menu-item eyebrow px-2 pb-1 pt-2 text-mist-500" style="--i: 0">{t.destinations}</p>
+      {t.destinationLinks.map((link, i) => (
+        <a
+          href={link.href}
+          style={`--i: ${i + 1}`}
+          class:list={[
+            "menu-item rounded-sm px-2 py-2.5 font-body text-base",
+            isActive(link.href) ? "text-racing-500 font-medium" : "text-ink",
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+      <div class="menu-item my-2 h-px bg-mist-200" style={`--i: ${t.destinationLinks.length + 1}`}></div>
+      {t.mainNavLinks.map((link, i) => (
+        <a
+          href={link.href}
+          style={`--i: ${t.destinationLinks.length + 2 + i}`}
+          class:list={[
+            "menu-item rounded-sm px-2 py-2.5 font-body text-base",
+            isActive(link.href) ? "text-racing-500 font-medium" : "text-ink",
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
   </div>
 </header>
 
+<style>
+  /* Menu mobile : un tiroir glisse depuis la droite sous le header, par-dessus
+     la page (rien n'est poussé vers le bas), et les liens arrivent en cascade. */
+  .mobile-menu {
+    position: absolute;
+    inset-inline: 0;
+    top: calc(100% + 1px);
+    height: calc(100dvh - var(--header-h, 77px));
+    overflow: hidden;
+    visibility: hidden;
+    transition: visibility 0s linear var(--duration-base);
+  }
+  .mobile-menu[data-open="true"] {
+    visibility: visible;
+    transition: visibility 0s;
+  }
+
+  .mobile-menu-backdrop {
+    position: absolute;
+    inset: 0;
+    background: color-mix(in srgb, var(--color-ink) 45%, transparent);
+    opacity: 0;
+    transition: opacity var(--duration-base) ease;
+  }
+  .mobile-menu[data-open="true"] .mobile-menu-backdrop {
+    opacity: 1;
+  }
+
+  .mobile-menu-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(20rem, 85vw);
+    box-shadow: -16px 0 40px -20px color-mix(in srgb, var(--color-ink) 40%, transparent);
+    transform: translateX(100%);
+    transition: transform var(--duration-base) var(--ease-out-soft);
+  }
+  .mobile-menu[data-open="true"] .mobile-menu-panel {
+    transform: none;
+    transition-duration: var(--duration-slow);
+  }
+
+  .menu-item {
+    opacity: 0;
+    transform: translateX(12px);
+    transition:
+      opacity 150ms ease,
+      transform 150ms ease;
+  }
+  .mobile-menu[data-open="true"] .menu-item {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 350ms ease,
+      transform 450ms var(--ease-out-soft);
+    transition-delay: calc(80ms + var(--i) * 35ms);
+  }
+
+  /* Burger ↔ croix : fondu avec un quart de tour. */
+  .menu-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      opacity var(--duration-fast) ease,
+      transform var(--duration-base) var(--ease-out-soft);
+  }
+  .menu-icon-close {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.8);
+  }
+  .menu-button[aria-expanded="true"] .menu-icon-open {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.8);
+  }
+  .menu-button[aria-expanded="true"] .menu-icon-close {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-menu[data-open="true"] .menu-item {
+      transition-delay: 0s;
+    }
+  }
+</style>
+
 <script>
+  const header = document.querySelector("header");
   const button = document.getElementById("mobile-menu-button");
   const menu = document.getElementById("mobile-menu");
+  const isOpen = () => menu?.getAttribute("data-open") === "true";
 
-  button?.addEventListener("click", () => {
-    const isOpen = menu?.classList.contains("flex");
-    menu?.classList.toggle("hidden", isOpen);
-    menu?.classList.toggle("flex", !isOpen);
-    button.setAttribute("aria-expanded", String(!isOpen));
-    button.innerHTML = isOpen
-      ? '<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>'
-      : '<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg>';
+  const setOpen = (open: boolean) => {
+    if (!menu || !button) return;
+    if (open && header) menu.style.setProperty("--header-h", `${header.offsetHeight}px`);
+    menu.setAttribute("data-open", String(open));
+    button.setAttribute("aria-expanded", String(open));
+    button.setAttribute("aria-label", (open ? button.dataset.labelClose : button.dataset.labelOpen) ?? "");
+    // La page ne défile pas derrière le tiroir.
+    document.documentElement.style.overflow = open ? "hidden" : "";
+  };
+
+  button?.addEventListener("click", () => setOpen(!isOpen()));
+  menu?.querySelector("[data-menu-close]")?.addEventListener("click", () => setOpen(false));
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && isOpen()) {
+      setOpen(false);
+      button?.focus();
+    }
+  });
+
+  // Passage en affichage bureau (rotation d'une tablette) : on referme.
+  matchMedia("(min-width: 64rem)").addEventListener("change", (event) => {
+    if (event.matches && isOpen()) setOpen(false);
+  });
+
+  // Retour arrière depuis le cache du navigateur : la page revient menu fermé.
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted && isOpen()) setOpen(false);
   });
 </script>
