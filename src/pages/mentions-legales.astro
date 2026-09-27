@@ -1,41 +1,31 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { SITE_NAME } from "../consts";
+import { CONTACT_EMAIL, HOST, SITE_NAME } from "../consts";
 ---
 
-<Layout title="Mentions légales" description="Mentions légales du site.">
+<Layout title="Mentions légales" description="Mentions légales du site JDM Trip.">
   <section class="mx-auto max-w-2xl px-5 py-12 sm:py-16 sm:px-8">
     <h1 class="font-display text-3xl font-semibold text-ink sm:text-4xl">Mentions légales</h1>
-
-    <div class="mt-4 rounded-md border border-dashed border-gold-500/50 bg-gold-400/10 px-4 py-3 font-body text-sm text-ink-soft">
-      <strong class="text-ink">Brouillon à compléter avant mise en ligne.</strong> Ce gabarit couvre la structure
-      standard des mentions légales françaises mais n'a pas valeur d'avis juridique — fais-le relire si tu passes en
-      activité professionnelle (auto-entrepreneur, etc.), surtout une fois la monétisation (pub, affiliation)
-      activée.
-    </div>
 
     <div class="mt-10 space-y-8 font-body text-sm leading-relaxed text-ink-soft">
       <div>
         <h2 class="font-display text-xl font-semibold text-ink">Éditeur du site</h2>
         <p class="mt-2">
-          [Ton nom ou raison sociale] — [Statut : particulier / auto-entrepreneur / société]<br />
-          [Adresse postale — obligatoire même pour un particulier, sauf dispense spécifique à vérifier]<br />
-          [Email de contact]<br />
-          [Numéro SIRET si activité professionnelle déclarée]
+          {SITE_NAME} est un site personnel édité par un particulier, à titre non professionnel. Conformément à la loi
+          pour la confiance dans l'économie numérique (LCEN), l'éditeur a choisi de préserver son anonymat : ses
+          coordonnées ont été communiquées à l'hébergeur du site.
         </p>
-      </div>
-
-      <div>
-        <h2 class="font-display text-xl font-semibold text-ink">Directeur de la publication</h2>
-        <p class="mt-2">[Ton nom]</p>
+        <p class="mt-2">
+          Contact : <a href={`mailto:${CONTACT_EMAIL}`} class="link-underline font-medium text-racing-500">{CONTACT_EMAIL}</a>
+        </p>
       </div>
 
       <div>
         <h2 class="font-display text-xl font-semibold text-ink">Hébergement</h2>
         <p class="mt-2">
-          [Nom de l'hébergeur]<br />
-          [Adresse de l'hébergeur]<br />
-          [Contact de l'hébergeur]
+          {HOST.name}<br />
+          {HOST.address}, {HOST.country.fr}<br />
+          {HOST.phone} · <a href={HOST.website} class="link-underline text-ink" target="_blank" rel="noopener noreferrer">vercel.com</a>
         </p>
       </div>
 
@@ -43,15 +33,16 @@ import { SITE_NAME } from "../consts";
         <h2 class="font-display text-xl font-semibold text-ink">Propriété intellectuelle</h2>
         <p class="mt-2">
           L'ensemble des contenus présents sur {SITE_NAME} (textes, photographies, mise en page) est la propriété de
-          l'éditeur du site, sauf mention contraire. Toute reproduction sans autorisation préalable est interdite.
+          l'éditeur du site, sauf mention contraire. Les photos ont été prises par l'auteur lors de ses voyages. Toute
+          reproduction sans autorisation préalable est interdite.
         </p>
       </div>
 
       <div>
-        <h2 class="font-display text-xl font-semibold text-ink">Liens affiliés &amp; publicité</h2>
+        <h2 class="font-display text-xl font-semibold text-ink">Publicité &amp; liens affiliés</h2>
         <p class="mt-2">
-          {SITE_NAME} peut contenir des liens affiliés (location de véhicules, réservations...) ainsi que des
-          espaces publicitaires. Ces partenariats n'influencent pas l'objectivité des avis exprimés sur le site.
+          {SITE_NAME} ne contient aujourd'hui ni publicité ni lien affilié. Si c'est le cas à l'avenir, cette page sera
+          mise à jour, et ces partenariats n'influenceront pas l'objectivité des avis exprimés sur le site.
         </p>
       </div>
 

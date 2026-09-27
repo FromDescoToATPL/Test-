@@ -1,42 +1,40 @@
 ---
+// À mettre à jour le jour où une régie pub (AdSense...) ou un outil de mesure d'audience est branché :
+// chacun impose ses propres mentions (cookies déposés, finalités, durée de conservation).
 import Layout from "../layouts/Layout.astro";
-import { SITE_NAME } from "../consts";
+import { CONTACT_EMAIL, SITE_NAME } from "../consts";
 ---
 
-<Layout title="Confidentialité & cookies" description="Politique de confidentialité et de gestion des cookies.">
+<Layout title="Confidentialité & cookies" description="Politique de confidentialité et de gestion des cookies du site JDM Trip.">
   <section class="mx-auto max-w-2xl px-5 py-12 sm:py-16 sm:px-8">
     <h1 class="font-display text-3xl font-semibold text-ink sm:text-4xl">Confidentialité &amp; cookies</h1>
-
-    <div class="mt-4 rounded-md border border-dashed border-gold-500/50 bg-gold-400/10 px-4 py-3 font-body text-sm text-ink-soft">
-      <strong class="text-ink">Brouillon à ajuster.</strong> Mets cette page à jour dès que tu actives un service de
-      régie publicitaire (Google AdSense...) ou un outil d'analyse d'audience — chacun impose ses propres mentions
-      (cookies déposés, finalités, durée de conservation, DPO le cas échéant).
-    </div>
 
     <div class="mt-10 space-y-8 font-body text-sm leading-relaxed text-ink-soft">
       <div>
         <h2 class="font-display text-xl font-semibold text-ink">Données collectées</h2>
         <p class="mt-2">
-          {SITE_NAME} ne demande aucune inscription et ne collecte aucune donnée personnelle en dehors de celles
-          liées à la mesure d'audience et, à terme, à l'affichage de publicités.
+          {SITE_NAME} ne demande aucune inscription et ne collecte aucune donnée personnelle. Aucun outil de mesure
+          d'audience ni de publicité n'est installé sur le site pour le moment.
+        </p>
+        <p class="mt-2">
+          Comme tout hébergeur, Vercel peut enregistrer des données techniques de connexion (adresse IP, type de
+          navigateur) dans ses journaux, pour assurer la sécurité et le bon fonctionnement du site.
         </p>
       </div>
 
       <div>
         <h2 class="font-display text-xl font-semibold text-ink">Cookies</h2>
         <p class="mt-2">
-          Un bandeau vous permet d'accepter ou de refuser les cookies non essentiels dès votre première visite. Votre
-          choix est mémorisé dans votre navigateur (stockage local) et n'est jamais transmis ailleurs. Vous pouvez le
-          modifier à tout moment en effaçant les données de ce site dans votre navigateur.
+          Le site ne dépose aucun cookie de mesure d'audience ni de publicité. Si de tels outils sont ajoutés un jour,
+          un bandeau vous demandera votre accord avant tout dépôt, et cette page sera mise à jour.
         </p>
       </div>
 
       <div>
-        <h2 class="font-display text-xl font-semibold text-ink">Publicité &amp; affiliation</h2>
+        <h2 class="font-display text-xl font-semibold text-ink">Liens externes</h2>
         <p class="mt-2">
-          Certains liens du site sont des liens affiliés : ils peuvent générer une commission sans surcoût pour vous.
-          Des emplacements publicitaires sont également prévus sur le site. Aucun script publicitaire tiers n'est
-          chargé tant que le consentement n'a pas été donné.
+          Les liens vers Google Maps ou vers les sites des boutiques et agences vous emmènent sur des sites tiers,
+          soumis à leur propre politique de confidentialité.
         </p>
       </div>
 
@@ -44,7 +42,9 @@ import { SITE_NAME } from "../consts";
         <h2 class="font-display text-xl font-semibold text-ink">Vos droits</h2>
         <p class="mt-2">
           Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression des données vous
-          concernant. Pour toute question, contactez [email de contact].
+          concernant. Pour toute question, écrivez à <a href={`mailto:${CONTACT_EMAIL}`} class="link-underline font-medium text-racing-500">{CONTACT_EMAIL}</a>.
+          Vous pouvez aussi adresser une réclamation à la CNIL
+          (<a href="https://www.cnil.fr" class="link-underline text-ink" target="_blank" rel="noopener noreferrer">cnil.fr</a>).
         </p>
       </div>
     </div>

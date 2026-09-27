@@ -1,39 +1,34 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { SITE_NAME, withBase } from "../../consts";
+import { CONTACT_EMAIL, HOST, SITE_NAME, withBase } from "../../consts";
 ---
 
-<Layout title="Legal notice" description="Legal notice for the site.">
+<Layout title="Legal notice" description="Legal notice for the JDM Trip website.">
   <section class="mx-auto max-w-2xl px-5 py-12 sm:py-16 sm:px-8">
     <h1 class="font-display text-3xl font-semibold text-ink sm:text-4xl">Legal notice</h1>
-
-    <div class="mt-4 rounded-md border border-dashed border-gold-500/50 bg-gold-400/10 px-4 py-3 font-body text-sm text-ink-soft">
-      <strong class="text-ink">Draft to be completed before launch.</strong> This page translates the
-      reference version, the <a href={withBase("/mentions-legales/")} class="link-underline text-ink">French legal notice</a>.
-    </div>
+    <p class="mt-4 font-body text-sm text-mist-500">
+      This page translates the reference version, the <a href={withBase("/mentions-legales/")} class="link-underline text-ink">French legal notice</a>.
+    </p>
 
     <div class="mt-10 space-y-8 font-body text-sm leading-relaxed text-ink-soft">
       <div>
         <h2 class="font-display text-xl font-semibold text-ink">Site publisher</h2>
         <p class="mt-2">
-          [Your name or company name], [Status: individual / sole trader / company]<br />
-          [Postal address]<br />
-          [Contact email]<br />
-          [SIRET number if a professional activity is declared]
+          {SITE_NAME} is a personal website published by a private individual, on a non-professional basis. In
+          accordance with French law (LCEN), the publisher has chosen to remain anonymous: their contact details have
+          been provided to the site's hosting provider.
         </p>
-      </div>
-
-      <div>
-        <h2 class="font-display text-xl font-semibold text-ink">Publication director</h2>
-        <p class="mt-2">[Your name]</p>
+        <p class="mt-2">
+          Contact: <a href={`mailto:${CONTACT_EMAIL}`} class="link-underline font-medium text-racing-500">{CONTACT_EMAIL}</a>
+        </p>
       </div>
 
       <div>
         <h2 class="font-display text-xl font-semibold text-ink">Hosting</h2>
         <p class="mt-2">
-          [Hosting provider's name]<br />
-          [Hosting provider's address]<br />
-          [Hosting provider's contact]
+          {HOST.name}<br />
+          {HOST.address}, {HOST.country.en}<br />
+          {HOST.phone} · <a href={HOST.website} class="link-underline text-ink" target="_blank" rel="noopener noreferrer">vercel.com</a>
         </p>
       </div>
 
@@ -41,15 +36,16 @@ import { SITE_NAME, withBase } from "../../consts";
         <h2 class="font-display text-xl font-semibold text-ink">Intellectual property</h2>
         <p class="mt-2">
           All content on {SITE_NAME} (text, photos, layout) is the property of the site publisher unless otherwise
-          stated. Any reproduction without prior permission is prohibited.
+          stated. The photos were taken by the author during their trips. Any reproduction without prior permission is
+          prohibited.
         </p>
       </div>
 
       <div>
-        <h2 class="font-display text-xl font-semibold text-ink">Affiliate links &amp; advertising</h2>
+        <h2 class="font-display text-xl font-semibold text-ink">Advertising &amp; affiliate links</h2>
         <p class="mt-2">
-          {SITE_NAME} may contain affiliate links (vehicle rentals, bookings...) and advertising spaces. These
-          partnerships don't influence the objectivity of the reviews on the site.
+          {SITE_NAME} currently has no advertising and no affiliate links. If that changes, this page will be updated,
+          and those partnerships won't influence the objectivity of the reviews on the site.
         </p>
       </div>
 

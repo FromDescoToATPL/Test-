@@ -57,15 +57,15 @@ Le français reste à la racine (`/tokyo/`), l'anglais vit sous `/en/` avec des 
 
 ## Avant la mise en ligne
 
-- [ ] Compléter les adresses marquées `filled: false` (voir badges "À compléter" sur le site)
-- [ ] Remplacer les placeholders dans [Mentions légales](src/pages/mentions-legales.astro) et
-      [Confidentialité](src/pages/confidentialite.astro) (identité, hébergeur, SIRET si activité déclarée)
+- [x] Compléter les adresses marquées `filled: false` (plus aucune sur le site)
+- [x] Mentions légales et confidentialité finalisées : éditeur particulier anonyme, hébergeur Vercel,
+      contact@jdmtrip.com (valeurs dans [src/consts.ts](src/consts.ts) : `CONTACT_EMAIL`, `HOST`)
 - [x] Adresse principale `https://jdmtrip.com` définie dans [astro.config.mjs](astro.config.mjs) (`site`) et
       [public/robots.txt](public/robots.txt)
 - [ ] Au lancement : passer `INDEXABLE` à `true` dans [src/consts.ts](src/consts.ts) pour retirer le noindex
 - [ ] Vérifier `AUTHOR_NAME` dans [src/consts.ts](src/consts.ts)
-- [ ] Brancher un vrai service de pub (AdSense...) dans [AdSlot.astro](src/components/AdSlot.astro) et mettre à jour
-      la politique de confidentialité en conséquence
+- [ ] Plus tard, pubs : micro-entreprise + nom dans les mentions légales, bandeau cookies certifié Google (CMP),
+      `ADS_ENABLED` à true (réaffiche le bandeau), [AdSlot.astro](src/components/AdSlot.astro) et page confidentialité à jour
 - [ ] Ajouter une vraie photo de couverture pour Kyoto (héros actuellement sans photo — Osaka en a une depuis le déplacement de la photo MX-5)
 - [ ] Vérifier le nom exact et les horaires du musée du sport automobile près de Fuji Speedway avant publication
 

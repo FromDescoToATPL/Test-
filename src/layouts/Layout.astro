@@ -4,7 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CookieConsent from "../components/CookieConsent.astro";
 import "../styles/global.css";
-import { INDEXABLE, SITE_NAME, SITE_URL, withBase } from "../consts";
+import { ADS_ENABLED, INDEXABLE, SITE_NAME, SITE_URL, withBase } from "../consts";
 import { LANGS, findPagePair, getLang, stripBase, ui } from "../i18n";
 import defaultOgSource from "../assets/photos/fuji-musee-lemans-787b-gtone.jpg";
 
@@ -86,7 +86,8 @@ const ogImageURL = new URL(image ?? defaultOgImage.src, deployOrigin);
       <slot />
     </main>
     <Footer />
-    <CookieConsent />
+    {/* Aucun cookie ni traceur tant que les pubs sont coupées : le bandeau n'a rien à demander. */}
+    {ADS_ENABLED && <CookieConsent />}
 
     <script>
       const revealElements = document.querySelectorAll(".reveal");

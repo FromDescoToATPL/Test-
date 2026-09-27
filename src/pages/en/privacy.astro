@@ -1,49 +1,50 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { SITE_NAME, withBase } from "../../consts";
+import { CONTACT_EMAIL, SITE_NAME, withBase } from "../../consts";
 ---
 
-<Layout title="Privacy & cookies" description="Privacy and cookie policy.">
+<Layout title="Privacy & cookies" description="Privacy and cookie policy for the JDM Trip website.">
   <section class="mx-auto max-w-2xl px-5 py-12 sm:py-16 sm:px-8">
     <h1 class="font-display text-3xl font-semibold text-ink sm:text-4xl">Privacy &amp; cookies</h1>
-
-    <div class="mt-4 rounded-md border border-dashed border-gold-500/50 bg-gold-400/10 px-4 py-3 font-body text-sm text-ink-soft">
-      <strong class="text-ink">Draft to be adjusted.</strong> This page translates the
-      reference version, the <a href={withBase("/confidentialite/")} class="link-underline text-ink">French privacy policy</a>.
-    </div>
+    <p class="mt-4 font-body text-sm text-mist-500">
+      This page translates the reference version, the <a href={withBase("/confidentialite/")} class="link-underline text-ink">French privacy policy</a>.
+    </p>
 
     <div class="mt-10 space-y-8 font-body text-sm leading-relaxed text-ink-soft">
       <div>
         <h2 class="font-display text-xl font-semibold text-ink">Data collected</h2>
         <p class="mt-2">
-          {SITE_NAME} doesn't require any registration and doesn't collect any personal data other than what's needed
-          for audience measurement and, eventually, for displaying ads.
+          {SITE_NAME} requires no sign-up and collects no personal data. No analytics or advertising tool is installed
+          on the site for now.
+        </p>
+        <p class="mt-2">
+          Like any hosting provider, Vercel may record technical connection data (IP address, browser type) in its
+          logs, to keep the site secure and running properly.
         </p>
       </div>
 
       <div>
         <h2 class="font-display text-xl font-semibold text-ink">Cookies</h2>
         <p class="mt-2">
-          A banner lets you accept or decline non-essential cookies on your first visit. Your choice is stored in your
-          browser (local storage) and is never sent anywhere else. You can change it at any time by clearing this
-          site's data in your browser.
+          The site sets no analytics or advertising cookies. If such tools are ever added, a banner will ask for your
+          consent first, and this page will be updated.
         </p>
       </div>
 
       <div>
-        <h2 class="font-display text-xl font-semibold text-ink">Advertising &amp; affiliate links</h2>
+        <h2 class="font-display text-xl font-semibold text-ink">External links</h2>
         <p class="mt-2">
-          Some links on the site are affiliate links: they may earn a commission at no extra cost to you. Advertising
-          spaces are also planned on the site. No third-party advertising script is loaded until consent has been
-          given.
+          Links to Google Maps or to shop and agency websites take you to third-party sites, which have their own
+          privacy policies.
         </p>
       </div>
 
       <div>
         <h2 class="font-display text-xl font-semibold text-ink">Your rights</h2>
         <p class="mt-2">
-          Under the GDPR, you have the right to access, correct and delete data about you. For any questions, contact
-          [your contact email].
+          Under the GDPR, you have the right to access, correct and delete data about you. For any question, write to <a href={`mailto:${CONTACT_EMAIL}`} class="link-underline font-medium text-racing-500">{CONTACT_EMAIL}</a>.
+          You can also file a complaint with the CNIL, the French data protection authority
+          (<a href="https://www.cnil.fr" class="link-underline text-ink" target="_blank" rel="noopener noreferrer">cnil.fr</a>).
         </p>
       </div>
     </div>

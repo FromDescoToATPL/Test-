@@ -10,6 +10,18 @@ export const SITE_URL = new URL(import.meta.env.SITE ?? "https://jdmtrip.com").o
 // Passe à true le jour de la mise en ligne sur jdmtrip.com. Le miroir GitHub Pages reste toujours en noindex.
 export const INDEXABLE = false;
 
+// Mentions légales : éditeur particulier et anonyme, à titre non professionnel (possible tant que le site ne
+// rapporte pas de revenus réguliers). Le jour des pubs : micro-entreprise, et nom + adresse à ajouter ici et
+// dans src/pages/mentions-legales.astro (+ version anglaise).
+export const CONTACT_EMAIL = "contact@jdmtrip.com";
+export const HOST = {
+  name: "Vercel Inc.",
+  address: "440 N Barranca Ave #4133, Covina, CA 91723",
+  country: { fr: "États-Unis", en: "United States" },
+  phone: "+1 559 288 7060",
+  website: "https://vercel.com",
+};
+
 // Slogan, description et liens de navigation dépendent de la langue : voir src/i18n.ts.
 
 // Préfixe les chemins internes avec le "base" Astro (vide sur Vercel, "/Test-/" sur le miroir GitHub Pages)
