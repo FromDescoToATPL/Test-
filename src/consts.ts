@@ -4,8 +4,11 @@ export const SITE_NAME = "JDM Trip";
 export const ADS_ENABLED = false;
 // Prénom déduit de ton adresse mail — remplace si ce n'est pas le bon.
 export const AUTHOR_NAME = "Clément";
-// TODO: remplace par le vrai domaine une fois le site déployé (utilisé pour le SEO et les liens canoniques).
-export const SITE_URL = "https://exemple.com";
+// Adresse principale du site, définie une seule fois dans astro.config.mjs (option `site`).
+export const SITE_URL = new URL(import.meta.env.SITE ?? "https://jdmtrip.com").origin;
+// Interrupteur unique pour Google : false = balise noindex sur toutes les pages (avant le lancement).
+// Passe à true le jour de la mise en ligne sur jdmtrip.com. Le miroir GitHub Pages reste toujours en noindex.
+export const INDEXABLE = false;
 
 // Slogan, description et liens de navigation dépendent de la langue : voir src/i18n.ts.
 

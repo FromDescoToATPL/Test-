@@ -34,13 +34,13 @@ const mapsHref = (query: string) =>
       )}
       <p class="mt-2 font-body text-sm leading-relaxed text-ink-soft">{item.description}</p>
       {item.tip && <p class="mt-2 font-body text-xs leading-relaxed text-mist-500">{item.tip}</p>}
-      <div class="mt-3 flex flex-wrap gap-x-5 gap-y-1">
+      <div class="mt-1 flex flex-wrap gap-x-5">
         {item.mapsQuery && (
           <a
             href={mapsHref(item.mapsQuery)}
             target="_blank"
             rel="noopener noreferrer"
-            class="link-underline inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+            class="link-underline inline-flex min-h-11 items-center gap-1.5 font-body text-sm font-medium text-racing-500"
           >
             {t.openMaps}
             <Icon name="external-link" class="h-3.5 w-3.5" />
@@ -51,7 +51,7 @@ const mapsHref = (query: string) =>
             href={item.website}
             target="_blank"
             rel="noopener noreferrer"
-            class="link-underline inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+            class="link-underline inline-flex min-h-11 items-center gap-1.5 font-body text-sm font-medium text-racing-500"
           >
             {t.website}
             <Icon name="external-link" class="h-3.5 w-3.5" />

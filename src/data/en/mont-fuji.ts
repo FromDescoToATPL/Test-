@@ -24,6 +24,7 @@ export const fujiSpots: Spot[] = [
     description:
       "A historic race track (formerly Fuji International Speedway), home of the Japanese F1 Grand Prix and of Super GT and WEC rounds. Easy to reach by car, with open days and track days for the public depending on the calendar.",
     tip: "Check the official calendar before you go: the track is sometimes closed to the public for private events.",
+    mapsQuery: "Fuji Speedway, Oyama, Shizuoka",
     filled: true,
   },
   {
@@ -33,6 +34,7 @@ export const fujiSpots: Spot[] = [
     description:
       "A dizzying multi-level building linked by long escalators, where Le Mans prototypes (including the Mazda 787B that won in 1991 and the Toyota GT-One), historic rally cars and collector pieces sit side by side. One of the finest collections of race cars in Japan.",
     tip: "Free parking about 20 meters from the entrance. Admission is around €10.",
+    mapsQuery: "Fuji Motorsports Museum, Oyama, Shizuoka",
     articleHref: withBase("/en/mount-fuji/fuji-motor-sports-museum/"),
     filled: true,
   },

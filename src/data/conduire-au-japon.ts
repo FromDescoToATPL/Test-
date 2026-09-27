@@ -30,9 +30,9 @@ Dans ce guide, je vais vous donner les différentes étapes pour conduire au Jap
 export const conduireSections: DriveSection[] = [
   {
     eyebrow: "Étape 1",
-    title: "La translation de votre permis",
+    title: "La traduction officielle de votre permis",
     paragraphs: [
-      "Un permis français seul ne suffit pas : il faut faire une demande de translation de votre permis français auprès de la JAF.",
+      "Un permis français seul ne suffit pas : il faut faire une demande de translation (la traduction officielle de votre permis français) auprès de la JAF.",
       "Qu'est-ce que la JAF ? C'est la Japan Automobile Federation. C'est une mesure réservée à certains pays, qui remplace le permis international et permet de conduire facilement au Japon. Voyez ça comme un document temporaire. Avant votre voyage au Japon ou pendant, vous devez soumettre votre demande sur ce site. J'ai quelques tips qui vont vous permettre de le faire avant d'arriver au Japon, car les réservations des voitures peuvent partir très vite et mieux vaut s'y prendre à l'avance :)",
     ],
     bullets: [

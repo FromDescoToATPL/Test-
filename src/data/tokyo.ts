@@ -27,6 +27,11 @@ export const tokyoSpots: Spot[] = [
     description:
       "Trois aires d'autoroute réputées pour les rassemblements de passionnés : Daikoku Futo PA (Yokohama), Umihotaru PA (Chiba) et Tatsumi PA. Supercars, JDM tunées et parfois des surprises inattendues s'y retrouvent en soirée, surtout le week-end. Je n'ai malheureusement pas eu l'occasion de m'y rendre pendant mon séjour (météo capricieuse), mais ce sont des adresses qui reviennent systématiquement quand on parle de meetups au Japon.",
     tip: "Vérifiez sur place ou en ligne si les rassemblements y sont toujours tolérés : ces spots ont une histoire mouvementée avec les autorités. Restez respectueux si vous y allez, ce sont des aires ouvertes à tous, pas des événements organisés.",
+    places: [
+      { name: "Daikoku Futo PA", mapsQuery: "Daikoku Futo Parking Area, Yokohama" },
+      { name: "Umihotaru PA", mapsQuery: "Umihotaru Parking Area, Kisarazu" },
+      { name: "Tatsumi PA", mapsQuery: "Tatsumi Parking Area, Koto City, Tokyo" },
+    ],
     filled: true,
   },
   {
@@ -64,7 +69,7 @@ export const tokyoSpots: Spot[] = [
     category: "shopping",
     area: "Kōtō",
     description:
-      "Le même type de magasin qu'à Kyoto : un large choix de vêtements de différentes marques (Mazda, Toyota, Nissan, etc.), ainsi que plusieurs stands de journaux et de miniatures.",
+      "Grand magasin de l'enseigne A PIT Autobacs, que l'on retrouve aussi à Kyoto : un large choix de vêtements de différentes marques (Mazda, Toyota, Nissan, etc.), ainsi que plusieurs stands de magazines et de miniatures.",
     tip: "Détaxe de 10 % possible avec votre passeport. À partir du 1er novembre 2026, le remboursement se fait uniquement à l'aéroport.",
     mapsQuery: "A PIT AUTOBACS SHINONOME, 2 Chome-7-20 Shinonome, Koto City, Tokyo 135-0062",
     filled: true,

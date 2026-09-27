@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/Hero.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
+import PageToc from "../../components/PageToc.astro";
 import SpotCard from "../../components/SpotCard.astro";
 import ParkingGrid from "../../components/ParkingGrid.astro";
 import TipsList from "../../components/TipsList.astro";
@@ -31,9 +32,10 @@ const otherSpots = fujiSpots.filter((s) => s.category !== "location");
 
   <section class="mx-auto max-w-4xl px-5 py-10 sm:py-14 sm:px-8">
     <p class="reveal font-body text-lg leading-relaxed text-ink-soft">{fujiIntro}</p>
+    <PageToc items={[{ label: "Rental", href: "#location" }, { label: "Track & museum", href: "#circuit-musee" }, { label: "Parking", href: "#stationnement" }, { label: "Tips", href: "#conseils" }]} />
   </section>
 
-  <section class="mx-auto max-w-8xl px-5 pb-10 sm:pb-14 sm:px-8">
+  <section id="location" class="scroll-mt-20 mx-auto max-w-8xl px-5 pb-10 sm:pb-14 sm:px-8">
     <SectionHeading eyebrow="Car rental" title="Behind the wheel at Fuji" />
     <div class="mt-10 grid gap-6 lg:grid-cols-3 lg:items-start">
       {locationSpots.map((spot) => <SpotCard spot={spot} />)}
@@ -47,7 +49,7 @@ const otherSpots = fujiSpots.filter((s) => s.category !== "location");
     </div>
   </section>
 
-  <section class="border-t border-mist-200 bg-paper-dim/50 py-12 sm:py-16">
+  <section id="circuit-musee" class="scroll-mt-20 border-t border-mist-200 bg-paper-dim/50 py-12 sm:py-16">
     <div class="mx-auto max-w-8xl px-5 sm:px-8">
       <SectionHeading
         eyebrow="35 minutes away"
@@ -70,13 +72,13 @@ const otherSpots = fujiSpots.filter((s) => s.category !== "location");
 
   <section class="mx-auto max-w-8xl px-5 py-12 sm:py-16 sm:px-8">
     <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
-      <div>
+      <div id="stationnement" class="scroll-mt-20">
         <SectionHeading eyebrow="Where to park" title="Parking around the lake" />
         <div class="mt-8">
           <ParkingGrid items={fujiParking} />
         </div>
       </div>
-      <div>
+      <div id="conseils" class="scroll-mt-20">
         <SectionHeading eyebrow="Tips" title="Make the most of it" />
         <div class="mt-8">
           <TipsList tips={fujiTips} />

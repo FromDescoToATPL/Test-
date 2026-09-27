@@ -19,7 +19,7 @@ const year = new Date().getFullYear();
         <ul class="mt-4 space-y-2.5">
           {t.destinationLinks.map((link) => (
             <li>
-              <a href={link.href} class="link-underline font-body text-sm text-mist-200 hover:text-paper">
+              <a href={link.href} class="tap-target link-underline font-body text-sm text-mist-200 hover:text-paper">
                 {link.label}
               </a>
             </li>
@@ -32,7 +32,7 @@ const year = new Date().getFullYear();
         <ul class="mt-4 space-y-2.5">
           {t.mainNavLinks.map((link) => (
             <li>
-              <a href={link.href} class="link-underline font-body text-sm text-mist-200 hover:text-paper">
+              <a href={link.href} class="tap-target link-underline font-body text-sm text-mist-200 hover:text-paper">
                 {link.label}
               </a>
             </li>
@@ -46,8 +46,8 @@ const year = new Date().getFullYear();
         © {year} {SITE_NAME}. {t.rights}
       </p>
       <div class="flex gap-5 font-body text-xs text-mist-400">
-        <a href={t.legalLink.href} class="hover:text-paper">{t.legalLink.label}</a>
-        <a href={t.privacyLink.href} class="hover:text-paper">{t.privacyLink.label}</a>
+        <a href={t.legalLink.href} class="tap-target hover:text-paper">{t.legalLink.label}</a>
+        <a href={t.privacyLink.href} class="tap-target hover:text-paper">{t.privacyLink.label}</a>
       </div>
     </div>
   </div>

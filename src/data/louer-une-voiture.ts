@@ -30,7 +30,7 @@ export const louerSpots: Spot[] = [
 
 export const louerConseils: { titre: string; texte: string; link?: { label: string; href: string } }[] = [
   {
-    titre: "La translation du permis",
+    titre: "La traduction officielle du permis",
     texte:
       "Le permis français seul ne suffit pas : il faut faire une demande de translation de votre permis auprès de la JAF. Détails complets sur la page",
     link: { label: "Conduire au Japon", href: withBase("/conduire-au-japon/") },

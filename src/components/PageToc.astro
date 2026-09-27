@@ -1,0 +1,25 @@
+---
+// Petit sommaire sous l'intro des pages destination : liens d'ancre vers les sections de la page.
+import { useUi } from "../i18n";
+
+interface Props {
+  items: { label: string; href: string }[];
+}
+const { items } = Astro.props;
+const t = useUi(Astro.url);
+---
+
+<nav aria-label={t.onThisPage} class="reveal mt-6 flex flex-wrap items-center gap-x-1 font-body text-sm">
+  <span class="eyebrow mr-2 text-mist-500">{t.onThisPage}</span>
+  {items.map((item, i) => (
+    <>
+      {i > 0 && <span class="text-mist-400" aria-hidden="true">·</span>}
+      <a
+        href={item.href}
+        class="inline-flex min-h-11 items-center px-1.5 font-medium text-ink-soft transition-colors hover:text-racing-500"
+      >
+        {item.label}
+      </a>
+    </>
+  ))}
+</nav>

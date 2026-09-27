@@ -152,6 +152,17 @@ header {
     background-size: 100% 1px;
   }
 
+  /* Zone tactile d'au moins 44×44 px pour les liens isolés (mobile), sans changer leur apparence. */
+  .tap-target {
+    position: relative;
+  }
+  .tap-target::before {
+    content: "";
+    position: absolute;
+    inset-block: min(0px, calc((100% - 44px) / 2));
+    inset-inline: min(0px, calc((100% - 44px) / 2));
+  }
+
   /* Scroll-reveal: progressively enhanced, no layout shift if JS is off */
   .reveal {
     opacity: 0;

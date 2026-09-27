@@ -4,8 +4,8 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CookieConsent from "../components/CookieConsent.astro";
 import "../styles/global.css";
-import { SITE_NAME, SITE_URL, withBase } from "../consts";
-import { LANGS, findPagePair, getLang, ui } from "../i18n";
+import { INDEXABLE, SITE_NAME, SITE_URL, withBase } from "../consts";
+import { LANGS, findPagePair, getLang, stripBase, ui } from "../i18n";
 import defaultOgSource from "../assets/photos/fuji-musee-lemans-787b-gtone.jpg";
 
 interface Props {
@@ -18,23 +18,28 @@ const lang = getLang(Astro.url);
 const t = ui[lang];
 const { title, description = t.description, image } = Astro.props;
 const pageTitle = title === SITE_NAME ? title : `${title} · ${SITE_NAME}`;
-const canonicalURL = new URL(Astro.url.pathname, SITE_URL);
+// Toujours l'adresse du site principal, sans le préfixe /Test-/ du miroir GitHub Pages.
+const canonicalURL = new URL(stripBase(Astro.url.pathname), SITE_URL);
 
 // Balises hreflang : indiquent à Google la version de chaque langue (français par défaut).
 const pagePair = findPagePair(Astro.url);
 const alternates = pagePair
   ? [
-      ...LANGS.map((l) => ({ hreflang: l, href: new URL(withBase(pagePair[l]), SITE_URL) })),
-      { hreflang: "x-default", href: new URL(withBase(pagePair.fr), SITE_URL) },
+      ...LANGS.map((l) => ({ hreflang: l, href: new URL(pagePair[l], SITE_URL) })),
+      { hreflang: "x-default", href: new URL(pagePair.fr, SITE_URL) },
     ]
   : [];
 
 // Miroir GitHub Pages (sous /Test-/) : visible pour les humains, mais pas indexé —
 // évite le contenu dupliqué avec le site principal (Vercel / futur domaine).
 const isGithubPagesMirror = import.meta.env.BASE_URL !== "/";
+// noindex tant que INDEXABLE est à false (avant le lancement), et toujours sur le miroir.
+const noindex = !INDEXABLE || isGithubPagesMirror;
 
 const defaultOgImage = await getImage({ src: defaultOgSource, width: 1200, height: 630, format: "jpg" });
-const ogImageURL = new URL(image ?? defaultOgImage.src, SITE_URL);
+// L'image doit pointer là où le fichier est vraiment servi : le miroir GitHub Pages a son propre domaine.
+const deployOrigin = isGithubPagesMirror ? "https://fromdescotoatpl.github.io" : SITE_URL;
+const ogImageURL = new URL(image ?? defaultOgImage.src, deployOrigin);
 ---
 
 <!doctype html>
@@ -44,7 +49,7 @@ const ogImageURL = new URL(image ?? defaultOgImage.src, SITE_URL);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
     <meta name="generator" content={Astro.generator} />
-    {isGithubPagesMirror && <meta name="robots" content="noindex, nofollow" />}
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <title>{pageTitle}</title>
     <meta name="description" content={description} />

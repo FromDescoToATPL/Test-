@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import SectionHeading from "../components/SectionHeading.astro";
+import PageToc from "../components/PageToc.astro";
 import SpotCard from "../components/SpotCard.astro";
 import DiscoverList from "../components/DiscoverList.astro";
 import ParkingGrid from "../components/ParkingGrid.astro";
@@ -24,16 +25,17 @@ import { osakaIntro, osakaSpots, osakaDiscover, osakaParking, osakaTips } from "
 
   <section class="mx-auto max-w-4xl px-5 py-10 sm:py-14 sm:px-8">
     <p class="reveal font-body text-lg leading-relaxed text-ink-soft">{osakaIntro}</p>
+    <PageToc items={[{ label: "Adresses", href: "#adresses" }, { label: "À découvrir", href: "#a-decouvrir" }, { label: "Stationnement", href: "#stationnement" }, { label: "Conseils", href: "#conseils" }]} />
   </section>
 
-  <section class="mx-auto max-w-8xl px-5 pb-12 sm:pb-16 sm:px-8">
+  <section id="adresses" class="scroll-mt-20 mx-auto max-w-8xl px-5 pb-12 sm:pb-16 sm:px-8">
     <SectionHeading eyebrow="Bonnes adresses" title="Shopping & rendez-vous" />
     <div class="mt-10 grid gap-6 sm:grid-cols-2">
       {osakaSpots.map((spot) => <SpotCard spot={spot} />)}
     </div>
   </section>
 
-  <section class="border-t border-mist-200 bg-paper-dim/50 py-12 sm:py-16">
+  <section id="a-decouvrir" class="scroll-mt-20 border-t border-mist-200 bg-paper-dim/50 py-12 sm:py-16">
     <div class="mx-auto max-w-8xl px-5 sm:px-8">
       <SectionHeading
         eyebrow="À découvrir"
@@ -50,13 +52,13 @@ import { osakaIntro, osakaSpots, osakaDiscover, osakaParking, osakaTips } from "
 
   <section class="mx-auto max-w-8xl px-5 py-12 sm:py-16 sm:px-8">
     <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
-      <div>
+      <div id="stationnement" class="scroll-mt-20">
         <SectionHeading eyebrow="Où se garer" title="Stationnement par quartier" />
         <div class="mt-8">
           <ParkingGrid items={osakaParking} />
         </div>
       </div>
-      <div>
+      <div id="conseils" class="scroll-mt-20">
         <SectionHeading eyebrow="Conseils" title="Pour en profiter au maximum" />
         <div class="mt-8">
           <TipsList tips={osakaTips} />

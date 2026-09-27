@@ -24,6 +24,11 @@ export const tokyoSpots: Spot[] = [
     description:
       "Three expressway rest areas famous for car meets: Daikoku Futo PA (Yokohama), Umihotaru PA (Chiba) and Tatsumi PA. Supercars, tuned JDM cars and the occasional surprise gather there in the evening, especially on weekends. Unfortunately I didn't get the chance to go during my stay (the weather didn't cooperate), but these spots come up every single time people talk about car meets in Japan.",
     tip: "Check on site or online whether meets are still tolerated: these spots have a rocky history with the authorities. Be respectful if you go, they're rest areas open to everyone, not organized events.",
+    places: [
+      { name: "Daikoku Futo PA", mapsQuery: "Daikoku Futo Parking Area, Yokohama" },
+      { name: "Umihotaru PA", mapsQuery: "Umihotaru Parking Area, Kisarazu" },
+      { name: "Tatsumi PA", mapsQuery: "Tatsumi Parking Area, Koto City, Tokyo" },
+    ],
     filled: true,
   },
   {
@@ -61,7 +66,7 @@ export const tokyoSpots: Spot[] = [
     category: "shopping",
     area: "Kōtō",
     description:
-      "The same kind of store as in Kyoto: a wide choice of clothing from different brands (Mazda, Toyota, Nissan, etc.), plus several stands of magazines and scale models.",
+      "A large A PIT Autobacs store, a chain you'll also find in Kyoto: a wide choice of clothing from different brands (Mazda, Toyota, Nissan, etc.), plus several stands of magazines and scale models.",
     tip: "10% tax-free shopping with your passport. From November 1, 2026, refunds are only given at the airport.",
     mapsQuery: "A PIT AUTOBACS SHINONOME, 2 Chome-7-20 Shinonome, Koto City, Tokyo 135-0062",
     filled: true,

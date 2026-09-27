@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import SectionHeading from "../components/SectionHeading.astro";
+import PageToc from "../components/PageToc.astro";
 import SpotCard from "../components/SpotCard.astro";
 import ParkingGrid from "../components/ParkingGrid.astro";
 import TipsList from "../components/TipsList.astro";
@@ -67,9 +68,10 @@ const streetGallery = [
 
   <section class="mx-auto max-w-4xl px-5 py-10 sm:py-14 sm:px-8">
     <p class="reveal font-body text-lg leading-relaxed text-ink-soft">{tokyoIntro}</p>
+    <PageToc items={[{ label: "Location", href: "#location" }, { label: "Ambiance", href: "#ambiance" }, { label: "Adresses", href: "#adresses" }, { label: "Stationnement", href: "#stationnement" }, { label: "Conseils", href: "#conseils" }]} />
   </section>
 
-  <section class="mx-auto max-w-8xl px-5 pb-12 sm:pb-16 sm:px-8">
+  <section id="location" class="scroll-mt-20 mx-auto max-w-8xl px-5 pb-12 sm:pb-16 sm:px-8">
     <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
       <Figure
         image={evoFace}
@@ -81,11 +83,11 @@ const streetGallery = [
           Une Evo VIII de chez OnlyJDM pour la journée
         </h2>
         <p class="mt-4 font-body text-sm leading-relaxed text-ink-soft">
-          Voici l'Evo 8 GSR préparée que j'ai récupérée de cette agence. Adresse, prix, caution, disponibilité : tout savoir dans l'article !
+          Voici l'Evo VIII GSR préparée que j'ai récupérée de cette agence. Adresse, prix, caution, disponibilité : tout savoir dans l'article !
         </p>
         <a
           href={withBase("/tokyo/only-jdm/")}
-          class="link-underline mt-4 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+          class="tap-target link-underline mt-4 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-racing-500"
         >
           Lire l'article
           <Icon name="arrow-right" class="h-3.5 w-3.5" />
@@ -94,7 +96,7 @@ const streetGallery = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-8xl px-5 pb-12 sm:pb-16 sm:px-8">
+  <section id="ambiance" class="scroll-mt-20 mx-auto max-w-8xl px-5 pb-12 sm:pb-16 sm:px-8">
     <SectionHeading eyebrow="Ambiance" title="Repérées dans les rues de Tokyo" />
     <div class="mt-10 grid grid-cols-2 gap-4 sm:flex sm:snap-x sm:snap-mandatory sm:gap-5 sm:overflow-x-auto sm:pb-3">
       {streetGallery.map((photo) => (
@@ -109,7 +111,7 @@ const streetGallery = [
     </div>
   </section>
 
-  <section class="border-t border-mist-200 bg-paper-dim/50 py-12 sm:py-16">
+  <section id="adresses" class="scroll-mt-20 border-t border-mist-200 bg-paper-dim/50 py-12 sm:py-16">
     <div class="mx-auto max-w-8xl px-5 sm:px-8">
       <SectionHeading eyebrow="Bonnes adresses" title="Garages, ateliers & rendez-vous" />
       <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -122,13 +124,13 @@ const streetGallery = [
 
   <section class="mx-auto max-w-8xl px-5 py-12 sm:py-16 sm:px-8">
     <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
-      <div>
+      <div id="stationnement" class="scroll-mt-20">
         <SectionHeading eyebrow="Où se garer" title="Stationnement par quartier" />
         <div class="mt-8">
           <ParkingGrid items={tokyoParking} />
         </div>
       </div>
-      <div>
+      <div id="conseils" class="scroll-mt-20">
         <SectionHeading eyebrow="Conseils" title="Pour en profiter au maximum" />
         <div class="mt-8">
           <TipsList tips={tokyoTips} />

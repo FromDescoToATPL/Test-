@@ -79,7 +79,7 @@ const isActive = (href: string) =>
             aria-label={t.langNames[option.lang]}
             aria-current={option.active ? "true" : undefined}
             class:list={[
-              "eyebrow rounded-full px-3 py-1.5 text-[11px] transition-colors",
+              "tap-target eyebrow rounded-full px-3 py-1.5 text-[11px] transition-colors",
               option.active ? "bg-ink text-paper" : "text-ink-soft hover:text-ink",
             ]}
           >

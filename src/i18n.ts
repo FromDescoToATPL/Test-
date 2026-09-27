@@ -28,7 +28,7 @@ const PAGE_PAIRS: Record<Lang, string>[] = [
 ];
 
 /** Chemin de la page sans le base (GitHub Pages sert le site sous /Test-/), toujours avec un slash final. */
-function stripBase(pathname: string): string {
+export function stripBase(pathname: string): string {
   const base = import.meta.env.BASE_URL;
   const path = pathname.startsWith(base) ? `/${pathname.slice(base.length)}` : pathname;
   return path.endsWith("/") ? path : `${path}/`;
@@ -68,6 +68,7 @@ const fr = {
   guides: "Guides",
   openMenu: "Ouvrir le menu",
   closeMenu: "Fermer le menu",
+  onThisPage: "Sur cette page",
   language: "Langue",
   langNames: { fr: "Version française", en: "English version" },
   destinationLinks: [
@@ -129,6 +130,7 @@ const en: typeof fr = {
   guides: "Guides",
   openMenu: "Open menu",
   closeMenu: "Close menu",
+  onThisPage: "On this page",
   language: "Language",
   langNames: { fr: "Version française", en: "English version" },
   destinationLinks: [

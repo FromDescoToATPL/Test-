@@ -19,6 +19,8 @@ export interface Spot {
   tip?: string;
   priceRange?: string;
   mapsQuery?: string;
+  /** Cartes qui regroupent plusieurs lieux (ex. spots de rassemblement) : un lien Google Maps par lieu. */
+  places?: { name: string; mapsQuery: string }[];
   website?: string;
   /** Lien interne vers un article dédié (ex. "/kyoto/a-pit-auto/") pour les adresses qui ont assez de matière pour leur propre page. */
   articleHref?: string;

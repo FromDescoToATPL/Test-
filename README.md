@@ -60,8 +60,9 @@ Le français reste à la racine (`/tokyo/`), l'anglais vit sous `/en/` avec des 
 - [ ] Compléter les adresses marquées `filled: false` (voir badges "À compléter" sur le site)
 - [ ] Remplacer les placeholders dans [Mentions légales](src/pages/mentions-legales.astro) et
       [Confidentialité](src/pages/confidentialite.astro) (identité, hébergeur, SIRET si activité déclarée)
-- [ ] Mettre à jour `SITE_URL` dans [src/consts.ts](src/consts.ts), dans [astro.config.mjs](astro.config.mjs) (`site`) et
-      dans [public/robots.txt](public/robots.txt) avec le vrai nom de domaine
+- [x] Adresse principale `https://jdmtrip.com` définie dans [astro.config.mjs](astro.config.mjs) (`site`) et
+      [public/robots.txt](public/robots.txt)
+- [ ] Au lancement : passer `INDEXABLE` à `true` dans [src/consts.ts](src/consts.ts) pour retirer le noindex
 - [ ] Vérifier `AUTHOR_NAME` dans [src/consts.ts](src/consts.ts)
 - [ ] Brancher un vrai service de pub (AdSense...) dans [AdSlot.astro](src/components/AdSlot.astro) et mettre à jour
       la politique de confidentialité en conséquence

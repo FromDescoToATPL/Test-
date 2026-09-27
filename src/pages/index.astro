@@ -51,7 +51,7 @@ const guides = [
   {
     label: "Conduire au Japon",
     href: withBase("/conduire-au-japon/"),
-    description: "Translation du permis, péages, stationnement : tout pour prendre le volant sereinement.",
+    description: "Traduction officielle du permis, péages, stationnement : tout pour prendre le volant sereinement.",
     icon: "steering-wheel" as const,
   },
 ];
@@ -60,15 +60,17 @@ const guides = [
 <Layout title={SITE_NAME}>
   <Hero
     image={heroImg}
-    eyebrow="Guide du passionné"
+    eyebrow="Guide JDM au Japon"
     title="La route se mérite. Le Japon la sublime."
     subtitle="Adresses, itinéraires et conseils pratiques pour vivre la culture automobile japonaise comme un local : de Tokyo au Mont Fuji, d'Osaka à Kyoto."
+    strongShade
+    cta={{ label: "Choisir une destination", href: "#destinations" }}
   />
 
-  <section class="mx-auto max-w-8xl px-5 pt-6 pb-8 sm:px-8">
+  <section id="destinations" class="mx-auto max-w-8xl scroll-mt-20 px-5 pt-6 pb-8 sm:px-8">
     <SectionHeading
       eyebrow="Destinations"
-      title="Quatre villes, une même passion"
+      title="Quatre destinations, une même passion"
       description={`Chaque destination a ses propres codes : où louer, où se garer, où dénicher la bonne adresse.
 Choisissez votre point de départ.`}
     />
@@ -128,7 +130,7 @@ Choisissez votre point de départ.`}
           </div>
           <h3 class="mt-5 font-display text-xl font-semibold text-ink">{guide.label}</h3>
           <p class="mt-2 font-body text-sm leading-relaxed text-ink-soft">{guide.description}</p>
-          <span class="link-underline mt-4 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-ink">
+          <span class="tap-target link-underline mt-4 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-ink">
             Lire le guide <Icon name="arrow-right" class="h-3.5 w-3.5" />
           </span>
         </a>
@@ -148,7 +150,7 @@ Choisissez votre point de départ.`}
           improvisés, routes de montagne et boutiques cultes. Pas de liste générique copiée-collée : seulement des
           adresses vues, testées et racontées avec sincérité, complétées voyage après voyage.
         </p>
-        <a href={withBase("/a-propos/")} class="link-underline mt-6 inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink">
+        <a href={withBase("/a-propos/")} class="tap-target link-underline mt-6 inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink">
           En savoir plus <Icon name="arrow-right" class="h-3.5 w-3.5" />
         </a>
       </div>

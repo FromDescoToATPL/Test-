@@ -60,15 +60,17 @@ const guides = [
 <Layout title={SITE_NAME}>
   <Hero
     image={heroImg}
-    eyebrow="An enthusiast's guide"
+    eyebrow="A JDM guide to Japan"
     title="The road is earned. Japan makes it legendary."
     subtitle="Spots, routes and practical tips to experience Japanese car culture like a local: from Tokyo to Mount Fuji, from Osaka to Kyoto."
+    strongShade
+    cta={{ label: "Pick a destination", href: "#destinations" }}
   />
 
-  <section class="mx-auto max-w-8xl px-5 pt-6 pb-8 sm:px-8">
+  <section id="destinations" class="mx-auto max-w-8xl scroll-mt-20 px-5 pt-6 pb-8 sm:px-8">
     <SectionHeading
       eyebrow="Destinations"
-      title="Four cities, one passion"
+      title="Four destinations, one passion"
       description={`Every destination has its own codes: where to rent, where to park, where to find the right spot.
 Pick your starting point.`}
     />
@@ -121,7 +123,7 @@ Pick your starting point.`}
           </div>
           <h3 class="mt-5 font-display text-xl font-semibold text-ink">{guide.label}</h3>
           <p class="mt-2 font-body text-sm leading-relaxed text-ink-soft">{guide.description}</p>
-          <span class="link-underline mt-4 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-ink">
+          <span class="tap-target link-underline mt-4 inline-flex w-fit items-center gap-1.5 font-body text-sm font-medium text-ink">
             Read the guide <Icon name="arrow-right" class="h-3.5 w-3.5" />
           </span>
         </a>
@@ -141,7 +143,7 @@ Pick your starting point.`}
           mountain roads and cult shops. No generic copy-pasted list: only places I've seen, tested and written about
           honestly, with more added trip after trip.
         </p>
-        <a href={withBase("/en/about/")} class="link-underline mt-6 inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink">
+        <a href={withBase("/en/about/")} class="tap-target link-underline mt-6 inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink">
           Learn more <Icon name="arrow-right" class="h-3.5 w-3.5" />
         </a>
       </div>
