@@ -1,6 +1,7 @@
 ---
 import Icon from "./Icon.astro";
 import type { Spot } from "../data/types";
+import { categoryIcon } from "../data/categories";
 import { useUi } from "../i18n";
 
 interface Props {
@@ -12,20 +13,6 @@ const t = useUi(Astro.url).spot;
 const mapsHref = spot.mapsQuery
   ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.mapsQuery)}`
   : undefined;
-
-const categoryIcon: Record<Spot["category"], "car" | "tag" | "building" | "flag" | "shopping-bag" | "map-pin" | "parking" | "steering-wheel"> = {
-  location: "car",
-  achat: "tag",
-  garage: "car",
-  musee: "building",
-  circuit: "flag",
-  shopping: "shopping-bag",
-  meetup: "map-pin",
-  route: "steering-wheel",
-  parking: "parking",
-  restauration: "map-pin",
-  evenement: "flag",
-};
 ---
 
 <article
@@ -44,11 +31,6 @@ const categoryIcon: Record<Spot["category"], "car" | "tag" | "building" | "flag"
     {!spot.filled && (
       <span class="rounded-full bg-gold-400/25 px-2.5 py-0.5 font-body text-[11px] font-medium text-gold-700">
         {t.toComplete}
-      </span>
-    )}
-    {spot.filled && spot.tested === false && (
-      <span class="shrink-0 rounded-full border border-mist-300 px-2.5 py-0.5 font-body text-[11px] font-medium text-mist-500">
-        {t.notTested}
       </span>
     )}
   </div>

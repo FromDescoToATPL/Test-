@@ -93,7 +93,6 @@ const fr = {
   ad: { label: "Publicité", placeholder: "Emplacement réservé" },
   spot: {
     toComplete: "À compléter",
-    notTested: "Pas encore testé",
     tip: "Astuce",
     note: `Note pour ${AUTHOR_NAME}`,
     tipSeparator: " : ",
@@ -154,7 +153,6 @@ const en: typeof fr = {
   ad: { label: "Advertisement", placeholder: "Reserved space" },
   spot: {
     toComplete: "Coming soon",
-    notTested: "Not tried yet",
     tip: "Tip",
     note: `Note for ${AUTHOR_NAME}`,
     tipSeparator: ": ",

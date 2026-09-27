@@ -3,11 +3,12 @@ import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/Hero.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import SpotCard from "../../components/SpotCard.astro";
+import DiscoverList from "../../components/DiscoverList.astro";
 import ParkingGrid from "../../components/ParkingGrid.astro";
 import TipsList from "../../components/TipsList.astro";
 import AdSlot from "../../components/AdSlot.astro";
 import heroImg from "../../assets/photos/osaka-meetup-mx5-nuit.jpg";
-import { osakaIntro, osakaNote, osakaSpots, osakaRoutes, osakaParking, osakaTips } from "../../data/en/osaka";
+import { osakaIntro, osakaSpots, osakaDiscover, osakaParking, osakaTips } from "../../data/en/osaka";
 ---
 
 <Layout
@@ -23,45 +24,42 @@ import { osakaIntro, osakaNote, osakaSpots, osakaRoutes, osakaParking, osakaTips
 
   <section class="mx-auto max-w-4xl px-5 py-16 sm:px-8">
     <p class="reveal font-body text-lg leading-relaxed text-ink-soft">{osakaIntro}</p>
-    <p class="reveal mt-4 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
-      {osakaNote}
-    </p>
   </section>
 
-  <section class="mx-auto max-w-8xl px-5 py-16 sm:px-8">
-    <SectionHeading eyebrow="Where to go" title="Rentals, shopping & car meets" />
-    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  <section class="mx-auto max-w-8xl px-5 pb-20 sm:px-8">
+    <SectionHeading eyebrow="Where to go" title="Shopping & car meets" />
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
       {osakaSpots.map((spot) => <SpotCard spot={spot} />)}
     </div>
   </section>
 
-  <section class="mx-auto max-w-8xl px-5 pb-16 sm:px-8">
-    <SectionHeading
-      eyebrow="Where to drive"
-      title="Around Osaka"
-      description="Two roads I spotted for getting out of the city behind the wheel, about an hour's drive away."
-    />
-    <div class="mt-10 grid gap-6 sm:grid-cols-2">
-      {osakaRoutes.map((spot) => <SpotCard spot={spot} />)}
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-20">
+    <div class="mx-auto max-w-8xl px-5 sm:px-8">
+      <SectionHeading
+        eyebrow="To discover"
+        title="Spotted for my next trip"
+        description="My stop in Osaka was short and I haven't been able to try these places yet, but on paper they're worth the detour. I'll complete them with my photos and my review."
+      />
+      <div class="mt-10">
+        <DiscoverList items={osakaDiscover} />
+      </div>
     </div>
   </section>
 
   <AdSlot class="py-16" />
 
-  <section class="border-t border-mist-200 bg-paper-dim/50 py-20">
-    <div class="mx-auto max-w-8xl px-5 sm:px-8">
-      <div class="grid gap-16 lg:grid-cols-2">
-        <div>
-          <SectionHeading eyebrow="Where to park" title="Parking by neighborhood" />
-          <div class="mt-8">
-            <ParkingGrid items={osakaParking} />
-          </div>
+  <section class="mx-auto max-w-8xl px-5 py-20 sm:px-8">
+    <div class="grid gap-16 lg:grid-cols-2">
+      <div>
+        <SectionHeading eyebrow="Where to park" title="Parking by neighborhood" />
+        <div class="mt-8">
+          <ParkingGrid items={osakaParking} />
         </div>
-        <div>
-          <SectionHeading eyebrow="Tips" title="Make the most of it" />
-          <div class="mt-8">
-            <TipsList tips={osakaTips} />
-          </div>
+      </div>
+      <div>
+        <SectionHeading eyebrow="Tips" title="Make the most of it" />
+        <div class="mt-8">
+          <TipsList tips={osakaTips} />
         </div>
       </div>
     </div>

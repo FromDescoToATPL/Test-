@@ -25,7 +25,6 @@ export const tokyoSpots: Spot[] = [
       "Three expressway rest areas famous for car meets: Daikoku Futo PA (Yokohama), Umihotaru PA (Chiba) and Tatsumi PA. Supercars, tuned JDM cars and the occasional surprise gather there in the evening, especially on weekends. Unfortunately I didn't get the chance to go during my stay (the weather didn't cooperate), but these spots come up every single time people talk about car meets in Japan.",
     tip: "Check on site or online whether meets are still tolerated: these spots have a rocky history with the authorities. Be respectful if you go, they're rest areas open to everyone, not organized events.",
     filled: true,
-    tested: false,
   },
   {
     name: "Where to drive in Tokyo",
