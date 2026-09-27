@@ -17,14 +17,20 @@ export const kyotoSpots: Spot[] = [
     articleHref: withBase("/en/kyoto/a-pit-auto/"),
     filled: true,
   },
+];
+
+// Places spotted for the next trip, not tried yet (the section says so once).
+export const kyotoDiscover: Spot[] = [
   {
-    name: "Liberty Walk (Kyoto store)",
+    name: "Liberty Walk Kyoto",
     category: "shopping",
-    area: "To be confirmed",
+    area: "Nakagyō, near Sanjo Ohashi bridge",
     description:
-      "The second Liberty Walk stop of the trip, for the brand's clothing and accessories. Handy if the Osaka store didn't have everything you were looking for.",
-    tip: "Add the exact address, your purchases, the prices, and your photos.",
-    filled: false,
+      "Liberty Walk's Kyoto store, opened in March 2026 a stone's throw from the Kamogawa river: clothing, goodies, Kyoto exclusives, and even a café for a break.",
+    tip: "Open every day from 9 a.m.: perfect for a break between two temple visits.",
+    mapsQuery: "Liberty Walk Kyoto, 92 Nakajimacho, Nakagyo Ward, Kyoto 604-8031",
+    website: "https://libertywalk.co.jp/kyoto/",
+    filled: true,
   },
 ];
 
@@ -42,5 +48,6 @@ export const kyotoParking: ParkingTip[] = [
 ];
 
 export const kyotoTips: string[] = [
-  "Section in progress: routes, the best mountain roads around Kyoto, photo spots with a JDM in the foreground.",
+  "No car needed between the two spots: the Hankyu line runs directly from Saiin Station (near A PIT Autobacs) to Kyoto-Kawaramachi, about a 10-minute walk from Liberty Walk.",
+  "Bring your passport: tax-free shopping is available at A PIT Autobacs.",
 ];

@@ -89,7 +89,7 @@ export const osakaParking: ParkingTip[] = [
   {
     area: "Dotonbori / Namba",
     advice:
-      "Zone piétonne très dense : oublie l'idée de te garer sur place. Utilise l'un des nombreux parkings-tours « Times » à quelques rues de là et termine à pied.",
+      "Zone piétonne très dense : oubliez l'idée de vous garer sur place. Utilisez l'un des nombreux parkings-tours « Times » à quelques rues de là et terminez à pied.",
   },
   {
     area: "Umeda",

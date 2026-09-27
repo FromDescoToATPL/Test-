@@ -8,15 +8,17 @@ import { useUi } from "../i18n";
 
 interface Props {
   items: Spot[];
+  /** Colonnes de la grille (par défaut 2 puis 3) ; "" pour une seule colonne, ex. à côté d'une autre liste. */
+  gridClass?: string;
 }
-const { items } = Astro.props;
+const { items, gridClass = "sm:grid-cols-2 lg:grid-cols-3" } = Astro.props;
 const t = useUi(Astro.url).spot;
 
 const mapsHref = (query: string) =>
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 ---
 
-<div class="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+<div class:list={["grid gap-x-10 gap-y-8", gridClass]}>
   {items.map((item) => (
     <div class="reveal border-t border-mist-200 pt-5">
       <p class="eyebrow flex items-center gap-2 text-racing-500">

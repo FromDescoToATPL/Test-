@@ -86,7 +86,7 @@ const fr = {
   privacyLink: { label: "Confidentialité & cookies", href: withBase("/confidentialite/") },
   cookie: {
     label: "Consentement aux cookies",
-    text: "Ce site utilise des cookies pour mesurer l'audience et, à terme, afficher des publicités pertinentes. Tu peux accepter ou refuser, ton choix est modifiable à tout moment.",
+    text: "Ce site utilise des cookies pour mesurer l'audience et, à terme, afficher des publicités pertinentes. Vous pouvez accepter ou refuser, votre choix est modifiable à tout moment.",
     more: "En savoir plus",
     decline: "Refuser",
     accept: "Accepter",

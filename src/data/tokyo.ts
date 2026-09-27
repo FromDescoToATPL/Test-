@@ -3,10 +3,10 @@ import { withBase } from "../consts";
 
 export const tokyoIntro =
   `Pour les passionnés, Tokyo est la ville de référence.
-Les voitures tunés à chaque quartier et leur vrombissement ne vont pas vous laisser indifférent.
-De Shinjuku à Shibuya passant par la Tokyo Tower, il est difficile de ne pas les apercevoir.
-Souvent aligné sur le bord de la route, vous pouvez également les retrouver sur l'autoroute et de nombreux rassemblement comme à Daikoku ou même Umihotaru PA.
-Sans parler des différents magasins portant sur l'automobile, des agences de locations pour réserver et conduire votre meilleure JDM. Où Louer, où acheter ?  Je vous explique tout ici ! `;
+Les voitures tunées de chaque quartier et leur vrombissement ne vont pas vous laisser indifférent.
+De Shinjuku à Shibuya en passant par la Tokyo Tower, il est difficile de ne pas les apercevoir.
+Souvent alignées sur le bord de la route, vous pouvez également les retrouver sur l'autoroute et lors de nombreux rassemblements comme à Daikoku ou même Umihotaru PA.
+Sans parler des différents magasins portant sur l'automobile, des agences de location pour réserver et conduire votre meilleure JDM. Où louer, où acheter ? Je vous explique tout ici !`;
 
 export const tokyoSpots: Spot[] = [
   {
@@ -26,7 +26,7 @@ export const tokyoSpots: Spot[] = [
     area: "Autour de Tokyo (Yokohama, Chiba...)",
     description:
       "Trois aires d'autoroute réputées pour les rassemblements de passionnés : Daikoku Futo PA (Yokohama), Umihotaru PA (Chiba) et Tatsumi PA. Supercars, JDM tunées et parfois des surprises inattendues s'y retrouvent en soirée, surtout le week-end. Je n'ai malheureusement pas eu l'occasion de m'y rendre pendant mon séjour (météo capricieuse), mais ce sont des adresses qui reviennent systématiquement quand on parle de meetups au Japon.",
-    tip: "Vérifie sur place ou en ligne si les rassemblements y sont toujours tolérés : ces spots ont une histoire mouvementée avec les autorités. Reste respectueux si tu y vas, ce sont des aires ouvertes à tous, pas des événements organisés.",
+    tip: "Vérifiez sur place ou en ligne si les rassemblements y sont toujours tolérés : ces spots ont une histoire mouvementée avec les autorités. Restez respectueux si vous y allez, ce sont des aires ouvertes à tous, pas des événements organisés.",
     filled: true,
   },
   {
@@ -35,7 +35,7 @@ export const tokyoSpots: Spot[] = [
     area: "Odaiba, Shutoko, jusqu'à Hakone",
     description:
       "Du Rainbow Bridge à Odaiba jusqu'aux virages d'Hakone : les routes qui valent le détour au volant d'une JDM de location, de jour comme de nuit.",
-    tip: "Vérifie la météo avant de partir vers Hakone : les routes de montagne perdent tout leur charme sous la pluie ou le brouillard.",
+    tip: "Vérifiez la météo avant de partir vers Hakone : les routes de montagne perdent tout leur charme sous la pluie ou le brouillard.",
     articleHref: withBase("/tokyo/ou-rouler/"),
     filled: true,
   },
@@ -45,7 +45,7 @@ export const tokyoSpots: Spot[] = [
     area: "Shinjuku, Chiyoda, Shibuya",
     description:
       "Bic Camera, Ken Box et Ken Box B2F à Shinjuku, le Tomica Shop Tokyo à la gare de Tokyo, et l'univers Liberty Walk à Shibuya : les bonnes adresses pour ramener une miniature JDM au 1/18 jusqu'au 1/64.",
-    tip: "Chez Ken Box, dénicher sa pépite peut vite coûter cher : aller en repérage si tu veux juste regarder.",
+    tip: "Chez Ken Box, dénicher sa pépite peut vite coûter cher : allez-y en repérage si vous voulez juste regarder.",
     articleHref: withBase("/tokyo/boutiques-miniatures/"),
     filled: true,
   },
@@ -65,7 +65,7 @@ export const tokyoSpots: Spot[] = [
     area: "Kōtō",
     description:
       "Le même type de magasin qu'à Kyoto : un large choix de vêtements de différentes marques (Mazda, Toyota, Nissan, etc.), ainsi que plusieurs stands de journaux et de miniatures.",
-    tip: "Détaxe de 10 % possible avec votre passeport. Profitez-en avant le 1er novembre, date à partir de laquelle le remboursement se fait uniquement à l'aéroport.",
+    tip: "Détaxe de 10 % possible avec votre passeport. À partir du 1er novembre 2026, le remboursement se fait uniquement à l'aéroport.",
     mapsQuery: "A PIT AUTOBACS SHINONOME, 2 Chome-7-20 Shinonome, Koto City, Tokyo 135-0062",
     filled: true,
   },
@@ -75,7 +75,7 @@ export const tokyoParking: ParkingTip[] = [
   {
     area: "Shibuya / Shinjuku / Ginza",
     advice:
-      "Stationnement en voirie quasiment inexistant et très surveillé. Compte sur les parkings « coin parking » (Times, Park24,三井のリパーク), repérables à leurs bornes jaunes ou rouges. Tarifs élevés (300–500¥ / 30 min) mais rotation rapide et paiement simple à la borne.",
+      "Stationnement en voirie quasiment inexistant et très surveillé. Comptez sur les parkings « coin parking » (Times, Park24,三井のリパーク), repérables à leurs bornes jaunes ou rouges. Tarifs élevés (300–500¥ / 30 min) mais rotation rapide et paiement simple à la borne.",
   },
   {
     area: "Centres commerciaux",
@@ -85,12 +85,12 @@ export const tokyoParking: ParkingTip[] = [
   {
     area: "Général",
     advice:
-      "Ne jamais se garer en double file ou sur un trottoir : les patrouilles de stationnement japonaises verbalisent vite et sans exception. Utilise l'appli Times Car PARK ou akippa pour réserver une place à l'avance dans les zones denses.",
+      "Ne jamais se garer en double file ou sur un trottoir : les patrouilles de stationnement japonaises verbalisent vite et sans exception. Utilisez l'appli Times Car PARK ou akippa pour réserver une place à l'avance dans les zones denses.",
   },
 ];
 
 export const tokyoTips: string[] = [
-  "Circule tôt le matin ou en soirée pour éviter les embouteillages du Shuto Expressway (périphérique urbain), particulièrement dense en journée.",
-  "Prends un forfait ETC (télépéage) avec ta location : indispensable pour enchaîner les voies rapides sans t'arrêter à chaque barrière.",
+  "Circulez tôt le matin ou en soirée pour éviter les embouteillages du Shuto Expressway (périphérique urbain), particulièrement dense en journée.",
+  "Prenez un forfait ETC (télépéage) avec votre location : indispensable pour enchaîner les voies rapides sans vous arrêter à chaque barrière.",
   "Le quartier de Roppongi/Aoyama est idéal en soirée pour repérer des voitures de passionnés garées devant les bars et restaurants.",
 ];

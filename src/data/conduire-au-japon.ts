@@ -22,21 +22,21 @@ export interface DriveSection {
 }
 
 export const conduireIntro =
-  `Conduire au japon en tant que passionné automobile est à faire absolument ! Tout le monde rêve de pouvoir conduire une JDM  modifiée dans les rues de tokyo et faire des kilomètres à shutoko ou même participer aux rassemblements.
-Cela vous permettra également de rejoindre des zones de chaque ville encore inexploré et moins touristique.
-Alors oui, conduire à tokyo n'est pas facile au premier abord mais on s'y fait vite et les japonais sont vraiment très calme. pas de quoi s'inquiéter !
-Dans ce guide, je vais vous donner les différentes étapes pour conduire au japon.`;
+  `Conduire au Japon en tant que passionné automobile est à faire absolument ! Tout le monde rêve de pouvoir conduire une JDM modifiée dans les rues de Tokyo et faire des kilomètres à shutoko ou même participer aux rassemblements.
+Cela vous permettra également de rejoindre des zones de chaque ville encore inexplorées et moins touristiques.
+Alors oui, conduire à Tokyo n'est pas facile au premier abord, mais on s'y fait vite et les Japonais sont vraiment très calmes. Pas de quoi s'inquiéter !
+Dans ce guide, je vais vous donner les différentes étapes pour conduire au Japon.`;
 
 export const conduireSections: DriveSection[] = [
   {
     eyebrow: "Étape 1",
     title: "Le permis de conduire international",
     paragraphs: [
-      "Le Japon reconnaît la Convention de Genève de 1949 : un permis français seul ne suffit pas, il faut un Permis de Conduire International (PCI) ou faire une demande de translation de votre permis Français auprès de la JAF (meilleure solution).",
-      "Qu'est ce qu'est la JAF ? C'est la Japan Automobile Federation. C'est une mesure pour certains pays qui consiste à outre passer la demande de permis international et pouvoir conduire facilement au japon. Voyez ça comme un document temporaire. Avant votre voyage au japon ou pendant, vous devez soumettre votre demande sur ce site. J'ai quelques tips qui vont vous permettre de le faire avant d'arriver au japon, car les réservations des voitures peuvent partir très vite et mieux vaut s'y prendre à l'avance :)",
+      "Le Japon reconnaît la Convention de Genève de 1949 : un permis français seul ne suffit pas, il faut un Permis de Conduire International (PCI) ou faire une demande de translation de votre permis français auprès de la JAF (meilleure solution).",
+      "Qu'est-ce que la JAF ? C'est la Japan Automobile Federation. C'est une mesure pour certains pays qui consiste à outre passer la demande de permis international et pouvoir conduire facilement au Japon. Voyez ça comme un document temporaire. Avant votre voyage au Japon ou pendant, vous devez soumettre votre demande sur ce site. J'ai quelques tips qui vont vous permettre de le faire avant d'arriver au Japon, car les réservations des voitures peuvent partir très vite et mieux vaut s'y prendre à l'avance :)",
     ],
     bullets: [
-      "Durée de validité de la JAF : 1 ans à compter de l'émission du papier. ",
+      "Durée de validité de la JAF : 1 an à compter de l'émission du papier.",
     ],
     optionsIntro: "Voici les différentes possibilités afin de demander sa translation.",
     optionsLink: { label: "english.jaf.or.jp/driving-in-japan", href: "https://english.jaf.or.jp/driving-in-japan" },
@@ -93,11 +93,11 @@ export const conduireSections: DriveSection[] = [
     eyebrow: "Étape 3",
     title: "Les règles de circulation",
     paragraphs: [
-      "On roule à gauche, volant à droite. les premiers kilomètres demandent un peu de concentration notamment aux carrefours et ronds-points où les réflexes s'inversent.",
-      "Sur Autoroute, à gauche concerne la voie la moins rapide. Bien analyser les feux rouges situé à l'américaine en face de vous. Il existe plusieurs feux, un pour celui qui tourne à gauche, celui qui va tout droit et celui à droite, cela demande de la concentration.",
-      "Les limitations de vitesse sont basses 30 à 50 km/h en ville, 80 à 100 km/h sur autoroute, cependant il y a une certaine tolérance de 10 à 20km/h à ne pas dépasser sur les grands axes. ",
-      "Tolérance alcool au volant proche de zéro : mieux vaut ne pas boire du tout si tu conduis.",
-      "Après avoir assimilé ces règles, la conduire sera relativement paisible, les japonais roulent prudemment et ne sont pas du genre à s'énerver quand vous faites une erreur. Après 1/2h de conduite vous serez plus à laise sur la route.",
+      "On roule à gauche, volant à droite. Les premiers kilomètres demandent un peu de concentration notamment aux carrefours et ronds-points où les réflexes s'inversent.",
+      "Sur autoroute, la voie de gauche est la moins rapide. Bien analyser les feux rouges situés à l'américaine en face de vous. Il existe plusieurs feux, un pour celui qui tourne à gauche, celui qui va tout droit et celui à droite, cela demande de la concentration.",
+      "Les limitations de vitesse sont basses : 30 à 50 km/h en ville, 80 à 100 km/h sur autoroute. Cependant, il y a une certaine tolérance de 10 à 20 km/h à ne pas dépasser sur les grands axes.",
+      "Tolérance alcool au volant proche de zéro : mieux vaut ne pas boire du tout si vous conduisez.",
+      "Après avoir assimilé ces règles, la conduite sera relativement paisible : les Japonais roulent prudemment et ne sont pas du genre à s'énerver quand vous faites une erreur. Après 1/2h de conduite vous serez plus à l'aise sur la route.",
     ],
   },
   {
@@ -113,23 +113,23 @@ export const conduireSections: DriveSection[] = [
     title: "Stationnement",
     paragraphs: [
       "Le stationnement sauvage n'est pas toléré : amende et mise en fourrière rapides, y compris pour un arrêt de quelques minutes. Les « coin parking » (Times, Park24...) sont omniprésents en ville, payables à la borne.",
-      "Bien se renseigner sur le type de voiture que vous prenez, bien éviter de garer votre voiture sur un parking avec des damper car cela pourrait abimer le bas de caisse. Il existe de nombreux parking sans ça.",
-      "Retrouve les spécificités de chaque ville (quartiers denses, parkings de temples, tarifs) dans les pages Tokyo, Mont Fuji, Osaka et Kyoto.",
+      "Bien se renseigner sur le type de voiture que vous prenez, bien éviter de garer votre voiture sur un parking avec des damper car cela pourrait abimer le bas de caisse. Il existe de nombreux parkings sans ça.",
+      "Retrouvez les spécificités de chaque ville (quartiers denses, parkings de temples, tarifs) dans les pages Tokyo, Mont Fuji, Osaka et Kyoto.",
     ],
   },
   {
     eyebrow: "Étape 6",
     title: "Faire le plein",
     paragraphs: [
-      "Deux types de stations cohabitent : en libre-service (セルフ, « self »), et avec personnel qui fait le plein pour toi. Plus fréquentes en zone rurale et souvent plus rapides pour un non-japonophone.",
-      "Vérifie bien le type de carburant : レギュラー (regular/essence normale) est celui qu'il te faut pour l'immense majorité des voitures de location ; ハイオク (hi-oku, haut indice d'octane) est plus cher et réservé à certains véhicules sportifs. Bien demander confirmation à l'agence de location en cas de doute.",
+      "Deux types de stations cohabitent : en libre-service (セルフ, « self »), et avec personnel qui fait le plein pour vous. Plus fréquentes en zone rurale et souvent plus rapides pour un non-japonophone.",
+      "Vérifiez bien le type de carburant : レギュラー (regular/essence normale) est celui qu'il vous faut pour l'immense majorité des voitures de location ; ハイオク (hi-oku, haut indice d'octane) est plus cher et réservé à certains véhicules sportifs. Bien demander confirmation à l'agence de location en cas de doute.",
     ],
   },
   {
     eyebrow: "Étape 7",
     title: "Applications utiles",
     paragraphs: [
-      "Google Maps fonctionne très bien au Japon pour la navigation classique. NAVITIME est apprécié pour ses estimations de péages et ses itinéraires optimisés. Garde aussi l'application de ton loueur sous la main pour l'assistance en cas de pépin.",
+      "Google Maps fonctionne très bien au Japon pour la navigation classique. NAVITIME est apprécié pour ses estimations de péages et ses itinéraires optimisés. Gardez aussi l'application de votre loueur sous la main pour l'assistance en cas de pépin.",
     ],
   },
 ];

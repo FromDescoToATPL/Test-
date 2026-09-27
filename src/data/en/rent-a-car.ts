@@ -21,11 +21,11 @@ export const rentSpots: Spot[] = [
   {
     name: "Sports car / JDM specialists",
     category: "location",
-    area: "To be confirmed",
+    area: "Tokyo, Kawaguchiko, Osaka",
     description:
-      "Beyond the big chains, a few local agencies rent sports cars and JDM cars by the day: the Corvette C7 I rented from MFJ Rental Cars in Kawaguchiko (Mount Fuji page), or the Evolution VIII from OnlyJDM in Tokyo (Tokyo page). More places like these to discover and add here.",
-    tip: "Add the other agencies you've spotted: city, models available, rates, conditions.",
-    filled: false,
+      "To drive a JDM or a sports car, you have to go through small specialist agencies. I've tried two: OnlyJDM in Tokyo (Lancer Evolution VIII) and MFJ Rental Cars in Kawaguchiko (Corvette C7). In Osaka, I've spotted Japan Drive Legends for my next trip.",
+    tip: "Book as early as possible: the most popular cars are sometimes gone weeks in advance.",
+    filled: true,
   },
 ];
 

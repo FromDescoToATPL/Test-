@@ -22,7 +22,7 @@ export const fujiSpots: Spot[] = [
     area: "Oyama, Susono (à ~30 min de Kawaguchiko)",
     description:
       "Circuit historique (ex-Fuji International Speedway), théâtre du Japanese Grand Prix de F1 et de manches de Super GT / WEC. Accessible en voiture, avec des journées portes ouvertes et des track days pour le public selon le calendrier.",
-    tip: "Vérifie le calendrier officiel avant d'y aller : le circuit est parfois fermé au public pour des événements privés.",
+    tip: "Vérifiez le calendrier officiel avant d'y aller : le circuit est parfois fermé au public pour des événements privés.",
     filled: true,
   },
   {
@@ -41,7 +41,7 @@ export const fujiParking: ParkingTip[] = [
   {
     area: "Points de vue (Chureito Pagoda, Oshino Hakkai...)",
     advice:
-      "La plupart des points de vue populaires sur le Fuji ont leur propre parking payant, souvent à la journée (300–500¥). Arrive tôt le matin en haute saison, les places partent vite.",
+      "La plupart des points de vue populaires sur le Fuji ont leur propre parking payant, souvent à la journée (300–500¥). Arrivez tôt le matin en haute saison, les places partent vite.",
   },
   {
     area: "Hôtels & ryokans",
@@ -56,7 +56,7 @@ export const fujiParking: ParkingTip[] = [
 ];
 
 export const fujiTips: string[] = [
-  "Combine le circuit et le musée en une seule demi-journée : les deux sont à 5 minutes l'un de l'autre.",
-  "Le Fuji ne se montre pas tous les jours : privilégie tôt le matin, ciel dégagé, pour les meilleures vues depuis la route.",
-  "Une voiture de sport comme une Corvette prend une autre dimension sur les petites routes qui serpentent autour du lac : anticipe des trajets plus lents qu'en ligne droite.",
+  "Combinez le circuit et le musée en une seule demi-journée : les deux sont à 5 minutes l'un de l'autre.",
+  "Le Fuji ne se montre pas tous les jours : privilégiez tôt le matin, ciel dégagé, pour les meilleures vues depuis la route.",
+  "Une voiture de sport comme une Corvette prend une autre dimension sur les petites routes qui serpentent autour du lac : anticipez des trajets plus lents qu'en ligne droite.",
 ];
