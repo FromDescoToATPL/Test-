@@ -7,7 +7,7 @@ import ParkingGrid from "../../components/ParkingGrid.astro";
 import TipsList from "../../components/TipsList.astro";
 import AdSlot from "../../components/AdSlot.astro";
 import heroImg from "../../assets/photos/osaka-meetup-mx5-nuit.jpg";
-import { osakaIntro, osakaSpots, osakaParking, osakaTips } from "../../data/en/osaka";
+import { osakaIntro, osakaNote, osakaSpots, osakaRoutes, osakaParking, osakaTips } from "../../data/en/osaka";
 ---
 
 <Layout
@@ -23,12 +23,26 @@ import { osakaIntro, osakaSpots, osakaParking, osakaTips } from "../../data/en/o
 
   <section class="mx-auto max-w-4xl px-5 py-16 sm:px-8">
     <p class="reveal font-body text-lg leading-relaxed text-ink-soft">{osakaIntro}</p>
+    <p class="reveal mt-4 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
+      {osakaNote}
+    </p>
   </section>
 
   <section class="mx-auto max-w-8xl px-5 py-16 sm:px-8">
-    <SectionHeading eyebrow="Where to go" title="Shopping & car culture" />
+    <SectionHeading eyebrow="Where to go" title="Rentals, shopping & car meets" />
     <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {osakaSpots.map((spot) => <SpotCard spot={spot} />)}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-8xl px-5 pb-16 sm:px-8">
+    <SectionHeading
+      eyebrow="Where to drive"
+      title="Around Osaka"
+      description="Two roads I spotted for getting out of the city behind the wheel, about an hour's drive away."
+    />
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      {osakaRoutes.map((spot) => <SpotCard spot={spot} />)}
     </div>
   </section>
 

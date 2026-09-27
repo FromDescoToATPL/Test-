@@ -8,7 +8,8 @@ export type SpotCategory =
   | "meetup"
   | "route"
   | "parking"
-  | "restauration";
+  | "restauration"
+  | "evenement";
 
 export interface Spot {
   name: string;
@@ -23,6 +24,8 @@ export interface Spot {
   articleHref?: string;
   /** true = entrée rédigée par Clément ; false = emplacement prêt à compléter */
   filled: boolean;
+  /** false = adresse repérée (recherches, conseils) mais pas encore visitée par Clément : affiche le badge "Pas encore testé". */
+  tested?: boolean;
 }
 
 export interface ParkingTip {

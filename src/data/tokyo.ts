@@ -28,6 +28,7 @@ export const tokyoSpots: Spot[] = [
       "Trois aires d'autoroute réputées pour les rassemblements de passionnés : Daikoku Futo PA (Yokohama), Umihotaru PA (Chiba) et Tatsumi PA. Supercars, JDM tunées et parfois des surprises inattendues s'y retrouvent en soirée, surtout le week-end. Je n'ai malheureusement pas eu l'occasion de m'y rendre pendant mon séjour (météo capricieuse), mais ce sont des adresses qui reviennent systématiquement quand on parle de meetups au Japon.",
     tip: "Vérifie sur place ou en ligne si les rassemblements y sont toujours tolérés : ces spots ont une histoire mouvementée avec les autorités. Reste respectueux si tu y vas, ce sont des aires ouvertes à tous, pas des événements organisés.",
     filled: true,
+    tested: false,
   },
   {
     name: "Où rouler à Tokyo",

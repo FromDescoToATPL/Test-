@@ -24,6 +24,7 @@ const categoryIcon: Record<Spot["category"], "car" | "tag" | "building" | "flag"
   route: "steering-wheel",
   parking: "parking",
   restauration: "map-pin",
+  evenement: "flag",
 };
 ---
 
@@ -43,6 +44,11 @@ const categoryIcon: Record<Spot["category"], "car" | "tag" | "building" | "flag"
     {!spot.filled && (
       <span class="rounded-full bg-gold-400/25 px-2.5 py-0.5 font-body text-[11px] font-medium text-gold-700">
         {t.toComplete}
+      </span>
+    )}
+    {spot.filled && spot.tested === false && (
+      <span class="shrink-0 rounded-full border border-mist-300 px-2.5 py-0.5 font-body text-[11px] font-medium text-mist-500">
+        {t.notTested}
       </span>
     )}
   </div>
