@@ -17,6 +17,7 @@ const PAGE_PAIRS: Record<Lang, string>[] = [
   { fr: "/mont-fuji/mfj-rental-cars/", en: "/en/mount-fuji/mfj-rental-cars/" },
   { fr: "/mont-fuji/musee-du-sport-automobile/", en: "/en/mount-fuji/fuji-motor-sports-museum/" },
   { fr: "/osaka/", en: "/en/osaka/" },
+  { fr: "/osaka/liberty-walk/", en: "/en/osaka/liberty-walk/" },
   { fr: "/kyoto/", en: "/en/kyoto/" },
   { fr: "/kyoto/a-pit-auto/", en: "/en/kyoto/a-pit-auto/" },
   { fr: "/louer-une-voiture/", en: "/en/rent-a-car/" },

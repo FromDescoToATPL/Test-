@@ -1,5 +1,6 @@
 // Version anglaise de src/data/osaka.ts : garder les deux fichiers en phase.
 import type { Spot, ParkingTip } from "../types";
+import { withBase } from "../../consts";
 
 export const osakaIntro =
   "Osaka is Japan's raw energy: flashing Dotonbori, a street culture more laid-back than Tokyo's, informal night meets of enthusiasts on a street corner, and a few cult car-streetwear spots, starting with Liberty Walk.";
@@ -15,13 +16,15 @@ export const osakaSpots: Spot[] = [
     filled: false,
   },
   {
-    name: "Liberty Walk (Osaka store)",
+    name: "Liberty Walk Osaka",
     category: "shopping",
-    area: "To be confirmed",
+    area: "Kitahorie, not far from Dotonbori",
     description:
-      "The cult JDM widebody brand (LB★WORKS) also sells clothing and accessories in store. A must-stop to bring home something better than a fridge magnet.",
-    tip: "Add the exact address, what you bought, the prices, and why you recommend the store (or not). Remember to add your photos.",
-    filled: false,
+      "The small store of the cult widebody brand (LB★WORKS): clothing, accessories, scale models and Osaka limited editions.",
+    tip: "If you already know the Tokyo store, the detour is mostly worth it for the Osaka limited editions.",
+    mapsQuery: "Liberty Walk, 1 Chome-3-13 Kitahorie, Nishi Ward, Osaka 550-0014",
+    articleHref: withBase("/en/osaka/liberty-walk/"),
+    filled: true,
   },
 ];
 
