@@ -30,10 +30,10 @@ Dans ce guide, je vais vous donner les différentes étapes pour conduire au Jap
 export const conduireSections: DriveSection[] = [
   {
     eyebrow: "Étape 1",
-    title: "Le permis de conduire international",
+    title: "La translation de votre permis",
     paragraphs: [
-      "Le Japon reconnaît la Convention de Genève de 1949 : un permis français seul ne suffit pas, il faut un Permis de Conduire International (PCI) ou faire une demande de translation de votre permis français auprès de la JAF (meilleure solution).",
-      "Qu'est-ce que la JAF ? C'est la Japan Automobile Federation. C'est une mesure pour certains pays qui consiste à outre passer la demande de permis international et pouvoir conduire facilement au Japon. Voyez ça comme un document temporaire. Avant votre voyage au Japon ou pendant, vous devez soumettre votre demande sur ce site. J'ai quelques tips qui vont vous permettre de le faire avant d'arriver au Japon, car les réservations des voitures peuvent partir très vite et mieux vaut s'y prendre à l'avance :)",
+      "Un permis français seul ne suffit pas : il faut faire une demande de translation de votre permis français auprès de la JAF.",
+      "Qu'est-ce que la JAF ? C'est la Japan Automobile Federation. C'est une mesure réservée à certains pays, qui remplace le permis international et permet de conduire facilement au Japon. Voyez ça comme un document temporaire. Avant votre voyage au Japon ou pendant, vous devez soumettre votre demande sur ce site. J'ai quelques tips qui vont vous permettre de le faire avant d'arriver au Japon, car les réservations des voitures peuvent partir très vite et mieux vaut s'y prendre à l'avance :)",
     ],
     bullets: [
       "Durée de validité de la JAF : 1 an à compter de l'émission du papier.",

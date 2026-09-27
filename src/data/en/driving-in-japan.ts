@@ -15,7 +15,7 @@ export const drivingSections: DriveSection[] = [
     note:
       "Heads-up: I'm French, so this step is written from a French driver's point of view. What you need depends on the country that issued your license. Licenses from France, Belgium, Germany, Switzerland, Monaco and Taiwan require an official Japanese translation issued by JAF, while most other countries, including the US, the UK, Canada and Australia, require an International Driving Permit issued under the 1949 Geneva Convention. Check the JAF website for your own country before you go.",
     paragraphs: [
-      "Japan recognizes the 1949 Geneva Convention: a French license alone isn't enough. French drivers need either an International Driving Permit (IDP) or an official translation of their license from JAF (the best option).",
+      "A French license alone isn't enough: French drivers need an official translation of their license from JAF.",
       "What is JAF? It's the Japan Automobile Federation. For certain countries, this translation replaces the International Driving Permit and lets you drive in Japan easily. Think of it as a temporary document. Before or during your trip to Japan, you submit your application on their website. I have a few tips that will let you do it before you even arrive in Japan, because rental cars can get booked up very quickly and it's better to plan ahead :)",
     ],
     bullets: ["JAF translation validity: 1 year from the date it's issued."],

@@ -30,9 +30,9 @@ export const louerSpots: Spot[] = [
 
 export const louerConseils: { titre: string; texte: string; link?: { label: string; href: string } }[] = [
   {
-    titre: "Permis international ou translation",
+    titre: "La translation du permis",
     texte:
-      "Le permis français seul ne suffit pas : il faut un Permis de Conduire International (convention de Genève 1949) à présenter avec votre permis national ou faire une demande de translation. Détails complets sur la page",
+      "Le permis français seul ne suffit pas : il faut faire une demande de translation de votre permis auprès de la JAF. Détails complets sur la page",
     link: { label: "Conduire au Japon", href: withBase("/conduire-au-japon/") },
   },
   {
