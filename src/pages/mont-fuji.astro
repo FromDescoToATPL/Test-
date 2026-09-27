@@ -29,11 +29,11 @@ const otherSpots = fujiSpots.filter((s) => s.category !== "location");
     subtitle="Entre le lac et la montagne, à 35 minutes d'un circuit historique et d'un musée qui vaut vraiment le voyage à lui seul."
   />
 
-  <section class="mx-auto max-w-4xl px-5 py-16 sm:px-8">
+  <section class="mx-auto max-w-4xl px-5 py-10 sm:py-14 sm:px-8">
     <p class="reveal font-body text-lg leading-relaxed text-ink-soft">{fujiIntro}</p>
   </section>
 
-  <section class="mx-auto max-w-8xl px-5 pb-16 sm:px-8">
+  <section class="mx-auto max-w-8xl px-5 pb-10 sm:pb-14 sm:px-8">
     <SectionHeading eyebrow="Location" title="Prendre le volant à Fuji" />
     <div class="mt-10 grid gap-6 lg:grid-cols-3 lg:items-start">
       {locationSpots.map((spot) => <SpotCard spot={spot} />)}
@@ -47,7 +47,7 @@ const otherSpots = fujiSpots.filter((s) => s.category !== "location");
     </div>
   </section>
 
-  <section class="border-t border-mist-200 bg-paper-dim/50 py-20">
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-12 sm:py-16">
     <div class="mx-auto max-w-8xl px-5 sm:px-8">
       <SectionHeading
         eyebrow="À 35 minutes"
@@ -66,10 +66,10 @@ const otherSpots = fujiSpots.filter((s) => s.category !== "location");
     </div>
   </section>
 
-  <AdSlot class="py-16" />
+  <AdSlot class="py-8 sm:py-12" />
 
-  <section class="mx-auto max-w-8xl px-5 py-20 sm:px-8">
-    <div class="grid gap-16 lg:grid-cols-2">
+  <section class="mx-auto max-w-8xl px-5 py-12 sm:py-16 sm:px-8">
+    <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
       <div>
         <SectionHeading eyebrow="Où se garer" title="Stationnement autour du lac" />
         <div class="mt-8">
