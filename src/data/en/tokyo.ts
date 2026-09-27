@@ -57,13 +57,13 @@ export const tokyoSpots: Spot[] = [
     filled: true,
   },
   {
-    name: "A-PIT Super Autobacs",
+    name: "A PIT Autobacs Shinonome",
     category: "shopping",
     area: "Kōtō",
     description:
       "The same kind of store as in Kyoto: a wide choice of clothing from different brands (Mazda, Toyota, Nissan, etc.), plus several stands of magazines and scale models.",
     tip: "10% tax-free shopping with your passport. Make the most of it before November 1, after which refunds are only given at the airport.",
-    mapsQuery: "A-PIT Super Autobacs, 2 Chome-7-20 Shinonome, Koto City, Tokyo 135-0062",
+    mapsQuery: "A PIT AUTOBACS SHINONOME, 2 Chome-7-20 Shinonome, Koto City, Tokyo 135-0062",
     filled: true,
   },
 ];

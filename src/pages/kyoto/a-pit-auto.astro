@@ -8,6 +8,7 @@ import { withBase } from "../../consts";
 import heroImg from "../../assets/photos/kyoto-apit-auto-interieur.jpg";
 import volantsImg from "../../assets/photos/kyoto-apit-auto-mur-volants.jpg";
 import miniaturesImg from "../../assets/photos/kyoto-apit-auto-miniatures-livres.jpg";
+import miniGtImg from "../../assets/photos/kyoto-apit-auto-mini-gt-liberty-walk.jpg";
 import evoImg from "../../assets/photos/kyoto-apit-auto-miniature-evo9.jpg";
 
 const shopName = "A PIT AUTOBACS KYOTO SHIJO";
@@ -15,25 +16,18 @@ const shopAddress = "1 Saiin Yasuzukacho, Ukyo Ward, Kyoto 615-0051, Japon";
 const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${shopName}, ${shopAddress}`)}`;
 const websiteHref = "https://www.apit-autobacs.com/kyoto/";
 
-const rayons = [
-  "Miniatures de toutes tailles",
-  "T-shirts et vêtements",
-  "Goodies",
-  "Magazines",
-  "Voitures",
-  "Kits pour modifier votre voiture",
-];
+const rayons = ["Miniatures de toutes tailles", "T-shirts et vêtements", "Goodies", "Magazines", "Kits pour modifier votre voiture"];
 ---
 
 <Layout
-  title="A-PIT Auto Kyoto"
-  description="A-PIT Auto à Kyoto : un étage entier dédié à l'automobile, miniatures, vêtements, magazines et kits. Infos pratiques, prix et mon avis."
+  title="A PIT Autobacs Kyoto Shijo"
+  description="A PIT Autobacs Kyoto Shijo : librairie, miniatures, vêtements et jantes sur plusieurs étages. Prix, détaxe, infos pratiques et mon avis."
 >
   <Hero
     image={heroImg}
     eyebrow="Bonne adresse · Kyoto"
-    title="A-PIT Auto Kyoto"
-    subtitle="Plusieurs étages, dont un entier pour les passionnés d'automobile, et la miniature que je cherchais depuis Tokyo."
+    title="A PIT Autobacs Kyoto Shijo"
+    subtitle="Plusieurs étages consacrés à la voiture, et la miniature que je cherchais depuis Tokyo."
   />
 
   <section class="mx-auto max-w-3xl px-5 pt-16 pb-10 sm:px-8">
@@ -47,8 +41,8 @@ const rayons = [
 
     <p class="reveal mt-8 font-body text-lg leading-relaxed text-ink-soft">
       À Tokyo, je n'avais jamais entendu parler de ce magasin. Lors de mon dernier jour, avant de rentrer en France,
-      j'ai cherché des adresses sympas, et c'est A-PIT Auto qui m'a vraiment donné envie d'y aller. Je vous explique
-      tout dans cet article.
+      j'ai cherché des adresses sympas, et c'est A PIT Autobacs qui m'a vraiment donné envie d'y aller. Je vous
+      explique tout dans cet article.
     </p>
 
     <div class="reveal mt-10 rounded-lg border border-mist-200 bg-paper-dim/40 p-5 sm:p-6">
@@ -70,6 +64,11 @@ const rayons = [
         <li class="flex items-start gap-2">
           <Icon name="parking" class="mt-0.5 h-4 w-4 shrink-0 text-mist-500" />
           Parking sur place : 1re heure offerte, 2 h offertes dès 1 000 ¥ d'achat
+        </li>
+        <li class="flex items-start gap-2 sm:col-span-2">
+          <Icon name="tag" class="mt-0.5 h-4 w-4 shrink-0 text-mist-500" />
+          Détaxe possible : prenez bien votre passeport. À partir du 1er novembre 2026, le remboursement se fait
+          uniquement à l'aéroport.
         </li>
       </ul>
       <div class="mt-5 flex flex-wrap gap-x-6 gap-y-2">
@@ -96,29 +95,73 @@ const rayons = [
   </section>
 
   <section class="mx-auto max-w-3xl px-5 pb-10 sm:px-8">
-    <h2 class="reveal font-display text-2xl font-semibold text-ink">Un étage entier pour les passionnés</h2>
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">Un bâtiment entier pour les passionnés</h2>
     <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
-      C'est un magasin sur plusieurs étages, dont un entièrement dédié à l'automobile. Voici ce que vous pourrez y
-      trouver :
+      A PIT Autobacs s'étend sur plusieurs niveaux. Voici comment c'est organisé :
     </p>
-    <ul class="reveal mt-5 flex flex-wrap gap-2">
-      {rayons.map((rayon) => (
-        <li class="rounded-full border border-mist-200 bg-paper px-3.5 py-1.5 font-body text-sm text-ink">{rayon}</li>
-      ))}
-    </ul>
+
+    <dl class="reveal mt-6 divide-y divide-mist-200 border-y border-mist-200">
+      <div class="grid gap-1 py-4 sm:grid-cols-[10rem_1fr] sm:gap-6">
+        <dt class="eyebrow pt-0.5 text-mist-500">À l'étage</dt>
+        <dd class="font-body text-sm leading-relaxed text-ink-soft">
+          Des jantes et des pièces pour votre voiture. Je n'ai pas eu le temps d'y monter.
+        </dd>
+      </div>
+      <div class="grid gap-1 py-4 sm:grid-cols-[10rem_1fr] sm:gap-6">
+        <dt class="eyebrow pt-0.5 text-racing-500">À l'entrée</dt>
+        <dd class="font-body text-sm leading-relaxed text-ink-soft">
+          <p>
+            Une librairie, puis l'espace A PIT, où je suis resté plus d'une heure, le temps de trouver ce qui me
+            plaisait vraiment.
+          </p>
+          <ul class="mt-3 flex flex-wrap gap-2">
+            {rayons.map((rayon) => (
+              <li class="rounded-full border border-mist-200 bg-paper px-3 py-1 text-[13px] text-ink">{rayon}</li>
+            ))}
+          </ul>
+        </dd>
+      </div>
+      <div class="grid gap-1 py-4 sm:grid-cols-[10rem_1fr] sm:gap-6">
+        <dt class="eyebrow pt-0.5 text-mist-500">À l'étage inférieur</dt>
+        <dd class="font-body text-sm leading-relaxed text-ink-soft">
+          Des concessionnaires automobiles, directement dans le bâtiment.
+        </dd>
+      </div>
+    </dl>
 
     <div class="mt-10 grid gap-6 sm:grid-cols-2">
       <Figure
         image={volantsImg}
-        alt="Mur de volants NARDI, OMP et Prodrive chez A-PIT Auto Kyoto"
+        alt="Mur de volants NARDI, OMP et Prodrive chez A PIT Autobacs Kyoto Shijo"
         caption="Le mur des volants : NARDI, OMP, Prodrive…"
         aspectClass="aspect-[4/3]"
       />
       <Figure
         image={miniaturesImg}
-        alt="Rayonnages de miniatures, collections Fast & Furious et magazines automobiles chez A-PIT Auto Kyoto"
+        alt="Rayonnages de miniatures, collections Fast & Furious et magazines automobiles chez A PIT Autobacs Kyoto Shijo"
         caption="Miniatures et magazines, jusqu'à une collection Fast & Furious."
         aspectClass="aspect-[4/3]"
+      />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-10 sm:px-8">
+    <div class="grid items-center gap-8 sm:grid-cols-[1fr_16rem] sm:gap-10">
+      <div>
+        <h2 class="reveal font-display text-2xl font-semibold text-ink">Le coin miniatures</h2>
+        <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+          Il y en a pour toutes les échelles et tous les budgets : des petites 1/64, comme les Mini GT avec tout un
+          rayon consacré à Liberty Walk (la marque dont je vous parle dans ma fiche <a
+            href={withBase("/osaka/liberty-walk/")}
+            class="link-underline font-medium text-racing-500">Liberty Walk Osaka</a>), jusqu'aux grandes 1/18 de
+          KK Scale, comme les Ferrari exposées en vitrine à 19 580 ¥, soit environ 110 €.
+        </p>
+      </div>
+      <Figure
+        image={miniGtImg}
+        alt="Rayon de miniatures Mini GT au 1/64 avec une étiquette Liberty Walk chez A PIT Autobacs Kyoto Shijo"
+        caption="Les Mini GT au 1/64, avec le rayon Liberty Walk."
+        class="mx-auto w-full max-w-64"
       />
     </div>
   </section>
@@ -130,7 +173,8 @@ const rayons = [
     <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
       En conclusion, c'est un super magasin. Les prix sont abordables pour les vêtements, les goodies ou les
       magazines. Ils le sont moins pour les miniatures, mais les connaisseurs y trouveront de belles pépites et des
-      pièces rares.
+      pièces rares. Mon seul regret : ne pas avoir pris le temps de monter voir les jantes à l'étage. Je ne sais
+      toujours pas pourquoi !
     </p>
   </section>
 
@@ -149,16 +193,16 @@ const rayons = [
             </p>
             <p>
               C'est ici, dans un rayon entièrement dédié à la marque, que j'ai enfin trouvé ma pépite : la miniature
-              qui se rapproche le plus de ma location, une Lancer Evolution IX, dans le même gris argent que mon Evo
-              VIII.
+              qui se rapproche le plus de ma location, une Lancer Evolution IX au 1/64 de la gamme HJ64 (Hobby Japan),
+              dans le même gris argent que mon Evo VIII. Elle m'a coûté environ 17 €, si mes souvenirs sont bons.
             </p>
             <p class="font-medium text-ink">Un vrai beau souvenir avant de repartir en France.</p>
           </div>
         </div>
         <Figure
           image={evoImg}
-          alt="Miniature d'une Mitsubishi Lancer Evolution IX gris argent sur son socle noir"
-          caption="Ma Lancer Evolution IX, rapportée d'A-PIT Auto."
+          alt="Miniature d'une Mitsubishi Lancer Evolution IX gris argent au 1/64 sur son socle noir"
+          caption="Ma Lancer Evolution IX HJ64, rapportée d'A PIT Autobacs."
         />
       </div>
 

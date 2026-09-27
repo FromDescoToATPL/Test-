@@ -8,6 +8,7 @@ import { withBase } from "../../../consts";
 import heroImg from "../../../assets/photos/kyoto-apit-auto-interieur.jpg";
 import volantsImg from "../../../assets/photos/kyoto-apit-auto-mur-volants.jpg";
 import miniaturesImg from "../../../assets/photos/kyoto-apit-auto-miniatures-livres.jpg";
+import miniGtImg from "../../../assets/photos/kyoto-apit-auto-mini-gt-liberty-walk.jpg";
 import evoImg from "../../../assets/photos/kyoto-apit-auto-miniature-evo9.jpg";
 
 const shopName = "A PIT AUTOBACS KYOTO SHIJO";
@@ -15,25 +16,18 @@ const shopAddress = "1 Saiin Yasuzukacho, Ukyo Ward, Kyoto 615-0051, Japan";
 const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${shopName}, ${shopAddress}`)}`;
 const websiteHref = "https://www.apit-autobacs.com/kyoto/";
 
-const sections = [
-  "Scale models of every size",
-  "T-shirts and clothing",
-  "Goodies",
-  "Magazines",
-  "Cars",
-  "Kits to modify your own car",
-];
+const sections = ["Scale models of every size", "T-shirts and clothing", "Goodies", "Magazines", "Kits to modify your car"];
 ---
 
 <Layout
-  title="A-PIT Auto Kyoto"
-  description="A-PIT Auto in Kyoto: a whole floor dedicated to cars, with scale models, clothing, magazines and tuning kits. Practical info, prices and my review."
+  title="A PIT Autobacs Kyoto Shijo"
+  description="A PIT Autobacs Kyoto Shijo: a bookstore, scale models, clothing and wheels over several floors. Prices, tax-free shopping, practical info and my review."
 >
   <Hero
     image={heroImg}
     eyebrow="Great spot · Kyoto"
-    title="A-PIT Auto Kyoto"
-    subtitle="Several floors, a whole one for car enthusiasts, and the scale model I'd been hunting for since Tokyo."
+    title="A PIT Autobacs Kyoto Shijo"
+    subtitle="Several floors dedicated to cars, and the scale model I'd been hunting for since Tokyo."
   />
 
   <section class="mx-auto max-w-3xl px-5 pt-16 pb-10 sm:px-8">
@@ -47,8 +41,8 @@ const sections = [
 
     <p class="reveal mt-8 font-body text-lg leading-relaxed text-ink-soft">
       While I was in Tokyo, I had never heard of this store. On my last day, before flying back to France, I looked
-      for cool places to visit, and A-PIT Auto is the one that really made me want to go. I'll tell you all about it in
-      this article.
+      for cool places to visit, and A PIT Autobacs is the one that really made me want to go. I'll tell you all about
+      it in this article.
     </p>
 
     <div class="reveal mt-10 rounded-lg border border-mist-200 bg-paper-dim/40 p-5 sm:p-6">
@@ -70,6 +64,11 @@ const sections = [
         <li class="flex items-start gap-2">
           <Icon name="parking" class="mt-0.5 h-4 w-4 shrink-0 text-mist-500" />
           On-site parking: first hour free, 2 hours free with a purchase of ¥1,000 or more
+        </li>
+        <li class="flex items-start gap-2 sm:col-span-2">
+          <Icon name="tag" class="mt-0.5 h-4 w-4 shrink-0 text-mist-500" />
+          Tax-free shopping available: bring your passport. From November 1, 2026, refunds are only given at the
+          airport.
         </li>
       </ul>
       <div class="mt-5 flex flex-wrap gap-x-6 gap-y-2">
@@ -96,29 +95,72 @@ const sections = [
   </section>
 
   <section class="mx-auto max-w-3xl px-5 pb-10 sm:px-8">
-    <h2 class="reveal font-display text-2xl font-semibold text-ink">A whole floor for enthusiasts</h2>
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">A whole building for enthusiasts</h2>
     <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
-      The store spreads over several floors, and one of them is entirely dedicated to cars. Here's what you'll find
-      there:
+      A PIT Autobacs spreads over several levels. Here's how it's laid out:
     </p>
-    <ul class="reveal mt-5 flex flex-wrap gap-2">
-      {sections.map((section) => (
-        <li class="rounded-full border border-mist-200 bg-paper px-3.5 py-1.5 font-body text-sm text-ink">{section}</li>
-      ))}
-    </ul>
+
+    <dl class="reveal mt-6 divide-y divide-mist-200 border-y border-mist-200">
+      <div class="grid gap-1 py-4 sm:grid-cols-[10rem_1fr] sm:gap-6">
+        <dt class="eyebrow pt-0.5 text-mist-500">Upstairs</dt>
+        <dd class="font-body text-sm leading-relaxed text-ink-soft">
+          Wheels and parts for your car. I didn't have time to go up there.
+        </dd>
+      </div>
+      <div class="grid gap-1 py-4 sm:grid-cols-[10rem_1fr] sm:gap-6">
+        <dt class="eyebrow pt-0.5 text-racing-500">At the entrance</dt>
+        <dd class="font-body text-sm leading-relaxed text-ink-soft">
+          <p>
+            A bookstore, then the A PIT area, where I spent over an hour finding what I really liked.
+          </p>
+          <ul class="mt-3 flex flex-wrap gap-2">
+            {sections.map((section) => (
+              <li class="rounded-full border border-mist-200 bg-paper px-3 py-1 text-[13px] text-ink">{section}</li>
+            ))}
+          </ul>
+        </dd>
+      </div>
+      <div class="grid gap-1 py-4 sm:grid-cols-[10rem_1fr] sm:gap-6">
+        <dt class="eyebrow pt-0.5 text-mist-500">Downstairs</dt>
+        <dd class="font-body text-sm leading-relaxed text-ink-soft">
+          Car dealerships, right inside the building.
+        </dd>
+      </div>
+    </dl>
 
     <div class="mt-10 grid gap-6 sm:grid-cols-2">
       <Figure
         image={volantsImg}
-        alt="Wall of NARDI, OMP and Prodrive steering wheels at A-PIT Auto Kyoto"
+        alt="Wall of NARDI, OMP and Prodrive steering wheels at A PIT Autobacs Kyoto Shijo"
         caption="The steering wheel wall: NARDI, OMP, Prodrive…"
         aspectClass="aspect-[4/3]"
       />
       <Figure
         image={miniaturesImg}
-        alt="Shelves of scale models, Fast & Furious collections and car magazines at A-PIT Auto Kyoto"
+        alt="Shelves of scale models, Fast & Furious collections and car magazines at A PIT Autobacs Kyoto Shijo"
         caption="Scale models and magazines, including a Fast & Furious collection."
         aspectClass="aspect-[4/3]"
+      />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-10 sm:px-8">
+    <div class="grid items-center gap-8 sm:grid-cols-[1fr_16rem] sm:gap-10">
+      <div>
+        <h2 class="reveal font-display text-2xl font-semibold text-ink">The scale model corner</h2>
+        <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
+          There's something for every scale and every budget: small 1/64 models, like the Mini GT range with a whole
+          section for Liberty Walk (the brand I tell you about in my <a
+            href={withBase("/en/osaka/liberty-walk/")}
+            class="link-underline font-medium text-racing-500">Liberty Walk Osaka</a> review), up to big 1/18 KK Scale
+          models, like the Ferraris in the display case at ¥19,580, about €110.
+        </p>
+      </div>
+      <Figure
+        image={miniGtImg}
+        alt="Shelf of 1/64 Mini GT scale models with a Liberty Walk label at A PIT Autobacs Kyoto Shijo"
+        caption="1/64 Mini GT models, with the Liberty Walk section."
+        class="mx-auto w-full max-w-64"
       />
     </div>
   </section>
@@ -129,7 +171,8 @@ const sections = [
     <h2 class="reveal font-display text-2xl font-semibold text-ink">My take</h2>
     <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
       All in all, it's a great store. Prices are affordable for clothing, goodies and magazines. Scale models are
-      pricier, but connoisseurs will find some real gems and rare pieces.
+      pricier, but connoisseurs will find some real gems and rare pieces. My only regret: not taking the time to go
+      upstairs and see the wheels. I still don't know why!
     </p>
   </section>
 
@@ -148,15 +191,16 @@ const sections = [
             </p>
             <p>
               It was here, in an aisle entirely dedicated to the brand, that I finally found my gem: the scale model
-              closest to my rental, a Lancer Evolution IX, in the same silver as my Evo VIII.
+              closest to my rental, a 1/64 Lancer Evolution IX from the HJ64 range (Hobby Japan), in the same silver as
+              my Evo VIII. It cost me about €17, if I remember correctly.
             </p>
             <p class="font-medium text-ink">A really nice souvenir before heading back to France.</p>
           </div>
         </div>
         <Figure
           image={evoImg}
-          alt="Scale model of a silver Mitsubishi Lancer Evolution IX on its black display base"
-          caption="My Lancer Evolution IX, brought back from A-PIT Auto."
+          alt="1/64 scale model of a silver Mitsubishi Lancer Evolution IX on its black display base"
+          caption="My HJ64 Lancer Evolution IX, brought back from A PIT Autobacs."
         />
       </div>
 

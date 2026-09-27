@@ -3,15 +3,15 @@ import type { Spot, ParkingTip } from "../types";
 import { withBase } from "../../consts";
 
 export const kyotoIntro =
-  "Kyoto is full of surprises: between the temples and Zen gardens hide some of the most respected enthusiast hangouts in the country. A-PIT Auto is the go-to spot, and Liberty Walk is never far away.";
+  "Kyoto is full of surprises: between the temples and Zen gardens hide some of the most respected enthusiast hangouts in the country. A PIT Autobacs is the go-to spot, and Liberty Walk is never far away.";
 
 export const kyotoSpots: Spot[] = [
   {
-    name: "A-PIT Auto Kyoto",
+    name: "A PIT Autobacs Kyoto Shijo",
     category: "shopping",
     area: "Saiin, west Kyoto",
     description:
-      "A store spread over several floors, one of them entirely dedicated to cars: scale models, clothing, goodies, magazines and kits to modify your car.",
+      "Several floors dedicated to cars: a bookstore, scale models, clothing, goodies, magazines, wheels, and even car dealerships.",
     tip: "Scale models cost more than the rest, but connoisseurs will find some genuinely rare pieces.",
     mapsQuery: "A PIT AUTOBACS KYOTO SHIJO, 1 Saiin Yasuzukacho, Ukyo Ward, Kyoto 615-0051",
     articleHref: withBase("/en/kyoto/a-pit-auto/"),

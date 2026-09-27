@@ -2,15 +2,15 @@ import type { Spot, ParkingTip } from "./types";
 import { withBase } from "../consts";
 
 export const kyotoIntro =
-  "Kyoto surprend : entre les temples et les jardins zen se cachent quelques repaires de passionnés parmi les plus respectés du pays. A-PIT Auto y tient sa place de référence, et Liberty Walk n'est jamais bien loin.";
+  "Kyoto surprend : entre les temples et les jardins zen se cachent quelques repaires de passionnés parmi les plus respectés du pays. A PIT Autobacs y tient sa place de référence, et Liberty Walk n'est jamais bien loin.";
 
 export const kyotoSpots: Spot[] = [
   {
-    name: "A-PIT Auto Kyoto",
+    name: "A PIT Autobacs Kyoto Shijo",
     category: "shopping",
     area: "Saiin, à l'ouest de Kyoto",
     description:
-      "Un magasin sur plusieurs étages, dont un entièrement dédié à l'automobile : miniatures, vêtements, goodies, magazines et kits pour modifier sa voiture.",
+      "Plusieurs étages consacrés à la voiture : une librairie, des miniatures, des vêtements, des goodies, des magazines, des jantes, et même des concessionnaires.",
     tip: "Les miniatures sont plus chères que le reste, mais les connaisseurs y trouveront de vraies pièces rares.",
     mapsQuery: "A PIT AUTOBACS KYOTO SHIJO, 1 Saiin Yasuzukacho, Ukyo Ward, Kyoto 615-0051",
     articleHref: withBase("/kyoto/a-pit-auto/"),
