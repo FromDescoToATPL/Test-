@@ -50,6 +50,8 @@ const ogImageURL = new URL(image ?? defaultOgImage.src, deployOrigin);
     <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
     <meta name="generator" content={Astro.generator} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <!-- Vérification Bing Webmaster Tools (www.jdmtrip.com) -->
+    <meta name="msvalidate.01" content="BBA71FC77E045ABCE23518D5C8921484" />
 
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
