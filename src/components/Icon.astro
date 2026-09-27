@@ -16,7 +16,9 @@ interface Props {
     | "flag"
     | "steering-wheel"
     | "fuel"
-    | "instagram";
+    | "instagram"
+    | "clock"
+    | "train";
   class?: string;
 }
 
@@ -46,6 +48,9 @@ const paths: Record<string, string> = {
   fuel: '<path d="M4 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16"/><path d="M3 21h12"/><path d="M7 7h4v3H7z"/><path d="M14 10h2a2 2 0 0 1 2 2v4.5a1.5 1.5 0 0 0 3 0V8.5L18.5 6"/>',
   instagram:
     '<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  train:
+    '<rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 10h14"/><path d="M8.5 13.5h.01M15.5 13.5h.01"/><path d="m8 21 2-4"/><path d="m16 21-2-4"/>',
 };
 ---
 

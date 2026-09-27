@@ -8,13 +8,14 @@ export const kyotoIntro =
 export const kyotoSpots: Spot[] = [
   {
     name: "A-PIT Auto Kyoto",
-    category: "garage",
-    area: "To be confirmed",
+    category: "shopping",
+    area: "Saiin, west Kyoto",
     description:
-      "The enthusiasts' temple in Kyoto. Parts, tuning, a workshop vibe: a place JDM fans visiting the Kansai region mention every single time.",
-    tip: "Add the address, what you saw or bought there, and your take on the welcome.",
+      "A store spread over several floors, one of them entirely dedicated to cars: scale models, clothing, goodies, magazines and kits to modify your car.",
+    tip: "Scale models cost more than the rest, but connoisseurs will find some genuinely rare pieces.",
+    mapsQuery: "A PIT AUTOBACS KYOTO SHIJO, 1 Saiin Yasuzukacho, Ukyo Ward, Kyoto 615-0051",
     articleHref: withBase("/en/kyoto/a-pit-auto/"),
-    filled: false,
+    filled: true,
   },
   {
     name: "Liberty Walk (Kyoto store)",

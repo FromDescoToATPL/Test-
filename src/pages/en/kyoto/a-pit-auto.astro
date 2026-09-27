@@ -4,24 +4,39 @@ import Hero from "../../../components/Hero.astro";
 import Figure from "../../../components/Figure.astro";
 import Icon from "../../../components/Icon.astro";
 import AdSlot from "../../../components/AdSlot.astro";
-import { AUTHOR_NAME, withBase } from "../../../consts";
+import { withBase } from "../../../consts";
 import heroImg from "../../../assets/photos/kyoto-apit-auto-interieur.jpg";
 import volantsImg from "../../../assets/photos/kyoto-apit-auto-mur-volants.jpg";
 import miniaturesImg from "../../../assets/photos/kyoto-apit-auto-miniatures-livres.jpg";
+import evoImg from "../../../assets/photos/kyoto-apit-auto-miniature-evo9.jpg";
+
+const shopName = "A PIT AUTOBACS KYOTO SHIJO";
+const shopAddress = "1 Saiin Yasuzukacho, Ukyo Ward, Kyoto 615-0051, Japan";
+const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${shopName}, ${shopAddress}`)}`;
+const websiteHref = "https://www.apit-autobacs.com/kyoto/";
+
+const sections = [
+  "Scale models of every size",
+  "T-shirts and clothing",
+  "Goodies",
+  "Magazines",
+  "Cars",
+  "Kits to modify your own car",
+];
 ---
 
 <Layout
   title="A-PIT Auto Kyoto"
-  description="A-PIT Auto Kyoto: parts and tuning, the Liberty Walk universe, scale models and clothing. The must-visit JDM hangout in Kansai."
+  description="A-PIT Auto in Kyoto: a whole floor dedicated to cars, with scale models, clothing, magazines and tuning kits. Practical info, prices and my review."
 >
   <Hero
     image={heroImg}
     eyebrow="Great spot · Kyoto"
     title="A-PIT Auto Kyoto"
-    subtitle="A huge hangar dedicated to Japanese car culture, at the gateway to Kansai: parts, tuning, clothing and scale models, and even a Starbucks on site."
+    subtitle="Several floors, a whole one for car enthusiasts, and the scale model I'd been hunting for since Tokyo."
   />
 
-  <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
+  <section class="mx-auto max-w-3xl px-5 pt-16 pb-10 sm:px-8">
     <a
       href={withBase("/en/kyoto/")}
       class="link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink-soft"
@@ -31,50 +46,131 @@ import miniaturesImg from "../../../assets/photos/kyoto-apit-auto-miniatures-liv
     </a>
 
     <p class="reveal mt-8 font-body text-lg leading-relaxed text-ink-soft">
-      A-PIT Auto is the kind of place JDM fans visiting the Kansai region mention every single time. Under a glass roof
-      strung with fairy lights, the store spreads over several floors dedicated to parts, tuning, clothing and scale
-      models, with a Starbucks in the middle of the aisles for a break.
+      While I was in Tokyo, I had never heard of this store. On my last day, before flying back to France, I looked
+      for cool places to visit, and A-PIT Auto is the one that really made me want to go. I'll tell you all about it in
+      this article.
     </p>
-    <p class="reveal mt-4 rounded-md border border-dashed border-mist-300 bg-paper-dim/40 px-4 py-3 font-body text-sm text-mist-500">
-      This page is still in progress: exact address, opening hours and {AUTHOR_NAME}'s detailed review coming soon.
-    </p>
+
+    <div class="reveal mt-10 rounded-lg border border-mist-200 bg-paper-dim/40 p-5 sm:p-6">
+      <p class="eyebrow text-racing-500">Practical info</p>
+      <p class="mt-2 font-body text-sm font-semibold text-ink">{shopName}</p>
+      <ul class="mt-4 grid gap-3 font-body text-sm text-ink-soft sm:grid-cols-2">
+        <li class="flex items-start gap-2">
+          <Icon name="map-pin" class="mt-0.5 h-4 w-4 shrink-0 text-mist-500" />
+          {shopAddress}
+        </li>
+        <li class="flex items-start gap-2">
+          <Icon name="clock" class="mt-0.5 h-4 w-4 shrink-0 text-mist-500" />
+          10 a.m. to 8 p.m.
+        </li>
+        <li class="flex items-start gap-2">
+          <Icon name="train" class="mt-0.5 h-4 w-4 shrink-0 text-mist-500" />
+          10 min walk from Yamanouchi Station (Randen) or 14 min from Saiin Station (Hankyu)
+        </li>
+        <li class="flex items-start gap-2">
+          <Icon name="parking" class="mt-0.5 h-4 w-4 shrink-0 text-mist-500" />
+          On-site parking: first hour free, 2 hours free with a purchase of ¥1,000 or more
+        </li>
+      </ul>
+      <div class="mt-5 flex flex-wrap gap-x-6 gap-y-2">
+        <a
+          href={mapsHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-underline inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+        >
+          Open in Google Maps
+          <Icon name="external-link" class="h-3.5 w-3.5" />
+        </a>
+        <a
+          href={websiteHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-underline inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+        >
+          Official website (in Japanese)
+          <Icon name="external-link" class="h-3.5 w-3.5" />
+        </a>
+      </div>
+    </div>
   </section>
 
-  <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
-    <h2 class="reveal font-display text-2xl font-semibold text-ink">The tuning section</h2>
+  <section class="mx-auto max-w-3xl px-5 pb-10 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">A whole floor for enthusiasts</h2>
     <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
-      This wall means business: exhausts and suspension from VIITS (the in-house brand developed with HKS) and BLITZ,
-      with a whole tuning program dedicated to the Abarth 595. Body kits, dampers, airflow meters: enough to leave with
-      more than a souvenir if you drive in the area.
+      The store spreads over several floors, and one of them is entirely dedicated to cars. Here's what you'll find
+      there:
     </p>
-    <Figure
-      image={volantsImg}
-      alt="Wall of NARDI, OMP and Prodrive steering wheels at A-PIT Auto Kyoto"
-      caption="The steering wheel wall: NARDI, OMP, Prodrive and a few limited editions."
-      class="reveal mt-6"
-      aspectClass="aspect-[16/9]"
-    />
+    <ul class="reveal mt-5 flex flex-wrap gap-2">
+      {sections.map((section) => (
+        <li class="rounded-full border border-mist-200 bg-paper px-3.5 py-1.5 font-body text-sm text-ink">{section}</li>
+      ))}
+    </ul>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      <Figure
+        image={volantsImg}
+        alt="Wall of NARDI, OMP and Prodrive steering wheels at A-PIT Auto Kyoto"
+        caption="The steering wheel wall: NARDI, OMP, Prodrive…"
+        aspectClass="aspect-[4/3]"
+      />
+      <Figure
+        image={miniaturesImg}
+        alt="Shelves of scale models, Fast & Furious collections and car magazines at A-PIT Auto Kyoto"
+        caption="Scale models and magazines, including a Fast & Furious collection."
+        aspectClass="aspect-[4/3]"
+      />
+    </div>
   </section>
 
   <AdSlot class="py-8" />
 
-  <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8">
-    <h2 class="reveal font-display text-2xl font-semibold text-ink">Scale models, books and goodies</h2>
+  <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink">My take</h2>
     <p class="reveal mt-4 font-body text-sm leading-relaxed text-ink-soft">
-      Upstairs, entire rows of 1/43 scale models and collector books, including a collection dedicated to the cars of
-      the Fast & Furious saga (ワイルドスピード in Japanese). Enough to leave with something better than a fridge
-      magnet, if spare parts aren't your priority of the day.
+      All in all, it's a great store. Prices are affordable for clothing, goodies and magazines. Scale models are
+      pricier, but connoisseurs will find some real gems and rare pieces.
     </p>
-    <Figure
-      image={miniaturesImg}
-      alt="Shelves of scale model cars and collector books at A-PIT Auto Kyoto"
-      caption="Part of the scale model and collector book section."
-      class="reveal mt-6"
-      aspectClass="aspect-[16/9]"
-    />
   </section>
 
-  <section class="border-t border-mist-200 bg-paper-dim/50 py-16">
+  <section class="border-y border-mist-200 bg-paper-dim/50 py-16 sm:py-20">
+    <div class="mx-auto max-w-5xl px-5 sm:px-8">
+      <div class="grid items-center gap-10 md:grid-cols-2 md:gap-14">
+        <div>
+          <p class="reveal eyebrow text-racing-500">A little story</p>
+          <h2 class="reveal mt-3 font-display text-2xl font-semibold text-ink sm:text-3xl">My gem before flying home</h2>
+          <div class="reveal mt-5 space-y-4 font-body text-sm leading-relaxed text-ink-soft">
+            <p>
+              I really wanted to bring home a scale model of the Mitsubishi I had <a
+                href={withBase("/en/tokyo/only-jdm/")}
+                class="link-underline font-medium text-racing-500">rented in Tokyo</a>, but despite searching the
+              different stores, I had never found it.
+            </p>
+            <p>
+              It was here, in an aisle entirely dedicated to the brand, that I finally found my gem: the scale model
+              closest to my rental, a Lancer Evolution IX, in the same silver as my Evo VIII.
+            </p>
+            <p class="font-medium text-ink">A really nice souvenir before heading back to France.</p>
+          </div>
+        </div>
+        <Figure
+          image={evoImg}
+          alt="Scale model of a silver Mitsubishi Lancer Evolution IX on its black display base"
+          caption="My Lancer Evolution IX, brought back from A-PIT Auto."
+        />
+      </div>
+
+      <div class="reveal mt-12 rounded-lg border border-mist-200 bg-paper p-5">
+        <p class="eyebrow text-racing-500">Good to know</p>
+        <p class="mt-1.5 font-body text-sm leading-relaxed text-ink-soft">
+          You can even buy miniature garages to display your cars, but they cost a fair bit, and they take up room in
+          your suitcase!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
     <div class="mx-auto max-w-3xl px-5 text-center sm:px-8">
       <a
         href={withBase("/en/kyoto/")}
