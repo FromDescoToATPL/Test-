@@ -78,7 +78,7 @@ const fr = {
     { label: "Kyoto", href: withBase("/kyoto/") },
   ] as NavLink[],
   mainNavLinks: [
-    { label: "Louer une voiture", href: withBase("/louer-une-voiture/") },
+    { label: "Louer une JDM", href: withBase("/louer-une-voiture/") },
     { label: "Conduire au Japon", href: withBase("/conduire-au-japon/") },
     { label: "À propos", href: withBase("/a-propos/") },
   ] as NavLink[],
@@ -140,7 +140,7 @@ const en: typeof fr = {
     { label: "Kyoto", href: withBase("/en/kyoto/") },
   ],
   mainNavLinks: [
-    { label: "Rent a car", href: withBase("/en/rent-a-car/") },
+    { label: "Rent a JDM", href: withBase("/en/rent-a-car/") },
     { label: "Driving in Japan", href: withBase("/en/driving-in-japan/") },
     { label: "About", href: withBase("/en/about/") },
   ],

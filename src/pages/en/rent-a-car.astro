@@ -2,55 +2,120 @@
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/Hero.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
-import SpotCard from "../../components/SpotCard.astro";
+import PageToc from "../../components/PageToc.astro";
+import AgencyFiche from "../../components/AgencyFiche.astro";
+import GtrBand from "../../components/GtrBand.astro";
+import DiscoverList from "../../components/DiscoverList.astro";
 import AdSlot from "../../components/AdSlot.astro";
 import heroImg from "../../assets/photos/tokyo-evo9-face-onlyjdm.jpg";
-import { rentIntro, rentSpots, rentAdvice } from "../../data/en/rent-a-car";
+import evoImg from "../../assets/photos/tokyo-evo9-arriere-onlyjdm.jpg";
+import corvetteImg from "../../assets/photos/fuji-corvette-face-brouillard.jpg";
+import { rentIntro, rentCriteria, rentCities, rentGtr, majorChains, rentAdvice } from "../../data/en/rent-a-car";
+
+const photos = {
+  onlyjdm: { image: evoImg, alt: "Rear of the grey Lancer Evolution VIII rented from OnlyJDM, with its big rear wing" },
+  mfj: { image: corvetteImg, alt: "White Corvette C7 Stingray rented from MFJ Rental Cars, in the fog near Mount Fuji" },
+};
+
+const ficheLabels = {
+  myRental: "My rental",
+  verdict: "My verdict",
+  readReview: "Read my full review",
+  website: "Agency website",
+  missing: "to be confirmed",
+  openQuote: "“",
+  closeQuote: "”",
+};
 ---
 
 <Layout
-  title="Renting a car in Japan"
-  description="Big chains, specialist agencies, insurance, International Driving Permit: everything you need to know before renting a car in Japan."
+  title="Rent a JDM in Japan: tested agencies, prices and tips"
+  description="OnlyJDM in Tokyo, MFJ at the foot of Mount Fuji: my rentals in detail (price paid, deposit, excess), other JDM agencies on my list city by city, and the fake GT-R trap."
 >
   <Hero
     image={heroImg}
     eyebrow="Practical guide"
-    title="Renting a car in Japan"
-    subtitle="From the train station to the enthusiast's garage: how to get behind the wheel without any bad surprises."
+    title="Rent a JDM in Japan"
+    subtitle="My tested rentals, the agencies on my list city by city and everything to check before you take the keys."
   />
 
   <section class="mx-auto max-w-3xl px-5 py-10 sm:py-14 sm:px-8">
     <p class="reveal whitespace-pre-line font-body text-lg leading-relaxed text-ink-soft">{rentIntro}</p>
+    <p class="reveal mt-4 font-body text-xs text-mist-500">Not sponsored: I paid for my rentals myself.</p>
+    <PageToc
+      items={[
+        ...rentCities.map((c) => ({ label: c.name, href: `#${c.id}` })),
+        { label: "Real GT-R?", href: "#gt-r" },
+        { label: "Major chains", href: "#major-chains" },
+        { label: "Tips", href: "#tips" },
+      ]}
+    />
   </section>
 
-  <section class="border-t border-mist-200 bg-paper-dim/50 py-12 sm:py-16">
-    <div class="mx-auto max-w-8xl px-5 sm:px-8">
-      <SectionHeading eyebrow="Where to go" title="Where to rent" />
-      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {rentSpots.map((spot) => <SpotCard spot={spot} />)}
+  <section id="where-to-rent" class="scroll-mt-20 border-t border-mist-200 bg-paper-dim/50 py-12 sm:py-16">
+    <div class="mx-auto max-w-6xl px-5 sm:px-8">
+      <SectionHeading
+        eyebrow="City by city"
+        title="Where to rent a JDM"
+        description="First my own rentals, with their prices (for reference only: they change with the season and promotions). Then the agencies on my list for next time: I haven't tried them yet, so check their conditions (age, license, insurance) before booking."
+      />
+
+      <div class="mt-12 space-y-16 sm:space-y-20">
+        {rentCities.map((city) => (
+          <div id={city.id} class="scroll-mt-20">
+            <h3 class="reveal border-b border-ink/80 pb-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
+              {city.name}
+            </h3>
+            {city.testees.length > 0 && (
+              <div class="mt-8 space-y-8">
+                {city.testees.map((agency) => (
+                  <AgencyFiche agency={agency} criteria={rentCriteria} photo={photos[agency.slug]} labels={ficheLabels} />
+                ))}
+              </div>
+            )}
+            {city.reperees.length > 0 && (
+              <div class:list={[city.testees.length > 0 ? "mt-10" : "mt-6"]}>
+                <p class="reveal eyebrow text-mist-500">On my list for next time</p>
+                <div class="mt-5">
+                  <DiscoverList items={city.reperees} gridClass="sm:grid-cols-2" headingLevel="h4" />
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
+  <GtrBand id="gt-r" content={rentGtr} />
+
+  <section id="major-chains" class="scroll-mt-20 mx-auto max-w-3xl px-5 py-12 sm:py-16 sm:px-8">
+    <SectionHeading eyebrow="For a regular car" title="The major chains" />
+    <p class="reveal mt-6 font-body text-base leading-relaxed text-ink-soft">{majorChains.description}</p>
+    <p class="reveal mt-3 font-body text-sm leading-relaxed text-mist-500">{majorChains.tip}</p>
+  </section>
+
   <AdSlot class="py-8 sm:py-12" />
 
-  <section class="mx-auto max-w-3xl px-5 py-12 sm:py-16 sm:px-8">
-    <SectionHeading eyebrow="Good to know" title="Before you take the keys" />
-    <div class="mt-10 space-y-10">
-      {rentAdvice.map((c) => (
-        <div class="reveal border-l-2 border-racing-500 pl-6">
-          <h3 class="font-display text-xl font-semibold text-ink">{c.title}</h3>
-          <p class="mt-2 font-body text-sm leading-relaxed text-ink-soft">
-            {c.text}
-            {c.link && (
-              <>
-                {" "}
-                <a href={c.link.href} class="link-underline font-medium text-racing-500">{c.link.label}</a>.
-              </>
-            )}
-          </p>
-        </div>
-      ))}
+  <section id="tips" class="scroll-mt-20 border-t border-mist-200 bg-paper-dim/50 py-12 sm:py-16">
+    <div class="mx-auto max-w-3xl px-5 sm:px-8">
+      <SectionHeading eyebrow="Good to know" title="Before you take the keys" />
+      <div class="mt-10 space-y-10">
+        {rentAdvice.map((c) => (
+          <div class="reveal border-l-2 border-racing-500 pl-6">
+            <h3 class="font-display text-xl font-semibold text-ink">{c.title}</h3>
+            <p class="mt-2 font-body text-sm leading-relaxed text-ink-soft">
+              {c.text}
+              {c.link && (
+                <>
+                  {" "}
+                  <a href={c.link.href} class="link-underline font-medium text-racing-500">{c.link.label}</a>.
+                </>
+              )}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 </Layout>

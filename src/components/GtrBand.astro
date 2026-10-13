@@ -1,0 +1,55 @@
+---
+// Bandeau sombre « Vraie GT-R ou look GT-R ? » de la page location (textes dans les fichiers de données FR/EN).
+interface Props {
+  id?: string;
+  content: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    colonnes: { gtr: string; look: string };
+    lignes: { label: string; gtr: string; look: string }[];
+    astuceTitre: string;
+    astuce: string;
+  };
+}
+const { id, content } = Astro.props;
+---
+
+<section id={id} class="scroll-mt-20 bg-asphalt py-12 sm:py-16">
+  <div class="mx-auto grid max-w-6xl gap-10 px-5 sm:px-8 lg:grid-cols-[5fr_6fr] lg:items-center lg:gap-16">
+    <div class="reveal">
+      <p class="eyebrow text-gold-400">{content.eyebrow}</p>
+      <h2 class="mt-2 text-balance font-display text-3xl font-semibold text-paper sm:text-4xl">{content.title}</h2>
+      <p class="mt-4 max-w-prose font-body text-base leading-relaxed text-mist-300">{content.intro}</p>
+    </div>
+
+    <div class="reveal">
+      <table class="w-full table-fixed border-collapse text-left font-body text-sm">
+        <caption class="sr-only">{content.title}</caption>
+        <thead>
+          <tr>
+            <td class="w-[30%]"></td>
+            <th scope="col" class="pb-3 font-display text-lg font-semibold text-paper sm:text-xl">{content.colonnes.gtr}</th>
+            <th scope="col" class="pb-3 font-display text-lg font-semibold text-mist-300 sm:text-xl">{content.colonnes.look}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {content.lignes.map((l) => (
+            <tr class="border-t border-paper/15">
+              <th scope="row" class="py-3 pr-3 align-top font-meta text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-mist-400 sm:text-xs">
+                {l.label}
+              </th>
+              <td class="py-3 pr-3 align-top font-medium text-paper">{l.gtr}</td>
+              <td class="py-3 align-top text-mist-300">{l.look}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <div class="mt-6 rounded-lg bg-asphalt-soft p-5 ring-1 ring-paper/10">
+        <p class="font-meta text-xs font-medium uppercase tracking-[0.12em] text-gold-400">{content.astuceTitre}</p>
+        <p class="mt-1.5 font-body text-sm leading-relaxed text-mist-300">{content.astuce}</p>
+      </div>
+    </div>
+  </div>
+</section>

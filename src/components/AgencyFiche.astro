@@ -1,0 +1,90 @@
+---
+// Fiche d'une agence testée par Clément : photo, infos clés, verdict et liens.
+// Données dans src/data/louer-une-voiture.ts (et sa version anglaise).
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import Icon from "./Icon.astro";
+import type { AgenceTestee, CritereLocation } from "../data/louer-une-voiture";
+
+interface Props {
+  agency: AgenceTestee;
+  criteria: { key: CritereLocation; label: string; emphasis?: boolean }[];
+  photo: { image: ImageMetadata; alt: string };
+  labels: {
+    myRental: string;
+    verdict: string;
+    readReview: string;
+    website: string;
+    missing: string;
+    openQuote: string;
+    closeQuote: string;
+  };
+}
+const { agency, criteria, photo, labels } = Astro.props;
+---
+
+<article class="reveal grid overflow-hidden rounded-lg border border-mist-200 bg-paper shadow-sm lg:grid-cols-[2fr_3fr]">
+  <div class="aspect-[16/10] bg-asphalt lg:aspect-auto">
+    <Image
+      src={photo.image}
+      alt={photo.alt}
+      widths={[400, 800, 1100]}
+      sizes="(min-width: 1024px) 40vw, 100vw"
+      class="h-full w-full object-cover"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="p-5 sm:p-8">
+    <p class="eyebrow text-racing-500">{labels.myRental}</p>
+    <h4 class="mt-2 font-display text-2xl font-semibold text-ink sm:text-3xl">{agency.name}</h4>
+    <p class="mt-1 flex items-center gap-1.5 font-body text-sm text-mist-500">
+      <Icon name="map-pin" class="h-3.5 w-3.5 shrink-0" />
+      {agency.area}
+    </p>
+
+    <dl class="mt-5 grid border-t border-mist-200 font-body text-sm leading-relaxed sm:grid-cols-2 sm:gap-x-8">
+      {criteria.map((c) => (
+        <div class="grid grid-cols-[6.5rem_1fr] gap-4 border-b border-mist-200 py-3 sm:block">
+          <dt class="pt-0.5 font-meta text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-mist-500">
+            {c.label}
+          </dt>
+          <dd
+            class:list={[
+              "sm:mt-1",
+              c.emphasis ? "text-base font-semibold tabular-nums text-ink" : "text-ink-soft",
+            ]}
+          >
+            {agency.values[c.key] ?? <span class="font-normal italic text-mist-400">{labels.missing}</span>}
+            {agency.notes?.[c.key] && (
+              <span class="mt-0.5 block text-xs font-normal leading-relaxed text-mist-500">{agency.notes[c.key]}</span>
+            )}
+          </dd>
+        </div>
+      ))}
+    </dl>
+
+    <p class="mt-6 font-meta text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-racing-500">{labels.verdict}</p>
+    <p class="mt-1.5 max-w-prose font-display text-lg italic leading-snug text-ink">
+      {labels.openQuote}{agency.verdict}{labels.closeQuote}
+    </p>
+    <div class="mt-2 flex flex-wrap gap-x-6">
+      <a
+        href={agency.articleHref}
+        class="link-underline inline-flex min-h-11 items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+      >
+        {labels.readReview}
+        <Icon name="arrow-right" class="h-3.5 w-3.5" />
+      </a>
+      <a
+        href={agency.website}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link-underline inline-flex min-h-11 items-center gap-1.5 font-body text-sm font-medium text-ink-soft"
+      >
+        {labels.website}
+        <Icon name="external-link" class="h-3.5 w-3.5" />
+      </a>
+    </div>
+  </div>
+</article>

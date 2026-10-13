@@ -2,55 +2,127 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import SectionHeading from "../components/SectionHeading.astro";
-import SpotCard from "../components/SpotCard.astro";
+import PageToc from "../components/PageToc.astro";
+import AgencyFiche from "../components/AgencyFiche.astro";
+import GtrBand from "../components/GtrBand.astro";
+import DiscoverList from "../components/DiscoverList.astro";
 import AdSlot from "../components/AdSlot.astro";
 import heroImg from "../assets/photos/tokyo-evo9-face-onlyjdm.jpg";
-import { louerIntro, louerSpots, louerConseils } from "../data/louer-une-voiture";
+import evoImg from "../assets/photos/tokyo-evo9-arriere-onlyjdm.jpg";
+import corvetteImg from "../assets/photos/fuji-corvette-face-brouillard.jpg";
+import {
+  louerIntro,
+  criteresLocation,
+  villesLocation,
+  louerGtr,
+  grandesEnseignes,
+  louerConseils,
+} from "../data/louer-une-voiture";
+
+const photos = {
+  onlyjdm: { image: evoImg, alt: "Arrière de la Lancer Evolution VIII grise louée chez OnlyJDM, avec son grand aileron" },
+  mfj: { image: corvetteImg, alt: "Corvette C7 Stingray blanche louée chez MFJ Rental Cars, dans le brouillard près du mont Fuji" },
+};
+
+const ficheLabels = {
+  myRental: "Ma location",
+  verdict: "Mon verdict",
+  readReview: "Lire mon avis complet",
+  website: "Site de l'agence",
+  missing: "à confirmer",
+  openQuote: "« ",
+  closeQuote: " »",
+};
 ---
 
 <Layout
-  title="Louer une voiture au Japon"
-  description="Grandes enseignes, agences spécialisées, assurance, traduction officielle du permis : tout ce qu'il faut savoir avant de louer une voiture au Japon."
+  title="Louer une JDM au Japon : agences testées, prix et conseils"
+  description="OnlyJDM à Tokyo, MFJ au pied du Fuji : mes locations en détail (prix payé, caution, franchise), les autres agences JDM repérées ville par ville et le piège de la fausse GT-R."
 >
   <Hero
     image={heroImg}
     eyebrow="Guide pratique"
-    title="Louer une voiture au Japon"
-    subtitle="De la gare au garage de passionnés : comment prendre le volant sans mauvaise surprise."
+    title="Louer une JDM au Japon"
+    subtitle="Mes locations testées, les agences repérées ville par ville et tout ce qu'il faut vérifier avant de prendre les clés."
   />
 
   <section class="mx-auto max-w-3xl px-5 py-10 sm:py-14 sm:px-8">
     <p class="reveal whitespace-pre-line font-body text-lg leading-relaxed text-ink-soft">{louerIntro}</p>
+    <p class="reveal mt-4 font-body text-xs text-mist-500">Article non sponsorisé, locations payées de ma poche.</p>
+    <PageToc
+      items={[
+        ...villesLocation.map((v) => ({ label: v.name, href: `#${v.id}` })),
+        { label: "Vraie GT-R ?", href: "#gt-r" },
+        { label: "Grandes enseignes", href: "#grandes-enseignes" },
+        { label: "Conseils", href: "#conseils" },
+      ]}
+    />
   </section>
 
-  <section class="border-t border-mist-200 bg-paper-dim/50 py-12 sm:py-16">
-    <div class="mx-auto max-w-8xl px-5 sm:px-8">
-      <SectionHeading eyebrow="Bonnes adresses" title="Où louer" />
-      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {louerSpots.map((spot) => <SpotCard spot={spot} />)}
+  <section id="ou-louer" class="scroll-mt-20 border-t border-mist-200 bg-paper-dim/50 py-12 sm:py-16">
+    <div class="mx-auto max-w-6xl px-5 sm:px-8">
+      <SectionHeading
+        eyebrow="Ville par ville"
+        title="Où louer une JDM"
+        description="D'abord mes locations, avec leurs prix (à titre indicatif : ils bougent selon la saison et les promos). Puis les agences repérées pour mon prochain voyage : je ne les ai pas encore testées, vérifiez leurs conditions (âge, permis, assurance) avant de réserver."
+      />
+
+      <div class="mt-12 space-y-16 sm:space-y-20">
+        {villesLocation.map((ville) => (
+          <div id={ville.id} class="scroll-mt-20">
+            <h3 class="reveal border-b border-ink/80 pb-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
+              {ville.name}
+            </h3>
+            {ville.testees.length > 0 && (
+              <div class="mt-8 space-y-8">
+                {ville.testees.map((agence) => (
+                  <AgencyFiche agency={agence} criteria={criteresLocation} photo={photos[agence.slug]} labels={ficheLabels} />
+                ))}
+              </div>
+            )}
+            {ville.reperees.length > 0 && (
+              <div class:list={[ville.testees.length > 0 ? "mt-10" : "mt-6"]}>
+                <p class="reveal eyebrow text-mist-500">Repérées pour mon prochain voyage</p>
+                <div class="mt-5">
+                  <DiscoverList items={ville.reperees} gridClass="sm:grid-cols-2" headingLevel="h4" />
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
+  <GtrBand id="gt-r" content={louerGtr} />
+
+  <section id="grandes-enseignes" class="scroll-mt-20 mx-auto max-w-3xl px-5 py-12 sm:py-16 sm:px-8">
+    <SectionHeading eyebrow="Pour une voiture classique" title="Les grandes enseignes" />
+    <p class="reveal mt-6 font-body text-base leading-relaxed text-ink-soft">{grandesEnseignes.description}</p>
+    <p class="reveal mt-3 font-body text-sm leading-relaxed text-mist-500">{grandesEnseignes.tip}</p>
+  </section>
+
   <AdSlot class="py-8 sm:py-12" />
 
-  <section class="mx-auto max-w-3xl px-5 py-12 sm:py-16 sm:px-8">
-    <SectionHeading eyebrow="Ce qu'il faut savoir" title="Avant de prendre les clés" />
-    <div class="mt-10 space-y-10">
-      {louerConseils.map((c) => (
-        <div class="reveal border-l-2 border-racing-500 pl-6">
-          <h3 class="font-display text-xl font-semibold text-ink">{c.titre}</h3>
-          <p class="mt-2 font-body text-sm leading-relaxed text-ink-soft">
-            {c.texte}
-            {c.link && (
-              <>
-                {" "}
-                <a href={c.link.href} class="link-underline font-medium text-racing-500">{c.link.label}</a>.
-              </>
-            )}
-          </p>
-        </div>
-      ))}
+  <section id="conseils" class="scroll-mt-20 border-t border-mist-200 bg-paper-dim/50 py-12 sm:py-16">
+    <div class="mx-auto max-w-3xl px-5 sm:px-8">
+      <SectionHeading eyebrow="Ce qu'il faut savoir" title="Avant de prendre les clés" />
+      <div class="mt-10 space-y-10">
+        {louerConseils.map((c) => (
+          <div class="reveal border-l-2 border-racing-500 pl-6">
+            <h3 class="font-display text-xl font-semibold text-ink">{c.titre}</h3>
+            <p class="mt-2 font-body text-sm leading-relaxed text-ink-soft">
+              {c.texte}
+              {c.link && (
+                <>
+                  {" "}
+                  <a href={c.link.href} class="link-underline font-medium text-racing-500">{c.link.label}</a>.
+                </>
+              )}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 </Layout>

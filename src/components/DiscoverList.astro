@@ -10,8 +10,11 @@ interface Props {
   items: Spot[];
   /** Colonnes de la grille (par défaut 2 puis 3) ; "" pour une seule colonne, ex. à côté d'une autre liste. */
   gridClass?: string;
+  /** Niveau du titre de chaque adresse : h4 quand la liste est rangée sous un titre de ville (h3). */
+  headingLevel?: "h3" | "h4";
 }
-const { items, gridClass = "sm:grid-cols-2 lg:grid-cols-3" } = Astro.props;
+const { items, gridClass = "sm:grid-cols-2 lg:grid-cols-3", headingLevel = "h3" } = Astro.props;
+const Heading = headingLevel;
 const t = useUi(Astro.url).spot;
 
 const mapsHref = (query: string) =>
@@ -25,7 +28,7 @@ const mapsHref = (query: string) =>
         <Icon name={categoryIcon[item.category]} class="h-3.5 w-3.5" />
         {t.categories[item.category]}
       </p>
-      <h3 class="mt-2 font-display text-lg font-semibold text-ink">{item.name}</h3>
+      <Heading class="mt-2 font-display text-lg font-semibold text-ink">{item.name}</Heading>
       {item.area && (
         <p class="mt-1 flex items-center gap-1.5 font-body text-sm text-mist-500">
           <Icon name="map-pin" class="h-3.5 w-3.5 shrink-0" />
