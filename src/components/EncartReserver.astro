@@ -1,0 +1,71 @@
+---
+// Encart « Réserver » : une carte par offre (1 à 3 maximum), à placer juste après le passage qui la recommande.
+// Les offres viennent de src/data/offres.ts. Un vrai lien affilié porte rel="sponsored" ; un lien public
+// (offre encore en A_REMPLIR) reste un lien normal.
+import Icon from "./Icon.astro";
+import { getOffre, estAffilie, lienOffre, type Plateforme } from "../data/offres";
+import { getLang } from "../i18n";
+
+interface Props {
+  ids: string[];
+  class?: string;
+}
+const { ids, class: className = "" } = Astro.props;
+const lang = getLang(Astro.url);
+const items = ids.map(getOffre);
+
+const t = {
+  fr: {
+    eyebrow: "Réserver",
+    from: "À partir de",
+    checked: "vérifié le",
+    cta: { getyourguide: "Voir les disponibilités sur GetYourGuide", klook: "Voir les disponibilités sur Klook", direct: "Voir sur le site de l'agence" },
+  },
+  en: {
+    eyebrow: "Book",
+    from: "From",
+    checked: "checked on",
+    cta: { getyourguide: "Check availability on GetYourGuide", klook: "Check availability on Klook", direct: "See the agency's website" },
+  },
+}[lang] satisfies { cta: Record<Plateforme, string> } & Record<string, unknown>;
+
+const formatDate = (iso: string) =>
+  new Date(`${iso}T00:00:00Z`).toLocaleDateString(lang === "fr" ? "fr-FR" : "en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+---
+
+<aside class:list={["reveal", className]} aria-label={t.eyebrow}>
+  <p class="eyebrow flex items-center gap-2 text-racing-500">
+    <Icon name="tag" class="h-3.5 w-3.5" />
+    {t.eyebrow}
+  </p>
+  <div class:list={["mt-3 grid gap-4", items.length > 1 && "sm:grid-cols-2", items.length > 2 && "lg:grid-cols-3"]}>
+    {items.map((offre) => (
+      <article class="flex flex-col rounded-lg border border-mist-200 bg-paper p-5 shadow-sm sm:p-6">
+        <h3 class="font-display text-lg font-semibold text-ink">{offre.titre[lang]}</h3>
+        <p class="mt-1.5 font-body text-sm leading-relaxed text-ink-soft">{offre.description[lang]}</p>
+        {offre.prixIndicatif && (
+          <p class="mt-3 font-body text-sm text-ink">
+            {t.from} <strong class="font-semibold tabular-nums">{offre.prixIndicatif[lang]}</strong>
+            {offre.dateVerif && <span class="text-xs text-mist-500"> · {t.checked} {formatDate(offre.dateVerif)}</span>}
+          </p>
+        )}
+        <div class="mt-auto pt-5">
+          <a
+            href={lienOffre(offre)}
+            target="_blank"
+            rel={estAffilie(offre) ? "sponsored noopener" : "noopener noreferrer"}
+            class="inline-flex min-h-11 items-center gap-2 rounded-md bg-ink px-4 py-2.5 font-body text-sm font-medium text-paper transition-colors hover:bg-racing-600"
+          >
+            {t.cta[offre.plateforme]}
+            <Icon name="external-link" class="h-3.5 w-3.5 shrink-0" />
+          </a>
+        </div>
+      </article>
+    ))}
+  </div>
+</aside>

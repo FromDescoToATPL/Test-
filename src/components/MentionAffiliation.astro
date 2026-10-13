@@ -1,0 +1,35 @@
+---
+// Mention de transparence, en haut de toute page qui contient au moins un vrai lien affilié.
+// On lui passe les mêmes ids que les encarts de la page : elle ne s'affiche que si l'un d'eux est affilié,
+// donc rien n'apparaît tant que les offres sont en A_REMPLIR.
+import { getOffre, estAffilie } from "../data/offres";
+import { getLang } from "../i18n";
+import { withBase } from "../consts";
+
+interface Props {
+  ids: string[];
+  class?: string;
+}
+const { ids, class: className = "" } = Astro.props;
+const lang = getLang(Astro.url);
+const visible = ids.some((id) => estAffilie(getOffre(id)));
+
+const t = {
+  fr: {
+    text: "Cet article contient des liens affiliés : si vous réservez par leur biais, je touche une petite commission, sans surcoût pour vous. Ça aide à faire vivre le site.",
+    link: "En savoir plus",
+    href: withBase("/liens-affilies/"),
+  },
+  en: {
+    text: "This article contains affiliate links: if you book through them, I earn a small commission at no extra cost to you. It helps keep the site going.",
+    link: "Learn more",
+    href: withBase("/en/affiliate-links/"),
+  },
+}[lang];
+---
+
+{visible && (
+  <p class:list={["rounded-md bg-paper-dim px-4 py-3 font-body text-xs leading-relaxed text-ink-soft", className]}>
+    {t.text} <a href={t.href} class="link-underline font-medium text-ink">{t.link}</a>
+  </p>
+)}
