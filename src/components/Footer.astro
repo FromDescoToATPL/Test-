@@ -1,6 +1,7 @@
 ---
 import { SITE_NAME } from "../consts";
 import { useUi } from "../i18n";
+import { affiliationActive } from "../data/offres";
 
 const t = useUi(Astro.url);
 const year = new Date().getFullYear();
@@ -48,6 +49,7 @@ const year = new Date().getFullYear();
       <div class="flex gap-5 font-body text-xs text-mist-400">
         <a href={t.legalLink.href} class="tap-target hover:text-paper">{t.legalLink.label}</a>
         <a href={t.privacyLink.href} class="tap-target hover:text-paper">{t.privacyLink.label}</a>
+        {affiliationActive && <a href={t.affiliateLink.href} class="tap-target hover:text-paper">{t.affiliateLink.label}</a>}
       </div>
     </div>
   </div>

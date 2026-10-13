@@ -1,6 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { CONTACT_EMAIL, HOST, SITE_NAME } from "../consts";
+import { CONTACT_EMAIL, HOST, SITE_NAME, withBase } from "../consts";
+import { affiliationActive, plateformesActives } from "../data/offres";
+
+// Garde-fou : des liens affiliés en ligne font du site une activité commerciale. L'éditeur ne peut alors plus
+// rester anonyme « à titre non professionnel » : nom, statut (micro-entreprise) et adresse à ajouter ci-dessous.
+if (affiliationActive) {
+  console.warn("[JDM Trip] Liens affiliés actifs : mettre à jour la section « Éditeur du site » des mentions légales (FR + EN).");
+}
+const programmes = plateformesActives.length > 0 ? ` (${plateformesActives.join(", ")})` : "";
 ---
 
 <Layout title="Mentions légales" description="Mentions légales du site JDM Trip.">
@@ -40,10 +48,18 @@ import { CONTACT_EMAIL, HOST, SITE_NAME } from "../consts";
 
       <div>
         <h2 class="font-display text-xl font-semibold text-ink">Publicité &amp; liens affiliés</h2>
-        <p class="mt-2">
-          {SITE_NAME} ne contient aujourd'hui ni publicité ni lien affilié. Si c'est le cas à l'avenir, cette page sera
-          mise à jour, et ces partenariats n'influenceront pas l'objectivité des avis exprimés sur le site.
-        </p>
+        {affiliationActive ? (
+          <p class="mt-2">
+            {SITE_NAME} ne contient pas de publicité, mais certains liens de réservation sont des liens affiliés{programmes} :
+            si vous réservez par leur biais, l'éditeur touche une commission, sans surcoût pour vous. Ces partenariats
+            n'influencent pas les avis exprimés sur le site. Plus de détails sur la page <a href={withBase("/liens-affilies/")} class="link-underline text-ink">Liens affiliés</a>.
+          </p>
+        ) : (
+          <p class="mt-2">
+            {SITE_NAME} ne contient aujourd'hui ni publicité ni lien affilié. Si c'est le cas à l'avenir, cette page sera
+            mise à jour, et ces partenariats n'influenceront pas l'objectivité des avis exprimés sur le site.
+          </p>
+        )}
       </div>
 
       <div>

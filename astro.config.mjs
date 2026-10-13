@@ -18,7 +18,8 @@ const isGithubPagesBuild = process.env.GITHUB_ACTIONS === 'true';
 export default defineConfig({
   site: SITE_URL,
   base: isGithubPagesBuild ? '/Test-/' : '/',
-  integrations: [sitemap()],
+  // La page « Liens affiliés » n'a pas besoin d'être dans le plan du site.
+  integrations: [sitemap({ filter: (page) => !/\/(liens-affilies|affiliate-links)\/$/.test(page) })],
   vite: {
     plugins: [tailwindcss()]
   }

@@ -25,6 +25,7 @@ const PAGE_PAIRS: Record<Lang, string>[] = [
   { fr: "/a-propos/", en: "/en/about/" },
   { fr: "/mentions-legales/", en: "/en/legal-notice/" },
   { fr: "/confidentialite/", en: "/en/privacy/" },
+  { fr: "/liens-affilies/", en: "/en/affiliate-links/" },
 ];
 
 /** Chemin de la page sans le base (GitHub Pages sert le site sous /Test-/), toujours avec un slash final. */
@@ -85,6 +86,7 @@ const fr = {
   rights: "Tous droits réservés.",
   legalLink: { label: "Mentions légales", href: withBase("/mentions-legales/") },
   privacyLink: { label: "Confidentialité & cookies", href: withBase("/confidentialite/") },
+  affiliateLink: { label: "Liens affiliés", href: withBase("/liens-affilies/") },
   cookie: {
     label: "Consentement aux cookies",
     text: "Ce site utilise des cookies pour mesurer l'audience et, à terme, afficher des publicités pertinentes. Vous pouvez accepter ou refuser, votre choix est modifiable à tout moment.",
@@ -147,6 +149,7 @@ const en: typeof fr = {
   rights: "All rights reserved.",
   legalLink: { label: "Legal notice", href: withBase("/en/legal-notice/") },
   privacyLink: { label: "Privacy & cookies", href: withBase("/en/privacy/") },
+  affiliateLink: { label: "Affiliate links", href: withBase("/en/affiliate-links/") },
   cookie: {
     label: "Cookie consent",
     text: "This site uses cookies to measure traffic and, later on, to show relevant ads. You can accept or decline, and change your mind at any time.",

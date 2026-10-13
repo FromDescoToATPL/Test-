@@ -1,6 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { CONTACT_EMAIL, HOST, SITE_NAME, withBase } from "../../consts";
+import { affiliationActive, plateformesActives } from "../../data/offres";
+
+const programs = plateformesActives.length > 0 ? ` (${plateformesActives.join(", ")})` : "";
 ---
 
 <Layout title="Legal notice" description="Legal notice for the JDM Trip website.">
@@ -43,10 +46,18 @@ import { CONTACT_EMAIL, HOST, SITE_NAME, withBase } from "../../consts";
 
       <div>
         <h2 class="font-display text-xl font-semibold text-ink">Advertising &amp; affiliate links</h2>
-        <p class="mt-2">
-          {SITE_NAME} currently has no advertising and no affiliate links. If that changes, this page will be updated,
-          and those partnerships won't influence the objectivity of the reviews on the site.
-        </p>
+        {affiliationActive ? (
+          <p class="mt-2">
+            {SITE_NAME} has no advertising, but some booking links are affiliate links{programs}: if you book through
+            them, the publisher earns a commission at no extra cost to you. These partnerships don't influence the
+            reviews on the site. More details on the <a href={withBase("/en/affiliate-links/")} class="link-underline text-ink">Affiliate links</a> page.
+          </p>
+        ) : (
+          <p class="mt-2">
+            {SITE_NAME} currently has no advertising and no affiliate links. If that changes, this page will be updated,
+            and those partnerships won't influence the objectivity of the reviews on the site.
+          </p>
+        )}
       </div>
 
       <div>

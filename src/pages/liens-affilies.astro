@@ -1,0 +1,79 @@
+---
+// Page de transparence sur l'affiliation. Reliée au pied de page et à la mention en haut des articles
+// seulement quand au moins un vrai lien affilié existe (voir src/data/offres.ts) ; le texte s'adapte tout seul.
+import Layout from "../layouts/Layout.astro";
+import { CONTACT_EMAIL, SITE_NAME, withBase } from "../consts";
+import { affiliationActive, plateformesActives, accordDirectActif } from "../data/offres";
+
+const sources = [
+  ...plateformesActives,
+  ...(accordDirectActif ? ["des accords directs avec certaines agences"] : []),
+];
+const programmes = sources.length > 1 ? `${sources.slice(0, -1).join(", ")} et ${sources.at(-1)}` : sources[0];
+---
+
+<Layout
+  title="Liens affiliés"
+  description="Comment fonctionnent les liens affiliés sur JDM Trip, et ce qu'ils changent (ou pas) pour vous."
+>
+  <section class="mx-auto max-w-2xl px-5 py-12 sm:py-16 sm:px-8">
+    <h1 class="font-display text-3xl font-semibold text-ink sm:text-4xl">Liens affiliés</h1>
+
+    <div class="mt-10 space-y-8 font-body text-sm leading-relaxed text-ink-soft">
+      <div>
+        <h2 class="font-display text-xl font-semibold text-ink">En deux mots</h2>
+        {affiliationActive ? (
+          <p class="mt-2">
+            Certains boutons « Réserver » du site sont des liens affiliés{programmes && ` (${programmes})`}. Si vous
+            réservez un tour, une location ou une eSIM par leur biais, je touche une petite commission. Ça ne vous coûte
+            rien de plus, et ça aide à faire vivre {SITE_NAME}, qui reste gratuit et sans publicité.
+          </p>
+        ) : (
+          <p class="mt-2">
+            Pour l'instant, {SITE_NAME} ne contient aucun lien affilié : les boutons « Réserver » mènent directement aux
+            sites des agences, sans commission. Cette page explique comment ça fonctionnera le jour où j'en ajouterai.
+          </p>
+        )}
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-ink">Ce que je recommande</h2>
+        <p class="mt-2">
+          Je ne recommande que ce que j'ai testé moi-même ou vérifié avec soin, et je précise toujours lequel des deux.
+          Quand je n'ai pas pu tester une adresse, je le dis franchement.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-ink">Mon avis reste le mien</h2>
+        <p class="mt-2">
+          Une commission ne change rien à mes verdicts : une agence ou une plateforme qui me rémunère n'aura pas un
+          meilleur avis, et je continuerai à vous signaler ce qui ne va pas.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-ink">Prix et disponibilités</h2>
+        <p class="mt-2">
+          Les prix indiqués sur le site sont indicatifs, toujours avec leur date de vérification. Au moment de réserver,
+          ce sont les prix et les disponibilités affichés sur la plateforme ou sur le site de l'agence qui font foi.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-ink">Et les cookies ?</h2>
+        <p class="mt-2">
+          Ce sont de simples liens : {SITE_NAME} ne dépose aucun cookie. Après votre clic, le site partenaire peut en
+          déposer, selon sa propre politique. Plus de détails sur la page <a href={withBase("/confidentialite/")} class="link-underline text-ink">Confidentialité &amp; cookies</a>.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-ink">Une question ?</h2>
+        <p class="mt-2">
+          Écrivez-moi à <a href={`mailto:${CONTACT_EMAIL}`} class="link-underline font-medium text-racing-500">{CONTACT_EMAIL}</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

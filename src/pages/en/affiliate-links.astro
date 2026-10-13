@@ -1,0 +1,78 @@
+---
+// English version of src/pages/liens-affilies.astro: keep both in sync.
+import Layout from "../../layouts/Layout.astro";
+import { CONTACT_EMAIL, SITE_NAME, withBase } from "../../consts";
+import { affiliationActive, plateformesActives, accordDirectActif } from "../../data/offres";
+
+const sources = [...plateformesActives, ...(accordDirectActif ? ["direct deals with some agencies"] : [])];
+const programs = sources.length > 1 ? `${sources.slice(0, -1).join(", ")} and ${sources.at(-1)}` : sources[0];
+---
+
+<Layout
+  title="Affiliate links"
+  description="How affiliate links work on JDM Trip, and what they change (or don't) for you."
+>
+  <section class="mx-auto max-w-2xl px-5 py-12 sm:py-16 sm:px-8">
+    <h1 class="font-display text-3xl font-semibold text-ink sm:text-4xl">Affiliate links</h1>
+    <p class="mt-4 font-body text-sm text-mist-500">
+      This page translates the reference version, the <a href={withBase("/liens-affilies/")} class="link-underline text-ink">French affiliate links page</a>.
+    </p>
+
+    <div class="mt-10 space-y-8 font-body text-sm leading-relaxed text-ink-soft">
+      <div>
+        <h2 class="font-display text-xl font-semibold text-ink">In short</h2>
+        {affiliationActive ? (
+          <p class="mt-2">
+            Some "Book" buttons on the site are affiliate links{programs && ` (${programs})`}. If you book a tour, a rental
+            or an eSIM through them, I earn a small commission. It costs you nothing extra, and it helps keep {SITE_NAME}
+            free and ad-free.
+          </p>
+        ) : (
+          <p class="mt-2">
+            For now, {SITE_NAME} has no affiliate links: the "Book" buttons take you straight to the agencies' websites,
+            with no commission. This page explains how it will work the day I add some.
+          </p>
+        )}
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-ink">What I recommend</h2>
+        <p class="mt-2">
+          I only recommend what I've tried myself or checked carefully, and I always say which one it is. When I
+          haven't been able to try a place, I say so plainly.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-ink">My opinion stays mine</h2>
+        <p class="mt-2">
+          A commission doesn't change my verdicts: an agency or platform that pays me won't get a better review, and
+          I'll keep telling you what doesn't work.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-ink">Prices and availability</h2>
+        <p class="mt-2">
+          Prices on the site are for reference only, always shown with the date they were checked. When you book, the
+          prices and availability on the platform or the agency's website are the ones that count.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-ink">What about cookies?</h2>
+        <p class="mt-2">
+          These are plain links: {SITE_NAME} sets no cookies. After you click, the partner site may set its own, according
+          to its own policy. More details on the <a href={withBase("/en/privacy/")} class="link-underline text-ink">Privacy &amp; cookies</a> page.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-xl font-semibold text-ink">Any questions?</h2>
+        <p class="mt-2">
+          Write to me at <a href={`mailto:${CONTACT_EMAIL}`} class="link-underline font-medium text-racing-500">{CONTACT_EMAIL}</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

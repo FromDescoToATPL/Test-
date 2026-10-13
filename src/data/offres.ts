@@ -78,3 +78,21 @@ export function estAffilie(offre: Offre): boolean {
 export function lienOffre(offre: Offre): string {
   return estAffilie(offre) ? offre.url : offre.lienPublic;
 }
+
+/**
+ * Vrai dès qu'au moins un vrai lien affilié est renseigné. Bascule automatiquement le lien « Liens affiliés »
+ * du pied de page et le paragraphe « Publicité & liens affiliés » des mentions légales.
+ */
+export const affiliationActive = offres.some(estAffilie);
+
+const NOMS_PLATEFORMES: Record<Exclude<Plateforme, "direct">, string> = { getyourguide: "GetYourGuide", klook: "Klook" };
+
+/** Plateformes qui ont au moins un vrai lien affilié, ex. ["GetYourGuide", "Klook"]. */
+export const plateformesActives = [
+  ...new Set(
+    offres.filter((o) => estAffilie(o) && o.plateforme !== "direct").map((o) => NOMS_PLATEFORMES[o.plateforme as "getyourguide" | "klook"]),
+  ),
+];
+
+/** Vrai si une agence a un accord direct (code promo ou commission) avec un lien rempli. */
+export const accordDirectActif = offres.some((o) => estAffilie(o) && o.plateforme === "direct");
