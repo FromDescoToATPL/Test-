@@ -17,7 +17,7 @@
 
 export const A_REMPLIR = "A_REMPLIR";
 
-export type Plateforme = "getyourguide" | "klook" | "viator" | "direct";
+export type Plateforme = "getyourguide" | "klook" | "viator" | "mobimatter" | "direct";
 export type CategorieOffre = "tour" | "location" | "musee" | "esim" | "transport";
 
 export interface Offre {
@@ -36,6 +36,8 @@ export interface Offre {
   prixIndicatif?: { fr: string; en: string };
   /** Date de vérification du prix, format AAAA-MM-JJ. */
   dateVerif?: string;
+  /** Prix d'un forfait précis : affiché sans « À partir de ». */
+  prixExact?: boolean;
   /** Texte du bouton quand « Voir les dates sur… » ne convient pas (ex. un moteur de recherche). */
   libelleBouton?: { fr: string; en: string };
 }
@@ -232,6 +234,71 @@ export const offres: Offre[] = [
     lienPublic: { fr: "https://www.klook.com/fr/car-rentals/", en: "https://www.klook.com/car-rentals/" },
     libelleBouton: { fr: "Rechercher sur Klook", en: "Search on Klook" },
   },
+  // --- eSIM (article /experiences/esim-japon/) : offres relevées le 04/11/2026 ---
+  {
+    // source : https://mobimatter.com/fr/travel-esim/iij-japan-20-gb-esim
+    // IIJ, 20 Go, 30 jours, 13,99 $, réseau NTT docomo 5G, débit plein sans limite par jour, partage de connexion,
+    // données seules (pas de numéro), activation à la première connexion, expire si non activée dans les 2 mois,
+    // réglage APN manuel sur Android. Vérifié le 04/11/2026.
+    id: "esim-mobimatter-iij-20go",
+    plateforme: "mobimatter",
+    categorie: "esim",
+    titre: { fr: "IIJ Japon 20 Go, 30 jours", en: "IIJ Japan 20 GB, 30 days" },
+    description: {
+      fr: "Débit plein sans limite par jour, sur le réseau NTT docomo.",
+      en: "Full speed with no daily cap, on the NTT docomo network.",
+    },
+    url: A_REMPLIR,
+    lienPublic: {
+      fr: "https://mobimatter.com/fr/travel-esim/iij-japan-20-gb-esim",
+      en: "https://mobimatter.com/travel-esim/iij-japan-20-gb-esim",
+    },
+    prixIndicatif: { fr: "13,99 $", en: "$13.99" },
+    prixExact: true,
+    dateVerif: "2026-11-04",
+  },
+  {
+    // source : https://mobimatter.com/fr/travel-esim/esimplus-japan-unlimited-10-days-esim
+    // eSIMPlus, « illimité » 10 jours, 12,99 $ : 5 Go par jour à pleine vitesse puis 200 kb/s, NTT docomo 5G,
+    // partage de connexion, données seules, activation à la première connexion, expire si non activée dans le mois,
+    // réglage APN manuel sur Android. Vérifié le 04/11/2026.
+    id: "esim-mobimatter-illimite-10j",
+    plateforme: "mobimatter",
+    categorie: "esim",
+    titre: { fr: "eSIMPlus Japon « illimité », 10 jours", en: "eSIMPlus Japan \"unlimited\", 10 days" },
+    description: {
+      fr: "5 Go par jour à pleine vitesse, puis débit réduit, sur le réseau NTT docomo.",
+      en: "5 GB a day at full speed, then reduced speed, on the NTT docomo network.",
+    },
+    url: A_REMPLIR,
+    lienPublic: {
+      fr: "https://mobimatter.com/fr/travel-esim/esimplus-japan-unlimited-10-days-esim",
+      en: "https://mobimatter.com/travel-esim/esimplus-japan-unlimited-10-days-esim",
+    },
+    prixIndicatif: { fr: "12,99 $", en: "$12.99" },
+    prixExact: true,
+    dateVerif: "2026-11-04",
+  },
+  {
+    // source : https://www.klook.com/fr/activity/109393-japan-esim-high-speed-internet-qr-code-voucher/
+    // eSIM Japon Klook, SoftBank 5G ou IIJ (docomo) 4G, 4,6/5 (50K+ avis), 2M+ réservations, partage de connexion,
+    // validité qui démarre à la connexion au Japon, remboursement avant connexion. Forfaits au choix dans la fiche
+    // (prix d'appel 0,95 €, non repris : trop petit forfait pour un séjour). Vérifié le 04/11/2026.
+    id: "esim-klook-japon",
+    plateforme: "klook",
+    categorie: "esim",
+    titre: { fr: "L'eSIM Japon de Klook", en: "Klook's Japan eSIM" },
+    description: {
+      fr: "Réseau SoftBank 5G ou docomo, forfaits au choix, notée 4,6/5 sur plus de 50 000 avis.",
+      en: "SoftBank 5G or docomo network, plans to choose from, rated 4.6/5 from 50,000+ reviews.",
+    },
+    url: A_REMPLIR,
+    lienPublic: {
+      fr: "https://www.klook.com/fr/activity/109393-japan-esim-high-speed-internet-qr-code-voucher/",
+      en: "https://www.klook.com/activity/109393-japan-esim-high-speed-internet-qr-code-voucher/",
+    },
+    libelleBouton: { fr: "Voir les forfaits sur Klook", en: "See the plans on Klook" },
+  },
 ];
 
 export function getOffre(id: string): Offre {
@@ -262,6 +329,7 @@ const NOMS_PLATEFORMES: Record<PlateformePartenaire, string> = {
   getyourguide: "GetYourGuide",
   klook: "Klook",
   viator: "Viator",
+  mobimatter: "MobiMatter",
 };
 
 /** Plateformes qui ont au moins un vrai lien affilié, ex. ["GetYourGuide", "Klook"]. */

@@ -1,0 +1,347 @@
+---
+// English version of src/pages/experiences/esim-japon.astro (adapted, not translated word for word).
+// Clément bought his Japan eSIM on MobiMatter and it worked fine (confirmed 2026-11-04). Offers checked online on
+// 2026-11-04, sources in the FR file and in src/data/offres.ts.
+import Layout from "../../../layouts/Layout.astro";
+import Hero from "../../../components/Hero.astro";
+import Icon from "../../../components/Icon.astro";
+import PageToc from "../../../components/PageToc.astro";
+import EncartReserver from "../../../components/EncartReserver.astro";
+import MentionAffiliation from "../../../components/MentionAffiliation.astro";
+import { withBase } from "../../../consts";
+import heroImg from "../../../assets/photos/tokyo-shibuya-crossing-nuit.jpg";
+
+const pageOffers = ["esim-mobimatter-iij-20go", "esim-mobimatter-illimite-10j", "esim-klook-japon"];
+
+const h2 = "reveal text-balance font-display text-2xl font-semibold text-ink sm:text-3xl";
+const prose = "reveal mt-4 max-w-[66ch] space-y-4 font-body text-base leading-relaxed text-ink-soft";
+const link = "link-underline font-medium text-racing-500";
+
+const plans = [
+  {
+    id: "esim-mobimatter-iij-20go",
+    title: "The safe bet: IIJ, 20 GB for 30 days",
+    facts: "MobiMatter · NTT docomo network · 20 GB · 30 days",
+    text:
+      "No daily cap: you use your 20 GB however you like, at full speed, and you can share the connection. Thirty days covers a two- or three-week trip. For a shorter or lighter trip, IIJ also sells 10 GB for $7.99.",
+  },
+  {
+    id: "esim-mobimatter-illimite-10j",
+    title: "For heavy users: eSIMPlus \"unlimited\", 10 days",
+    facts: "MobiMatter · NTT docomo network · 10 days",
+    text:
+      "Watch out for the word \"unlimited\": you actually get 5 GB a day at full speed, then it drops to 200 kbps until the next day. That's still a lot, enough to post your videos every night. The same plan comes in 7 days ($9.99) and 15 days ($17.99): check the daily limit on the listing.",
+  },
+  {
+    id: "esim-klook-japon",
+    title: "If you already book on Klook: their Japan eSIM",
+    facts: "Klook · SoftBank 5G or docomo · 4.6/5 from 50,000+ reviews",
+    text:
+      "Handy if you already use the Klook app for activities: the eSIM installs from the app, and its validity only starts when it connects in Japan. You pick your plan on the listing: compare the price per GB with MobiMatter before you pay.",
+  },
+];
+
+const setup = [
+  {
+    title: "Buy it a few days before you leave",
+    text:
+      "The plans above only start on their first connection in Japan. They do expire, though, if they're not activated within one to two months of purchase.",
+  },
+  {
+    title: "Install it at home, on Wi-Fi",
+    text:
+      "Scan the QR code you got by email, or use the seller's app. Give the line a clear name, like \"Japan\", so it's easy to find.",
+  },
+  {
+    title: "On Android, mind the APN",
+    text:
+      "MobiMatter warns that its Japan plans need a manual APN setting on Android. Follow the instructions that come with the eSIM.",
+  },
+  {
+    title: "When you land, switch to the eSIM",
+    text:
+      "In your settings, pick the eSIM for mobile data and turn on data roaming for that line. A few seconds later, you're online.",
+  },
+  {
+    title: "Keep your home line, without its data",
+    text:
+      "Leave it on to get calls and your bank's text messages, but turn off its mobile data to avoid roaming charges.",
+  },
+];
+
+const traps = [
+  {
+    title: "Fake unlimited",
+    text:
+      "Many \"unlimited\" plans slow you down past a daily volume. Read the speed line or the fair use policy before you buy.",
+  },
+  {
+    title: "A locked phone",
+    text: "A phone locked to its carrier won't take other eSIMs. Check before you leave, not at the airport.",
+  },
+  {
+    title: "Deleting the eSIM too early",
+    text:
+      "A deleted eSIM often can't be reinstalled. Keep it until the end of the trip, even once the data is used up.",
+  },
+  {
+    title: "Home data left on",
+    text:
+      "If your home line's mobile data is still on, your phone may use it instead of the eSIM, and roaming charges add up fast.",
+  },
+];
+
+const faq = [
+  {
+    q: "Do I need an eSIM if my hotel has Wi-Fi?",
+    a: "Yes, as soon as you step outside: maps, train times, translation. There's free Wi-Fi in stations and some shops, but not enough to get around with peace of mind.",
+  },
+  {
+    q: "Do I keep my usual phone number?",
+    a: "Yes. The eSIM is added next to your usual SIM: you still get calls and texts on your number, and the eSIM handles the internet.",
+  },
+  {
+    q: "Can I share the connection with a friend or a laptop?",
+    a: "Yes with the three plans above, which all support hotspot. Just keep an eye on your usage, which climbs fast.",
+  },
+  {
+    q: "When should I install the eSIM?",
+    a: "Before you leave, at home on Wi-Fi. For the plans above, the data only starts on the first connection in Japan.",
+  },
+  {
+    q: "What if my phone isn't compatible?",
+    a: "Get a pocket Wi-Fi, or a physical SIM card if your phone takes two cards.",
+  },
+];
+
+const essentials = [
+  { label: "Networks", value: "NTT docomo, SoftBank, au (KDDI) and Rakuten" },
+  { label: "Type", value: "Data only, no Japanese phone number" },
+  { label: "Setup", value: "Before you leave, at home on Wi-Fi" },
+  { label: "Start", value: "On the first connection in Japan (plans above)" },
+  { label: "Budget", value: "About $8 to $18 depending on data and duration" },
+];
+---
+
+<Layout
+  title="Japan eSIM: which one to choose for internet on the go?"
+  description="eSIM, pocket Wi-Fi or home roaming: how to get online in Japan as soon as you land, the plans worth comparing and the traps to avoid (fake unlimited, locked phones)."
+  article={{ published: "2026-11-04" }}
+  breadcrumbs={[
+    { name: "Experiences", path: "/en/experiences/" },
+    { name: "Japan eSIM", path: "/en/experiences/japan-esim/" },
+  ]}
+>
+  <Hero
+    image={heroImg}
+    eyebrow="Experiences · Plan your trip"
+    title="Internet in Japan: which eSIM to choose?"
+    subtitle="No connection means no maps, no train times, no translation. Here's how to be online the moment you land."
+  />
+
+  <div class="mx-auto max-w-3xl space-y-12 px-5 pt-10 pb-12 sm:space-y-14 sm:px-8 sm:pt-14 sm:pb-16">
+    <div>
+      <a
+        href={withBase("/en/experiences/")}
+        class="tap-target link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink-soft"
+      >
+        <Icon name="arrow-left" class="h-3.5 w-3.5" />
+        All experiences
+      </a>
+
+      <MentionAffiliation ids={pageOffers} class="mt-6" />
+
+      <p class="reveal mt-8 max-w-[62ch] font-body text-lg leading-relaxed text-ink">
+        In Japan, your phone does almost everything: maps, train times, menu translation, bookings. Without internet,
+        you feel lost fast. The easiest fix today is an eSIM: a data plan you install before you leave, which takes
+        over the moment you land.
+      </p>
+      <p class="reveal mt-4 max-w-[66ch] font-body text-base leading-relaxed text-ink-soft">
+        For my trip, I got mine on MobiMatter, a site that compares plans from several providers, and it worked without
+        a hitch. Here's how to pick yours. Prices checked on November 4, 2026.
+      </p>
+
+      <PageToc
+        items={[
+          { label: "Compatibility", href: "#compatibility" },
+          { label: "Which plan", href: "#plans" },
+          { label: "Setup", href: "#setup" },
+          { label: "Alternatives", href: "#alternatives" },
+          { label: "Traps", href: "#traps" },
+          { label: "FAQ", href: "#faq" },
+        ]}
+      />
+    </div>
+
+    <section id="what-is-it" class="scroll-mt-20">
+      <h2 class={h2}>What's an eSIM?</h2>
+      <div class={prose}>
+        <p>
+          It's a virtual SIM card. No tiny chip to slide into your phone: you buy a plan online, get a QR code by
+          email, scan it, and you're set. Your usual SIM stays in place, so you keep your number for calls and texts,
+          and the eSIM handles the internet.
+        </p>
+        <p>
+          Most travel eSIMs are data only, with no Japanese phone number. To call, you use WhatsApp or FaceTime, like
+          everyone else.
+        </p>
+      </div>
+    </section>
+
+    <section id="compatibility" class="scroll-mt-20">
+      <div class="reveal rounded-lg border border-racing-500/30 bg-racing-500/5 p-5 sm:p-7">
+        <h2 class="flex items-center gap-2.5 text-balance font-display text-xl font-semibold text-ink sm:text-2xl">
+          <Icon name="flag" class="h-5 w-5 shrink-0 text-racing-500" />
+          Before you buy: is your phone compatible?
+        </h2>
+        <p class="mt-2 font-body text-base leading-relaxed text-ink-soft">It's the only real requirement.</p>
+        <dl class="mt-4 divide-y divide-racing-500/15 border-t border-racing-500/15 font-body text-sm leading-relaxed">
+          <div class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-5">
+            <dt class="font-semibold text-ink">A recent phone</dt>
+            <dd class="text-ink-soft">
+              iPhones from the XS and XR onward support eSIM, as do most high-end Android phones from recent years.
+            </dd>
+          </div>
+          <div class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-5">
+            <dt class="font-semibold text-ink">The quick test</dt>
+            <dd class="text-ink-soft">
+              Dial *#06#. If an "EID" line shows up, your phone takes eSIMs in most cases.
+            </dd>
+          </div>
+          <div class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-5">
+            <dt class="font-semibold text-ink">An unlocked phone</dt>
+            <dd class="text-ink-soft">
+              A phone bought with a plan may be locked to its carrier. If so, ask your carrier to unlock it before you
+              leave.
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="plans" class="scroll-mt-20">
+      <h2 class={h2}>Which plan should you get?</h2>
+      <div class={prose}>
+        <p>
+          It all depends on how much you'll use. Maps, messages and translation need little data. Videos, stories and
+          sharing the connection with a laptop need a lot more.
+        </p>
+        <p>
+          If I were leaving tomorrow, I'd go through MobiMatter again: you compare every plan at once, and the network
+          is shown before you buy. Prices are in US dollars on the site.
+        </p>
+      </div>
+
+      <div class="mt-6 divide-y divide-mist-200 border-y border-mist-200">
+        {plans.map((p) => (
+          <div class="py-6">
+            <h3 class="reveal text-balance font-display text-xl font-semibold text-ink">{p.title}</h3>
+            <p class="reveal mt-1 font-body text-sm text-mist-500">{p.facts}</p>
+            <p class="reveal mt-3 max-w-[66ch] font-body text-base leading-relaxed text-ink-soft">{p.text}</p>
+            <EncartReserver ids={[p.id]} variante="ligne" class="mt-4" />
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="setup" class="scroll-mt-20">
+      <h2 class={h2}>Setting up your eSIM, stress-free</h2>
+      <ol class="mt-5 space-y-5">
+        {setup.map((step, i) => (
+          <li class="reveal grid max-w-[66ch] grid-cols-[2rem_1fr] gap-3">
+            <span class="font-display text-lg font-semibold tabular-nums text-racing-500" aria-hidden="true">{i + 1}.</span>
+            <div>
+              <p class="font-body text-base font-semibold text-ink">{step.title}</p>
+              <p class="mt-1 font-body text-base leading-relaxed text-ink-soft">{step.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section id="alternatives" class="scroll-mt-20">
+      <h2 class={h2}>What about the alternatives?</h2>
+      <div class={prose}>
+        <p>
+          <strong class="font-semibold text-ink">Pocket Wi-Fi.</strong> A small rented hotspot you pick up at the airport
+          or your hotel and return at the end. Good for groups, or if your phone doesn't support eSIM. The downside: one
+          more device to charge and not forget.
+        </p>
+        <p>
+          <strong class="font-semibold text-ink">Your home plan.</strong> Some plans include a bit of data in Japan, but
+          it's rare and often limited: check with your carrier before you go. Otherwise, roaming can get very
+          expensive.
+        </p>
+        <p>
+          <strong class="font-semibold text-ink">A physical SIM card.</strong> You'll find them at the airport, but you
+          often have to take out your usual SIM, and then you stop getting your bank's text messages.
+        </p>
+      </div>
+    </section>
+
+    <section id="traps" class="scroll-mt-20">
+      <h2 class={h2}>Traps to avoid</h2>
+      <ul class="mt-5 space-y-5">
+        {traps.map((t) => (
+          <li class="reveal max-w-[66ch]">
+            <p class="font-body text-base font-semibold text-ink">{t.title}</p>
+            <p class="mt-1 font-body text-base leading-relaxed text-ink-soft">{t.text}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section id="faq" class="scroll-mt-20">
+      <h2 class={h2}>FAQ</h2>
+      <div class="reveal mt-5 divide-y divide-mist-200 border-y border-mist-200">
+        {faq.map((item) => (
+          <details class="group">
+            <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-4 text-ink transition-colors hover:text-racing-500 [&::-webkit-details-marker]:hidden">
+              <h3 class="font-display text-lg font-semibold">{item.q}</h3>
+              <Icon name="chevron-down" class="h-4 w-4 shrink-0 text-mist-500 transition-transform duration-200 group-open:rotate-180" />
+            </summary>
+            <p class="max-w-[66ch] pb-5 font-body text-base leading-relaxed text-ink-soft">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <div class="reveal rounded-lg border border-mist-200 bg-paper-dim/40 p-5 sm:p-6">
+      <p class="eyebrow text-racing-500">The essentials</p>
+      <p class="mt-2 font-display text-lg font-semibold text-ink">eSIM in Japan</p>
+      <dl class="mt-3 space-y-2 font-body text-sm leading-relaxed">
+        {essentials.map((info) => (
+          <div class="grid grid-cols-[6.5rem_1fr] gap-3">
+            <dt class="font-medium text-ink">{info.label}</dt>
+            <dd class="text-ink-soft">{info.value}</dd>
+          </div>
+        ))}
+      </dl>
+      <p class="mt-3 font-body text-sm text-ink-soft">
+        Driving while you're there? Read my <a href={withBase("/en/driving-in-japan/")} class={link}>Driving in Japan</a> page too.
+      </p>
+    </div>
+  </div>
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-10 sm:py-14">
+    <div class="mx-auto max-w-3xl px-5 sm:px-8">
+      <p class="eyebrow text-mist-500">Read next</p>
+      <ul class="mt-4 grid gap-x-8 sm:grid-cols-2">
+        {[
+          { label: "Driving in Japan", href: withBase("/en/driving-in-japan/") },
+          { label: "Rent a JDM in Japan", href: withBase("/en/rent-a-car/") },
+          { label: "Daikoku PA: solo or with a JDM tour", href: withBase("/en/experiences/daikoku-jdm-tours/") },
+          { label: "My Tokyo spots", href: withBase("/en/tokyo/") },
+          { label: "All experiences", href: withBase("/en/experiences/") },
+        ].map((l) => (
+          <li>
+            <a href={l.href} class="link-underline inline-flex min-h-11 items-center gap-1.5 font-body text-sm font-medium text-ink">
+              {l.label}
+              <Icon name="arrow-right" class="h-3.5 w-3.5" />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Layout>

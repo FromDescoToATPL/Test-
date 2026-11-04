@@ -94,9 +94,12 @@ export const categoriesExperiences: CategorieExperiences[] = [
       },
       {
         titre: { fr: "Internet au Japon : quelle eSIM choisir", en: "Internet in Japan: which eSIM to choose" },
-        description: { fr: "L'offre à prendre avant de partir.", en: "The plan to get before you leave." },
+        description: {
+          fr: "Avoir Internet dès l'atterrissage, pour une quinzaine d'euros.",
+          en: "Get online as soon as you land, for around fifteen euros.",
+        },
         href: { fr: withBase("/experiences/esim-japon/"), en: withBase("/en/experiences/japan-esim/") },
-        publie: false,
+        publie: true,
       },
     ],
   },

@@ -1,0 +1,356 @@
+---
+// Article « Internet au Japon : quelle eSIM choisir ? ». Clément a acheté son eSIM Japon sur MobiMatter et elle a
+// bien marché (confirmé le 04/11/2026) ; il ne se souvient pas encore du forfait exact : À COMPLÉTER (Go, durée,
+// prix) s'il veut l'ajouter. Les offres sont vérifiées en ligne le 04/11/2026, sources en commentaire et dans
+// src/data/offres.ts. Même mise en page que l'article Daikoku (une colonne, ~66 caractères par ligne).
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import Icon from "../../components/Icon.astro";
+import PageToc from "../../components/PageToc.astro";
+import EncartReserver from "../../components/EncartReserver.astro";
+import MentionAffiliation from "../../components/MentionAffiliation.astro";
+import { withBase } from "../../consts";
+import heroImg from "../../assets/photos/tokyo-shibuya-crossing-nuit.jpg";
+
+const offresPage = ["esim-mobimatter-iij-20go", "esim-mobimatter-illimite-10j", "esim-klook-japon"];
+
+const h2 = "reveal text-balance font-display text-2xl font-semibold text-ink sm:text-3xl";
+const texte = "reveal mt-4 max-w-[66ch] space-y-4 font-body text-base leading-relaxed text-ink-soft";
+const lien = "link-underline font-medium text-racing-500";
+
+// Sources : fiches MobiMatter IIJ 20 Go et 10 Go, eSIMPlus Japan Unlimited 7/10/15 jours, fiche Klook 109393,
+// toutes vérifiées le 04/11/2026.
+const forfaits = [
+  {
+    id: "esim-mobimatter-iij-20go",
+    titre: "Le plus sûr : IIJ, 20 Go pour 30 jours",
+    infos: "MobiMatter · réseau NTT docomo · 20 Go · 30 jours",
+    texte:
+      "Pas de limite par jour : vous utilisez vos 20 Go comme vous voulez, à pleine vitesse, et vous pouvez partager la connexion. Trente jours, c'est assez pour un séjour de deux ou trois semaines. Pour un voyage plus court ou plus sobre, IIJ propose aussi 10 Go à 7,99 $.",
+  },
+  {
+    id: "esim-mobimatter-illimite-10j",
+    titre: "Pour les gros consommateurs : eSIMPlus « illimité », 10 jours",
+    infos: "MobiMatter · réseau NTT docomo · 10 jours",
+    texte:
+      "Attention au mot « illimité » : vous avez en réalité 5 Go par jour à pleine vitesse, puis le débit tombe à 200 kb/s jusqu'au lendemain. Ça reste beaucoup, de quoi poster vos vidéos tous les soirs. La même offre existe sur 7 jours (9,99 $) et 15 jours (17,99 $) : vérifiez la limite par jour sur la fiche.",
+  },
+  {
+    id: "esim-klook-japon",
+    titre: "Si vous réservez déjà sur Klook : leur eSIM Japon",
+    infos: "Klook · SoftBank 5G ou docomo · 4,6/5 sur plus de 50 000 avis",
+    texte:
+      "Pratique si vous avez déjà l'appli Klook pour vos activités : l'eSIM s'installe depuis l'appli, et sa validité ne démarre qu'à la connexion au Japon. Les forfaits se choisissent sur la fiche : comparez le prix au Go avec MobiMatter avant de valider.",
+  },
+];
+
+const installation = [
+  {
+    titre: "Achetez-la quelques jours avant le départ",
+    texte:
+      "Les forfaits cités ici ne démarrent qu'à la première connexion au Japon. Ils expirent en revanche s'ils ne sont pas activés dans un délai d'un à deux mois après l'achat.",
+  },
+  {
+    titre: "Installez-la chez vous, en Wi-Fi",
+    texte:
+      "Scannez le QR code reçu par e-mail, ou passez par l'appli du vendeur. Donnez à la ligne un nom clair, « Japon » par exemple, pour la retrouver facilement.",
+  },
+  {
+    titre: "Sur Android, pensez à l'APN",
+    texte:
+      "MobiMatter prévient que ses forfaits japonais demandent un réglage manuel de l'APN sur Android. Suivez les instructions fournies avec l'eSIM.",
+  },
+  {
+    titre: "À l'atterrissage, basculez sur l'eSIM",
+    texte:
+      "Dans les réglages, choisissez l'eSIM pour les données mobiles et activez l'itinérance des données sur cette ligne. Quelques secondes plus tard, vous êtes connecté.",
+  },
+  {
+    titre: "Gardez votre ligne française, sans ses données",
+    texte:
+      "Laissez-la allumée pour recevoir vos appels et les SMS de votre banque, mais coupez ses données mobiles pour éviter le hors-forfait.",
+  },
+];
+
+const pieges = [
+  {
+    titre: "Le faux illimité",
+    texte:
+      "Beaucoup d'offres « illimitées » réduisent le débit au-delà d'un certain volume par jour. Lisez la ligne « vitesse » ou la politique d'utilisation avant d'acheter.",
+  },
+  {
+    titre: "Le téléphone bloqué",
+    texte:
+      "Un téléphone verrouillé par son opérateur refuse les eSIM des autres. Vérifiez avant de partir, pas à l'aéroport.",
+  },
+  {
+    titre: "Supprimer l'eSIM trop tôt",
+    texte:
+      "Une eSIM supprimée du téléphone ne peut souvent pas être réinstallée. Gardez-la jusqu'à la fin du voyage, même une fois le forfait épuisé.",
+  },
+  {
+    titre: "Les données françaises restées allumées",
+    texte:
+      "Si les données mobiles de votre ligne française sont actives, le téléphone peut s'en servir à la place de l'eSIM, et le hors-forfait tombe vite.",
+  },
+];
+
+const faq = [
+  {
+    q: "Faut-il une eSIM si l'hôtel a le Wi-Fi ?",
+    r: "Oui, dès que vous sortez : GPS, horaires de train, traduction. On trouve du Wi-Fi gratuit dans les gares et certains commerces, mais pas de quoi se déplacer sereinement.",
+  },
+  {
+    q: "Est-ce que je garde mon numéro français ?",
+    r: "Oui. L'eSIM s'ajoute à votre carte habituelle : vous recevez toujours vos appels et vos SMS sur votre numéro, et l'eSIM s'occupe d'Internet.",
+  },
+  {
+    q: "Peut-on partager la connexion avec un ami ou un ordinateur ?",
+    r: "Oui avec les trois offres citées, qui acceptent le partage de connexion. Surveillez seulement votre consommation, qui grimpe vite.",
+  },
+  {
+    q: "Quand faut-il installer l'eSIM ?",
+    r: "Avant de partir, chez vous en Wi-Fi. Pour les offres citées ici, le forfait ne démarre qu'à la première connexion au Japon.",
+  },
+  {
+    q: "Et si mon téléphone n'est pas compatible ?",
+    r: "Prenez un pocket Wi-Fi, ou une carte SIM physique si votre téléphone accepte deux cartes.",
+  },
+];
+
+const essentiel = [
+  { label: "Réseaux", valeur: "NTT docomo, SoftBank, au (KDDI) et Rakuten" },
+  { label: "Type", valeur: "Données seules, sans numéro japonais" },
+  { label: "Installation", valeur: "Avant le départ, chez vous en Wi-Fi" },
+  { label: "Démarrage", valeur: "À la première connexion au Japon (offres citées)" },
+  { label: "Budget", valeur: "De 8 à 18 $ environ selon les données et la durée" },
+];
+---
+
+<Layout
+  title="eSIM Japon : laquelle choisir pour avoir Internet sur place ?"
+  description="eSIM, pocket Wi-Fi ou forfait français : comment avoir Internet au Japon dès l'atterrissage, les forfaits à comparer et les pièges à éviter (faux illimité, téléphone bloqué)."
+  article={{ published: "2026-11-04" }}
+  breadcrumbs={[
+    { name: "Expériences", path: "/experiences/" },
+    { name: "eSIM Japon", path: "/experiences/esim-japon/" },
+  ]}
+>
+  <Hero
+    image={heroImg}
+    eyebrow="Expériences · Préparer le voyage"
+    title="Internet au Japon : quelle eSIM choisir ?"
+    subtitle="Sans connexion, pas de GPS, pas d'horaires de train, pas de traduction. Voici comment être connecté dès l'atterrissage."
+  />
+
+  <div class="mx-auto max-w-3xl space-y-12 px-5 pt-10 pb-12 sm:space-y-14 sm:px-8 sm:pt-14 sm:pb-16">
+    <div>
+      <a
+        href={withBase("/experiences/")}
+        class="tap-target link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink-soft"
+      >
+        <Icon name="arrow-left" class="h-3.5 w-3.5" />
+        Toutes les expériences
+      </a>
+
+      <MentionAffiliation ids={offresPage} class="mt-6" />
+
+      <p class="reveal mt-8 max-w-[62ch] font-body text-lg leading-relaxed text-ink">
+        Au Japon, votre téléphone fait presque tout : le GPS, les horaires de train, la traduction des menus, les
+        réservations. Sans Internet, on se sent vite perdu. La solution la plus simple aujourd'hui, c'est l'eSIM : un
+        forfait de données que vous installez avant de partir, et qui prend le relais dès l'atterrissage.
+      </p>
+      {/* À VÉRIFIER par Clément : « aucun souci » (il a confirmé que son eSIM MobiMatter avait marché). */}
+      <p class="reveal mt-4 max-w-[66ch] font-body text-base leading-relaxed text-ink-soft">
+        Pour mon voyage, j'ai pris la mienne sur MobiMatter, un site qui compare les forfaits de plusieurs opérateurs,
+        et je n'ai eu aucun souci. Voici comment choisir la vôtre. Prix relevés le 4 novembre 2026.
+      </p>
+
+      <PageToc
+        items={[
+          { label: "Compatibilité", href: "#compatibilite" },
+          { label: "Quel forfait", href: "#forfaits" },
+          { label: "Installation", href: "#installation" },
+          { label: "Autres solutions", href: "#autres" },
+          { label: "Pièges", href: "#pieges" },
+          { label: "FAQ", href: "#faq" },
+        ]}
+      />
+    </div>
+
+    <section id="cest-quoi" class="scroll-mt-20">
+      <h2 class={h2}>Une eSIM, c'est quoi ?</h2>
+      <div class={texte}>
+        <p>
+          C'est une carte SIM virtuelle. Pas de petite puce à glisser dans le téléphone : vous achetez un forfait en
+          ligne, vous recevez un QR code par e-mail, vous le scannez, et c'est installé. Votre carte SIM française
+          reste en place : vous gardez votre numéro pour les appels et les SMS, et l'eSIM s'occupe d'Internet.
+        </p>
+        <p>
+          La plupart des eSIM de voyage ne contiennent que des données, sans numéro japonais. Pour appeler, on passe
+          par WhatsApp ou FaceTime, comme tout le monde.
+        </p>
+      </div>
+    </section>
+
+    <section id="compatibilite" class="scroll-mt-20">
+      <div class="reveal rounded-lg border border-racing-500/30 bg-racing-500/5 p-5 sm:p-7">
+        <h2 class="flex items-center gap-2.5 text-balance font-display text-xl font-semibold text-ink sm:text-2xl">
+          <Icon name="flag" class="h-5 w-5 shrink-0 text-racing-500" />
+          Avant d'acheter : votre téléphone est-il compatible ?
+        </h2>
+        <p class="mt-2 font-body text-base leading-relaxed text-ink-soft">C'est la seule vraie condition.</p>
+        <dl class="mt-4 divide-y divide-racing-500/15 border-t border-racing-500/15 font-body text-sm leading-relaxed">
+          <div class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-5">
+            <dt class="font-semibold text-ink">Un téléphone récent</dt>
+            <dd class="text-ink-soft">
+              Les iPhone depuis les XS et XR gèrent l'eSIM, comme la plupart des Android haut de gamme de ces dernières
+              années.
+            </dd>
+          </div>
+          <div class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-5">
+            <dt class="font-semibold text-ink">Le test rapide</dt>
+            <dd class="text-ink-soft">
+              Tapez *#06# sur le clavier d'appel. Si une ligne « EID » s'affiche, votre téléphone accepte l'eSIM dans
+              la plupart des cas.
+            </dd>
+          </div>
+          <div class="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-5">
+            <dt class="font-semibold text-ink">Un téléphone débloqué</dt>
+            <dd class="text-ink-soft">
+              Un téléphone acheté avec un forfait peut être verrouillé sur son opérateur. Dans ce cas, demandez le
+              déblocage à votre opérateur avant de partir.
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="forfaits" class="scroll-mt-20">
+      <h2 class={h2}>Quel forfait prendre ?</h2>
+      <div class={texte}>
+        <p>
+          Tout dépend de ce que vous allez consommer. Le GPS, les messages et la traduction utilisent peu de données.
+          Les vidéos, les stories et le partage de connexion avec un ordinateur, beaucoup plus.
+        </p>
+        {/* À VÉRIFIER par Clément : il repasserait par MobiMatter (déduit de son expérience positive). */}
+        <p>
+          Si je repartais demain, je repasserais par MobiMatter : on compare tous les forfaits d'un coup, et le
+          réseau utilisé est indiqué avant l'achat. Le site affiche ses prix en dollars, le montant en euros dépend
+          du taux du jour.
+        </p>
+      </div>
+
+      <div class="mt-6 divide-y divide-mist-200 border-y border-mist-200">
+        {forfaits.map((f) => (
+          <div class="py-6">
+            <h3 class="reveal text-balance font-display text-xl font-semibold text-ink">{f.titre}</h3>
+            <p class="reveal mt-1 font-body text-sm text-mist-500">{f.infos}</p>
+            <p class="reveal mt-3 max-w-[66ch] font-body text-base leading-relaxed text-ink-soft">{f.texte}</p>
+            <EncartReserver ids={[f.id]} variante="ligne" class="mt-4" />
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="installation" class="scroll-mt-20">
+      <h2 class={h2}>Installer son eSIM sans stress</h2>
+      <ol class="mt-5 space-y-5">
+        {installation.map((etape, i) => (
+          <li class="reveal grid max-w-[66ch] grid-cols-[2rem_1fr] gap-3">
+            <span class="font-display text-lg font-semibold tabular-nums text-racing-500" aria-hidden="true">{i + 1}.</span>
+            <div>
+              <p class="font-body text-base font-semibold text-ink">{etape.titre}</p>
+              <p class="mt-1 font-body text-base leading-relaxed text-ink-soft">{etape.texte}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section id="autres" class="scroll-mt-20">
+      <h2 class={h2}>Et les autres solutions ?</h2>
+      <div class={texte}>
+        <p>
+          <strong class="font-semibold text-ink">Le pocket Wi-Fi.</strong> Un petit boîtier qu'on loue, qu'on récupère
+          à l'aéroport ou à l'hôtel, et qu'on rend à la fin. Intéressant à plusieurs, ou si votre téléphone ne gère pas
+          l'eSIM. En contrepartie : un appareil de plus à charger et à ne pas oublier.
+        </p>
+        <p>
+          <strong class="font-semibold text-ink">Votre forfait français.</strong> Certains forfaits incluent un peu de
+          données au Japon, mais c'est rare et souvent limité : vérifiez dans votre espace client avant de partir.
+          Sinon, le hors-forfait peut coûter très cher.
+        </p>
+        <p>
+          <strong class="font-semibold text-ink">La carte SIM physique.</strong> On en trouve à l'aéroport, mais il faut
+          souvent retirer votre carte française, et vous ne recevez plus les SMS de votre banque.
+        </p>
+      </div>
+    </section>
+
+    <section id="pieges" class="scroll-mt-20">
+      <h2 class={h2}>Les pièges à éviter</h2>
+      <ul class="mt-5 space-y-5">
+        {pieges.map((p) => (
+          <li class="reveal max-w-[66ch]">
+            <p class="font-body text-base font-semibold text-ink">{p.titre}</p>
+            <p class="mt-1 font-body text-base leading-relaxed text-ink-soft">{p.texte}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section id="faq" class="scroll-mt-20">
+      <h2 class={h2}>Questions fréquentes</h2>
+      <div class="reveal mt-5 divide-y divide-mist-200 border-y border-mist-200">
+        {faq.map((item) => (
+          <details class="group">
+            <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-4 text-ink transition-colors hover:text-racing-500 [&::-webkit-details-marker]:hidden">
+              <h3 class="font-display text-lg font-semibold">{item.q}</h3>
+              <Icon name="chevron-down" class="h-4 w-4 shrink-0 text-mist-500 transition-transform duration-200 group-open:rotate-180" />
+            </summary>
+            <p class="max-w-[66ch] pb-5 font-body text-base leading-relaxed text-ink-soft">{item.r}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <div class="reveal rounded-lg border border-mist-200 bg-paper-dim/40 p-5 sm:p-6">
+      <p class="eyebrow text-racing-500">L'essentiel</p>
+      <p class="mt-2 font-display text-lg font-semibold text-ink">eSIM au Japon</p>
+      <dl class="mt-3 space-y-2 font-body text-sm leading-relaxed">
+        {essentiel.map((info) => (
+          <div class="grid grid-cols-[6.5rem_1fr] gap-3">
+            <dt class="font-medium text-ink">{info.label}</dt>
+            <dd class="text-ink-soft">{info.valeur}</dd>
+          </div>
+        ))}
+      </dl>
+      <p class="mt-3 font-body text-sm text-ink-soft">
+        Vous partez en voiture ? Lisez aussi ma page <a href={withBase("/conduire-au-japon/")} class={lien}>Conduire au Japon</a>.
+      </p>
+    </div>
+  </div>
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-10 sm:py-14">
+    <div class="mx-auto max-w-3xl px-5 sm:px-8">
+      <p class="eyebrow text-mist-500">À lire aussi</p>
+      <ul class="mt-4 grid gap-x-8 sm:grid-cols-2">
+        {[
+          { label: "Conduire au Japon", href: withBase("/conduire-au-japon/") },
+          { label: "Louer une JDM au Japon", href: withBase("/louer-une-voiture/") },
+          { label: "Daikoku PA : seul ou en tour JDM", href: withBase("/experiences/daikoku-tours-jdm/") },
+          { label: "Mes adresses à Tokyo", href: withBase("/tokyo/") },
+          { label: "Toutes les expériences", href: withBase("/experiences/") },
+        ].map((l) => (
+          <li>
+            <a href={l.href} class="link-underline inline-flex min-h-11 items-center gap-1.5 font-body text-sm font-medium text-ink">
+              {l.label}
+              <Icon name="arrow-right" class="h-3.5 w-3.5" />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Layout>

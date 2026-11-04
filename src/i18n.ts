@@ -28,6 +28,7 @@ const PAGE_PAIRS: Record<Lang, string>[] = [
   { fr: "/liens-affilies/", en: "/en/affiliate-links/" },
   { fr: "/experiences/", en: "/en/experiences/" },
   { fr: "/experiences/daikoku-tours-jdm/", en: "/en/experiences/daikoku-jdm-tours/" },
+  { fr: "/experiences/esim-japon/", en: "/en/experiences/japan-esim/" },
 ];
 
 /** Chemin de la page sans le base (GitHub Pages sert le site sous /Test-/), toujours avec un slash final. */

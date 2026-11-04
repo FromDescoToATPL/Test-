@@ -30,6 +30,7 @@ const t = {
       getyourguide: "Voir les dates sur GetYourGuide",
       klook: "Voir les dates sur Klook",
       viator: "Voir les dates sur Viator",
+      mobimatter: "Voir l'offre sur MobiMatter",
       direct: "Voir le site de l'agence",
     },
   },
@@ -42,6 +43,7 @@ const t = {
       getyourguide: "See dates on GetYourGuide",
       klook: "See dates on Klook",
       viator: "See dates on Viator",
+      mobimatter: "See the plan on MobiMatter",
       direct: "Visit the agency's website",
     },
   },
@@ -65,7 +67,7 @@ const ctaClass =
         <p class="font-body text-sm text-ink-soft">
           {offre.prixIndicatif ? (
             <>
-              {t.from} <strong class="text-base font-semibold tabular-nums text-ink">{offre.prixIndicatif[lang]}</strong>
+              {!offre.prixExact && <>{t.from} </>}<strong class="text-base font-semibold tabular-nums text-ink">{offre.prixIndicatif[lang]}</strong>
               {offre.dateVerif && (
                 <span class="block text-xs text-mist-500">
                   {t.priceChecked} {formatDate(offre.dateVerif)}
