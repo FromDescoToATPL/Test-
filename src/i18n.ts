@@ -26,6 +26,8 @@ const PAGE_PAIRS: Record<Lang, string>[] = [
   { fr: "/mentions-legales/", en: "/en/legal-notice/" },
   { fr: "/confidentialite/", en: "/en/privacy/" },
   { fr: "/liens-affilies/", en: "/en/affiliate-links/" },
+  { fr: "/experiences/", en: "/en/experiences/" },
+  { fr: "/experiences/daikoku-tours-jdm/", en: "/en/experiences/daikoku-jdm-tours/" },
 ];
 
 /** Chemin de la page sans le base (GitHub Pages sert le site sous /Test-/), toujours avec un slash final. */
@@ -79,6 +81,7 @@ const fr = {
     { label: "Kyoto", href: withBase("/kyoto/") },
   ] as NavLink[],
   mainNavLinks: [
+    { label: "Expériences", href: withBase("/experiences/") },
     { label: "Louer une JDM", href: withBase("/louer-une-voiture/") },
     { label: "Conduire au Japon", href: withBase("/conduire-au-japon/") },
     { label: "À propos", href: withBase("/a-propos/") },
@@ -142,6 +145,7 @@ const en: typeof fr = {
     { label: "Kyoto", href: withBase("/en/kyoto/") },
   ],
   mainNavLinks: [
+    { label: "Experiences", href: withBase("/en/experiences/") },
     { label: "Rent a JDM", href: withBase("/en/rent-a-car/") },
     { label: "Driving in Japan", href: withBase("/en/driving-in-japan/") },
     { label: "About", href: withBase("/en/about/") },

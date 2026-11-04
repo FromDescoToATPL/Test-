@@ -1,0 +1,57 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Hero from "../../../components/Hero.astro";
+import Icon from "../../../components/Icon.astro";
+import heroImg from "../../../assets/photos/tokyo-nuit-r34-nismo.jpg";
+import { categoriesVisibles } from "../../../data/experiences";
+---
+
+<Layout
+  title="JDM experiences in Japan: tours, rentals, museums"
+  description="Daikoku tours, JDM rentals, museums and practical tips: everything you need to live Japanese car culture, sorted by what you want to do."
+>
+  <Hero
+    image={heroImg}
+    eyebrow="Experiences"
+    title="Live the JDM culture"
+    subtitle="Tours, rentals, museums and practical tips, sorted by what you want to do."
+    compact
+    focalPoint="50% 62%"
+  />
+
+  <section class="mx-auto max-w-4xl px-5 py-10 sm:py-14 sm:px-8">
+    <p class="reveal font-body text-lg leading-relaxed text-ink-soft">
+      The cities are the backdrop. This is where I gather what really makes an enthusiast's trip: riding in a JDM,
+      driving one, seeing racing legends up close. I always say what I've tried myself and what I've only checked for
+      my next trip.
+    </p>
+
+    <div class="mt-10 space-y-12">
+      {categoriesVisibles.map((category) => (
+        <div>
+          <h2 class="reveal border-b border-ink/80 pb-3 font-display text-2xl font-semibold text-ink sm:text-3xl">
+            {category.titre.en}
+          </h2>
+          <ul class="divide-y divide-mist-200">
+            {category.liens.map((link) => (
+              <li class="reveal">
+                <a href={link.href.en} class="group flex items-start justify-between gap-6 py-5">
+                  <span>
+                    <span class="block font-display text-xl font-semibold text-ink transition-colors group-hover:text-racing-500">
+                      {link.titre.en}
+                    </span>
+                    <span class="mt-1 block font-body text-sm leading-relaxed text-ink-soft">{link.description.en}</span>
+                  </span>
+                  <Icon
+                    name="arrow-right"
+                    class="mt-1.5 h-4 w-4 shrink-0 text-mist-400 transition-transform group-hover:translate-x-1 group-hover:text-racing-500"
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
