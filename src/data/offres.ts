@@ -176,7 +176,10 @@ export const offres: Offre[] = [
       fr: "Trois heures et demie avec chauffeur au départ de l'agence de Haneda, de 2 à 9 personnes.",
       en: "Three and a half hours with a driver, leaving from the Haneda branch, for 2 to 9 people.",
     },
-    url: A_REMPLIR,
+    url: {
+      fr: "https://affiliate.klook.com/redirect?aid=142082&aff_adid=1546660&k_site=https%3A%2F%2Fwww.klook.com%2Ffr%2Factivity%2F161862-tokyo-haneda-only-jdm%2F",
+      en: "https://affiliate.klook.com/redirect?aid=142082&aff_adid=1546660&k_site=https%3A%2F%2Fwww.klook.com%2Factivity%2F161862-tokyo-haneda-only-jdm%2F",
+    },
     lienPublic: {
       fr: "https://www.klook.com/fr/activity/161862-tokyo-haneda-only-jdm/",
       en: "https://www.klook.com/activity/161862-tokyo-haneda-only-jdm/",
