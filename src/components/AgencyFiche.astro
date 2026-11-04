@@ -1,10 +1,14 @@
 ---
 // Fiche d'une agence testée par Clément : photo, infos clés, verdict et liens.
 // Données dans src/data/louer-une-voiture.ts (et sa version anglaise).
+// Le bouton « Réserver » passe par l'offre de src/data/offres.ts quand la fiche en a une : il devient un lien
+// affilié (rel="sponsored") tout seul le jour où l'offre reçoit son lien.
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import Icon from "./Icon.astro";
 import type { AgenceTestee, CritereLocation } from "../data/louer-une-voiture";
+import { getOffre, estAffilie, lienOffre } from "../data/offres";
+import { getLang } from "../i18n";
 
 interface Props {
   agency: AgenceTestee;
@@ -14,13 +18,16 @@ interface Props {
     myRental: string;
     verdict: string;
     readReview: string;
-    website: string;
+    book: string;
     missing: string;
     openQuote: string;
     closeQuote: string;
   };
 }
 const { agency, criteria, photo, labels } = Astro.props;
+const offre = agency.offre ? getOffre(agency.offre) : undefined;
+const bookHref = offre ? lienOffre(offre, getLang(Astro.url)) : agency.website;
+const bookRel = offre && estAffilie(offre) ? "sponsored noopener" : "noopener noreferrer";
 ---
 
 <article class="reveal grid overflow-hidden rounded-lg border border-mist-200 bg-paper shadow-sm lg:grid-cols-[2fr_3fr]">
@@ -68,22 +75,23 @@ const { agency, criteria, photo, labels } = Astro.props;
     <p class="mt-1.5 max-w-prose font-display text-lg italic leading-snug text-ink">
       {labels.openQuote}{agency.verdict}{labels.closeQuote}
     </p>
-    <div class="mt-2 flex flex-wrap gap-x-6">
+    <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">
+      <a
+        href={bookHref}
+        target="_blank"
+        rel={bookRel}
+        class="inline-flex min-h-11 items-center gap-2 rounded-md bg-ink px-4 py-2.5 font-body text-sm font-medium text-paper transition-colors hover:bg-racing-600"
+      >
+        {labels.book}
+        <span class="sr-only">({agency.name})</span>
+        <Icon name="external-link" class="h-3.5 w-3.5 shrink-0" />
+      </a>
       <a
         href={agency.articleHref}
         class="link-underline inline-flex min-h-11 items-center gap-1.5 font-body text-sm font-medium text-racing-500"
       >
         {labels.readReview}
         <Icon name="arrow-right" class="h-3.5 w-3.5" />
-      </a>
-      <a
-        href={agency.website}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="link-underline inline-flex min-h-11 items-center gap-1.5 font-body text-sm font-medium text-ink-soft"
-      >
-        {labels.website}
-        <Icon name="external-link" class="h-3.5 w-3.5" />
       </a>
     </div>
   </div>

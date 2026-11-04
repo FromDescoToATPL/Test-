@@ -26,14 +26,24 @@ const t = {
     checked: "vérifié le",
     priceChecked: "Prix vérifié le",
     // Libellés courts : ils doivent tenir sur une ligne dans un bouton pleine largeur sur mobile.
-    cta: { getyourguide: "Voir les dates sur GetYourGuide", klook: "Voir les dates sur Klook", direct: "Voir le site de l'agence" },
+    cta: {
+      getyourguide: "Voir les dates sur GetYourGuide",
+      klook: "Voir les dates sur Klook",
+      viator: "Voir les dates sur Viator",
+      direct: "Voir le site de l'agence",
+    },
   },
   en: {
     eyebrow: "Book",
     from: "From",
     checked: "checked on",
     priceChecked: "Price checked on",
-    cta: { getyourguide: "See dates on GetYourGuide", klook: "See dates on Klook", direct: "Visit the agency's website" },
+    cta: {
+      getyourguide: "See dates on GetYourGuide",
+      klook: "See dates on Klook",
+      viator: "See dates on Viator",
+      direct: "Visit the agency's website",
+    },
   },
 }[lang] satisfies { cta: Record<Plateforme, string> } & Record<string, unknown>;
 
@@ -72,7 +82,7 @@ const ctaClass =
           rel={estAffilie(offre) ? "sponsored noopener" : "noopener noreferrer"}
           class:list={[ctaClass, "w-full shrink-0 justify-center sm:w-auto"]}
         >
-          {t.cta[offre.plateforme]}
+          {offre.libelleBouton?.[lang] ?? t.cta[offre.plateforme]}
           <span class="sr-only">({offre.titre[lang]})</span>
           <Icon name="external-link" class="h-3.5 w-3.5 shrink-0" />
         </a>
@@ -103,7 +113,7 @@ const ctaClass =
             rel={estAffilie(offre) ? "sponsored noopener" : "noopener noreferrer"}
             class={ctaClass}
           >
-            {t.cta[offre.plateforme]}
+            {offre.libelleBouton?.[lang] ?? t.cta[offre.plateforme]}
             <Icon name="external-link" class="h-3.5 w-3.5 shrink-0" />
           </a>
         </div>

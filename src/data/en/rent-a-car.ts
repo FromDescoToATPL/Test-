@@ -33,6 +33,7 @@ const onlyJdm: AgenceTestee = {
     "Attractive prices and a real tuned JDM. The only downside: the agency is far from the center, allow 40 minutes by train and a 15-minute walk from Shinjuku.",
   articleHref: withBase("/en/tokyo/only-jdm/"),
   website: "https://only-jdm.com/",
+  offre: "onlyjdm-location",
 };
 
 const mfj: AgenceTestee = {
@@ -51,6 +52,7 @@ const mfj: AgenceTestee = {
     "A Corvette at a promo price and a lovely manager. Watch out for fuel: it's billed on a reference consumption, which penalizes economical drivers.",
   articleHref: withBase("/en/mount-fuji/mfj-rental-cars/"),
   website: "https://mfj-car.com/en/index.html",
+  offre: "mfj-location",
 };
 
 export const rentGtr = {
@@ -119,9 +121,10 @@ const mrHiro: Spot = {
   area: "Taishō, Osaka",
   description:
     "An enthusiast garage renting restored JDM cars: AE86, RX-7, 180SX, Silvia S15, NSX, S2000 and even a Skyline GT-R R32. On site, there's also a racing simulator and a bar.",
-  tip: "Rentals from 3 to 24 hours, with mileage included depending on the duration.",
+  tip: "Rentals from 3 to 24 hours on their website. On Klook: 6 or 9 hours, 21+ with 3 years of driving, plus ¥9,000 insurance paid on site.",
   mapsQuery: "MR.HIRO CAR STUDIO, 4 Chome-12-21 Izuo, Taisho Ward, Osaka",
   website: "https://mrhiro-jdm.com/",
+  offre: "mrhiro-klook-location",
   filled: true,
 };
 

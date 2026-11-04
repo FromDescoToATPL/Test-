@@ -64,7 +64,7 @@ offre, avec son titre et sa phrase en FR et en EN.
   3 offres), et `<MentionAffiliation ids={[...mêmes ids]} />` en haut de la page.
 - `url` vaut `A_REMPLIR` tant qu'il n'y a pas de vrai lien affilié : le bouton mène alors au lien public normal, sans
   `rel="sponsored"`, et la mention d'affiliation reste masquée.
-- Le jour où un lien affilié existe : le copier tel quel depuis le tableau de bord GetYourGuide ou Klook dans `url`.
+- Le jour où un lien affilié existe : le copier tel quel depuis le tableau de bord GetYourGuide, Klook ou Viator dans `url`.
   Le bouton passe en `rel="sponsored"` et la mention s'affiche toute seule.
 - Pas de widget ni de script partenaire : de simples liens ne déposent aucun cookie sur le site.
 

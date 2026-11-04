@@ -2,6 +2,7 @@
 // Liste sobre des adresses repérées mais pas encore testées par Clément.
 // La section qui l'affiche le dit une seule fois dans son intro : pas de badge carte par carte.
 import Icon from "./Icon.astro";
+import EncartReserver from "./EncartReserver.astro";
 import type { Spot } from "../data/types";
 import { categoryIcon } from "../data/categories";
 import { useUi } from "../i18n";
@@ -61,6 +62,7 @@ const mapsHref = (query: string) =>
           </a>
         )}
       </div>
+      {item.offre && <EncartReserver ids={[item.offre]} variante="ligne" class="mt-3" />}
     </div>
   ))}
 </div>

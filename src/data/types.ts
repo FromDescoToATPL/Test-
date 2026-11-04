@@ -22,6 +22,8 @@ export interface Spot {
   /** Cartes qui regroupent plusieurs lieux (ex. spots de rassemblement) : un lien Google Maps par lieu. */
   places?: { name: string; mapsQuery: string }[];
   website?: string;
+  /** Offre réservable (id dans src/data/offres.ts) : affiche une ligne « prix + bouton » sous la carte. */
+  offre?: string;
   /** Lien interne vers un article dédié (ex. "/kyoto/a-pit-auto/") pour les adresses qui ont assez de matière pour leur propre page. */
   articleHref?: string;
   /** true = entrée rédigée par Clément ; false = emplacement prêt à compléter */

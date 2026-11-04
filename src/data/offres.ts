@@ -3,7 +3,7 @@
 // jamais de toucher aux articles.
 //
 // Règles :
-// - `url` = lien affilié complet, copié tel quel depuis le tableau de bord GetYourGuide ou Klook.
+// - `url` = lien affilié complet, copié tel quel depuis le tableau de bord GetYourGuide, Klook ou Viator.
 //   Ne jamais deviner un format de lien ou un identifiant partenaire. Tant qu'il n'existe pas : A_REMPLIR,
 //   et le site affiche `lienPublic` (lien normal, sans commission).
 // - Si le tableau de bord propose un identifiant de campagne ou de sous-compte, y mettre le nom de la page
@@ -12,7 +12,7 @@
 
 export const A_REMPLIR = "A_REMPLIR";
 
-export type Plateforme = "getyourguide" | "klook" | "direct";
+export type Plateforme = "getyourguide" | "klook" | "viator" | "direct";
 export type CategorieOffre = "tour" | "location" | "musee" | "esim" | "transport";
 
 export interface Offre {
@@ -31,6 +31,8 @@ export interface Offre {
   prixIndicatif?: { fr: string; en: string };
   /** Date de vérification du prix, format AAAA-MM-JJ. */
   dateVerif?: string;
+  /** Texte du bouton quand « Voir les dates sur… » ne convient pas (ex. un moteur de recherche). */
+  libelleBouton?: { fr: string; en: string };
 }
 
 export const offres: Offre[] = [
@@ -141,6 +143,68 @@ export const offres: Offre[] = [
     prixIndicatif: { fr: "467 €", en: "€467" },
     dateVerif: "2026-11-04",
   },
+  {
+    // source : https://www.klook.com/fr/activity/161862-tokyo-haneda-only-jdm/
+    // Même adresse que l'agence où Clément a loué son Evo (2-20-14 Ōmori-minami, Ōta). Tour avec chauffeur dédié,
+    // 17 h - 20 h 30 (rendez-vous 16 h 30 à l'agence), Daikoku PA, Super Autobacs, Rainbow Bridge, dépose à la Tokyo
+    // Tower. 2 à 9 personnes, 12 ans et plus, péages/carburant/parking inclus, annulation gratuite 24 h avant.
+    // Modèles cités : GR86, GR Yaris, Civic Type R FD2, Evo X, WRX STI (selon le stock). Pas d'avis affichés.
+    // 182,29 € par personne (364,58 € pour 2). Vérifié le 04/11/2026.
+    id: "onlyjdm-klook-tour-daikoku",
+    plateforme: "klook",
+    categorie: "tour",
+    titre: { fr: "Le tour Daikoku d'OnlyJDM", en: "OnlyJDM's Daikoku tour" },
+    description: {
+      fr: "Trois heures et demie avec chauffeur au départ de l'agence de Haneda, de 2 à 9 personnes.",
+      en: "Three and a half hours with a driver, leaving from the Haneda branch, for 2 to 9 people.",
+    },
+    url: A_REMPLIR,
+    lienPublic: {
+      fr: "https://www.klook.com/fr/activity/161862-tokyo-haneda-only-jdm/",
+      en: "https://www.klook.com/activity/161862-tokyo-haneda-only-jdm/",
+    },
+    prixIndicatif: { fr: "182 € par personne", en: "€182 per person" },
+    dateVerif: "2026-11-04",
+  },
+  // --- Location (page /louer-une-voiture/) ---
+  {
+    // source : https://www.klook.com/fr/activity/85473-initial-d-sports-car-rental-osaka/
+    // MR.HIRO CAR STUDIO (Taishō, Osaka). Location 6 h ou 9 h, 4,8/5 (57 avis), plus de 1 000 réservations.
+    // AE86 (AT/MT), RX-7 FC et FD, 180SX, NSX (AT), S2000, Skyline GT-R R32. 21 ans et 3 ans de permis, traduction
+    // japonaise du permis français acceptée. Assurance obligatoire de 9 000 ¥ à payer sur place pour les touristes,
+    // 200 km inclus en 6 h. Annulation gratuite 72 h avant. Après l'achat, réserver la voiture sur le site de
+    // l'agence. 227,35 € (prix « à partir de » affiché). Vérifié le 04/11/2026.
+    id: "mrhiro-klook-location",
+    plateforme: "klook",
+    categorie: "location",
+    titre: { fr: "Louer une JDM d'Initial D chez MR.HIRO", en: "Rent an Initial D JDM from MR.HIRO" },
+    description: {
+      fr: "Location de 6 ou 9 heures à Osaka : AE86, RX-7, 180SX, NSX, S2000 ou Skyline GT-R R32.",
+      en: "A 6- or 9-hour rental in Osaka: AE86, RX-7, 180SX, NSX, S2000 or Skyline GT-R R32.",
+    },
+    url: A_REMPLIR,
+    lienPublic: {
+      fr: "https://www.klook.com/fr/activity/85473-initial-d-sports-car-rental-osaka/",
+      en: "https://www.klook.com/activity/85473-initial-d-sports-car-rental-osaka/",
+    },
+    prixIndicatif: { fr: "227 €", en: "€227" },
+    dateVerif: "2026-11-04",
+  },
+  {
+    // source : https://www.klook.com/fr/car-rentals/ (moteur de recherche de location ; ORIX Rent A Car et
+    // Nippon Rent-A-Car apparaissent dans les résultats Klook au Japon). Vérifié le 04/11/2026.
+    id: "klook-location-voiture",
+    plateforme: "klook",
+    categorie: "location",
+    titre: { fr: "Comparer les loueurs classiques sur Klook", en: "Compare regular rental companies on Klook" },
+    description: {
+      fr: "Le moteur de location de voitures de Klook, avec notamment ORIX et Nippon Rent-A-Car au Japon.",
+      en: "Klook's car rental search, including ORIX and Nippon Rent-A-Car in Japan.",
+    },
+    url: A_REMPLIR,
+    lienPublic: { fr: "https://www.klook.com/fr/car-rentals/", en: "https://www.klook.com/car-rentals/" },
+    libelleBouton: { fr: "Rechercher sur Klook", en: "Search on Klook" },
+  },
 ];
 
 export function getOffre(id: string): Offre {
@@ -166,12 +230,19 @@ export function lienOffre(offre: Offre, lang: "fr" | "en"): string {
  */
 export const affiliationActive = offres.some(estAffilie);
 
-const NOMS_PLATEFORMES: Record<Exclude<Plateforme, "direct">, string> = { getyourguide: "GetYourGuide", klook: "Klook" };
+type PlateformePartenaire = Exclude<Plateforme, "direct">;
+const NOMS_PLATEFORMES: Record<PlateformePartenaire, string> = {
+  getyourguide: "GetYourGuide",
+  klook: "Klook",
+  viator: "Viator",
+};
 
 /** Plateformes qui ont au moins un vrai lien affilié, ex. ["GetYourGuide", "Klook"]. */
 export const plateformesActives = [
   ...new Set(
-    offres.filter((o) => estAffilie(o) && o.plateforme !== "direct").map((o) => NOMS_PLATEFORMES[o.plateforme as "getyourguide" | "klook"]),
+    offres
+      .filter((o) => estAffilie(o) && o.plateforme !== "direct")
+      .map((o) => NOMS_PLATEFORMES[o.plateforme as PlateformePartenaire]),
   ),
 ];
 

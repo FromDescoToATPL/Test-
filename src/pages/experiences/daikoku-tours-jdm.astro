@@ -19,6 +19,7 @@ const offresPage = [
   "daikoku-gyg-tokyo-turismo",
   "daikoku-klook-nuit",
   "daikoku-klook-au-volant",
+  "onlyjdm-klook-tour-daikoku",
 ];
 const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Daikoku Futo Parking Area, Yokohama")}`;
 
@@ -47,6 +48,15 @@ const toursPassager = [
     titre: "Visite nocturne JDM avec guide local",
     infos: "Klook · 4,9/5 sur plus de 2 300 avis · 2 h 30 à 3 h",
     texte: "En voiture JDM, avec une formule classique et une formule VIP.",
+  },
+  {
+    // source : Klook activité 161862 (départ de l'agence OnlyJDM de Haneda, même adresse que celle où Clément a loué
+    // son Evo), 3 h 30, 2 à 9 personnes, 182 € par personne, pas d'avis affichés, vérifié le 04/11/2026
+    id: "onlyjdm-klook-tour-daikoku",
+    titre: "Le tour d'OnlyJDM, au départ de leur agence",
+    infos: "Klook · 3 h 30 · de 2 à 9 personnes",
+    texte:
+      "L'agence où j'ai loué mon Evo organise aussi son propre tour. Rendez-vous à 16 h 30 à l'agence, près de Haneda, puis un chauffeur vous emmène à Daikoku, dans un Super Autobacs et sur le Rainbow Bridge, avant de vous déposer à la Tokyo Tower. Les voitures changent selon le stock : GR86, GR Yaris, Civic Type R ou Evo X. C'est le plus cher des quatre, 182 € par personne avec 2 personnes minimum, et il n'a pas encore d'avis sur Klook.",
   },
 ];
 
@@ -297,7 +307,8 @@ const infosPratiques = [
       <div class={texte}>
         <p>
           Si vous ne louez pas de voiture, c'est la solution logique. Un guide vous emmène, gère la route et les péages,
-          et connaît les plans B quand Daikoku est fermé. Trois offres sortent clairement du lot.
+          et connaît les plans B quand Daikoku est fermé. Trois offres sortent clairement du lot, plus une quatrième que je ne
+          pouvais pas laisser de côté.
         </p>
         <p>
           Si je devais réserver demain pour une première fois, je prendrais Tokyo Turismo : aller à Daikoku assis dans

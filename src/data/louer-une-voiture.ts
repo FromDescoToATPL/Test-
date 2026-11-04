@@ -29,6 +29,8 @@ export interface AgenceTestee {
   verdict: string;
   articleHref: string;
   website: string;
+  /** Offre de réservation (id dans src/data/offres.ts) : le bouton « Réserver » de la fiche passe par elle. */
+  offre?: string;
 }
 
 export interface VilleLocation {
@@ -63,6 +65,7 @@ const onlyJdm: AgenceTestee = {
     "Des prix attractifs et une vraie JDM préparée. Seul bémol : l'agence est loin du centre, comptez 40 minutes de train et 15 minutes à pied depuis Shinjuku.",
   articleHref: withBase("/tokyo/only-jdm/"),
   website: "https://only-jdm.com/",
+  offre: "onlyjdm-location",
 };
 
 const mfj: AgenceTestee = {
@@ -81,6 +84,7 @@ const mfj: AgenceTestee = {
     "Une Corvette à prix promo et une gérante adorable. Attention au carburant : facturé sur une consommation de référence, il désavantage les conducteurs économes.",
   articleHref: withBase("/mont-fuji/mfj-rental-cars/"),
   website: "https://mfj-car.com/en/index.html",
+  offre: "mfj-location",
 };
 
 // Encadré « Vraie GT-R ou look GT-R ? ». Faits techniques vérifiés : BNR34 = RB26DETT 2,6 L biturbo, transmission
@@ -152,9 +156,11 @@ const mrHiro: Spot = {
   area: "Taishō, Osaka",
   description:
     "Un garage de passionnés qui loue des JDM restaurées : AE86, RX-7, 180SX, Silvia S15, NSX, S2000 et même une Skyline GT-R R32. Sur place, un simulateur de course et un bar.",
-  tip: "Formules de 3 h à 24 h, avec un kilométrage inclus selon la durée.",
+  // source : fiche Klook 85473 (assurance de 9 000 ¥ sur place pour les touristes, 21 ans et 3 ans de permis), vérifiée le 04/11/2026
+  tip: "Formules de 3 h à 24 h sur leur site. Sur Klook : 6 ou 9 h, 21 ans et 3 ans de permis, plus une assurance de 9 000 ¥ à régler sur place.",
   mapsQuery: "MR.HIRO CAR STUDIO, 4 Chome-12-21 Izuo, Taisho Ward, Osaka",
   website: "https://mrhiro-jdm.com/",
+  offre: "mrhiro-klook-location",
   filled: true,
 };
 
