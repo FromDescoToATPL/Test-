@@ -1,12 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { CONTACT_EMAIL, HOST, SITE_NAME, withBase } from "../consts";
+import { AUTHOR_NAME, CONTACT_EMAIL, HOST, SITE_NAME, withBase } from "../consts";
 import { affiliationActive, plateformesActives } from "../data/offres";
 
-// Garde-fou : des liens affiliés en ligne font du site une activité commerciale. L'éditeur ne peut alors plus
-// rester anonyme « à titre non professionnel » : nom, statut (micro-entreprise) et adresse à ajouter ci-dessous.
+// Garde-fou : avec des liens affiliés, l'éditeur n'est plus « à titre non professionnel ». En attendant la
+// micro-entreprise (choix de Clément, 04/11/2026), il signe de son nom d'auteur ; identité complète à ajouter ensuite.
 if (affiliationActive) {
-  console.warn("[JDM Trip] Liens affiliés actifs : mettre à jour la section « Éditeur du site » des mentions légales (FR + EN).");
+  console.warn("[JDM Trip] Liens affiliés actifs : à la création de la micro-entreprise, ajouter nom, adresse et SIRET dans « Éditeur du site » (FR + EN).");
 }
 const programmes = plateformesActives.length > 0 ? ` (${plateformesActives.join(", ")})` : "";
 ---
@@ -18,11 +18,19 @@ const programmes = plateformesActives.length > 0 ? ` (${plateformesActives.join(
     <div class="mt-10 space-y-8 font-body text-sm leading-relaxed text-ink-soft">
       <div>
         <h2 class="font-display text-xl font-semibold text-ink">Éditeur du site</h2>
-        <p class="mt-2">
-          {SITE_NAME} est un site personnel édité par un particulier, à titre non professionnel. Conformément à la loi
-          pour la confiance dans l'économie numérique (LCEN), l'éditeur a choisi de préserver son anonymat : ses
-          coordonnées ont été communiquées à l'hébergeur du site.
-        </p>
+        {affiliationActive ? (
+          <p class="mt-2">
+            {SITE_NAME} est un site personnel édité par un particulier, qui signe ses articles « {AUTHOR_NAME} ». Il
+            n'existe pas de société derrière le site à ce jour. Ses coordonnées ont été communiquées à
+            l'hébergeur du site.
+          </p>
+        ) : (
+          <p class="mt-2">
+            {SITE_NAME} est un site personnel édité par un particulier, à titre non professionnel. Conformément à la loi
+            pour la confiance dans l'économie numérique (LCEN), l'éditeur a choisi de préserver son anonymat : ses
+            coordonnées ont été communiquées à l'hébergeur du site.
+          </p>
+        )}
         <p class="mt-2">
           Contact : <a href={`mailto:${CONTACT_EMAIL}`} class="link-underline font-medium text-racing-500">{CONTACT_EMAIL}</a>
         </p>

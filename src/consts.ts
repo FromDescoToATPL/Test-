@@ -10,9 +10,10 @@ export const SITE_URL = new URL(import.meta.env.SITE ?? "https://www.jdmtrip.com
 // Passe à true le jour de la mise en ligne sur www.jdmtrip.com. Le miroir GitHub Pages reste toujours en noindex.
 export const INDEXABLE = true;
 
-// Mentions légales : éditeur particulier et anonyme, à titre non professionnel (possible tant que le site ne
-// rapporte pas de revenus réguliers). Le jour des pubs : micro-entreprise, et nom + adresse à ajouter ici et
-// dans src/pages/mentions-legales.astro (+ version anglaise).
+// Mentions légales : éditeur particulier, qui signe « Clément » (AUTHOR_NAME). Depuis les liens affiliés
+// (04/11/2026), Clément a choisi de garder ce nom d'auteur en attendant ses premiers revenus. À la création de la
+// micro-entreprise : nom, adresse (ou domiciliation) et SIRET à ajouter dans src/pages/mentions-legales.astro
+// (+ version anglaise).
 export const CONTACT_EMAIL = "contact@jdmtrip.com";
 export const HOST = {
   name: "Vercel Inc.",

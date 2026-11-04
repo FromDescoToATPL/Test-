@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { CONTACT_EMAIL, HOST, SITE_NAME, withBase } from "../../consts";
+import { AUTHOR_NAME, CONTACT_EMAIL, HOST, SITE_NAME, withBase } from "../../consts";
 import { affiliationActive, plateformesActives } from "../../data/offres";
 
 const programs = plateformesActives.length > 0 ? ` (${plateformesActives.join(", ")})` : "";
@@ -16,11 +16,19 @@ const programs = plateformesActives.length > 0 ? ` (${plateformesActives.join(",
     <div class="mt-10 space-y-8 font-body text-sm leading-relaxed text-ink-soft">
       <div>
         <h2 class="font-display text-xl font-semibold text-ink">Site publisher</h2>
-        <p class="mt-2">
-          {SITE_NAME} is a personal website published by a private individual, on a non-professional basis. In
-          accordance with French law (LCEN), the publisher has chosen to remain anonymous: their contact details have
-          been provided to the site's hosting provider.
-        </p>
+        {affiliationActive ? (
+          <p class="mt-2">
+            {SITE_NAME} is a personal website published by a private individual, who signs their articles
+            "{AUTHOR_NAME}". There is no company behind the site at this time. The publisher's contact details
+            have been provided to the site's hosting provider.
+          </p>
+        ) : (
+          <p class="mt-2">
+            {SITE_NAME} is a personal website published by a private individual, on a non-professional basis. In
+            accordance with French law (LCEN), the publisher has chosen to remain anonymous: their contact details have
+            been provided to the site's hosting provider.
+          </p>
+        )}
         <p class="mt-2">
           Contact: <a href={`mailto:${CONTACT_EMAIL}`} class="link-underline font-medium text-racing-500">{CONTACT_EMAIL}</a>
         </p>
