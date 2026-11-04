@@ -11,6 +11,8 @@
 //
 // Formats relevés dans les tableaux de bord :
 // - GetYourGuide (04/11/2026) : adresse du produit + ?partner_id=JSVDF2G&utm_medium=online_publisher&cmp=<campagne>
+// - Klook (04/11/2026) : https://affiliate.klook.com/redirect?aid=142082&aff_adid=<id du lien>&k_site=<adresse encodée>
+//   aff_adid est propre à chaque lien généré : ne jamais l'inventer. La version EN garde le même lien, page anglaise.
 // - Prix toujours « à partir de », avec la date de vérification. Seulement des faits vérifiés.
 
 export const A_REMPLIR = "A_REMPLIR";
@@ -124,7 +126,10 @@ export const offres: Offre[] = [
       fr: "En voiture JDM, avec une formule classique ou VIP. Noté 4,9/5 sur plus de 2 300 avis.",
       en: "In a JDM car, with a standard or VIP option. Rated 4.9/5 from 2,300+ reviews.",
     },
-    url: A_REMPLIR,
+    url: {
+      fr: "https://affiliate.klook.com/redirect?aid=142082&aff_adid=1546655&k_site=https%3A%2F%2Fwww.klook.com%2Ffr%2Factivity%2F137151-tokyo-daikoku-car-meetup-night-city-tour-with-local-guide%2F",
+      en: "https://affiliate.klook.com/redirect?aid=142082&aff_adid=1546655&k_site=https%3A%2F%2Fwww.klook.com%2Factivity%2F137151-tokyo-daikoku-car-meetup-night-city-tour-with-local-guide%2F",
+    },
     lienPublic: {
       fr: "https://www.klook.com/fr/activity/137151-tokyo-daikoku-car-meetup-night-city-tour-with-local-guide/",
       en: "https://www.klook.com/activity/137151-tokyo-daikoku-car-meetup-night-city-tour-with-local-guide/",
@@ -145,7 +150,10 @@ export const offres: Offre[] = [
       fr: "Quatre heures au volant derrière une voiture guide, carburant et péages compris. 21 ans et 3 ans de permis minimum.",
       en: "Four hours behind the wheel, following a lead car, fuel and tolls included. Minimum 21 years old with 3 years of driving.",
     },
-    url: A_REMPLIR,
+    url: {
+      fr: "https://affiliate.klook.com/redirect?aid=142082&aff_adid=1546657&k_site=https%3A%2F%2Fwww.klook.com%2Ffr%2Factivity%2F147074-tokyo-daikoku-self-drive-tour%2F",
+      en: "https://affiliate.klook.com/redirect?aid=142082&aff_adid=1546657&k_site=https%3A%2F%2Fwww.klook.com%2Factivity%2F147074-tokyo-daikoku-self-drive-tour%2F",
+    },
     lienPublic: {
       fr: "https://www.klook.com/fr/activity/147074-tokyo-daikoku-self-drive-tour/",
       en: "https://www.klook.com/activity/147074-tokyo-daikoku-self-drive-tour/",
@@ -192,7 +200,10 @@ export const offres: Offre[] = [
       fr: "Location de 6 ou 9 heures à Osaka : AE86, RX-7, 180SX, NSX, S2000 ou Skyline GT-R R32.",
       en: "A 6- or 9-hour rental in Osaka: AE86, RX-7, 180SX, NSX, S2000 or Skyline GT-R R32.",
     },
-    url: A_REMPLIR,
+    url: {
+      fr: "https://affiliate.klook.com/redirect?aid=142082&aff_adid=1546658&k_site=https%3A%2F%2Fwww.klook.com%2Ffr%2Factivity%2F85473-initial-d-sports-car-rental-osaka%2F",
+      en: "https://affiliate.klook.com/redirect?aid=142082&aff_adid=1546658&k_site=https%3A%2F%2Fwww.klook.com%2Factivity%2F85473-initial-d-sports-car-rental-osaka%2F",
+    },
     lienPublic: {
       fr: "https://www.klook.com/fr/activity/85473-initial-d-sports-car-rental-osaka/",
       en: "https://www.klook.com/activity/85473-initial-d-sports-car-rental-osaka/",
@@ -211,7 +222,10 @@ export const offres: Offre[] = [
       fr: "Le moteur de location de voitures de Klook, avec notamment ORIX et Nippon Rent-A-Car au Japon.",
       en: "Klook's car rental search, including ORIX and Nippon Rent-A-Car in Japan.",
     },
-    url: A_REMPLIR,
+    url: {
+      fr: "https://affiliate.klook.com/redirect?aid=142082&aff_adid=1546659&k_site=https%3A%2F%2Fwww.klook.com%2Ffr%2Fcar-rentals%2F",
+      en: "https://affiliate.klook.com/redirect?aid=142082&aff_adid=1546659&k_site=https%3A%2F%2Fwww.klook.com%2Fcar-rentals%2F",
+    },
     lienPublic: { fr: "https://www.klook.com/fr/car-rentals/", en: "https://www.klook.com/car-rentals/" },
     libelleBouton: { fr: "Rechercher sur Klook", en: "Search on Klook" },
   },
