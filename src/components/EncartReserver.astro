@@ -8,9 +8,14 @@ import { getLang } from "../i18n";
 
 interface Props {
   ids: string[];
+  /**
+   * "cartes" (par défaut) : une carte par offre, avec titre et description.
+   * "ligne" : seulement le prix et le bouton, à placer juste sous le texte qui présente déjà l'offre.
+   */
+  variante?: "cartes" | "ligne";
   class?: string;
 }
-const { ids, class: className = "" } = Astro.props;
+const { ids, variante = "cartes", class: className = "" } = Astro.props;
 const lang = getLang(Astro.url);
 const items = ids.map(getOffre);
 
@@ -19,13 +24,16 @@ const t = {
     eyebrow: "Réserver",
     from: "À partir de",
     checked: "vérifié le",
-    cta: { getyourguide: "Voir les disponibilités sur GetYourGuide", klook: "Voir les disponibilités sur Klook", direct: "Voir sur le site de l'agence" },
+    priceChecked: "Prix vérifié le",
+    // Libellés courts : ils doivent tenir sur une ligne dans un bouton pleine largeur sur mobile.
+    cta: { getyourguide: "Voir les dates sur GetYourGuide", klook: "Voir les dates sur Klook", direct: "Voir le site de l'agence" },
   },
   en: {
     eyebrow: "Book",
     from: "From",
     checked: "checked on",
-    cta: { getyourguide: "Check availability on GetYourGuide", klook: "Check availability on Klook", direct: "See the agency's website" },
+    priceChecked: "Price checked on",
+    cta: { getyourguide: "See dates on GetYourGuide", klook: "See dates on Klook", direct: "Visit the agency's website" },
   },
 }[lang] satisfies { cta: Record<Plateforme, string> } & Record<string, unknown>;
 
@@ -36,8 +44,42 @@ const formatDate = (iso: string) =>
     year: "numeric",
     timeZone: "UTC",
   });
+const ctaClass =
+  "inline-flex min-h-11 items-center gap-2 rounded-md bg-ink px-4 py-2.5 font-body text-sm font-medium text-paper transition-colors hover:bg-racing-600";
 ---
 
+{variante === "ligne" ? (
+  <div class:list={["reveal space-y-3", className]}>
+    {items.map((offre) => (
+      <div class="flex flex-col gap-3 rounded-lg border border-mist-200 bg-paper-dim/40 p-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-3 sm:pr-3 sm:pl-5">
+        <p class="font-body text-sm text-ink-soft">
+          {offre.prixIndicatif ? (
+            <>
+              {t.from} <strong class="text-base font-semibold tabular-nums text-ink">{offre.prixIndicatif[lang]}</strong>
+              {offre.dateVerif && (
+                <span class="block text-xs text-mist-500">
+                  {t.priceChecked} {formatDate(offre.dateVerif)}
+                </span>
+              )}
+            </>
+          ) : (
+            <strong class="font-semibold text-ink">{offre.titre[lang]}</strong>
+          )}
+        </p>
+        <a
+          href={lienOffre(offre, lang)}
+          target="_blank"
+          rel={estAffilie(offre) ? "sponsored noopener" : "noopener noreferrer"}
+          class:list={[ctaClass, "w-full shrink-0 justify-center sm:w-auto"]}
+        >
+          {t.cta[offre.plateforme]}
+          <span class="sr-only">({offre.titre[lang]})</span>
+          <Icon name="external-link" class="h-3.5 w-3.5 shrink-0" />
+        </a>
+      </div>
+    ))}
+  </div>
+) : (
 <aside class:list={["reveal", className]} aria-label={t.eyebrow}>
   <p class="eyebrow flex items-center gap-2 text-racing-500">
     <Icon name="tag" class="h-3.5 w-3.5" />
@@ -59,7 +101,7 @@ const formatDate = (iso: string) =>
             href={lienOffre(offre, lang)}
             target="_blank"
             rel={estAffilie(offre) ? "sponsored noopener" : "noopener noreferrer"}
-            class="inline-flex min-h-11 items-center gap-2 rounded-md bg-ink px-4 py-2.5 font-body text-sm font-medium text-paper transition-colors hover:bg-racing-600"
+            class={ctaClass}
           >
             {t.cta[offre.plateforme]}
             <Icon name="external-link" class="h-3.5 w-3.5 shrink-0" />
@@ -69,3 +111,4 @@ const formatDate = (iso: string) =>
     ))}
   </div>
 </aside>
+)}
