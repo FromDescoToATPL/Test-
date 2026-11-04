@@ -78,10 +78,13 @@ export const offres: Offre[] = [
       fr: "Trois heures avec des passionnés locaux, arrêt chez A PIT Autobacs. Noté 4,8/5 sur 725 avis.",
       en: "Three hours with local enthusiasts, with a stop at A PIT Autobacs. Rated 4.8/5 from 725 reviews.",
     },
-    url: A_REMPLIR,
+    url: {
+      fr: "https://www.getyourguide.com/fr-fr/tokyo-l193/tokyo-realjpn-car-culture-daikoku-jdm-meet-r34rxplus-t560550/?partner_id=JSVDF2G&utm_medium=online_publisher&cmp=Daikoku",
+      en: "https://www.getyourguide.com/tokyo-l193/tokyo-realjpn-car-culture-daikoku-jdm-meet-r34rxmore-t560550/?partner_id=JSVDF2G&utm_medium=online_publisher&cmp=Daikoku-EN",
+    },
     lienPublic: {
       fr: "https://www.getyourguide.com/fr-fr/tokyo-l193/tokyo-realjpn-car-culture-daikoku-jdm-meet-r34rxplus-t560550/",
-      en: "https://www.getyourguide.com/tokyo-l193/tokyo-realjpn-car-culture-daikoku-jdm-meet-r34rxplus-t560550/",
+      en: "https://www.getyourguide.com/tokyo-l193/tokyo-realjpn-car-culture-daikoku-jdm-meet-r34rxmore-t560550/",
     },
     prixIndicatif: { fr: "71 €", en: "€71" },
     dateVerif: "2026-11-04",
@@ -98,10 +101,14 @@ export const offres: Offre[] = [
       fr: "Skyline, GT-R ou Evo selon le soir, avec Tokyo Turismo. Retour à votre hôtel. Noté 4,8/5 sur plus de 6 300 avis.",
       en: "A Skyline, GT-R or Evo depending on the night, with Tokyo Turismo. Drop-off at your hotel. Rated 4.8/5 from 6,300+ reviews.",
     },
-    url: A_REMPLIR,
+    // Lien EN = celui généré par Clément dans son tableau de bord le 04/11/2026 (campagne « Daikoku » renommée Daikoku-EN).
+    url: {
+      fr: "https://www.getyourguide.com/fr-fr/tokyo-l193/tokyo-l-experience-fast-furious-tokyo-drift-3-t794698/?partner_id=JSVDF2G&utm_medium=online_publisher&cmp=Daikoku",
+      en: "https://www.getyourguide.com/tokyo-l193/tokyo-fast-furious-tokyo-drift-3-experience-t794698/?partner_id=JSVDF2G&utm_medium=online_publisher&cmp=Daikoku-EN",
+    },
     lienPublic: {
       fr: "https://www.getyourguide.com/fr-fr/tokyo-l193/tokyo-l-experience-fast-furious-tokyo-drift-3-t794698/",
-      en: "https://www.getyourguide.com/tokyo-l193/tokyo-l-experience-fast-furious-tokyo-drift-3-t794698/",
+      en: "https://www.getyourguide.com/tokyo-l193/tokyo-fast-furious-tokyo-drift-3-experience-t794698/",
     },
     prixIndicatif: { fr: "121 €", en: "€121" },
     dateVerif: "2026-11-04",
