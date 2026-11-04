@@ -4,7 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CookieConsent from "../components/CookieConsent.astro";
 import "../styles/global.css";
-import { ADS_ENABLED, INDEXABLE, SITE_NAME, SITE_URL, withBase } from "../consts";
+import { ADS_ENABLED, AUTHOR_NAME, INDEXABLE, SITE_NAME, SITE_URL, withBase } from "../consts";
 import { LANGS, findPagePair, getLang, stripBase, ui } from "../i18n";
 import defaultOgSource from "../assets/photos/fuji-musee-lemans-787b-gtone.jpg";
 
@@ -12,11 +12,15 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
+  /** Articles : dates au format AAAA-MM-JJ, pour les données structurées « Article ». */
+  article?: { published: string; modified?: string };
+  /** Fil d'Ariane (sans l'accueil, ajouté automatiquement) : chemins sans le base, ex. "/experiences/". */
+  breadcrumbs?: { name: string; path: string }[];
 }
 
 const lang = getLang(Astro.url);
 const t = ui[lang];
-const { title, description = t.description, image } = Astro.props;
+const { title, description = t.description, image, article, breadcrumbs } = Astro.props;
 const pageTitle = title === SITE_NAME ? title : `${title} · ${SITE_NAME}`;
 // Toujours l'adresse du site principal, sans le préfixe /Test-/ du miroir GitHub Pages.
 const canonicalURL = new URL(stripBase(Astro.url.pathname), SITE_URL);
@@ -40,6 +44,31 @@ const defaultOgImage = await getImage({ src: defaultOgSource, width: 1200, heigh
 // L'image doit pointer là où le fichier est vraiment servi : le miroir GitHub Pages a son propre domaine.
 const deployOrigin = isGithubPagesMirror ? "https://fromdescotoatpl.github.io" : SITE_URL;
 const ogImageURL = new URL(image ?? defaultOgImage.src, deployOrigin);
+
+// Données structurées des articles (Article + fil d'Ariane), pour aider Google à comprendre la page.
+const articleLd = article && {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: title,
+  description,
+  image: [ogImageURL.href],
+  datePublished: article.published,
+  dateModified: article.modified ?? article.published,
+  inLanguage: t.htmlLang,
+  mainEntityOfPage: canonicalURL.href,
+  author: { "@type": "Person", name: AUTHOR_NAME, url: new URL(lang === "en" ? "/en/about/" : "/a-propos/", SITE_URL).href },
+  publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+};
+const breadcrumbLd = breadcrumbs && {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [{ name: lang === "en" ? "Home" : "Accueil", path: lang === "en" ? "/en/" : "/" }, ...breadcrumbs].map((b, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: b.name,
+    item: new URL(b.path, SITE_URL).href,
+  })),
+};
 ---
 
 <!doctype html>
@@ -75,6 +104,8 @@ const ogImageURL = new URL(image ?? defaultOgImage.src, deployOrigin);
       url: SITE_URL,
       inLanguage: t.htmlLang,
     })} />
+    {articleLd && <script type="application/ld+json" set:html={JSON.stringify(articleLd)} />}
+    {breadcrumbLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />}
   </head>
   <body class="flex min-h-dvh flex-col bg-paper text-ink">
     <a

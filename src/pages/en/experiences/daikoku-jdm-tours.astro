@@ -1,0 +1,355 @@
+---
+// English version of src/pages/experiences/daikoku-tours-jdm.astro (adapted, not translated word for word).
+// Clément hasn't been to Daikoku (weather): everything was checked online on 2026-11-04, sources in the FR file.
+import Layout from "../../../layouts/Layout.astro";
+import Hero from "../../../components/Hero.astro";
+import Icon from "../../../components/Icon.astro";
+import PageToc from "../../../components/PageToc.astro";
+import ComparisonTable from "../../../components/ComparisonTable.astro";
+import EncartReserver from "../../../components/EncartReserver.astro";
+import MentionAffiliation from "../../../components/MentionAffiliation.astro";
+import { withBase } from "../../../consts";
+import heroImg from "../../../assets/photos/tokyo-nuit-rx7-veilside.jpg";
+
+const pageOffers = [
+  "onlyjdm-location",
+  "daikoku-gyg-car-culture",
+  "daikoku-gyg-tokyo-turismo",
+  "daikoku-klook-nuit",
+  "daikoku-klook-au-volant",
+];
+const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Daikoku Futo Parking Area, Yokohama")}`;
+
+const faq = [
+  {
+    q: "Can you get to Daikoku by train or on foot?",
+    a: "No. The parking area sits on the urban expressway, so you need a car: your own, a tour's, or a taxi. I wouldn't count on a taxi though: nothing guarantees you'll find one there to get back.",
+  },
+  {
+    q: "Which night should you go to Daikoku?",
+    a: "Weekends bring the most cars, but also the most closures, especially on Friday and Saturday nights. Weeknights are quieter: fewer people, but less risk of finding the entrance shut.",
+  },
+  {
+    q: "How much does a Daikoku tour cost?",
+    a: "From €71 as a passenger in a small group, around €120 to ride in a sports car, and from €467 to drive yourself. Prices checked on November 4, 2026.",
+  },
+  {
+    q: "Do you need a license for a tour?",
+    a: "Not as a passenger: your passport is enough. To drive, you need your physical license plus an International Driving Permit (1949 Geneva Convention) or an official Japanese translation, depending on your country. The self-drive tour I found also requires drivers to be 21 or older with 3 years of driving experience.",
+  },
+  {
+    q: "What if Daikoku is closed?",
+    a: "Tatsumi PA, closer to central Tokyo, and Umihotaru PA, out in the middle of the bay, are the usual fallbacks. The A PIT Autobacs store in Shinonome also stays open late. Good tours adapt on their own.",
+  },
+];
+---
+
+<Layout
+  title="Daikoku PA: which JDM tour to book, or go on your own?"
+  description="Daikoku PA can only be reached by car. Passenger tour, self-drive tour or rental: checked prices, weekend closures and my advice on how to choose."
+  article={{ published: "2026-11-04" }}
+  breadcrumbs={[
+    { name: "Experiences", path: "/en/experiences/" },
+    { name: "Daikoku PA", path: "/en/experiences/daikoku-jdm-tours/" },
+  ]}
+>
+  <Hero
+    image={heroImg}
+    eyebrow="Experiences · Yokohama"
+    title="Daikoku PA: go on your own or book a JDM tour?"
+    subtitle="Japan's most famous car meet can only be reached by car. Here's how to choose."
+    focalPoint="50% 62%"
+  />
+
+  <section class="mx-auto max-w-3xl px-5 pt-10 pb-8 sm:pt-14 sm:pb-10 sm:px-8">
+    <a
+      href={withBase("/en/experiences/")}
+      class="tap-target link-underline reveal inline-flex items-center gap-1.5 font-body text-sm font-medium text-ink-soft"
+    >
+      <Icon name="arrow-left" class="h-3.5 w-3.5" />
+      All experiences
+    </a>
+
+    <MentionAffiliation ids={pageOffers} class="mt-6" />
+
+    <div class="reveal mt-8 space-y-4 font-body text-lg leading-relaxed text-ink-soft">
+      <p>
+        Daikoku is the most famous highway parking lot in Japan. At night, enthusiasts park their JDM cars, supercars and
+        wildest builds there, just to hang out and show off. The catch: you can only get in by car, from the urban
+        expressway. If you're already renting a JDM, drive there yourself: it's the most freedom for the least money.
+        Otherwise, a passenger tour is the easiest option, from around €70.
+      </p>
+      <p>
+        I'll be straight with you: I couldn't make it during my trip, the weather had other plans. So I did my homework
+        for next time: operators' websites, conditions, travelers' reviews. Everything here was checked on November 4,
+        2026.
+      </p>
+    </div>
+    <p class="reveal mt-4 font-body text-xs text-mist-500">
+      In the photo: the Tokyo Drift VeilSide RX-7, spotted one night in Tokyo. Not at Daikoku, then.
+    </p>
+
+    <PageToc
+      items={[
+        { label: "What is it?", href: "#what-is-it" },
+        { label: "Closures", href: "#closures" },
+        { label: "Comparison", href: "#comparison" },
+        { label: "With a rental", href: "#rental" },
+        { label: "Passenger tours", href: "#passenger" },
+        { label: "Self-drive", href: "#self-drive" },
+        { label: "Traps", href: "#traps" },
+        { label: "FAQ", href: "#faq" },
+      ]}
+    />
+  </section>
+
+  <section id="what-is-it" class="scroll-mt-20 mx-auto max-w-3xl px-5 pb-8 sm:pb-10 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink sm:text-3xl">So what exactly is Daikoku?</h2>
+    <div class="reveal mt-4 space-y-4 font-body text-base leading-relaxed text-ink-soft">
+      <p>
+        Daikoku PA ("parking area") is a rest stop sitting in the middle of a huge interchange in Yokohama, on Tokyo's
+        urban expressway, the Shuto. By day it's an ordinary stop: restrooms, a few shops, people passing through. At
+        night, and especially on weekends, it's a different world. Skylines, Supras, RX-7s, Lamborghinis, bosozoku
+        builds: everyone brings their best.
+      </p>
+      <p>
+        One thing to get clear: it's not an event. No tickets, no schedule, no program. Some nights the lot is packed;
+        others it rains and there's hardly anyone. That's part of the charm, and also why you should know what you're
+        getting into before paying for a tour.
+      </p>
+    </div>
+  </section>
+
+  <section id="closures" class="scroll-mt-20 mx-auto max-w-3xl px-5 pb-8 sm:pb-10 sm:px-8">
+    <div class="reveal rounded-lg border border-racing-500/30 bg-racing-500/5 p-5 sm:p-6">
+      <p class="eyebrow flex items-center gap-2 text-racing-500">
+        <Icon name="flag" class="h-4 w-4" />
+        The catch: weekend closures
+      </p>
+      <div class="mt-3 space-y-3 font-body text-sm leading-relaxed text-ink-soft">
+        <p>
+          This is what many people only find out on the spot. When too many modified cars show up, especially on
+          Saturday nights, the entrance is shut and everyone has to leave. According to the Japanese car press, it
+          usually reopens between 1 and 3 a.m. One tour operator even says the lot is closed on Fridays and Saturdays
+          from 7:30 p.m. to 2 a.m., and takes its guests elsewhere during those hours.
+        </p>
+        <p>
+          The expressway operator also closes the parking area when heavy snow is forecast: it then serves as a base
+          for snow clearing.
+        </p>
+        <p class="font-medium text-ink">
+          Don't panic: good tours have a plan B, usually Tatsumi PA or the A PIT Autobacs store in Shinonome. Just
+          check that yours does.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="comparison" class="scroll-mt-20 mx-auto max-w-4xl px-5 pb-8 sm:pb-10 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink sm:text-3xl">Three ways to get there</h2>
+    <p class="reveal mt-4 font-body text-base leading-relaxed text-ink-soft">
+      It all comes down to one question: are you already renting a car during your stay?
+    </p>
+    <ComparisonTable
+      class="mt-6"
+      caption="Comparison of the three ways to get to Daikoku PA"
+      rowHeader="How"
+      columns={[
+        { key: "price", label: "Price", emphasis: true },
+        { key: "duration", label: "Duration" },
+        { key: "role", label: "You are" },
+        { key: "group", label: "Private or shared" },
+        { key: "cancel", label: "Cancellation" },
+      ]}
+      rows={[
+        {
+          title: "With a rental car",
+          values: {
+            price: "¥27,000 for 7 hours at OnlyJDM, plus fuel and tolls",
+            duration: "7 or 24 hours",
+            role: "The driver",
+            group: "Private",
+            cancel: "Depends on the agency",
+          },
+        },
+        {
+          title: "Passenger tour",
+          values: {
+            price: "From €71",
+            duration: "2.5 to 4 hours",
+            role: "A passenger",
+            group: "Small group, private options",
+            cancel: "Free up to 24 hours before on GetYourGuide",
+          },
+        },
+        {
+          title: "Self-drive tour",
+          values: {
+            price: "From €467",
+            duration: "4 hours",
+            role: "The driver, following a lead car",
+            group: "Private",
+            cancel: "Depends on the offer",
+          },
+        },
+      ]}
+      note="Prices checked on November 4, 2026: they vary with the date and the option you pick."
+    />
+  </section>
+
+  <section id="rental" class="scroll-mt-20 mx-auto max-w-3xl px-5 pb-8 sm:pb-10 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink sm:text-3xl">Already renting a JDM? Go on your own</h2>
+    <div class="reveal mt-4 space-y-4 font-body text-base leading-relaxed text-ink-soft">
+      <p>
+        That's what I would have done with <a href={withBase("/en/tokyo/only-jdm/")} class="link-underline font-medium text-racing-500">my Evo VIII from OnlyJDM</a> if
+        the sky had been kinder. Once you're behind the wheel, Daikoku is just an expressway exit: you show up when you
+        want, stay as long as you want, and can hit Tatsumi or Umihotaru the same night.
+      </p>
+      <p>
+        Three things to plan for: the license documents your country requires (no rental without them), ideally an ETC
+        card for tolls, and a bit of patience to find a spot on busy nights. It's all covered on my <a href={withBase("/en/driving-in-japan/")} class="link-underline font-medium text-racing-500">Driving in Japan</a> page.
+        And once there, keep it cool: no rev-limiter bouncing, no burnouts, park up and enjoy. That's also why the place still exists.
+      </p>
+    </div>
+    <EncartReserver ids={["onlyjdm-location"]} class="mt-6" />
+  </section>
+
+  <section id="passenger" class="scroll-mt-20 mx-auto max-w-4xl px-5 pb-8 sm:pb-10 sm:px-8">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="reveal font-display text-2xl font-semibold text-ink sm:text-3xl">The easiest: a passenger tour</h2>
+      <div class="reveal mt-4 space-y-4 font-body text-base leading-relaxed text-ink-soft">
+        <p>
+          If you're not renting a car, this is the obvious choice. A guide takes you there, handles the driving and the
+          tolls, and knows the fallbacks when Daikoku is closed. Three offers clearly stand out:
+        </p>
+        <ul class="space-y-3 border-l-2 border-mist-200 pl-5">
+          <li>
+            <strong class="font-semibold text-ink">Daikoku and Tokyo Drift vibes</strong> (GetYourGuide): the cheapest and
+            one of the best rated, 4.8/5 from 725 reviews. Three hours in a small group of 10 people max, in a van or a
+            sports car depending on the option, with a stop at A PIT Autobacs. In English.
+          </li>
+          <li>
+            <strong class="font-semibold text-ink">Tokyo Drift III, by Tokyo Turismo</strong> (GetYourGuide): the most
+            booked, with 6,300+ reviews at 4.8/5. You ride in a real sports car: their fleet includes R34 Skylines, R35
+            GT-Rs, Evos, a drift Chaser… Three or four people per car, and you can't pick which one, but they drop you
+            back at your hotel in central Tokyo.
+          </li>
+          <li>
+            <strong class="font-semibold text-ink">JDM night tour with a local guide</strong> (Klook): 4.9/5 from 2,300+
+            reviews, 2.5 to 3 hours in a JDM car, with a standard or VIP option.
+          </li>
+        </ul>
+        <p>
+          If I were booking tomorrow for a first time, I'd go with Tokyo Turismo: rolling up to Daikoku in a GT-R is
+          part of the dream. If budget matters, the first one does the job very well for about €50 less.
+        </p>
+      </div>
+    </div>
+    <EncartReserver ids={["daikoku-gyg-tokyo-turismo", "daikoku-gyg-car-culture", "daikoku-klook-nuit"]} class="mt-6" />
+  </section>
+
+  <section id="self-drive" class="scroll-mt-20 mx-auto max-w-3xl px-5 pb-8 sm:pb-10 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink sm:text-3xl">The wildest: drive a JDM to Daikoku yourself</h2>
+    <div class="reveal mt-4 space-y-4 font-body text-base leading-relaxed text-ink-soft">
+      <p>
+        On Klook, one offer puts you behind the wheel of a JDM for four hours, following a lead car: about 80 km, with
+        a stop at A PIT Autobacs, the Daikoku meet, a run across the Rainbow Bridge and photos at Tokyo Tower. Fuel and
+        tolls included.
+      </p>
+      <p>
+        The rules are strict: 21 or older, 3 years of driving, and your physical license with your passport and an
+        International Driving Permit (1949 Geneva Convention), or an official Japanese translation for the few
+        countries that need one. No copies, no digital versions.
+      </p>
+      <p>
+        It isn't cheap: from €467. For comparison, OnlyJDM rents the Evo VIII for ¥30,000 for 24 hours, and you keep the
+        car all day. The real perk of the tour is not having to deal with the route or the parking.
+      </p>
+    </div>
+    <EncartReserver ids={["daikoku-klook-au-volant"]} class="mt-6" />
+  </section>
+
+  <section id="traps" class="scroll-mt-20 mx-auto max-w-3xl px-5 pb-8 sm:pb-10 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink sm:text-3xl">Traps to avoid</h2>
+    <ul class="reveal mt-4 space-y-3 font-body text-base leading-relaxed text-ink-soft">
+      <li>
+        <strong class="font-semibold text-ink">Closure nights.</strong> On Friday and Saturday nights, keep the closures
+        in mind and check your tour's plan B.
+      </li>
+      <li>
+        <strong class="font-semibold text-ink">Rain.</strong> The operators say it themselves: the number of cars depends
+        on the weather. On a rainy night, the lot can be nearly empty. I'm well placed to tell you about it…
+      </li>
+      <li>
+        <strong class="font-semibold text-ink">The fine print.</strong> On the platforms, some very popular offers are
+        actually a club membership: their terms state that the ride, the car and even the stop at Daikoku aren't
+        guaranteed. Read the description all the way through before paying.
+      </li>
+      <li>
+        <strong class="font-semibold text-ink">Other people's cars.</strong> No touching, no leaning, no sitting on them.
+        For a close-up photo, ask the owner: most of them love to talk about their car.
+      </li>
+      <li>
+        <strong class="font-semibold text-ink">Your passport.</strong> Operators ask for it, so keep it on you.
+      </li>
+    </ul>
+  </section>
+
+  <section id="faq" class="scroll-mt-20 mx-auto max-w-3xl px-5 pb-8 sm:pb-10 sm:px-8">
+    <h2 class="reveal font-display text-2xl font-semibold text-ink sm:text-3xl">FAQ</h2>
+    <div class="mt-6 space-y-6">
+      {faq.map((item) => (
+        <div class="reveal">
+          <h3 class="font-display text-lg font-semibold text-ink">{item.q}</h3>
+          <p class="mt-1.5 font-body text-base leading-relaxed text-ink-soft">{item.a}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-5 pb-10 sm:pb-14 sm:px-8">
+    <div class="reveal rounded-lg border border-mist-200 bg-paper-dim/40 p-5">
+      <p class="eyebrow text-racing-500">Practical info</p>
+      <p class="mt-2 font-body text-sm font-semibold text-ink">Daikoku PA</p>
+      <ul class="mt-3 list-disc space-y-1.5 pl-5 font-body text-sm text-ink-soft">
+        <li>A rest area on the Shuto urban expressway, in Yokohama (Tsurumi ward)</li>
+        <li>Car access only, free entry</li>
+        <li>Meets in the evening, mostly on weekends, with no schedule or program</li>
+        <li>Frequent closures on Friday and Saturday nights, and when heavy snow is forecast</li>
+        <li>Fallbacks: Tatsumi PA, Umihotaru PA, A PIT Autobacs Shinonome</li>
+      </ul>
+      <a
+        href={mapsHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="tap-target link-underline mt-3 inline-flex items-center gap-1.5 font-body text-sm font-medium text-racing-500"
+      >
+        Open in Google Maps
+        <Icon name="external-link" class="h-3.5 w-3.5" />
+      </a>
+    </div>
+  </section>
+
+  <section class="border-t border-mist-200 bg-paper-dim/50 py-10 sm:py-14">
+    <div class="mx-auto max-w-3xl px-5 sm:px-8">
+      <p class="eyebrow text-mist-500">Read next</p>
+      <ul class="mt-4 grid gap-x-8 sm:grid-cols-2">
+        {[
+          { label: "My Tokyo spots", href: withBase("/en/tokyo/") },
+          { label: "Where to drive in Tokyo", href: withBase("/en/tokyo/where-to-drive/") },
+          { label: "My OnlyJDM rental", href: withBase("/en/tokyo/only-jdm/") },
+          { label: "Rent a JDM in Japan", href: withBase("/en/rent-a-car/") },
+          { label: "Driving in Japan", href: withBase("/en/driving-in-japan/") },
+          { label: "All experiences", href: withBase("/en/experiences/") },
+        ].map((l) => (
+          <li>
+            <a href={l.href} class="link-underline inline-flex min-h-11 items-center gap-1.5 font-body text-sm font-medium text-ink">
+              {l.label}
+              <Icon name="arrow-right" class="h-3.5 w-3.5" />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Layout>
