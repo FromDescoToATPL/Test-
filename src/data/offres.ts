@@ -3,11 +3,14 @@
 // jamais de toucher aux articles.
 //
 // Règles :
-// - `url` = lien affilié complet, copié tel quel depuis le tableau de bord GetYourGuide, Klook ou Viator.
-//   Ne jamais deviner un format de lien ou un identifiant partenaire. Tant qu'il n'existe pas : A_REMPLIR,
-//   et le site affiche `lienPublic` (lien normal, sans commission).
-// - Si le tableau de bord propose un identifiant de campagne ou de sous-compte, y mettre le nom de la page
-//   (ex. « daikoku-fr ») pour savoir quelle page rapporte.
+// - `url` = lien affilié complet, tiré du tableau de bord GetYourGuide, Klook ou Viator (une adresse, ou une par
+//   langue). Ne jamais deviner un format de lien ou un identifiant partenaire : partir d'un lien réellement généré
+//   par le tableau de bord. Tant qu'il n'existe pas : A_REMPLIR, et le site affiche `lienPublic` (lien normal,
+//   sans commission).
+// - Campagne : le nom de la page et la langue (ex. « Daikoku-FR »), pour savoir quelle page rapporte.
+//
+// Formats relevés dans les tableaux de bord :
+// - GetYourGuide (04/11/2026) : adresse du produit + ?partner_id=JSVDF2G&utm_medium=online_publisher&cmp=<campagne>
 // - Prix toujours « à partir de », avec la date de vérification. Seulement des faits vérifiés.
 
 export const A_REMPLIR = "A_REMPLIR";
@@ -23,8 +26,8 @@ export interface Offre {
   titre: { fr: string; en: string };
   /** Une phrase. */
   description: { fr: string; en: string };
-  /** Lien affilié complet, ou A_REMPLIR tant qu'il n'existe pas. */
-  url: string;
+  /** Lien affilié complet (une adresse, ou une par langue), ou A_REMPLIR tant qu'il n'existe pas. */
+  url: string | { fr: string; en: string };
   /** Lien public normal (sans affiliation), affiché tant que `url` vaut A_REMPLIR. Une adresse par langue si besoin. */
   lienPublic: string | { fr: string; en: string };
   /** Ex. { fr: "27 000 ¥ les 7 h", en: "¥27,000 for 7 hours" } : affiché précédé de « À partir de ». */
@@ -220,7 +223,7 @@ export function estAffilie(offre: Offre): boolean {
 
 /** Le lien à afficher : l'affilié s'il existe, sinon le lien public (dans la langue de la page). */
 export function lienOffre(offre: Offre, lang: "fr" | "en"): string {
-  if (estAffilie(offre)) return offre.url;
+  if (estAffilie(offre)) return typeof offre.url === "string" ? offre.url : offre.url[lang];
   return typeof offre.lienPublic === "string" ? offre.lienPublic : offre.lienPublic[lang];
 }
 
